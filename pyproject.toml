@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccda-to-json-parser"
+version = "1.0.0"
+description = "Production-grade HL7 C-CDA XML to structured JSON parser and AI Skill."
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Clinical Data Engineering"}
+]
+keywords = [
+    "ccda",
+    "cda",
+    "hl7",
+    "fhir",
+    "ehr",
+    "emr",
+    "clinical-data",
+    "json-parser",
+    "gemini-skill",
+    "ai-agent"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "defusedxml>=0.7.1"
+]
+
+[project.scripts]
+ccda-parser = "ccda_parser.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

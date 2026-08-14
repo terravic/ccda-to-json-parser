@@ -1,0 +1,905 @@
+{
+  "document_meta": {
+    "document_id": {
+      "root": "2.16.840.1.113883.19.5",
+      "extension": "CONSULT-2023-11029"
+    },
+    "document_type": {
+      "code": "11488-4",
+      "display_name": "Consultation Note",
+      "code_system": "2.16.840.1.113883.6.1",
+      "code_system_name": "LOINC"
+    },
+    "title": "Cardiology Consultation & Referral Note",
+    "effective_time": "2023-11-04T09:30:00-05:00",
+    "confidentiality": {
+      "code": "N",
+      "display_name": "Normal",
+      "code_system": "2.16.840.1.113883.5.25",
+      "code_system_name": "Confidentiality"
+    },
+    "language": "en-US",
+    "set_id": null,
+    "version_number": null,
+    "template_ids": [
+      "2.16.840.1.113883.10.20.22.1.1:2015-08-01",
+      "2.16.840.1.113883.10.20.22.1.4:2015-08-01"
+    ],
+    "authors": [
+      {
+        "time": "2023-11-04T09:30:00-05:00",
+        "ids": [
+          {
+            "root": "2.16.840.1.113883.4.6",
+            "extension": "1892019283",
+            "assigningAuthorityName": "NPI"
+          }
+        ],
+        "code": {
+          "code": "207RC0000X",
+          "display_name": "Cardiovascular Disease",
+          "code_system": "2.16.840.1.113883.6.101"
+        },
+        "person": {
+          "full_name": "Dr. Vikram Patel MD, FACC",
+          "first_name": "Vikram",
+          "middle_names": [],
+          "last_name": "Patel",
+          "prefixes": [
+            "Dr."
+          ],
+          "suffixes": [
+            "MD, FACC"
+          ]
+        },
+        "organization": {
+          "name": "Boston Heart & Vascular Institute",
+          "ids": [],
+          "addresses": [
+            {
+              "street_address_lines": [
+                "75 Francis Street"
+              ],
+              "city": "Boston",
+              "state": "MA",
+              "postal_code": "02115",
+              "country": null,
+              "use": "WP",
+              "formatted": "75 Francis Street, Boston, MA 02115"
+            }
+          ],
+          "telecoms": []
+        },
+        "addresses": [],
+        "telecoms": []
+      }
+    ],
+    "custodian": {
+      "name": "Boston Heart & Vascular Institute",
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5"
+        }
+      ],
+      "telecom": {
+        "system": "tel",
+        "value": "+1-617-555-4000",
+        "raw_value": "tel:+1-617-555-4000",
+        "use": "WP"
+      },
+      "address": {
+        "street_address_lines": [
+          "75 Francis Street"
+        ],
+        "city": "Boston",
+        "state": "MA",
+        "postal_code": "02115",
+        "country": null,
+        "use": "WP",
+        "formatted": "75 Francis Street, Boston, MA 02115"
+      }
+    },
+    "encompassing_encounter": null
+  },
+  "patient": {
+    "ids": [
+      {
+        "root": "2.16.840.1.113883.19.5",
+        "extension": "MRN-773901",
+        "assigningAuthorityName": "Heart & Vascular Institute"
+      }
+    ],
+    "addresses": [
+      {
+        "street_address_lines": [
+          "1204 Oak Ridge Lane"
+        ],
+        "city": "Boston",
+        "state": "MA",
+        "postal_code": "02115",
+        "country": "US",
+        "use": "HP",
+        "formatted": "1204 Oak Ridge Lane, Boston, MA 02115, US"
+      }
+    ],
+    "telecoms": [
+      {
+        "system": "tel",
+        "value": "+1-617-555-0144",
+        "raw_value": "tel:+1-617-555-0144",
+        "use": "HP"
+      },
+      {
+        "system": "mailto",
+        "value": "sophia.rodriguez@example.com",
+        "raw_value": "mailto:sophia.rodriguez@example.com",
+        "use": "HP"
+      }
+    ],
+    "name": {
+      "full_name": "Mrs. Sophia Maria Rodriguez",
+      "first_name": "Sophia",
+      "middle_names": [
+        "Maria"
+      ],
+      "last_name": "Rodriguez",
+      "prefixes": [
+        "Mrs."
+      ],
+      "suffixes": [],
+      "use": "L"
+    },
+    "names": [
+      {
+        "full_name": "Mrs. Sophia Maria Rodriguez",
+        "first_name": "Sophia",
+        "middle_names": [
+          "Maria"
+        ],
+        "last_name": "Rodriguez",
+        "prefixes": [
+          "Mrs."
+        ],
+        "suffixes": [],
+        "use": "L"
+      }
+    ],
+    "gender": {
+      "code": "F",
+      "display_name": "Female",
+      "code_system": "2.16.840.1.113883.5.1",
+      "code_system_name": "AdministrativeGender"
+    },
+    "birth_time": "1971-03-14",
+    "marital_status": {
+      "code": "M",
+      "display_name": "Married",
+      "code_system": "2.16.840.1.113883.5.2",
+      "code_system_name": "MaritalStatus"
+    },
+    "race": {
+      "code": "2106-3",
+      "display_name": "White",
+      "code_system": "2.16.840.1.113883.6.238",
+      "code_system_name": "Race & Ethnicity - CDC"
+    },
+    "races": [
+      {
+        "code": "2106-3",
+        "display_name": "White",
+        "code_system": "2.16.840.1.113883.6.238",
+        "code_system_name": "Race & Ethnicity - CDC"
+      }
+    ],
+    "ethnicity": {
+      "code": "2135-2",
+      "display_name": "Hispanic or Latino",
+      "code_system": "2.16.840.1.113883.6.238",
+      "code_system_name": "Race & Ethnicity - CDC"
+    },
+    "ethnicities": [
+      {
+        "code": "2135-2",
+        "display_name": "Hispanic or Latino",
+        "code_system": "2.16.840.1.113883.6.238",
+        "code_system_name": "Race & Ethnicity - CDC"
+      }
+    ],
+    "languages": [
+      {
+        "language": "es",
+        "mode": null,
+        "preferred": false,
+        "proficiency": null
+      },
+      {
+        "language": "en",
+        "mode": null,
+        "preferred": true,
+        "proficiency": null
+      }
+    ]
+  },
+  "summary": {
+    "patient_name": "Mrs. Sophia Maria Rodriguez",
+    "date_of_birth": "1971-03-14",
+    "gender": "Female",
+    "counts": {
+      "allergies": 0,
+      "medications": 1,
+      "problems": 0,
+      "immunizations": 0,
+      "vital_signs": 3,
+      "lab_results": 0,
+      "encounters": 1,
+      "procedures": 0
+    },
+    "available_sections": [
+      "reason_for_referral",
+      "medications",
+      "vital_signs",
+      "encounters",
+      "assessment_and_plan"
+    ]
+  },
+  "sections": {
+    "reason_for_referral": {
+      "title": "Reason for Referral",
+      "code": {
+        "code": "42349-1",
+        "display_name": "Reason for Referral",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "1.3.6.1.4.1.19376.1.5.3.1.3.1"
+      ],
+      "narrative": "Referred by Dr. Amanda Clark, MD for evaluation of recurrent episodic palpitations, exertional shortness of breath, and a newly detected grade 2/6 systolic ejection murmur.",
+      "tables": [],
+      "entries": [],
+      "section_type": "reason_for_referral"
+    },
+    "medications": {
+      "title": "Current Medications",
+      "code": {
+        "code": "10160-0",
+        "display_name": "History of Medication use",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"
+      ],
+      "narrative": "Medication | Dose | Route | Frequency | Status\n----------------------------------------------\nAmlodipine Besylate 5 MG Oral Tablet | 5 mg | Oral | Once daily in the morning | Active\nHydrochlorothiazide 12.5 MG Oral Tablet | 12.5 mg | Oral | Once daily in the morning | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Medication",
+            "Dose",
+            "Route",
+            "Frequency",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Medication": "Amlodipine Besylate 5 MG Oral Tablet",
+              "Dose": "5 mg",
+              "Route": "Oral",
+              "Frequency": "Once daily in the morning",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Hydrochlorothiazide 12.5 MG Oral Tablet",
+              "Dose": "12.5 mg",
+              "Route": "Oral",
+              "Frequency": "Once daily in the morning",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "medication": {
+            "code": "197361",
+            "display_name": "Amlodipine Besylate 5 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 5.0,
+            "unit": "mg",
+            "formatted": "5 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": null,
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": []
+        }
+      ],
+      "section_type": "medications"
+    },
+    "vital_signs": {
+      "title": "Vital Signs",
+      "code": {
+        "code": "8716-3",
+        "display_name": "Vital Signs",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
+      ],
+      "narrative": "Measurement | Value | Unit\n--------------------------\nBlood Pressure | 134 / 86 | mm[Hg]\nHeart Rate | 78 | /min\nBody Temperature | 98.4 | [degF]\nOxygen Saturation (SpO2) | 98 | %",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Measurement",
+            "Value",
+            "Unit"
+          ],
+          "rows": [
+            {
+              "Measurement": "Blood Pressure",
+              "Value": "134 / 86",
+              "Unit": "mm[Hg]"
+            },
+            {
+              "Measurement": "Heart Rate",
+              "Value": "78",
+              "Unit": "/min"
+            },
+            {
+              "Measurement": "Body Temperature",
+              "Value": "98.4",
+              "Unit": "[degF]"
+            },
+            {
+              "Measurement": "Oxygen Saturation (SpO2)",
+              "Value": "98",
+              "Unit": "%"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Vital Signs Panel",
+          "panel_code": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "measurements": [
+            {
+              "vital_sign": {
+                "code": "8480-6",
+                "display_name": "Systolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 134.0,
+                "unit": "mm[Hg]",
+                "formatted": "134 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:00:00-05:00",
+              "status": "completed",
+              "ids": []
+            },
+            {
+              "vital_sign": {
+                "code": "8462-4",
+                "display_name": "Diastolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 86.0,
+                "unit": "mm[Hg]",
+                "formatted": "86 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:00:00-05:00",
+              "status": "completed",
+              "ids": []
+            },
+            {
+              "vital_sign": {
+                "code": "8867-4",
+                "display_name": "Heart rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 78.0,
+                "unit": "/min",
+                "formatted": "78 /min"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:00:00-05:00",
+              "status": "completed",
+              "ids": []
+            }
+          ],
+          "ids": []
+        }
+      ],
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "display_name": "Systolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 134.0,
+            "unit": "mm[Hg]",
+            "formatted": "134 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "ids": []
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "display_name": "Diastolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 86.0,
+            "unit": "mm[Hg]",
+            "formatted": "86 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "ids": []
+        },
+        {
+          "vital_sign": {
+            "code": "8867-4",
+            "display_name": "Heart rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 78.0,
+            "unit": "/min",
+            "formatted": "78 /min"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "ids": []
+        }
+      ],
+      "section_type": "vital_signs"
+    },
+    "encounters": {
+      "title": "Encounters",
+      "code": {
+        "code": "46240-8",
+        "display_name": "History of encounters",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"
+      ],
+      "narrative": "Cardiology Outpatient Consultation on 2023-11-04 with Dr. Vikram Patel, MD at Boston Heart & Vascular Institute.",
+      "tables": [],
+      "entries": [
+        {
+          "encounter_type": {
+            "code": "99244",
+            "display_name": "Outpatient Consultation, moderate complexity",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4"
+          },
+          "date": "2023-11-04T09:30:00-05:00",
+          "performers": [
+            {
+              "name": "Dr. Vikram Patel, MD",
+              "role": {
+                "code": "207RC0000X",
+                "display_name": "Cardiovascular Disease",
+                "code_system": "2.16.840.1.113883.6.101"
+              }
+            }
+          ],
+          "locations": [],
+          "diagnoses": [],
+          "ids": [
+            {
+              "root": "e9c12345-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "encounters"
+    },
+    "assessment_and_plan": {
+      "title": "Assessment & Plan",
+      "code": {
+        "code": "51847-2",
+        "display_name": "Assessment & Plan",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.9"
+      ],
+      "narrative": "• 1. Palpitations / Premature ventricular contractions (ICD-10 I49.3): Ordered 14-day ambulatory continuous ECG patch monitor.\n• 2. Systolic ejection murmur (ICD-10 R01.1): Ordered Transthoracic Echocardiogram (TTE) with Doppler to evaluate aortic valve morphology and ventricular function.\n• 3. Essential Hypertension (ICD-10 I10): Blood pressure today is 134/86 mmHg. Continue Amlodipine 5mg and HCTZ 12.5mg daily. Keep home BP log.\n• 4. Follow-up: Return to clinic in 4 weeks after completion of Holter monitor and echocardiogram.",
+      "tables": [],
+      "entries": [],
+      "section_type": "assessment_and_plan"
+    }
+  },
+  "all_sections": [
+    {
+      "title": "Reason for Referral",
+      "code": {
+        "code": "42349-1",
+        "display_name": "Reason for Referral",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "1.3.6.1.4.1.19376.1.5.3.1.3.1"
+      ],
+      "narrative": "Referred by Dr. Amanda Clark, MD for evaluation of recurrent episodic palpitations, exertional shortness of breath, and a newly detected grade 2/6 systolic ejection murmur.",
+      "tables": [],
+      "entries": [],
+      "section_type": "reason_for_referral"
+    },
+    {
+      "title": "Current Medications",
+      "code": {
+        "code": "10160-0",
+        "display_name": "History of Medication use",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"
+      ],
+      "narrative": "Medication | Dose | Route | Frequency | Status\n----------------------------------------------\nAmlodipine Besylate 5 MG Oral Tablet | 5 mg | Oral | Once daily in the morning | Active\nHydrochlorothiazide 12.5 MG Oral Tablet | 12.5 mg | Oral | Once daily in the morning | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Medication",
+            "Dose",
+            "Route",
+            "Frequency",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Medication": "Amlodipine Besylate 5 MG Oral Tablet",
+              "Dose": "5 mg",
+              "Route": "Oral",
+              "Frequency": "Once daily in the morning",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Hydrochlorothiazide 12.5 MG Oral Tablet",
+              "Dose": "12.5 mg",
+              "Route": "Oral",
+              "Frequency": "Once daily in the morning",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "medication": {
+            "code": "197361",
+            "display_name": "Amlodipine Besylate 5 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 5.0,
+            "unit": "mg",
+            "formatted": "5 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": null,
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": []
+        }
+      ],
+      "section_type": "medications"
+    },
+    {
+      "title": "Vital Signs",
+      "code": {
+        "code": "8716-3",
+        "display_name": "Vital Signs",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
+      ],
+      "narrative": "Measurement | Value | Unit\n--------------------------\nBlood Pressure | 134 / 86 | mm[Hg]\nHeart Rate | 78 | /min\nBody Temperature | 98.4 | [degF]\nOxygen Saturation (SpO2) | 98 | %",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Measurement",
+            "Value",
+            "Unit"
+          ],
+          "rows": [
+            {
+              "Measurement": "Blood Pressure",
+              "Value": "134 / 86",
+              "Unit": "mm[Hg]"
+            },
+            {
+              "Measurement": "Heart Rate",
+              "Value": "78",
+              "Unit": "/min"
+            },
+            {
+              "Measurement": "Body Temperature",
+              "Value": "98.4",
+              "Unit": "[degF]"
+            },
+            {
+              "Measurement": "Oxygen Saturation (SpO2)",
+              "Value": "98",
+              "Unit": "%"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Vital Signs Panel",
+          "panel_code": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "measurements": [
+            {
+              "vital_sign": {
+                "code": "8480-6",
+                "display_name": "Systolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 134.0,
+                "unit": "mm[Hg]",
+                "formatted": "134 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:00:00-05:00",
+              "status": "completed",
+              "ids": []
+            },
+            {
+              "vital_sign": {
+                "code": "8462-4",
+                "display_name": "Diastolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 86.0,
+                "unit": "mm[Hg]",
+                "formatted": "86 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:00:00-05:00",
+              "status": "completed",
+              "ids": []
+            },
+            {
+              "vital_sign": {
+                "code": "8867-4",
+                "display_name": "Heart rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 78.0,
+                "unit": "/min",
+                "formatted": "78 /min"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:00:00-05:00",
+              "status": "completed",
+              "ids": []
+            }
+          ],
+          "ids": []
+        }
+      ],
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "display_name": "Systolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 134.0,
+            "unit": "mm[Hg]",
+            "formatted": "134 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "ids": []
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "display_name": "Diastolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 86.0,
+            "unit": "mm[Hg]",
+            "formatted": "86 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "ids": []
+        },
+        {
+          "vital_sign": {
+            "code": "8867-4",
+            "display_name": "Heart rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 78.0,
+            "unit": "/min",
+            "formatted": "78 /min"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:00:00-05:00",
+          "status": "completed",
+          "ids": []
+        }
+      ],
+      "section_type": "vital_signs"
+    },
+    {
+      "title": "Encounters",
+      "code": {
+        "code": "46240-8",
+        "display_name": "History of encounters",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"
+      ],
+      "narrative": "Cardiology Outpatient Consultation on 2023-11-04 with Dr. Vikram Patel, MD at Boston Heart & Vascular Institute.",
+      "tables": [],
+      "entries": [
+        {
+          "encounter_type": {
+            "code": "99244",
+            "display_name": "Outpatient Consultation, moderate complexity",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4"
+          },
+          "date": "2023-11-04T09:30:00-05:00",
+          "performers": [
+            {
+              "name": "Dr. Vikram Patel, MD",
+              "role": {
+                "code": "207RC0000X",
+                "display_name": "Cardiovascular Disease",
+                "code_system": "2.16.840.1.113883.6.101"
+              }
+            }
+          ],
+          "locations": [],
+          "diagnoses": [],
+          "ids": [
+            {
+              "root": "e9c12345-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "encounters"
+    },
+    {
+      "title": "Assessment & Plan",
+      "code": {
+        "code": "51847-2",
+        "display_name": "Assessment & Plan",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.9"
+      ],
+      "narrative": "• 1. Palpitations / Premature ventricular contractions (ICD-10 I49.3): Ordered 14-day ambulatory continuous ECG patch monitor.\n• 2. Systolic ejection murmur (ICD-10 R01.1): Ordered Transthoracic Echocardiogram (TTE) with Doppler to evaluate aortic valve morphology and ventricular function.\n• 3. Essential Hypertension (ICD-10 I10): Blood pressure today is 134/86 mmHg. Continue Amlodipine 5mg and HCTZ 12.5mg daily. Keep home BP log.\n• 4. Follow-up: Return to clinic in 4 weeks after completion of Holter monitor and echocardiogram.",
+      "tables": [],
+      "entries": [],
+      "section_type": "assessment_and_plan"
+    }
+  ]
+}

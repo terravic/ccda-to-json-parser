@@ -1,0 +1,2164 @@
+{
+  "document_meta": {
+    "document_id": {
+      "root": "2.16.840.1.113883.19.5",
+      "extension": "CCD-2023-009182"
+    },
+    "document_type": {
+      "code": "34133-9",
+      "display_name": "Summarization of Episode Note",
+      "code_system": "2.16.840.1.113883.6.1",
+      "code_system_name": "LOINC"
+    },
+    "title": "Continuity of Care Document (CCD)",
+    "effective_time": "2023-05-14T14:30:00-05:00",
+    "confidentiality": {
+      "code": "N",
+      "display_name": "Normal",
+      "code_system": "2.16.840.1.113883.5.25",
+      "code_system_name": "Confidentiality"
+    },
+    "language": "en-US",
+    "set_id": null,
+    "version_number": "1",
+    "template_ids": [
+      "2.16.840.1.113883.10.20.22.1.1:2015-08-01",
+      "2.16.840.1.113883.10.20.22.1.2:2015-08-01"
+    ],
+    "authors": [
+      {
+        "time": "2023-05-14T14:30:00-05:00",
+        "ids": [
+          {
+            "root": "2.16.840.1.113883.4.6",
+            "extension": "1982736450",
+            "assigningAuthorityName": "NPI"
+          }
+        ],
+        "code": {
+          "code": "207Q00000X",
+          "display_name": "Family Medicine",
+          "code_system": "2.16.840.1.113883.6.101"
+        },
+        "person": {
+          "full_name": "Dr. Robert Sterling MD",
+          "first_name": "Robert",
+          "middle_names": [],
+          "last_name": "Sterling",
+          "prefixes": [
+            "Dr."
+          ],
+          "suffixes": [
+            "MD"
+          ]
+        },
+        "organization": {
+          "name": "Metropolitan Health Outpatient Clinic",
+          "ids": [],
+          "addresses": [],
+          "telecoms": []
+        },
+        "addresses": [],
+        "telecoms": []
+      }
+    ],
+    "custodian": {
+      "name": "Metropolitan Health System",
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5"
+        }
+      ],
+      "telecom": {
+        "system": "tel",
+        "value": "+1-555-555-0100",
+        "raw_value": "tel:+1-555-555-0100",
+        "use": "WP"
+      },
+      "address": {
+        "street_address_lines": [
+          "1000 Medical Center Parkway"
+        ],
+        "city": "Springfield",
+        "state": "IL",
+        "postal_code": "62702",
+        "country": null,
+        "use": "WP",
+        "formatted": "1000 Medical Center Parkway, Springfield, IL 62702"
+      }
+    },
+    "encompassing_encounter": null
+  },
+  "patient": {
+    "ids": [
+      {
+        "root": "2.16.840.1.113883.19.5",
+        "extension": "MRN-8849201",
+        "assigningAuthorityName": "Metropolitan Health System"
+      },
+      {
+        "root": "2.16.840.1.113883.4.1",
+        "extension": "999-00-1234",
+        "assigningAuthorityName": "SSN"
+      }
+    ],
+    "addresses": [
+      {
+        "street_address_lines": [
+          "742 Evergreen Terrace"
+        ],
+        "city": "Springfield",
+        "state": "IL",
+        "postal_code": "62704",
+        "country": "US",
+        "use": "HP",
+        "formatted": "742 Evergreen Terrace, Springfield, IL 62704, US"
+      }
+    ],
+    "telecoms": [
+      {
+        "system": "tel",
+        "value": "+1-555-733-4001",
+        "raw_value": "tel:+1-555-733-4001",
+        "use": "HP"
+      },
+      {
+        "system": "mailto",
+        "value": "eleanor.vance@example.org",
+        "raw_value": "mailto:eleanor.vance@example.org",
+        "use": "HP"
+      }
+    ],
+    "name": {
+      "full_name": "Ms. Eleanor Marie Vance",
+      "first_name": "Eleanor",
+      "middle_names": [
+        "Marie"
+      ],
+      "last_name": "Vance",
+      "prefixes": [
+        "Ms."
+      ],
+      "suffixes": [],
+      "use": "L"
+    },
+    "names": [
+      {
+        "full_name": "Ms. Eleanor Marie Vance",
+        "first_name": "Eleanor",
+        "middle_names": [
+          "Marie"
+        ],
+        "last_name": "Vance",
+        "prefixes": [
+          "Ms."
+        ],
+        "suffixes": [],
+        "use": "L"
+      }
+    ],
+    "gender": {
+      "code": "F",
+      "display_name": "Female",
+      "code_system": "2.16.840.1.113883.5.1",
+      "code_system_name": "AdministrativeGender"
+    },
+    "birth_time": "1975-08-22",
+    "marital_status": {
+      "code": "M",
+      "display_name": "Married",
+      "code_system": "2.16.840.1.113883.5.2",
+      "code_system_name": "MaritalStatus"
+    },
+    "race": {
+      "code": "2106-3",
+      "display_name": "White",
+      "code_system": "2.16.840.1.113883.6.238",
+      "code_system_name": "Race & Ethnicity - CDC"
+    },
+    "races": [
+      {
+        "code": "2106-3",
+        "display_name": "White",
+        "code_system": "2.16.840.1.113883.6.238",
+        "code_system_name": "Race & Ethnicity - CDC"
+      }
+    ],
+    "ethnicity": {
+      "code": "2186-5",
+      "display_name": "Not Hispanic or Latino",
+      "code_system": "2.16.840.1.113883.6.238",
+      "code_system_name": "Race & Ethnicity - CDC"
+    },
+    "ethnicities": [
+      {
+        "code": "2186-5",
+        "display_name": "Not Hispanic or Latino",
+        "code_system": "2.16.840.1.113883.6.238",
+        "code_system_name": "Race & Ethnicity - CDC"
+      }
+    ],
+    "languages": [
+      {
+        "language": "en",
+        "mode": null,
+        "preferred": true,
+        "proficiency": null
+      }
+    ],
+    "provider_organization": {
+      "name": "Metropolitan Health Outpatient Clinic",
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5"
+        }
+      ],
+      "addresses": [
+        {
+          "street_address_lines": [
+            "1000 Medical Center Parkway"
+          ],
+          "city": "Springfield",
+          "state": "IL",
+          "postal_code": "62702",
+          "country": "US",
+          "use": "WP",
+          "formatted": "1000 Medical Center Parkway, Springfield, IL 62702, US"
+        }
+      ],
+      "telecoms": [
+        {
+          "system": "tel",
+          "value": "+1-555-555-0100",
+          "raw_value": "tel:+1-555-555-0100",
+          "use": "WP"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "patient_name": "Ms. Eleanor Marie Vance",
+    "date_of_birth": "1975-08-22",
+    "gender": "Female",
+    "counts": {
+      "allergies": 2,
+      "medications": 3,
+      "problems": 2,
+      "immunizations": 1,
+      "vital_signs": 3,
+      "lab_results": 1,
+      "encounters": 0,
+      "procedures": 0
+    },
+    "available_sections": [
+      "allergies",
+      "medications",
+      "problems",
+      "vital_signs",
+      "results",
+      "immunizations",
+      "social_history",
+      "plan_of_care"
+    ]
+  },
+  "sections": {
+    "allergies": {
+      "title": "Allergies, Adverse Reactions & Alerts",
+      "code": {
+        "code": "48765-2",
+        "display_name": "Allergies and adverse reactions Document",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
+      ],
+      "narrative": "Substance | Reaction | Severity | Status | Onset Date\n-----------------------------------------------------\nPenicillin G | Hives (Urticaria) | Moderate | Active | 2010-06-15\nPeanuts | Anaphylaxis | Severe | Active | 1992-04-10",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Substance",
+            "Reaction",
+            "Severity",
+            "Status",
+            "Onset Date"
+          ],
+          "rows": [
+            {
+              "Substance": "Penicillin G",
+              "Reaction": "Hives (Urticaria)",
+              "Severity": "Moderate",
+              "Status": "Active",
+              "Onset Date": "2010-06-15"
+            },
+            {
+              "Substance": "Peanuts",
+              "Reaction": "Anaphylaxis",
+              "Severity": "Severe",
+              "Status": "Active",
+              "Onset Date": "1992-04-10"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "substance": {
+            "code": "70618",
+            "display_name": "Penicillin G",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "allergy1"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2010-06-15"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "247472004",
+                "display_name": "Hives",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "6736007",
+                "display_name": "Moderate",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "4ca5edd0-7b14-11db-9fe1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "256349002",
+            "display_name": "Peanut",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "reference_id": "allergy2"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "1992-04-10"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "39579001",
+                "display_name": "Anaphylaxis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "24484000",
+                "display_name": "Severe",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "6b8a21d0-7b14-11db-9fe1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "allergies"
+    },
+    "medications": {
+      "title": "Medications",
+      "code": {
+        "code": "10160-0",
+        "display_name": "History of Medication use",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"
+      ],
+      "narrative": "Medication | Dosage | Route | Frequency | Status | Indication\n-------------------------------------------------------------\nMetformin 500 MG Oral Tablet | 500 mg | Oral | Twice daily with meals | Active | Type 2 Diabetes Mellitus\nLisinopril 10 MG Oral Tablet | 10 mg | Oral | Daily in the morning | Active | Essential Hypertension\nAtorvastatin 20 MG Oral Tablet | 20 mg | Oral | Daily at bedtime | Active | Hyperlipidemia",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Medication",
+            "Dosage",
+            "Route",
+            "Frequency",
+            "Status",
+            "Indication"
+          ],
+          "rows": [
+            {
+              "Medication": "Metformin 500 MG Oral Tablet",
+              "Dosage": "500 mg",
+              "Route": "Oral",
+              "Frequency": "Twice daily with meals",
+              "Status": "Active",
+              "Indication": "Type 2 Diabetes Mellitus"
+            },
+            {
+              "Medication": "Lisinopril 10 MG Oral Tablet",
+              "Dosage": "10 mg",
+              "Route": "Oral",
+              "Frequency": "Daily in the morning",
+              "Status": "Active",
+              "Indication": "Essential Hypertension"
+            },
+            {
+              "Medication": "Atorvastatin 20 MG Oral Tablet",
+              "Dosage": "20 mg",
+              "Route": "Oral",
+              "Frequency": "Daily at bedtime",
+              "Status": "Active",
+              "Indication": "Hyperlipidemia"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "medication": {
+            "code": "860975",
+            "display_name": "Metformin hydrochloride 500 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "med1"
+          },
+          "status": "active",
+          "dose": {
+            "value": 500.0,
+            "unit": "mg",
+            "formatted": "500 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "12",
+              "unit": "h",
+              "human_readable": "Twice daily (q12h)"
+            }
+          },
+          "date_range": {
+            "low": "2020-01-15"
+          },
+          "effective_times": null,
+          "indication": {
+            "code": "44054006",
+            "display_name": "Type 2 Diabetes Mellitus",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "cdbd33f0-6cde-11db-9fe1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "314076",
+            "display_name": "Lisinopril 10 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "med2"
+          },
+          "status": "active",
+          "dose": {
+            "value": 10.0,
+            "unit": "mg",
+            "formatted": "10 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2018-03-20"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "d49f6920-6cde-11db-9fe1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "617314",
+            "display_name": "Atorvastatin 20 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "med3"
+          },
+          "status": "active",
+          "dose": {
+            "value": 20.0,
+            "unit": "mg",
+            "formatted": "20 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2019-11-01"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "e12a4500-6cde-11db-9fe1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "medications"
+    },
+    "problems": {
+      "title": "Problems & Health Conditions",
+      "code": {
+        "code": "11450-4",
+        "display_name": "Problem List",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.5.1:2015-08-01"
+      ],
+      "narrative": "Condition | ICD-10 Code | Status | Onset Date\n---------------------------------------------\nType 2 Diabetes Mellitus without complications | E11.9 | Active | 2020-01-15\nEssential (primary) Hypertension | I10 | Active | 2018-03-20\nHyperlipidemia, unspecified | E78.5 | Active | 2019-11-01",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Condition",
+            "ICD-10 Code",
+            "Status",
+            "Onset Date"
+          ],
+          "rows": [
+            {
+              "Condition": "Type 2 Diabetes Mellitus without complications",
+              "ICD-10 Code": "E11.9",
+              "Status": "Active",
+              "Onset Date": "2020-01-15"
+            },
+            {
+              "Condition": "Essential (primary) Hypertension",
+              "ICD-10 Code": "I10",
+              "Status": "Active",
+              "Onset Date": "2018-03-20"
+            },
+            {
+              "Condition": "Hyperlipidemia, unspecified",
+              "ICD-10 Code": "E78.5",
+              "Status": "Active",
+              "Onset Date": "2019-11-01"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "problem": {
+            "code": "44054006",
+            "display_name": "Type 2 Diabetes Mellitus",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "reference_id": "prob1",
+            "translations": [
+              {
+                "code": "E11.9",
+                "display_name": "Type 2 diabetes mellitus without complications",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "55607006",
+            "display_name": "Problem",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2020-01-15"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "ab123456-7890-1234-5678-1234567890ac"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "59621000",
+            "display_name": "Essential hypertension",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "reference_id": "prob2",
+            "translations": [
+              {
+                "code": "I10",
+                "display_name": "Essential (primary) hypertension",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "55607006",
+            "display_name": "Problem",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2018-03-20"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "bb123456-7890-1234-5678-1234567890bc"
+            }
+          ]
+        }
+      ],
+      "section_type": "problems"
+    },
+    "vital_signs": {
+      "title": "Vital Signs",
+      "code": {
+        "code": "8716-3",
+        "display_name": "Vital Signs",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
+      ],
+      "narrative": "Date / Time | Measurement | Value | Unit\n----------------------------------------\n2023-05-14 14:00 | Systolic Blood Pressure | 128 | mm[Hg]\n2023-05-14 14:00 | Diastolic Blood Pressure | 82 | mm[Hg]\n2023-05-14 14:00 | Heart Rate | 72 | /min\n2023-05-14 14:00 | Body Weight | 74.5 | kg\n2023-05-14 14:00 | Body Height | 165 | cm\n2023-05-14 14:00 | Body Mass Index (BMI) | 27.4 | kg/m2",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Date / Time",
+            "Measurement",
+            "Value",
+            "Unit"
+          ],
+          "rows": [
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Systolic Blood Pressure",
+              "Value": "128",
+              "Unit": "mm[Hg]"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Diastolic Blood Pressure",
+              "Value": "82",
+              "Unit": "mm[Hg]"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Heart Rate",
+              "Value": "72",
+              "Unit": "/min"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Body Weight",
+              "Value": "74.5",
+              "Unit": "kg"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Body Height",
+              "Value": "165",
+              "Unit": "cm"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Body Mass Index (BMI)",
+              "Value": "27.4",
+              "Unit": "kg/m2"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Vital signs",
+          "panel_code": {
+            "code": "46680005",
+            "display_name": "Vital signs",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "measurements": [
+            {
+              "vital_sign": {
+                "code": "8480-6",
+                "display_name": "Systolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 128.0,
+                "unit": "mm[Hg]",
+                "formatted": "128 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-05-14T14:00:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "c6b5aed1-c0d1-11e2-8b8b-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8462-4",
+                "display_name": "Diastolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 82.0,
+                "unit": "mm[Hg]",
+                "formatted": "82 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-05-14T14:00:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "c6b5aed2-c0d1-11e2-8b8b-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8867-4",
+                "display_name": "Heart rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 72.0,
+                "unit": "/min",
+                "formatted": "72 /min"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-05-14T14:00:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "c6b5aed3-c0d1-11e2-8b8b-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "c6b5aed0-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "display_name": "Systolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 128.0,
+            "unit": "mm[Hg]",
+            "formatted": "128 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "c6b5aed1-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "display_name": "Diastolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 82.0,
+            "unit": "mm[Hg]",
+            "formatted": "82 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "c6b5aed2-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8867-4",
+            "display_name": "Heart rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 72.0,
+            "unit": "/min",
+            "formatted": "72 /min"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "c6b5aed3-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "vital_signs"
+    },
+    "results": {
+      "title": "Diagnostic Results & Laboratory Data",
+      "code": {
+        "code": "30954-2",
+        "display_name": "Relevant diagnostic tests and/or laboratory data",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.3.1:2015-08-01"
+      ],
+      "narrative": "Test Name | Result | Unit | Reference Range | Interpretation\n------------------------------------------------------------\nHemoglobin A1c (HbA1c) | 6.8 | % | 4.0 - 5.6 % | High (H)\nTotal Cholesterol | 192 | mg/dL | 100 - 199 mg/dL | Normal (N)\nHDL Cholesterol | 48 | mg/dL | 40 - 60 mg/dL | Normal (N)\nLDL Cholesterol | 118 | mg/dL | < 100 mg/dL | High (H)",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Test Name",
+            "Result",
+            "Unit",
+            "Reference Range",
+            "Interpretation"
+          ],
+          "rows": [
+            {
+              "Test Name": "Hemoglobin A1c (HbA1c)",
+              "Result": "6.8",
+              "Unit": "%",
+              "Reference Range": "4.0 - 5.6 %",
+              "Interpretation": "High (H)"
+            },
+            {
+              "Test Name": "Total Cholesterol",
+              "Result": "192",
+              "Unit": "mg/dL",
+              "Reference Range": "100 - 199 mg/dL",
+              "Interpretation": "Normal (N)"
+            },
+            {
+              "Test Name": "HDL Cholesterol",
+              "Result": "48",
+              "Unit": "mg/dL",
+              "Reference Range": "40 - 60 mg/dL",
+              "Interpretation": "Normal (N)"
+            },
+            {
+              "Test Name": "LDL Cholesterol",
+              "Result": "118",
+              "Unit": "mg/dL",
+              "Reference Range": "< 100 mg/dL",
+              "Interpretation": "High (H)"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Hemoglobin A1c/Hemoglobin.total in Blood",
+          "panel_code": {
+            "code": "4548-4",
+            "display_name": "Hemoglobin A1c/Hemoglobin.total in Blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-05-14T10:15:00-05:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "4548-4",
+                "display_name": "Hemoglobin A1c",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 6.8,
+                "unit": "%",
+                "formatted": "6.8 %"
+              },
+              "interpretation": {
+                "code": "H",
+                "display_name": "High",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 4.0,
+                  "unit": "%"
+                },
+                "high": {
+                  "value": 5.6,
+                  "unit": "%"
+                }
+              },
+              "date": "2023-05-14T10:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "107c2dc0-67a5-11db-bd13-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "7d5a0238-247a-4286-9a54-6d9cf8e17812"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "test": {
+            "code": "4548-4",
+            "display_name": "Hemoglobin A1c",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 6.8,
+            "unit": "%",
+            "formatted": "6.8 %"
+          },
+          "interpretation": {
+            "code": "H",
+            "display_name": "High",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 4.0,
+              "unit": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%"
+            }
+          },
+          "date": "2023-05-14T10:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "107c2dc0-67a5-11db-bd13-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "results"
+    },
+    "immunizations": {
+      "title": "Immunizations",
+      "code": {
+        "code": "11369-6",
+        "display_name": "History of Immunization",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"
+      ],
+      "narrative": "Vaccine | Date | Status\n-----------------------\nInfluenza, seasonal, injectable | 2022-10-18 | Completed\nCOVID-19 mRNA Vaccine (Pfizer-BioNTech) | 2021-04-20 | Completed",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vaccine",
+            "Date",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Vaccine": "Influenza, seasonal, injectable",
+              "Date": "2022-10-18",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "COVID-19 mRNA Vaccine (Pfizer-BioNTech)",
+              "Date": "2021-04-20",
+              "Status": "Completed"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "vaccine": {
+            "code": "140",
+            "display_name": "Influenza, seasonal, injectable, preservative free",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2022-10-18",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "e6f1aa10-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "immunizations"
+    },
+    "social_history": {
+      "title": "Social History",
+      "code": {
+        "code": "29762-2",
+        "display_name": "Social History",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.17:2015-08-01"
+      ],
+      "narrative": "Smoking Status: Former smoker (quit 2018)\nAlcohol: Denies regular alcohol use",
+      "tables": [],
+      "smoking_status": {
+        "status": {
+          "code": "8517006",
+          "display_name": "Former smoker",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT",
+          "type": "CD"
+        },
+        "date": "2023-05-14",
+        "ids": [
+          {
+            "root": "d5c89830-3451-11e2-81c1-0800200c9a66"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "observation": {
+            "code": "72166-2",
+            "display_name": "Tobacco smoking status NHIS",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "code": "8517006",
+            "display_name": "Former smoker",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "date": "2023-05-14",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "d5c89830-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "social_history"
+    },
+    "plan_of_care": {
+      "title": "Plan of Care / Treatment Plan",
+      "code": {
+        "code": "18776-5",
+        "display_name": "Plan of care note",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.10:2014-06-09"
+      ],
+      "narrative": "• Diabetic dietary counseling and regular blood sugar log reviews.\n• Repeat HbA1c in 3 months (August 2023).\n• Follow-up in clinic in 6 months for comprehensive routine exam.",
+      "tables": [],
+      "entries": [],
+      "section_type": "plan_of_care"
+    }
+  },
+  "all_sections": [
+    {
+      "title": "Allergies, Adverse Reactions & Alerts",
+      "code": {
+        "code": "48765-2",
+        "display_name": "Allergies and adverse reactions Document",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
+      ],
+      "narrative": "Substance | Reaction | Severity | Status | Onset Date\n-----------------------------------------------------\nPenicillin G | Hives (Urticaria) | Moderate | Active | 2010-06-15\nPeanuts | Anaphylaxis | Severe | Active | 1992-04-10",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Substance",
+            "Reaction",
+            "Severity",
+            "Status",
+            "Onset Date"
+          ],
+          "rows": [
+            {
+              "Substance": "Penicillin G",
+              "Reaction": "Hives (Urticaria)",
+              "Severity": "Moderate",
+              "Status": "Active",
+              "Onset Date": "2010-06-15"
+            },
+            {
+              "Substance": "Peanuts",
+              "Reaction": "Anaphylaxis",
+              "Severity": "Severe",
+              "Status": "Active",
+              "Onset Date": "1992-04-10"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "substance": {
+            "code": "70618",
+            "display_name": "Penicillin G",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "allergy1"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2010-06-15"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "247472004",
+                "display_name": "Hives",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "6736007",
+                "display_name": "Moderate",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "4ca5edd0-7b14-11db-9fe1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "256349002",
+            "display_name": "Peanut",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "reference_id": "allergy2"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "1992-04-10"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "39579001",
+                "display_name": "Anaphylaxis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "24484000",
+                "display_name": "Severe",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "6b8a21d0-7b14-11db-9fe1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "allergies"
+    },
+    {
+      "title": "Medications",
+      "code": {
+        "code": "10160-0",
+        "display_name": "History of Medication use",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"
+      ],
+      "narrative": "Medication | Dosage | Route | Frequency | Status | Indication\n-------------------------------------------------------------\nMetformin 500 MG Oral Tablet | 500 mg | Oral | Twice daily with meals | Active | Type 2 Diabetes Mellitus\nLisinopril 10 MG Oral Tablet | 10 mg | Oral | Daily in the morning | Active | Essential Hypertension\nAtorvastatin 20 MG Oral Tablet | 20 mg | Oral | Daily at bedtime | Active | Hyperlipidemia",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Medication",
+            "Dosage",
+            "Route",
+            "Frequency",
+            "Status",
+            "Indication"
+          ],
+          "rows": [
+            {
+              "Medication": "Metformin 500 MG Oral Tablet",
+              "Dosage": "500 mg",
+              "Route": "Oral",
+              "Frequency": "Twice daily with meals",
+              "Status": "Active",
+              "Indication": "Type 2 Diabetes Mellitus"
+            },
+            {
+              "Medication": "Lisinopril 10 MG Oral Tablet",
+              "Dosage": "10 mg",
+              "Route": "Oral",
+              "Frequency": "Daily in the morning",
+              "Status": "Active",
+              "Indication": "Essential Hypertension"
+            },
+            {
+              "Medication": "Atorvastatin 20 MG Oral Tablet",
+              "Dosage": "20 mg",
+              "Route": "Oral",
+              "Frequency": "Daily at bedtime",
+              "Status": "Active",
+              "Indication": "Hyperlipidemia"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "medication": {
+            "code": "860975",
+            "display_name": "Metformin hydrochloride 500 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "med1"
+          },
+          "status": "active",
+          "dose": {
+            "value": 500.0,
+            "unit": "mg",
+            "formatted": "500 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "12",
+              "unit": "h",
+              "human_readable": "Twice daily (q12h)"
+            }
+          },
+          "date_range": {
+            "low": "2020-01-15"
+          },
+          "effective_times": null,
+          "indication": {
+            "code": "44054006",
+            "display_name": "Type 2 Diabetes Mellitus",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "cdbd33f0-6cde-11db-9fe1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "314076",
+            "display_name": "Lisinopril 10 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "med2"
+          },
+          "status": "active",
+          "dose": {
+            "value": 10.0,
+            "unit": "mg",
+            "formatted": "10 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2018-03-20"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "d49f6920-6cde-11db-9fe1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "617314",
+            "display_name": "Atorvastatin 20 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "reference_id": "med3"
+          },
+          "status": "active",
+          "dose": {
+            "value": 20.0,
+            "unit": "mg",
+            "formatted": "20 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2019-11-01"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "e12a4500-6cde-11db-9fe1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "medications"
+    },
+    {
+      "title": "Problems & Health Conditions",
+      "code": {
+        "code": "11450-4",
+        "display_name": "Problem List",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.5.1:2015-08-01"
+      ],
+      "narrative": "Condition | ICD-10 Code | Status | Onset Date\n---------------------------------------------\nType 2 Diabetes Mellitus without complications | E11.9 | Active | 2020-01-15\nEssential (primary) Hypertension | I10 | Active | 2018-03-20\nHyperlipidemia, unspecified | E78.5 | Active | 2019-11-01",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Condition",
+            "ICD-10 Code",
+            "Status",
+            "Onset Date"
+          ],
+          "rows": [
+            {
+              "Condition": "Type 2 Diabetes Mellitus without complications",
+              "ICD-10 Code": "E11.9",
+              "Status": "Active",
+              "Onset Date": "2020-01-15"
+            },
+            {
+              "Condition": "Essential (primary) Hypertension",
+              "ICD-10 Code": "I10",
+              "Status": "Active",
+              "Onset Date": "2018-03-20"
+            },
+            {
+              "Condition": "Hyperlipidemia, unspecified",
+              "ICD-10 Code": "E78.5",
+              "Status": "Active",
+              "Onset Date": "2019-11-01"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "problem": {
+            "code": "44054006",
+            "display_name": "Type 2 Diabetes Mellitus",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "reference_id": "prob1",
+            "translations": [
+              {
+                "code": "E11.9",
+                "display_name": "Type 2 diabetes mellitus without complications",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "55607006",
+            "display_name": "Problem",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2020-01-15"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "ab123456-7890-1234-5678-1234567890ac"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "59621000",
+            "display_name": "Essential hypertension",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "reference_id": "prob2",
+            "translations": [
+              {
+                "code": "I10",
+                "display_name": "Essential (primary) hypertension",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "55607006",
+            "display_name": "Problem",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2018-03-20"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "bb123456-7890-1234-5678-1234567890bc"
+            }
+          ]
+        }
+      ],
+      "section_type": "problems"
+    },
+    {
+      "title": "Vital Signs",
+      "code": {
+        "code": "8716-3",
+        "display_name": "Vital Signs",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
+      ],
+      "narrative": "Date / Time | Measurement | Value | Unit\n----------------------------------------\n2023-05-14 14:00 | Systolic Blood Pressure | 128 | mm[Hg]\n2023-05-14 14:00 | Diastolic Blood Pressure | 82 | mm[Hg]\n2023-05-14 14:00 | Heart Rate | 72 | /min\n2023-05-14 14:00 | Body Weight | 74.5 | kg\n2023-05-14 14:00 | Body Height | 165 | cm\n2023-05-14 14:00 | Body Mass Index (BMI) | 27.4 | kg/m2",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Date / Time",
+            "Measurement",
+            "Value",
+            "Unit"
+          ],
+          "rows": [
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Systolic Blood Pressure",
+              "Value": "128",
+              "Unit": "mm[Hg]"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Diastolic Blood Pressure",
+              "Value": "82",
+              "Unit": "mm[Hg]"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Heart Rate",
+              "Value": "72",
+              "Unit": "/min"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Body Weight",
+              "Value": "74.5",
+              "Unit": "kg"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Body Height",
+              "Value": "165",
+              "Unit": "cm"
+            },
+            {
+              "Date / Time": "2023-05-14 14:00",
+              "Measurement": "Body Mass Index (BMI)",
+              "Value": "27.4",
+              "Unit": "kg/m2"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Vital signs",
+          "panel_code": {
+            "code": "46680005",
+            "display_name": "Vital signs",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "measurements": [
+            {
+              "vital_sign": {
+                "code": "8480-6",
+                "display_name": "Systolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 128.0,
+                "unit": "mm[Hg]",
+                "formatted": "128 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-05-14T14:00:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "c6b5aed1-c0d1-11e2-8b8b-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8462-4",
+                "display_name": "Diastolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 82.0,
+                "unit": "mm[Hg]",
+                "formatted": "82 mm[Hg]"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-05-14T14:00:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "c6b5aed2-c0d1-11e2-8b8b-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8867-4",
+                "display_name": "Heart rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 72.0,
+                "unit": "/min",
+                "formatted": "72 /min"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-05-14T14:00:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "c6b5aed3-c0d1-11e2-8b8b-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "c6b5aed0-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "display_name": "Systolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 128.0,
+            "unit": "mm[Hg]",
+            "formatted": "128 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "c6b5aed1-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "display_name": "Diastolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 82.0,
+            "unit": "mm[Hg]",
+            "formatted": "82 mm[Hg]"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "c6b5aed2-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8867-4",
+            "display_name": "Heart rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 72.0,
+            "unit": "/min",
+            "formatted": "72 /min"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-05-14T14:00:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "c6b5aed3-c0d1-11e2-8b8b-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "vital_signs"
+    },
+    {
+      "title": "Diagnostic Results & Laboratory Data",
+      "code": {
+        "code": "30954-2",
+        "display_name": "Relevant diagnostic tests and/or laboratory data",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.3.1:2015-08-01"
+      ],
+      "narrative": "Test Name | Result | Unit | Reference Range | Interpretation\n------------------------------------------------------------\nHemoglobin A1c (HbA1c) | 6.8 | % | 4.0 - 5.6 % | High (H)\nTotal Cholesterol | 192 | mg/dL | 100 - 199 mg/dL | Normal (N)\nHDL Cholesterol | 48 | mg/dL | 40 - 60 mg/dL | Normal (N)\nLDL Cholesterol | 118 | mg/dL | < 100 mg/dL | High (H)",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Test Name",
+            "Result",
+            "Unit",
+            "Reference Range",
+            "Interpretation"
+          ],
+          "rows": [
+            {
+              "Test Name": "Hemoglobin A1c (HbA1c)",
+              "Result": "6.8",
+              "Unit": "%",
+              "Reference Range": "4.0 - 5.6 %",
+              "Interpretation": "High (H)"
+            },
+            {
+              "Test Name": "Total Cholesterol",
+              "Result": "192",
+              "Unit": "mg/dL",
+              "Reference Range": "100 - 199 mg/dL",
+              "Interpretation": "Normal (N)"
+            },
+            {
+              "Test Name": "HDL Cholesterol",
+              "Result": "48",
+              "Unit": "mg/dL",
+              "Reference Range": "40 - 60 mg/dL",
+              "Interpretation": "Normal (N)"
+            },
+            {
+              "Test Name": "LDL Cholesterol",
+              "Result": "118",
+              "Unit": "mg/dL",
+              "Reference Range": "< 100 mg/dL",
+              "Interpretation": "High (H)"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Hemoglobin A1c/Hemoglobin.total in Blood",
+          "panel_code": {
+            "code": "4548-4",
+            "display_name": "Hemoglobin A1c/Hemoglobin.total in Blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-05-14T10:15:00-05:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "4548-4",
+                "display_name": "Hemoglobin A1c",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 6.8,
+                "unit": "%",
+                "formatted": "6.8 %"
+              },
+              "interpretation": {
+                "code": "H",
+                "display_name": "High",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 4.0,
+                  "unit": "%"
+                },
+                "high": {
+                  "value": 5.6,
+                  "unit": "%"
+                }
+              },
+              "date": "2023-05-14T10:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "107c2dc0-67a5-11db-bd13-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "7d5a0238-247a-4286-9a54-6d9cf8e17812"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "test": {
+            "code": "4548-4",
+            "display_name": "Hemoglobin A1c",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 6.8,
+            "unit": "%",
+            "formatted": "6.8 %"
+          },
+          "interpretation": {
+            "code": "H",
+            "display_name": "High",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 4.0,
+              "unit": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%"
+            }
+          },
+          "date": "2023-05-14T10:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "107c2dc0-67a5-11db-bd13-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "results"
+    },
+    {
+      "title": "Immunizations",
+      "code": {
+        "code": "11369-6",
+        "display_name": "History of Immunization",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"
+      ],
+      "narrative": "Vaccine | Date | Status\n-----------------------\nInfluenza, seasonal, injectable | 2022-10-18 | Completed\nCOVID-19 mRNA Vaccine (Pfizer-BioNTech) | 2021-04-20 | Completed",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vaccine",
+            "Date",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Vaccine": "Influenza, seasonal, injectable",
+              "Date": "2022-10-18",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "COVID-19 mRNA Vaccine (Pfizer-BioNTech)",
+              "Date": "2021-04-20",
+              "Status": "Completed"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "vaccine": {
+            "code": "140",
+            "display_name": "Influenza, seasonal, injectable, preservative free",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2022-10-18",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "e6f1aa10-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "immunizations"
+    },
+    {
+      "title": "Social History",
+      "code": {
+        "code": "29762-2",
+        "display_name": "Social History",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.17:2015-08-01"
+      ],
+      "narrative": "Smoking Status: Former smoker (quit 2018)\nAlcohol: Denies regular alcohol use",
+      "tables": [],
+      "smoking_status": {
+        "status": {
+          "code": "8517006",
+          "display_name": "Former smoker",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT",
+          "type": "CD"
+        },
+        "date": "2023-05-14",
+        "ids": [
+          {
+            "root": "d5c89830-3451-11e2-81c1-0800200c9a66"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "observation": {
+            "code": "72166-2",
+            "display_name": "Tobacco smoking status NHIS",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "code": "8517006",
+            "display_name": "Former smoker",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "date": "2023-05-14",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "d5c89830-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "social_history"
+    },
+    {
+      "title": "Plan of Care / Treatment Plan",
+      "code": {
+        "code": "18776-5",
+        "display_name": "Plan of care note",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.10:2014-06-09"
+      ],
+      "narrative": "• Diabetic dietary counseling and regular blood sugar log reviews.\n• Repeat HbA1c in 3 months (August 2023).\n• Follow-up in clinic in 6 months for comprehensive routine exam.",
+      "tables": [],
+      "entries": [],
+      "section_type": "plan_of_care"
+    }
+  ]
+}

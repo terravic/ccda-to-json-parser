@@ -1,0 +1,850 @@
+{
+  "document_meta": {
+    "document_id": {
+      "root": "2.16.840.1.113883.19.5",
+      "extension": "DS-2023-48190"
+    },
+    "document_type": {
+      "code": "18842-5",
+      "display_name": "Discharge Summary",
+      "code_system": "2.16.840.1.113883.6.1",
+      "code_system_name": "LOINC"
+    },
+    "title": "Hospital Inpatient Discharge Summary",
+    "effective_time": "2023-09-12T11:00:00-04:00",
+    "confidentiality": {
+      "code": "N",
+      "display_name": "Normal",
+      "code_system": "2.16.840.1.113883.5.25",
+      "code_system_name": "Confidentiality"
+    },
+    "language": "en-US",
+    "set_id": null,
+    "version_number": null,
+    "template_ids": [
+      "2.16.840.1.113883.10.20.22.1.1:2015-08-01",
+      "2.16.840.1.113883.10.20.22.1.8:2015-08-01"
+    ],
+    "authors": [
+      {
+        "time": "2023-09-12T11:00:00-04:00",
+        "ids": [
+          {
+            "root": "2.16.840.1.113883.4.6",
+            "extension": "1487654321",
+            "assigningAuthorityName": "NPI"
+          }
+        ],
+        "code": {
+          "code": "208600000X",
+          "display_name": "Surgery, General",
+          "code_system": "2.16.840.1.113883.6.101"
+        },
+        "person": {
+          "full_name": "Dr. Sarah Jenkins MD, FACS",
+          "first_name": "Sarah",
+          "middle_names": [],
+          "last_name": "Jenkins",
+          "prefixes": [
+            "Dr."
+          ],
+          "suffixes": [
+            "MD, FACS"
+          ]
+        },
+        "organization": {
+          "name": "St. Jude Metropolitan Medical Center",
+          "ids": [],
+          "addresses": [
+            {
+              "street_address_lines": [
+                "420 East 70th Street"
+              ],
+              "city": "New York",
+              "state": "NY",
+              "postal_code": "10021",
+              "country": null,
+              "use": "WP",
+              "formatted": "420 East 70th Street, New York, NY 10021"
+            }
+          ],
+          "telecoms": []
+        },
+        "addresses": [],
+        "telecoms": []
+      }
+    ],
+    "custodian": {
+      "name": "St. Jude Metropolitan Medical Center",
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5"
+        }
+      ],
+      "telecom": {
+        "system": "tel",
+        "value": "+1-212-555-7000",
+        "raw_value": "tel:+1-212-555-7000",
+        "use": "WP"
+      },
+      "address": {
+        "street_address_lines": [
+          "420 East 70th Street"
+        ],
+        "city": "New York",
+        "state": "NY",
+        "postal_code": "10021",
+        "country": null,
+        "use": "WP",
+        "formatted": "420 East 70th Street, New York, NY 10021"
+      }
+    },
+    "encompassing_encounter": {
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5",
+          "extension": "ENC-2023-8871"
+        }
+      ],
+      "code": {
+        "code": "IMP",
+        "display_name": "Inpatient",
+        "code_system": "2.16.840.1.113883.5.4",
+        "code_system_name": "ActCode"
+      },
+      "effective_time": {
+        "low": "2023-09-10T08:30:00-04:00",
+        "high": "2023-09-12T11:00:00-04:00"
+      },
+      "discharge_disposition": {
+        "code": "01",
+        "display_name": "Discharged to Home or Self Care",
+        "code_system": "2.16.840.1.113883.12.112"
+      },
+      "location_name": null,
+      "responsible_party": null
+    }
+  },
+  "patient": {
+    "ids": [
+      {
+        "root": "2.16.840.1.113883.19.5",
+        "extension": "MRN-449102",
+        "assigningAuthorityName": "St. Jude Medical Center"
+      }
+    ],
+    "addresses": [
+      {
+        "street_address_lines": [
+          "550 West End Avenue, Apt 4B"
+        ],
+        "city": "New York",
+        "state": "NY",
+        "postal_code": "10024",
+        "country": "US",
+        "use": "HP",
+        "formatted": "550 West End Avenue, Apt 4B, New York, NY 10024, US"
+      }
+    ],
+    "telecoms": [
+      {
+        "system": "tel",
+        "value": "+1-212-555-0198",
+        "raw_value": "tel:+1-212-555-0198",
+        "use": "HP"
+      }
+    ],
+    "name": {
+      "full_name": "Mr. Marcus Aurelius Thorne",
+      "first_name": "Marcus",
+      "middle_names": [
+        "Aurelius"
+      ],
+      "last_name": "Thorne",
+      "prefixes": [
+        "Mr."
+      ],
+      "suffixes": [],
+      "use": "L"
+    },
+    "names": [
+      {
+        "full_name": "Mr. Marcus Aurelius Thorne",
+        "first_name": "Marcus",
+        "middle_names": [
+          "Aurelius"
+        ],
+        "last_name": "Thorne",
+        "prefixes": [
+          "Mr."
+        ],
+        "suffixes": [],
+        "use": "L"
+      }
+    ],
+    "gender": {
+      "code": "M",
+      "display_name": "Male",
+      "code_system": "2.16.840.1.113883.5.1",
+      "code_system_name": "AdministrativeGender"
+    },
+    "birth_time": "1988-11-03",
+    "marital_status": {
+      "code": "S",
+      "display_name": "Single",
+      "code_system": "2.16.840.1.113883.5.2",
+      "code_system_name": "MaritalStatus"
+    },
+    "race": {
+      "code": "2054-5",
+      "display_name": "Black or African American",
+      "code_system": "2.16.840.1.113883.6.238",
+      "code_system_name": "Race & Ethnicity - CDC"
+    },
+    "races": [
+      {
+        "code": "2054-5",
+        "display_name": "Black or African American",
+        "code_system": "2.16.840.1.113883.6.238",
+        "code_system_name": "Race & Ethnicity - CDC"
+      }
+    ],
+    "ethnicity": {
+      "code": "2186-5",
+      "display_name": "Not Hispanic or Latino",
+      "code_system": "2.16.840.1.113883.6.238",
+      "code_system_name": "Race & Ethnicity - CDC"
+    },
+    "ethnicities": [
+      {
+        "code": "2186-5",
+        "display_name": "Not Hispanic or Latino",
+        "code_system": "2.16.840.1.113883.6.238",
+        "code_system_name": "Race & Ethnicity - CDC"
+      }
+    ],
+    "languages": []
+  },
+  "summary": {
+    "patient_name": "Mr. Marcus Aurelius Thorne",
+    "date_of_birth": "1988-11-03",
+    "gender": "Male",
+    "counts": {
+      "allergies": 1,
+      "medications": 1,
+      "problems": 0,
+      "immunizations": 0,
+      "vital_signs": 0,
+      "lab_results": 0,
+      "encounters": 0,
+      "procedures": 1
+    },
+    "available_sections": [
+      "chief_complaint",
+      "hospital_course",
+      "discharge_diagnoses",
+      "procedures",
+      "discharge_medications",
+      "allergies",
+      "hospital_discharge_instructions"
+    ]
+  },
+  "sections": {
+    "chief_complaint": {
+      "title": "Chief Complaint / Reason for Admission",
+      "code": {
+        "code": "10154-3",
+        "display_name": "Chief complaint Narrative",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [],
+      "narrative": "Acute severe right lower quadrant abdominal pain, low-grade fever, anorexia, and nausea for 24 hours.",
+      "tables": [],
+      "entries": [],
+      "section_type": "chief_complaint"
+    },
+    "hospital_course": {
+      "title": "Hospital Course",
+      "code": {
+        "code": "8648-8",
+        "display_name": "Hospital Course Narrative",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.44"
+      ],
+      "narrative": "Patient is a 34-year-old male who presented to the Emergency Department with a 1-day history of periumbilical pain migrating to the right lower quadrant with rebound tenderness. Abdominal CT demonstrated acute suppurative appendicitis with appendicolith without signs of perforation or abscess. Patient was admitted to General Surgery service, started on IV fluids and IV cefoxitin, and taken to the operating room on 2023-09-10 for an uneventful laparoscopic appendectomy.\nPostoperative course was smooth. Bowel sounds returned on post-op day 1, and the patient tolerated progression from clear liquids to a regular diet. Incisions are clean, intact, without erythema or drainage. Pain was well-managed with oral acetaminophen and ibuprofen. Patient is discharged home on post-op day 2 in stable condition.",
+      "tables": [],
+      "entries": [],
+      "section_type": "hospital_course"
+    },
+    "discharge_diagnoses": {
+      "title": "Discharge Diagnoses",
+      "code": {
+        "code": "11535-2",
+        "display_name": "Hospital Discharge Diagnosis",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.24:2015-08-01"
+      ],
+      "narrative": "• Acute suppurative appendicitis status post laparoscopic appendectomy (ICD-10 K35.80)\n• Mild dehydration, resolved",
+      "tables": [],
+      "entries": [
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": null,
+          "status": "active",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "74400008",
+                "display_name": "Appendicitis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "K35.80",
+                    "display_name": "Unspecified acute appendicitis",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": null,
+              "status": "completed",
+              "relationships": null,
+              "ids": [],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": []
+        }
+      ],
+      "section_type": "discharge_diagnoses"
+    },
+    "procedures": {
+      "title": "Procedures Performed",
+      "code": {
+        "code": "47519-4",
+        "display_name": "History of Procedures",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.7.1:2014-06-09"
+      ],
+      "narrative": "Procedure | CPT Code | Date | Surgeon\n-------------------------------------\nLaparoscopic Appendectomy | 44970 | 2023-09-10 | Dr. Sarah Jenkins, MD",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Procedure",
+            "CPT Code",
+            "Date",
+            "Surgeon"
+          ],
+          "rows": [
+            {
+              "Procedure": "Laparoscopic Appendectomy",
+              "CPT Code": "44970",
+              "Date": "2023-09-10",
+              "Surgeon": "Dr. Sarah Jenkins, MD"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "procedure": {
+            "code": "44970",
+            "display_name": "Laparoscopic Appendectomy",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "6025007",
+                "display_name": "Laparoscopic appendectomy",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T14:30:00-04:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Sarah Jenkins, MD",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b50-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "procedures"
+    },
+    "discharge_medications": {
+      "title": "Discharge Medications",
+      "code": {
+        "code": "10183-2",
+        "display_name": "Discharge Medication List",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.11:2015-08-01"
+      ],
+      "narrative": "Medication | Dose | Route | Frequency & Instructions\n----------------------------------------------------\nAcetaminophen 500 MG Oral Tablet | 500 mg | Oral | Every 6 hours as needed for mild to moderate pain\nIbuprofen 400 MG Oral Tablet | 400 mg | Oral | Every 8 hours with food as needed for pain/inflammation\nCefdinir 300 MG Oral Capsule | 300 mg | Oral | Twice daily for 5 days (complete full course)",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Medication",
+            "Dose",
+            "Route",
+            "Frequency & Instructions"
+          ],
+          "rows": [
+            {
+              "Medication": "Acetaminophen 500 MG Oral Tablet",
+              "Dose": "500 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Every 6 hours as needed for mild to moderate pain"
+            },
+            {
+              "Medication": "Ibuprofen 400 MG Oral Tablet",
+              "Dose": "400 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Every 8 hours with food as needed for pain/inflammation"
+            },
+            {
+              "Medication": "Cefdinir 300 MG Oral Capsule",
+              "Dose": "300 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Twice daily for 5 days (complete full course)"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "medication": {
+            "code": "209459",
+            "display_name": "Acetaminophen 500 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 500.0,
+            "unit": "mg",
+            "formatted": "500 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": null,
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc20-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "discharge_medications"
+    },
+    "allergies": {
+      "title": "Allergies & Alerts",
+      "code": {
+        "code": "48765-2",
+        "display_name": "Allergies",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
+      ],
+      "narrative": "Sulfa (Sulfonamide Antibiotics) - Causes skin rash (Mild)",
+      "tables": [],
+      "entries": [
+        {
+          "substance": {
+            "code": "10093",
+            "display_name": "Sulfonamide Antibacterial",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": null,
+          "severity": null,
+          "reactions": [],
+          "ids": []
+        }
+      ],
+      "section_type": "allergies"
+    },
+    "hospital_discharge_instructions": {
+      "title": "Discharge Instructions & Follow-up",
+      "code": {
+        "code": "69730-0",
+        "display_name": "Discharge Instructions",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.41"
+      ],
+      "narrative": "• Activity: No heavy lifting > 10 lbs or strenuous exertion for 2 weeks. May shower after 48 hours; do not submerge incisions in water (no baths/swimming).\n• Wound Care: Keep incisions clean and dry. Steri-strips will fall off spontaneously in 7-10 days.\n• Follow-up: Post-op clinic visit with Dr. Jenkins in 10-14 days (Call 212-555-7010 to schedule).\n• Red Flags: Call immediately or go to nearest ED for fever > 101°F, intractable vomiting, worsening abdominal pain, or redness/purulent drainage from incisions.",
+      "tables": [],
+      "entries": [],
+      "section_type": "hospital_discharge_instructions"
+    }
+  },
+  "all_sections": [
+    {
+      "title": "Chief Complaint / Reason for Admission",
+      "code": {
+        "code": "10154-3",
+        "display_name": "Chief complaint Narrative",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [],
+      "narrative": "Acute severe right lower quadrant abdominal pain, low-grade fever, anorexia, and nausea for 24 hours.",
+      "tables": [],
+      "entries": [],
+      "section_type": "chief_complaint"
+    },
+    {
+      "title": "Hospital Course",
+      "code": {
+        "code": "8648-8",
+        "display_name": "Hospital Course Narrative",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.44"
+      ],
+      "narrative": "Patient is a 34-year-old male who presented to the Emergency Department with a 1-day history of periumbilical pain migrating to the right lower quadrant with rebound tenderness. Abdominal CT demonstrated acute suppurative appendicitis with appendicolith without signs of perforation or abscess. Patient was admitted to General Surgery service, started on IV fluids and IV cefoxitin, and taken to the operating room on 2023-09-10 for an uneventful laparoscopic appendectomy.\nPostoperative course was smooth. Bowel sounds returned on post-op day 1, and the patient tolerated progression from clear liquids to a regular diet. Incisions are clean, intact, without erythema or drainage. Pain was well-managed with oral acetaminophen and ibuprofen. Patient is discharged home on post-op day 2 in stable condition.",
+      "tables": [],
+      "entries": [],
+      "section_type": "hospital_course"
+    },
+    {
+      "title": "Discharge Diagnoses",
+      "code": {
+        "code": "11535-2",
+        "display_name": "Hospital Discharge Diagnosis",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.24:2015-08-01"
+      ],
+      "narrative": "• Acute suppurative appendicitis status post laparoscopic appendectomy (ICD-10 K35.80)\n• Mild dehydration, resolved",
+      "tables": [],
+      "entries": [
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": null,
+          "status": "active",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "74400008",
+                "display_name": "Appendicitis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "K35.80",
+                    "display_name": "Unspecified acute appendicitis",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": null,
+              "status": "completed",
+              "relationships": null,
+              "ids": [],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": []
+        }
+      ],
+      "section_type": "discharge_diagnoses"
+    },
+    {
+      "title": "Procedures Performed",
+      "code": {
+        "code": "47519-4",
+        "display_name": "History of Procedures",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.7.1:2014-06-09"
+      ],
+      "narrative": "Procedure | CPT Code | Date | Surgeon\n-------------------------------------\nLaparoscopic Appendectomy | 44970 | 2023-09-10 | Dr. Sarah Jenkins, MD",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Procedure",
+            "CPT Code",
+            "Date",
+            "Surgeon"
+          ],
+          "rows": [
+            {
+              "Procedure": "Laparoscopic Appendectomy",
+              "CPT Code": "44970",
+              "Date": "2023-09-10",
+              "Surgeon": "Dr. Sarah Jenkins, MD"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "procedure": {
+            "code": "44970",
+            "display_name": "Laparoscopic Appendectomy",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "6025007",
+                "display_name": "Laparoscopic appendectomy",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T14:30:00-04:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Sarah Jenkins, MD",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b50-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "procedures"
+    },
+    {
+      "title": "Discharge Medications",
+      "code": {
+        "code": "10183-2",
+        "display_name": "Discharge Medication List",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.11:2015-08-01"
+      ],
+      "narrative": "Medication | Dose | Route | Frequency & Instructions\n----------------------------------------------------\nAcetaminophen 500 MG Oral Tablet | 500 mg | Oral | Every 6 hours as needed for mild to moderate pain\nIbuprofen 400 MG Oral Tablet | 400 mg | Oral | Every 8 hours with food as needed for pain/inflammation\nCefdinir 300 MG Oral Capsule | 300 mg | Oral | Twice daily for 5 days (complete full course)",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Medication",
+            "Dose",
+            "Route",
+            "Frequency & Instructions"
+          ],
+          "rows": [
+            {
+              "Medication": "Acetaminophen 500 MG Oral Tablet",
+              "Dose": "500 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Every 6 hours as needed for mild to moderate pain"
+            },
+            {
+              "Medication": "Ibuprofen 400 MG Oral Tablet",
+              "Dose": "400 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Every 8 hours with food as needed for pain/inflammation"
+            },
+            {
+              "Medication": "Cefdinir 300 MG Oral Capsule",
+              "Dose": "300 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Twice daily for 5 days (complete full course)"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "medication": {
+            "code": "209459",
+            "display_name": "Acetaminophen 500 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 500.0,
+            "unit": "mg",
+            "formatted": "500 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": null,
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc20-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "discharge_medications"
+    },
+    {
+      "title": "Allergies & Alerts",
+      "code": {
+        "code": "48765-2",
+        "display_name": "Allergies",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
+      ],
+      "narrative": "Sulfa (Sulfonamide Antibiotics) - Causes skin rash (Mild)",
+      "tables": [],
+      "entries": [
+        {
+          "substance": {
+            "code": "10093",
+            "display_name": "Sulfonamide Antibacterial",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": null,
+          "severity": null,
+          "reactions": [],
+          "ids": []
+        }
+      ],
+      "section_type": "allergies"
+    },
+    {
+      "title": "Discharge Instructions & Follow-up",
+      "code": {
+        "code": "69730-0",
+        "display_name": "Discharge Instructions",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.41"
+      ],
+      "narrative": "• Activity: No heavy lifting > 10 lbs or strenuous exertion for 2 weeks. May shower after 48 hours; do not submerge incisions in water (no baths/swimming).\n• Wound Care: Keep incisions clean and dry. Steri-strips will fall off spontaneously in 7-10 days.\n• Follow-up: Post-op clinic visit with Dr. Jenkins in 10-14 days (Call 212-555-7010 to schedule).\n• Red Flags: Call immediately or go to nearest ED for fever > 101°F, intractable vomiting, worsening abdominal pain, or redness/purulent drainage from incisions.",
+      "tables": [],
+      "entries": [],
+      "section_type": "hospital_discharge_instructions"
+    }
+  ]
+}

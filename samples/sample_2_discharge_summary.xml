@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <realmCode code="US"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
+  <!-- Discharge Summary Template -->
+  <templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2015-08-01"/>
+  <id root="2.16.840.1.113883.19.5" extension="DS-2023-48190"/>
+  <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Discharge Summary"/>
+  <title>Hospital Inpatient Discharge Summary</title>
+  <effectiveTime value="20230912110000-0400"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+  <languageCode code="en-US"/>
+
+  <!-- PATIENT DEMOGRAPHICS -->
+  <recordTarget>
+    <patientRole>
+      <id root="2.16.840.1.113883.19.5" extension="MRN-449102" assigningAuthorityName="St. Jude Medical Center"/>
+      <addr use="HP">
+        <streetAddressLine>550 West End Avenue, Apt 4B</streetAddressLine>
+        <city>New York</city>
+        <state>NY</state>
+        <postalCode>10024</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom use="HP" value="tel:+1-212-555-0198"/>
+      <patient>
+        <name use="L">
+          <prefix>Mr.</prefix>
+          <given>Marcus</given>
+          <given>Aurelius</given>
+          <family>Thorne</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" displayName="Male"/>
+        <birthTime value="19881103"/>
+        <maritalStatusCode code="S" codeSystem="2.16.840.1.113883.5.2" displayName="Single"/>
+        <raceCode code="2054-5" codeSystem="2.16.840.1.113883.6.238" displayName="Black or African American"/>
+        <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" displayName="Not Hispanic or Latino"/>
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!-- ATTENDING PHYSICIAN AUTHOR -->
+  <author>
+    <time value="20230912110000-0400"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.4.6" extension="1487654321" assigningAuthorityName="NPI"/>
+      <code code="208600000X" codeSystem="2.16.840.1.113883.6.101" displayName="Surgery, General"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Sarah</given>
+          <family>Jenkins</family>
+          <suffix>MD, FACS</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>St. Jude Metropolitan Medical Center</name>
+        <addr use="WP">
+          <streetAddressLine>420 East 70th Street</streetAddressLine>
+          <city>New York</city>
+          <state>NY</state>
+          <postalCode>10021</postalCode>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- CUSTODIAN -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="2.16.840.1.113883.19.5"/>
+        <name>St. Jude Metropolitan Medical Center</name>
+        <telecom use="WP" value="tel:+1-212-555-7000"/>
+        <addr use="WP">
+          <streetAddressLine>420 East 70th Street</streetAddressLine>
+          <city>New York</city>
+          <state>NY</state>
+          <postalCode>10021</postalCode>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- INPATIENT ENCOUNTER COMPONENT -->
+  <componentOf>
+    <encompassingEncounter>
+      <id root="2.16.840.1.113883.19.5" extension="ENC-2023-8871"/>
+      <code code="IMP" codeSystem="2.16.840.1.113883.5.4" displayName="Inpatient"/>
+      <effectiveTime>
+        <low value="20230910083000-0400"/>
+        <high value="20230912110000-0400"/>
+      </effectiveTime>
+      <dischargeDispositionCode code="01" codeSystem="2.16.840.1.113883.12.112" displayName="Discharged to Home or Self Care"/>
+    </encompassingEncounter>
+  </componentOf>
+
+  <component>
+    <structuredBody>
+
+      <!-- CHIEF COMPLAINT -->
+      <component>
+        <section>
+          <code code="10154-3" codeSystem="2.16.840.1.113883.6.1" displayName="Chief complaint Narrative"/>
+          <title>Chief Complaint / Reason for Admission</title>
+          <text>
+            <paragraph>Acute severe right lower quadrant abdominal pain, low-grade fever, anorexia, and nausea for 24 hours.</paragraph>
+          </text>
+        </section>
+      </component>
+
+      <!-- HOSPITAL COURSE -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.44"/>
+          <code code="8648-8" codeSystem="2.16.840.1.113883.6.1" displayName="Hospital Course Narrative"/>
+          <title>Hospital Course</title>
+          <text>
+            <paragraph>Patient is a 34-year-old male who presented to the Emergency Department with a 1-day history of periumbilical pain migrating to the right lower quadrant with rebound tenderness. Abdominal CT demonstrated acute suppurative appendicitis with appendicolith without signs of perforation or abscess. Patient was admitted to General Surgery service, started on IV fluids and IV cefoxitin, and taken to the operating room on 2023-09-10 for an uneventful laparoscopic appendectomy.</paragraph>
+            <paragraph>Postoperative course was smooth. Bowel sounds returned on post-op day 1, and the patient tolerated progression from clear liquids to a regular diet. Incisions are clean, intact, without erythema or drainage. Pain was well-managed with oral acetaminophen and ibuprofen. Patient is discharged home on post-op day 2 in stable condition.</paragraph>
+          </text>
+        </section>
+      </component>
+
+      <!-- DISCHARGE DIAGNOSES -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.24" extension="2015-08-01"/>
+          <code code="11535-2" codeSystem="2.16.840.1.113883.6.1" displayName="Hospital Discharge Diagnosis"/>
+          <title>Discharge Diagnoses</title>
+          <text>
+            <list>
+              <item>Acute suppurative appendicitis status post laparoscopic appendectomy (ICD-10 K35.80)</item>
+              <item>Mild dehydration, resolved</item>
+            </list>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.33"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <code code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="74400008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Appendicitis">
+                    <translation code="K35.80" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Unspecified acute appendicitis"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- PROCEDURES SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
+          <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" displayName="History of Procedures"/>
+          <title>Procedures Performed</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Procedure</th>
+                  <th>CPT Code</th>
+                  <th>Date</th>
+                  <th>Surgeon</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Laparoscopic Appendectomy</td>
+                  <td>44970</td>
+                  <td>2023-09-10</td>
+                  <td>Dr. Sarah Jenkins, MD</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+              <id root="d29b2b50-3451-11e2-81c1-0800200c9a66"/>
+              <code code="44970" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Laparoscopic Appendectomy">
+                <translation code="6025007" codeSystem="2.16.840.1.113883.6.96" displayName="Laparoscopic appendectomy"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910143000-0400"/>
+              <performer>
+                <assignedEntity>
+                  <id root="2.16.840.1.113883.4.6" extension="1487654321"/>
+                  <assignedPerson>
+                    <name>Dr. Sarah Jenkins, MD</name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+
+      <!-- DISCHARGE MEDICATIONS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.11" extension="2015-08-01"/>
+          <code code="10183-2" codeSystem="2.16.840.1.113883.6.1" displayName="Discharge Medication List"/>
+          <title>Discharge Medications</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Dose</th>
+                  <th>Route</th>
+                  <th>Frequency &amp; Instructions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acetaminophen 500 MG Oral Tablet</td>
+                  <td>500 mg</td>
+                  <td>Oral</td>
+                  <td>Every 6 hours as needed for mild to moderate pain</td>
+                </tr>
+                <tr>
+                  <td>Ibuprofen 400 MG Oral Tablet</td>
+                  <td>400 mg</td>
+                  <td>Oral</td>
+                  <td>Every 8 hours with food as needed for pain/inflammation</td>
+                </tr>
+                <tr>
+                  <td>Cefdinir 300 MG Oral Capsule</td>
+                  <td>300 mg</td>
+                  <td>Oral</td>
+                  <td>Twice daily for 5 days (complete full course)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="f8a1bc20-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20230912"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Oral"/>
+              <doseQuantity value="500" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="209459" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Acetaminophen 500 MG Oral Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+
+      <!-- ALLERGIES SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies"/>
+          <title>Allergies &amp; Alerts</title>
+          <text>
+            <paragraph>Sulfa (Sulfonamide Antibiotics) - Causes skin rash (Mild)</paragraph>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="10093" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Sulfonamide Antibacterial"/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- DISCHARGE INSTRUCTIONS -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.41"/>
+          <code code="69730-0" codeSystem="2.16.840.1.113883.6.1" displayName="Discharge Instructions"/>
+          <title>Discharge Instructions &amp; Follow-up</title>
+          <text>
+            <list>
+              <item>Activity: No heavy lifting &gt; 10 lbs or strenuous exertion for 2 weeks. May shower after 48 hours; do not submerge incisions in water (no baths/swimming).</item>
+              <item>Wound Care: Keep incisions clean and dry. Steri-strips will fall off spontaneously in 7-10 days.</item>
+              <item>Follow-up: Post-op clinic visit with Dr. Jenkins in 10-14 days (Call 212-555-7010 to schedule).</item>
+              <item>Red Flags: Call immediately or go to nearest ED for fever &gt; 101°F, intractable vomiting, worsening abdominal pain, or redness/purulent drainage from incisions.</item>
+            </list>
+          </text>
+        </section>
+      </component>
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>

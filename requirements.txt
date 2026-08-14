@@ -1,0 +1,6 @@
+# Core requirements (Uses Python Standard Library xml.etree.ElementTree by default)
+# Zero mandatory external dependencies for core parsing!
+
+# Optional dependencies for enhanced security / validation / XML formatting:
+# defusedxml>=0.7.1  # For enhanced XML bomb defense against malicious XML inputs
+# pytest>=7.0.0     # For running tests via pytest

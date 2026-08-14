@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://xreg2.nist.gov:8080/hitspValidation/schema/cdar2cda.xsd">
+  <realmCode code="US"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <!-- US Realm Header templateId -->
+  <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
+  <!-- Continuity of Care Document (CCD) templateId -->
+  <templateId root="2.16.840.1.113883.10.20.22.1.2" extension="2015-08-01"/>
+  <id root="2.16.840.1.113883.19.5" extension="CCD-2023-009182"/>
+  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of Episode Note"/>
+  <title>Continuity of Care Document (CCD)</title>
+  <effectiveTime value="20230514143000-0500"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+  <languageCode code="en-US"/>
+  <setId root="2.16.840.1.113883.19.5" extension="SET-009182"/>
+  <versionNumber value="1"/>
+
+  <!-- PATIENT DEMOGRAPHICS -->
+  <recordTarget>
+    <patientRole>
+      <id root="2.16.840.1.113883.19.5" extension="MRN-8849201" assigningAuthorityName="Metropolitan Health System"/>
+      <id root="2.16.840.1.113883.4.1" extension="999-00-1234" assigningAuthorityName="SSN"/>
+      <addr use="HP">
+        <streetAddressLine>742 Evergreen Terrace</streetAddressLine>
+        <city>Springfield</city>
+        <state>IL</state>
+        <postalCode>62704</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom use="HP" value="tel:+1-555-733-4001"/>
+      <telecom use="HP" value="mailto:eleanor.vance@example.org"/>
+      <patient>
+        <name use="L">
+          <prefix>Ms.</prefix>
+          <given>Eleanor</given>
+          <given>Marie</given>
+          <family>Vance</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+        <birthTime value="19750822"/>
+        <maritalStatusCode code="M" codeSystem="2.16.840.1.113883.5.2" displayName="Married"/>
+        <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" displayName="White"/>
+        <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" displayName="Not Hispanic or Latino"/>
+        <languageCommunication>
+          <languageCode code="en"/>
+          <preferenceInd value="true"/>
+        </languageCommunication>
+      </patient>
+      <providerOrganization>
+        <id root="2.16.840.1.113883.19.5"/>
+        <name>Metropolitan Health Outpatient Clinic</name>
+        <telecom use="WP" value="tel:+1-555-555-0100"/>
+        <addr use="WP">
+          <streetAddressLine>1000 Medical Center Parkway</streetAddressLine>
+          <city>Springfield</city>
+          <state>IL</state>
+          <postalCode>62702</postalCode>
+          <country>US</country>
+        </addr>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+
+  <!-- AUTHOR -->
+  <author>
+    <time value="20230514143000-0500"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.4.6" extension="1982736450" assigningAuthorityName="NPI"/>
+      <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101" displayName="Family Medicine"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Robert</given>
+          <family>Sterling</family>
+          <suffix>MD</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>Metropolitan Health Outpatient Clinic</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- CUSTODIAN -->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="2.16.840.1.113883.19.5"/>
+        <name>Metropolitan Health System</name>
+        <telecom use="WP" value="tel:+1-555-555-0100"/>
+        <addr use="WP">
+          <streetAddressLine>1000 Medical Center Parkway</streetAddressLine>
+          <city>Springfield</city>
+          <state>IL</state>
+          <postalCode>62702</postalCode>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <component>
+    <structuredBody>
+
+      <!-- ALLERGIES SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies and adverse reactions Document"/>
+          <title>Allergies, Adverse Reactions &amp; Alerts</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Substance</th>
+                  <th>Reaction</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                  <th>Onset Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="allergy1">
+                  <td>Penicillin G</td>
+                  <td>Hives (Urticaria)</td>
+                  <td>Moderate</td>
+                  <td>Active</td>
+                  <td>2010-06-15</td>
+                </tr>
+                <tr ID="allergy2">
+                  <td>Peanuts</td>
+                  <td>Anaphylaxis</td>
+                  <td>Severe</td>
+                  <td>Active</td>
+                  <td>1992-04-10</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Entry 1: Penicillin -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08-01"/>
+              <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20100615"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09"/>
+                  <id root="4ca5edd0-7b14-11db-9fe1-0800200c9a66"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20100615"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="70618" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Penicillin G">
+                          <originalText><reference value="#allergy1"/></originalText>
+                        </code>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST" inversionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9" extension="2014-06-09"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <statusCode code="completed"/>
+                      <value xsi:type="CD" code="247472004" codeSystem="2.16.840.1.113883.6.96" displayName="Hives"/>
+                      <entryRelationship typeCode="SUBJ" inversionInd="true">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4" displayName="Severity Observation"/>
+                          <statusCode code="completed"/>
+                          <value xsi:type="CD" code="6736007" codeSystem="2.16.840.1.113883.6.96" displayName="Moderate"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <!-- Entry 2: Peanuts -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30" extension="2015-08-01"/>
+              <id root="5a6f23b0-7b14-11db-9fe1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="19920410"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7" extension="2014-06-09"/>
+                  <id root="6b8a21d0-7b14-11db-9fe1-0800200c9a66"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="19920410"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="414285001" codeSystem="2.16.840.1.113883.6.96" displayName="Food allergy"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="256349002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Peanut">
+                          <originalText><reference value="#allergy2"/></originalText>
+                        </code>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST" inversionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9" extension="2014-06-09"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <statusCode code="completed"/>
+                      <value xsi:type="CD" code="39579001" codeSystem="2.16.840.1.113883.6.96" displayName="Anaphylaxis"/>
+                      <entryRelationship typeCode="SUBJ" inversionInd="true">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4" displayName="Severity Observation"/>
+                          <statusCode code="completed"/>
+                          <value xsi:type="CD" code="24484000" codeSystem="2.16.840.1.113883.6.96" displayName="Severe"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- MEDICATIONS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of Medication use"/>
+          <title>Medications</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Dosage</th>
+                  <th>Route</th>
+                  <th>Frequency</th>
+                  <th>Status</th>
+                  <th>Indication</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="med1">
+                  <td>Metformin 500 MG Oral Tablet</td>
+                  <td>500 mg</td>
+                  <td>Oral</td>
+                  <td>Twice daily with meals</td>
+                  <td>Active</td>
+                  <td>Type 2 Diabetes Mellitus</td>
+                </tr>
+                <tr ID="med2">
+                  <td>Lisinopril 10 MG Oral Tablet</td>
+                  <td>10 mg</td>
+                  <td>Oral</td>
+                  <td>Daily in the morning</td>
+                  <td>Active</td>
+                  <td>Essential Hypertension</td>
+                </tr>
+                <tr ID="med3">
+                  <td>Atorvastatin 20 MG Oral Tablet</td>
+                  <td>20 mg</td>
+                  <td>Oral</td>
+                  <td>Daily at bedtime</td>
+                  <td>Active</td>
+                  <td>Hyperlipidemia</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Medication 1: Metformin -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="cdbd33f0-6cde-11db-9fe1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20200115"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="12" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="500" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="860975" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Metformin hydrochloride 500 MG Oral Tablet">
+                      <originalText><reference value="#med1"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="RSON">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.19" extension="2014-06-09"/>
+                  <code code="404684003" codeSystem="2.16.840.1.113883.6.96" displayName="Clinical finding"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="44054006" codeSystem="2.16.840.1.113883.6.96" displayName="Type 2 Diabetes Mellitus"/>
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <!-- Medication 2: Lisinopril -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="d49f6920-6cde-11db-9fe1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20180320"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="10" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="314076" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Lisinopril 10 MG Oral Tablet">
+                      <originalText><reference value="#med2"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+          <!-- Medication 3: Atorvastatin -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="e12a4500-6cde-11db-9fe1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20191101"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="20" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="617314" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Atorvastatin 20 MG Oral Tablet">
+                      <originalText><reference value="#med3"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+
+      <!-- PROBLEMS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
+          <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Problem List"/>
+          <title>Problems &amp; Health Conditions</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>ICD-10 Code</th>
+                  <th>Status</th>
+                  <th>Onset Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="prob1">
+                  <td>Type 2 Diabetes Mellitus without complications</td>
+                  <td>E11.9</td>
+                  <td>Active</td>
+                  <td>2020-01-15</td>
+                </tr>
+                <tr ID="prob2">
+                  <td>Essential (primary) Hypertension</td>
+                  <td>I10</td>
+                  <td>Active</td>
+                  <td>2018-03-20</td>
+                </tr>
+                <tr ID="prob3">
+                  <td>Hyperlipidemia, unspecified</td>
+                  <td>E78.5</td>
+                  <td>Active</td>
+                  <td>2019-11-01</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <!-- Problem 1 -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+              <id root="ab123456-7890-1234-5678-1234567890ab"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20200115"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+                  <id root="ab123456-7890-1234-5678-1234567890ac"/>
+                  <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20200115"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="44054006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Type 2 Diabetes Mellitus">
+                    <originalText><reference value="#prob1"/></originalText>
+                    <translation code="E11.9" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Type 2 diabetes mellitus without complications"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <!-- Problem 2 -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+              <id root="bb123456-7890-1234-5678-1234567890bb"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20180320"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+                  <id root="bb123456-7890-1234-5678-1234567890bc"/>
+                  <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20180320"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="59621000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Essential hypertension">
+                    <originalText><reference value="#prob2"/></originalText>
+                    <translation code="I10" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Essential (primary) hypertension"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- VITAL SIGNS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08-01"/>
+          <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Vital Signs"/>
+          <title>Vital Signs</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Date / Time</th>
+                  <th>Measurement</th>
+                  <th>Value</th>
+                  <th>Unit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2023-05-14 14:00</td>
+                  <td>Systolic Blood Pressure</td>
+                  <td>128</td>
+                  <td>mm[Hg]</td>
+                </tr>
+                <tr>
+                  <td>2023-05-14 14:00</td>
+                  <td>Diastolic Blood Pressure</td>
+                  <td>82</td>
+                  <td>mm[Hg]</td>
+                </tr>
+                <tr>
+                  <td>2023-05-14 14:00</td>
+                  <td>Heart Rate</td>
+                  <td>72</td>
+                  <td>/min</td>
+                </tr>
+                <tr>
+                  <td>2023-05-14 14:00</td>
+                  <td>Body Weight</td>
+                  <td>74.5</td>
+                  <td>kg</td>
+                </tr>
+                <tr>
+                  <td>2023-05-14 14:00</td>
+                  <td>Body Height</td>
+                  <td>165</td>
+                  <td>cm</td>
+                </tr>
+                <tr>
+                  <td>2023-05-14 14:00</td>
+                  <td>Body Mass Index (BMI)</td>
+                  <td>27.4</td>
+                  <td>kg/m2</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+              <id root="c6b5aed0-c0d1-11e2-8b8b-0800200c9a66"/>
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230514140000-0500"/>
+              <!-- Systolic BP -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="c6b5aed1-c0d1-11e2-8b8b-0800200c9a66"/>
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230514140000-0500"/>
+                  <value xsi:type="PQ" value="128" unit="mm[Hg]"/>
+                </observation>
+              </component>
+              <!-- Diastolic BP -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="c6b5aed2-c0d1-11e2-8b8b-0800200c9a66"/>
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230514140000-0500"/>
+                  <value xsi:type="PQ" value="82" unit="mm[Hg]"/>
+                </observation>
+              </component>
+              <!-- Heart Rate -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="c6b5aed3-c0d1-11e2-8b8b-0800200c9a66"/>
+                  <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230514140000-0500"/>
+                  <value xsi:type="PQ" value="72" unit="/min"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- RESULTS / LABS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Relevant diagnostic tests and/or laboratory data"/>
+          <title>Diagnostic Results &amp; Laboratory Data</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Test Name</th>
+                  <th>Result</th>
+                  <th>Unit</th>
+                  <th>Reference Range</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hemoglobin A1c (HbA1c)</td>
+                  <td>6.8</td>
+                  <td>%</td>
+                  <td>4.0 - 5.6 %</td>
+                  <td>High (H)</td>
+                </tr>
+                <tr>
+                  <td>Total Cholesterol</td>
+                  <td>192</td>
+                  <td>mg/dL</td>
+                  <td>100 - 199 mg/dL</td>
+                  <td>Normal (N)</td>
+                </tr>
+                <tr>
+                  <td>HDL Cholesterol</td>
+                  <td>48</td>
+                  <td>mg/dL</td>
+                  <td>40 - 60 mg/dL</td>
+                  <td>Normal (N)</td>
+                </tr>
+                <tr>
+                  <td>LDL Cholesterol</td>
+                  <td>118</td>
+                  <td>mg/dL</td>
+                  <td>&lt; 100 mg/dL</td>
+                  <td>High (H)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+              <id root="7d5a0238-247a-4286-9a54-6d9cf8e17812"/>
+              <code code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230514101500-0500"/>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="107c2dc0-67a5-11db-bd13-0800200c9a66"/>
+                  <code code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="Hemoglobin A1c"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230514101500-0500"/>
+                  <value xsi:type="PQ" value="6.8" unit="%"/>
+                  <interpretationCode code="H" codeSystem="2.16.840.1.113883.5.83" displayName="High"/>
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="4.0" unit="%"/>
+                        <high value="5.6" unit="%"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- IMMUNIZATIONS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.2.1" extension="2015-08-01"/>
+          <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of Immunization"/>
+          <title>Immunizations</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Vaccine</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Influenza, seasonal, injectable</td>
+                  <td>2022-10-18</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>COVID-19 mRNA Vaccine (Pfizer-BioNTech)</td>
+                  <td>2021-04-20</td>
+                  <td>Completed</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+              <id root="e6f1aa10-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20221018"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="140" codeSystem="2.16.840.1.113883.12.292" codeSystemName="CVX" displayName="Influenza, seasonal, injectable, preservative free"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+
+      <!-- SOCIAL HISTORY SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/>
+          <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Social History"/>
+          <title>Social History</title>
+          <text>
+            <paragraph>Smoking Status: Former smoker (quit 2018)</paragraph>
+            <paragraph>Alcohol: Denies regular alcohol use</paragraph>
+          </text>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06-09"/>
+              <id root="d5c89830-3451-11e2-81c1-0800200c9a66"/>
+              <code code="72166-2" codeSystem="2.16.840.1.113883.6.1" displayName="Tobacco smoking status NHIS"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230514"/>
+              <value xsi:type="CD" code="8517006" codeSystem="2.16.840.1.113883.6.96" displayName="Former smoker"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+
+      <!-- PLAN OF CARE SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.10" extension="2014-06-09"/>
+          <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" displayName="Plan of care note"/>
+          <title>Plan of Care / Treatment Plan</title>
+          <text>
+            <list>
+              <item>Diabetic dietary counseling and regular blood sugar log reviews.</item>
+              <item>Repeat HbA1c in 3 months (August 2023).</item>
+              <item>Follow-up in clinic in 6 months for comprehensive routine exam.</item>
+            </list>
+          </text>
+        </section>
+      </component>
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>
