@@ -9,6 +9,10 @@ A production-grade, zero-external-dependency Python engine and AI Skill that con
 
 Ready for direct integration into **GitHub**, **Gemini Enterprise**, **Jetski**, **Claude**, **OpenAI Agents**, **FastAPI**, or any clinical data pipeline.
 
+<p align="center">
+  <img src="docs/images/ccda_skill_demo.jpg" alt="C-CDA to JSON Parser AI Skill in Action" width="100%">
+</p>
+
 ---
 
 ## 🌟 Key Features
@@ -84,6 +88,8 @@ ccda-to-json-parser/
 │   ├── __init__.py
 │   ├── test_parser.py                # Unit tests for parser utilities
 │   └── test_samples.py               # End-to-end tests for all 3 sample files
+├── docs/
+│   └── images/                       # Documentation and skill demonstration assets
 └── scripts/
     ├── convert_all_samples.py        # Batch sample conversion utility
     └── validate_ccda.py              # C-CDA XML structural conformance validator

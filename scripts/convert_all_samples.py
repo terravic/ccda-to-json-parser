@@ -42,14 +42,16 @@ def main():
             with open(json_path, "w", encoding="utf-8") as f:
                 json.dump(parsed_data, f, indent=2, ensure_ascii=False, default=str)
 
-            print(f"✓ Successfully generated: {json_path}")
+            rel_json_path = os.path.relpath(json_path, base_dir)
+            print(f"✓ Successfully generated: {rel_json_path}")
             print_summary(parsed_data)
 
         except Exception as e:
             print(f"✗ Failed to convert {sf}: {e}", file=sys.stderr)
 
+    rel_output_dir = os.path.relpath(output_dir, base_dir)
     print("\nAll samples converted successfully!")
-    print(f"JSON outputs saved in: {output_dir}")
+    print(f"JSON outputs saved in: {rel_output_dir}")
 
 
 if __name__ == "__main__":
