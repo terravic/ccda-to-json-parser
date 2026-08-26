@@ -62,6 +62,12 @@ python3 parse.py path/to/clinical_document.xml --sections allergies,medications,
 
 # Export clinical tables to CSV format
 python3 parse.py path/to/clinical_document.xml --csv-export ./csv_tables/
+
+# Generate an interactive Canvas UI HTML patient report dashboard
+python3 parse.py path/to/clinical_document.xml --html-report patient_dashboard.html
+
+# Open or generate the C-CDA to JSON Mapping Matrix visual dashboard
+python3 parse.py --mapping-dashboard docs/ccda_mapping_dashboard.html
 ```
 
 ### Option 2: Python Library API
@@ -329,6 +335,50 @@ The skill repository includes 3 realistic, synthetic C-CDA XML files for testing
 
 ---
 
+---
+
+## Interactive Canvas UI & Visual Dashboards
+
+This skill includes full support for **Canvas UI elements** designed for agent harnesses like **Gemini Enterprise App**, **Spark**, and **Antigravity**.
+
+### Canvas UI Runtime Architecture
+- **Iframe Sandboxing**: Canvas renders self-contained HTML5 / CSS / JavaScript inside an isolated iframe or webview.
+- **Allowed Styling Assets**: Tailwind CSS is fully enabled via the allowlisted gstatic dependency:
+  ```html
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  ```
+- **Theme Variables & Light/Dark Mode**: Uses semantic host theme tokens (`--app-background`, `--app-foreground`, `--app-card`, `--app-border`, etc.) alongside native Light/Dark toggle controls with high contrast accessibility.
+- **Inline Chat Embeds & Side-Pane Canvas**: Supports embedding visual cards in chat using `<agent-embed>` or opening full dashboards in the auxiliary side-pane:
+  ```html
+  <agent-embed src="file:///path/to/docs/ccda_mapping_dashboard.html" height="500px"></agent-embed>
+  ```
+
+---
+
+### Included Visual Dashboards
+
+#### 1. C-CDA to JSON Mapping Matrix Dashboard (`docs/ccda_mapping_dashboard.html`)
+An interactive, enterprise-grade mapping explorer providing:
+- **12 Clinical Section Deep-Dives**: Header/Demographics, Allergies, Medications, Problems, Vitals, Results/Labs, Immunizations, Encounters, Procedures, Social History, Plan of Care, and Generic Narrative Sections.
+- **Side-by-Side Visual Transformation**: Real-time comparison between source HL7 C-CDA XML and target normalized JSON.
+- **Field-by-Field Conversion Rules**: XPath expressions, JSON target properties, HL7 data types (`PQ`, `CD`, `IVL_TS`, `ST`), standard vocabularies, and null flavor fallback strategies.
+- **Live Search & Filter**: Real-time keyword filtering across all XML paths, JSON fields, and LOINC codes.
+- **Terminology Matrix**: Integrated OID registry for LOINC, SNOMED CT, RxNorm, ICD-10-CM, CVX, CPT-4, and UCUM.
+- **Light/Dark Display Toggle**: Business-like, high-contrast, polished interface.
+
+To view or regenerate the Mapping Matrix Dashboard:
+```bash
+python3 parse.py --mapping-dashboard docs/ccda_mapping_dashboard.html
+```
+
+#### 2. Dynamic Patient Clinical Dashboard (`parse.py --html-report`)
+Transforms any parsed patient XML document into an executive interactive visual report with metric counters, clinical alerts, active medication cards, condition timelines, vital sign panels, and a collapsible raw JSON inspector:
+```bash
+python3 parse.py samples/sample_1_continuity_of_care_document.xml --html-report patient_dashboard.html
+```
+
+---
+
 ## Verification & Testing
 
 To verify the parser in your environment:
@@ -342,4 +392,7 @@ python3 scripts/convert_all_samples.py
 
 # Validate C-CDA XML conformance
 python3 scripts/validate_ccda.py samples/sample_1_continuity_of_care_document.xml
+
+# Generate Mapping Matrix Canvas UI Dashboard
+python3 scripts/generate_mapping_dashboard.py docs/ccda_mapping_dashboard.html
 ```

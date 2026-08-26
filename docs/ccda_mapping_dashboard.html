@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HL7 C-CDA to JSON Mapping Matrix &amp; Dashboard</title>
+  <!-- Tailwind CSS allowlisted for Antigravity & Agent Harness Canvas UI -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+    }
+    pre, code {
+      font-family: var(--font-mono);
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(150, 150, 150, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(150, 150, 150, 0.5);
+    }
+    .code-block {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .light .code-block {
+      background-color: #f8fafc;
+      color: #1e293b;
+      border-color: #e2e8f0;
+    }
+    .tab-active {
+      border-bottom: 2px solid #3b82f6;
+      color: #3b82f6 !important;
+      font-weight: 600;
+    }
+    .xml-tag { color: #60a5fa; }
+    .xml-attr { color: #93c5fd; }
+    .xml-val { color: #34d399; }
+    .json-key { color: #38bdf8; }
+    .json-str { color: #4ade80; }
+    .json-num { color: #fbbf24; }
+    .json-bool { color: #f472b6; }
+    
+    .light .xml-tag { color: #1d4ed8; }
+    .light .xml-attr { color: #0369a1; }
+    .light .xml-val { color: #047857; }
+    .light .json-key { color: #0284c7; }
+    .light .json-str { color: #15803d; }
+    .light .json-num { color: #b45309; }
+    .light .json-bool { color: #be185d; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 transition-colors duration-200 antialiased min-h-screen">
+  <div id="app" class="flex flex-col min-h-screen">
+    
+    <!-- Top Global Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
+        <!-- Brand & Title -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20 text-white font-bold text-lg">
+            ⚡
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h1 class="text-lg font-bold text-white tracking-tight">HL7 C-CDA to JSON Mapping Matrix</h1>
+              <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">Skill Canvas UI</span>
+            </div>
+            <p class="text-xs text-slate-400">Clinical Data Transformation Specification &amp; Interactive Explorer</p>
+          </div>
+        </div>
+
+        <!-- Controls: Search, Sample Selector, Light/Dark Toggle -->
+        <div class="flex items-center space-x-3">
+          <!-- Search input -->
+          <div class="relative hidden sm:block">
+            <input 
+              id="searchInput" 
+              type="text" 
+              placeholder="Search fields, XPath, LOINC..." 
+              class="w-64 px-3 py-1.5 pl-8 text-xs rounded-lg bg-slate-800 border border-slate-700 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              oninput="handleSearch(this.value)"
+            />
+            <svg class="w-4 h-4 absolute left-2.5 top-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+
+          <!-- Quick Samples Switcher -->
+          <select 
+            id="sampleSelect" 
+            onchange="loadSample(this.value)"
+            class="px-2.5 py-1.5 text-xs rounded-lg bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          >
+            <option value="ccd">Sample 1: CCD (Diabetes &amp; HTN)</option>
+            <option value="discharge">Sample 2: Discharge Summary (Appendectomy)</option>
+            <option value="referral">Sample 3: Cardiology Referral</option>
+          </select>
+
+          <!-- Light / Dark Theme Toggle Button -->
+          <button 
+            id="themeToggleBtn" 
+            onclick="toggleTheme()" 
+            class="p-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 focus:outline-none transition-all flex items-center justify-center"
+            title="Toggle Light/Dark Theme"
+          >
+            <svg id="sunIcon" class="w-4 h-4 hidden text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+            </svg>
+            <svg id="moonIcon" class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Top Key Metrics Banner -->
+    <div class="bg-slate-900 border-b border-slate-800/80 px-4 sm:px-6 lg:px-8 py-3">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 text-center">
+        <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-800">
+          <div class="text-xs text-slate-400">Clinical Domains</div>
+          <div class="text-base font-bold text-white">12 Sections</div>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-800">
+          <div class="text-xs text-slate-400">XML Standards</div>
+          <div class="text-base font-bold text-blue-400">HL7 C-CDA R2.1</div>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-800">
+          <div class="text-xs text-slate-400">Output Standard</div>
+          <div class="text-base font-bold text-emerald-400">Normalized JSON</div>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-800">
+          <div class="text-xs text-slate-400">Code Systems</div>
+          <div class="text-base font-bold text-purple-400">7 Vocabularies</div>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-800">
+          <div class="text-xs text-slate-400">Null Flavor Resilient</div>
+          <div class="text-base font-bold text-amber-400">100% Graceful</div>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-800">
+          <div class="text-xs text-slate-400">Canvas UI Support</div>
+          <div class="text-base font-bold text-indigo-400">Native &amp; Embed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Body -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      
+      <!-- Section Navigation Tabs -->
+      <div class="flex items-center space-x-2 overflow-x-auto pb-3 border-b border-slate-800 text-xs font-medium scrollbar-thin">
+        <button onclick="switchSection('header_demographics')" id="tab-header_demographics" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>👤</span><span>Header &amp; Demographics</span>
+        </button>
+        <button onclick="switchSection('allergies')" id="tab-allergies" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>🛡️</span><span>Allergies &amp; Reactions</span>
+        </button>
+        <button onclick="switchSection('medications')" id="tab-medications" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>💊</span><span>Medications</span>
+        </button>
+        <button onclick="switchSection('problems')" id="tab-problems" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>📋</span><span>Problems &amp; Conditions</span>
+        </button>
+        <button onclick="switchSection('vital_signs')" id="tab-vital_signs" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>❤️</span><span>Vital Signs</span>
+        </button>
+        <button onclick="switchSection('results')" id="tab-results" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>🧪</span><span>Diagnostic Results / Labs</span>
+        </button>
+        <button onclick="switchSection('immunizations')" id="tab-immunizations" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>💉</span><span>Immunizations</span>
+        </button>
+        <button onclick="switchSection('encounters_procedures')" id="tab-encounters_procedures" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>🏥</span><span>Encounters &amp; Procedures</span>
+        </button>
+        <button onclick="switchSection('social_history_plan')" id="tab-social_history_plan" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>📝</span><span>Social History &amp; Care Plan</span>
+        </button>
+        <button onclick="switchSection('vocabulary_matrix')" id="tab-vocabulary_matrix" class="section-tab px-3 py-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 whitespace-nowrap transition-all flex items-center space-x-2">
+          <span>📚</span><span>Terminology Matrix</span>
+        </button>
+      </div>
+
+      <!-- Active Section Header & Metadata -->
+      <div id="sectionHeaderArea" class="mt-6 mb-6"></div>
+
+      <!-- Side-by-Side Visual Transformation Workspace -->
+      <div id="visualWorkspace" class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        
+        <!-- Left: Source HL7 C-CDA XML -->
+        <div class="rounded-xl border border-slate-800 bg-slate-900/90 overflow-hidden shadow-md flex flex-col">
+          <div class="px-4 py-3 bg-slate-800/70 border-b border-slate-700/60 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span>
+              <span class="text-xs font-bold text-slate-200 tracking-wide uppercase">Source: HL7 C-CDA R2.1 XML</span>
+            </div>
+            <button onclick="copySnippet('xmlCode')" class="text-xs text-slate-400 hover:text-blue-400 transition-colors flex items-center space-x-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy XML</span>
+            </button>
+          </div>
+          <div class="p-4 flex-1 overflow-x-auto text-xs font-mono code-block max-h-96 leading-relaxed">
+            <pre id="xmlCode"><code><!-- Rendered by JS --></code></pre>
+          </div>
+        </div>
+
+        <!-- Right: Target Standardized JSON -->
+        <div class="rounded-xl border border-slate-800 bg-slate-900/90 overflow-hidden shadow-md flex flex-col">
+          <div class="px-4 py-3 bg-slate-800/70 border-b border-slate-700/60 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+              <span class="text-xs font-bold text-slate-200 tracking-wide uppercase">Target: Normalized Structured JSON</span>
+            </div>
+            <button onclick="copySnippet('jsonCode')" class="text-xs text-slate-400 hover:text-emerald-400 transition-colors flex items-center space-x-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+              <span>Copy JSON</span>
+            </button>
+          </div>
+          <div class="p-4 flex-1 overflow-x-auto text-xs font-mono code-block max-h-96 leading-relaxed">
+            <pre id="jsonCode"><code><!-- Rendered by JS --></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Field-by-Field Detailed Mapping & Conversion Rules Table -->
+      <div id="mappingTableSection" class="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-lg mb-10">
+        <div class="px-5 py-4 bg-slate-800/60 border-b border-slate-800 flex items-center justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-white tracking-tight">Field-by-Field Conversion &amp; Transformation Rules</h3>
+            <p class="text-xs text-slate-400">Detailed mapping logic, data type coercion, code resolution, and null flavor handling.</p>
+          </div>
+          <span id="fieldCountBadge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
+            0 Fields
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-800/40 text-slate-400 uppercase font-semibold border-b border-slate-800">
+              <tr>
+                <th class="px-4 py-3">C-CDA XML XPath</th>
+                <th class="px-4 py-3">JSON Target Path</th>
+                <th class="px-4 py-3">HL7 Data Type</th>
+                <th class="px-4 py-3">Terminology System</th>
+                <th class="px-4 py-3">Transformation &amp; Fallback Rules</th>
+              </tr>
+            </thead>
+            <tbody id="mappingTableBody" class="divide-y divide-slate-800/80 text-slate-300">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Terminology & Code Systems Reference Matrix -->
+      <div id="vocabMatrixSection" class="hidden rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-lg mb-10">
+        <div class="px-5 py-4 bg-slate-800/60 border-b border-slate-800">
+          <h3 class="text-sm font-bold text-white tracking-tight">Standard Clinical Terminologies &amp; OID Registry</h3>
+          <p class="text-xs text-slate-400">Universal medical ontologies and Object Identifiers (OIDs) resolved by the C-CDA to JSON transformation engine.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
+          <div id="vocabCardsArea" class="contents"></div>
+        </div>
+      </div>
+
+      <!-- Canvas UI & Integration Guidance -->
+      <div class="rounded-xl border border-blue-900/40 bg-gradient-to-r from-blue-950/40 via-slate-900 to-indigo-950/40 p-5 shadow-lg">
+        <div class="flex items-start space-x-4">
+          <div class="p-3 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/30 text-xl">
+            💡
+          </div>
+          <div class="flex-1">
+            <h4 class="text-sm font-bold text-white">How Canvas UI Enhances This Skill</h4>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+              In Gemini Enterprise App, Spark, and Antigravity, Canvas UI executes self-contained HTML/JS in an iframe. 
+              You can embed visual widgets directly inline in chat using <code class="px-1.5 py-0.5 rounded bg-slate-800 text-blue-300 font-mono">&lt;agent-embed src="file:///path/to/dashboard.html" height="500px"&gt;&lt;/agent-embed&gt;</code> 
+              or inspect full patient clinical transformations in the interactive side pane.
+            </p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">🎨 Light/Dark Mode Switch</span>
+              <span class="px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">🔍 Live Field Search</span>
+              <span class="px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">📋 One-Click Copy</span>
+              <span class="px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">📑 Sample Presets</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/50 py-4 text-center text-xs text-slate-500">
+      HL7 Consolidated Clinical Document Architecture (C-CDA) to JSON Parser • Clinical Data Engineering • Version 1.0.0
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    const sectionsData = [
+      {
+        "id": "header_demographics",
+        "title": "Document Header & Demographics",
+        "badge": "Core Metadata",
+        "loinc": "34133-9 / 11488-4",
+        "cda_template": "2.16.840.1.113883.10.20.22.1.1 (US Realm Header)",
+        "description": "Defines patient identity, demographics, legal authenticators, authors, custodians, document metadata, and confidentiality codes.",
+        "xml_snippet": `<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc">
+  <realmCode code="US"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
+  <id root="2.16.840.1.113883.19.5" extension="CCD-2023-009182"/>
+  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" displayName="Summarization of Episode Note"/>
+  <title>Continuity of Care Document (CCD)</title>
+  <effectiveTime value="20230514143000-0500"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+  <recordTarget>
+    <patientRole>
+      <id root="2.16.840.1.113883.19.5" extension="MRN-8849201" assigningAuthorityName="Metropolitan Health"/>
+      <addr use="HP">
+        <streetAddressLine>742 Evergreen Terrace</streetAddressLine>
+        <city>Springfield</city>
+        <state>IL</state>
+        <postalCode>62704</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom use="HP" value="tel:+1-555-733-4001"/>
+      <patient>
+        <name use="L">
+          <prefix>Ms.</prefix>
+          <given>Eleanor</given>
+          <given qualifier="IN">Marie</given>
+          <family>Vance</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+        <birthTime value="19750822"/>
+        <maritalStatusCode code="M" codeSystem="2.16.840.1.113883.5.2" displayName="Married"/>
+        <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" displayName="White"/>
+        <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" displayName="Not Hispanic or Latino"/>
+      </patient>
+    </patientRole>
+  </recordTarget>
+</ClinicalDocument>`,
+        "json_snippet": `{
+  "document_meta": {
+    "document_id": {
+      "root": "2.16.840.1.113883.19.5",
+      "extension": "CCD-2023-009182"
+    },
+    "document_type": {
+      "code": "34133-9",
+      "code_system": "2.16.840.1.113883.6.1",
+      "code_system_name": "LOINC",
+      "display_name": "Summarization of Episode Note"
+    },
+    "title": "Continuity of Care Document (CCD)",
+    "effective_time": "2023-05-14T14:30:00-05:00",
+    "confidentiality": {
+      "code": "N",
+      "display_name": "Normal"
+    },
+    "template_ids": ["2.16.840.1.113883.10.20.22.1.1:2015-08-01"]
+  },
+  "patient": {
+    "ids": [{
+      "root": "2.16.840.1.113883.19.5",
+      "extension": "MRN-8849201",
+      "assigningAuthorityName": "Metropolitan Health"
+    }],
+    "name": {
+      "full_name": "Ms. Eleanor Marie Vance",
+      "first_name": "Eleanor",
+      "middle_names": ["Marie"],
+      "last_name": "Vance",
+      "prefixes": ["Ms."]
+    },
+    "gender": {
+      "code": "F",
+      "display_name": "Female"
+    },
+    "birth_time": "1975-08-22",
+    "marital_status": {"code": "M", "display_name": "Married"},
+    "race": {"code": "2106-3", "display_name": "White"},
+    "ethnicity": {"code": "2186-5", "display_name": "Not Hispanic or Latino"},
+    "addresses": [{
+      "street_address_lines": ["742 Evergreen Terrace"],
+      "city": "Springfield",
+      "state": "IL",
+      "postal_code": "62704",
+      "country": "US",
+      "formatted": "742 Evergreen Terrace, Springfield, IL 62704, US"
+    }],
+    "telecoms": [{"system": "tel", "value": "+1-555-733-4001", "use": "HP"}]
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "ClinicalDocument/id/@root + @extension",
+            "json_path": "document_meta.document_id",
+            "data_type": "II (Instance Identifier)",
+            "code_system": "ISO OID",
+            "description": "Globally unique identifier for the clinical document instance.",
+            "rules": "Combines root and extension; preserves assigning authority."
+          },
+          {
+            "xml_path": "ClinicalDocument/code/@code + @displayName",
+            "json_path": "document_meta.document_type",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "LOINC (2.16.840.1.113883.6.1)",
+            "description": "Specifies clinical document type (CCD, Discharge Summary, Referral Note, Care Plan).",
+            "rules": "Resolves LOINC OID to friendly system name 'LOINC'. Fallbacks to internal code lookup if displayName is omitted."
+          },
+          {
+            "xml_path": "ClinicalDocument/effectiveTime/@value",
+            "json_path": "document_meta.effective_time",
+            "data_type": "TS (Timestamp)",
+            "code_system": "ISO-8601",
+            "description": "Document creation or signing timestamp.",
+            "rules": "Converts HL7 TS format (YYYYMMDDHHMMSS[+/-ZZZZ]) to standardized ISO-8601 format with timezone offset."
+          },
+          {
+            "xml_path": "recordTarget/patientRole/id",
+            "json_path": "patient.ids[]",
+            "data_type": "II (Instance Identifier)",
+            "code_system": "Hospital OID",
+            "description": "List of patient identifiers such as Medical Record Number (MRN) and National IDs.",
+            "rules": "Extracts all ID elements with their assigning authority."
+          },
+          {
+            "xml_path": "patientRole/patient/name",
+            "json_path": "patient.name",
+            "data_type": "PN (Person Name)",
+            "code_system": "HL7 CDA R2",
+            "description": "Patient's legal name, broken down into structured components and combined into full_name.",
+            "rules": "Handles multiple given names (distinguishing first vs. middle qualifiers), prefixes (Mr., Ms., Dr.), and suffixes (Jr., III)."
+          },
+          {
+            "xml_path": "patientRole/patient/administrativeGenderCode",
+            "json_path": "patient.gender",
+            "data_type": "CE (Coded with Equiv)",
+            "code_system": "HL7 AdministrativeGender (2.16.840.1.113883.5.1)",
+            "description": "Administrative biological gender (M, F, UN).",
+            "rules": "Maps standard HL7 gender codes to human-readable display names."
+          },
+          {
+            "xml_path": "patientRole/patient/birthTime/@value",
+            "json_path": "patient.birth_time",
+            "data_type": "TS (Timestamp / Date)",
+            "code_system": "ISO-8601 Date",
+            "description": "Patient's legal date of birth.",
+            "rules": "Normalized to 'YYYY-MM-DD' calendar date string."
+          },
+          {
+            "xml_path": "patientRole/addr",
+            "json_path": "patient.addresses[]",
+            "data_type": "AD (Postal Address)",
+            "code_system": "US Postal / Standard",
+            "description": "Patient postal address lines, city, state, zip, country, and pre-formatted single-line address.",
+            "rules": "Aggregates street lines into an array and generates 'formatted' string helper."
+          },
+          {
+            "xml_path": "patientRole/telecom",
+            "json_path": "patient.telecoms[]",
+            "data_type": "TEL (Telecommunication)",
+            "code_system": "RFC 3966 / URI",
+            "description": "Contact numbers and email addresses with use flags (Home, Work, Mobile).",
+            "rules": "Strips 'tel:' or 'mailto:' URI schemes into structured system and value pairs."
+          }
+        ]
+      },
+      {
+        "id": "allergies",
+        "title": "Allergies & Adverse Reactions",
+        "badge": "Clinical Section",
+        "loinc": "48765-2",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.30 (Allergy Concern Act)",
+        "description": "Captures patient substance allergies, drug intolerances, adverse reaction manifestations, and severity levels.",
+        "xml_snippet": `<section>
+  <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+  <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies and adverse reactions Document"/>
+  <title>Allergies &amp; Alerts</title>
+  <text><table>...</table></text>
+  <entry typeCode="DRIV">
+    <act classCode="ACT" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+      <id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+      <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+      <statusCode code="active"/>
+      <effectiveTime><low value="20100615"/></effectiveTime>
+      <entryRelationship typeCode="SUBJ">
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+          <code code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+          <value xsi:type="CD" code="70618" codeSystem="2.16.840.1.113883.6.88" displayName="Penicillin G"/>
+          <participant typeCode="CSM">
+            <participantRole classCode="MANU">
+              <playingEntity classCode="MMAT">
+                <code code="70618" codeSystem="2.16.840.1.113883.6.88" displayName="Penicillin G"/>
+              </playingEntity>
+            </participantRole>
+          </participant>
+          <entryRelationship typeCode="MFST">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+              <value xsi:type="CD" code="247472004" codeSystem="2.16.840.1.113883.6.96" displayName="Hives"/>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.8"/>
+                  <value xsi:type="CD" code="6736007" codeSystem="2.16.840.1.113883.6.96" displayName="Moderate"/>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entryRelationship>
+        </observation>
+      </entryRelationship>
+    </act>
+  </entry>
+</section>`,
+        "json_snippet": `{
+  "sections": {
+    "allergies": {
+      "title": "Allergies & Alerts",
+      "code": {
+        "code": "48765-2",
+        "code_system_name": "LOINC",
+        "display_name": "Allergies and adverse reactions Document"
+      },
+      "entries": [
+        {
+          "substance": {
+            "code": "70618",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm",
+            "display_name": "Penicillin G"
+          },
+          "allergy_type": {
+            "code": "419199007",
+            "display_name": "Allergy to substance"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2010-06-15"
+          },
+          "reactions": [
+            {
+              "reaction": {
+                "code": "247472004",
+                "code_system_name": "SNOMED CT",
+                "display_name": "Hives"
+              },
+              "severity": {
+                "code": "6736007",
+                "code_system_name": "SNOMED CT",
+                "display_name": "Moderate"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "observation/participant/.../playingEntity/code",
+            "json_path": "allergies.entries[].substance",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "RxNorm / UNII / NDF-RT",
+            "description": "Coded substance or medication causing the allergic reaction.",
+            "rules": "Falls back to observation/value if playingEntity is not present; resolves narrative reference if displayName is empty."
+          },
+          {
+            "xml_path": "observation/code/@code",
+            "json_path": "allergies.entries[].allergy_type",
+            "data_type": "CD",
+            "code_system": "SNOMED CT (2.16.840.1.113883.6.96)",
+            "description": "Type of allergy (Allergy to drug, Food allergy, Environmental allergy, Intolerance).",
+            "rules": "Extracts clinical type code and displayName."
+          },
+          {
+            "xml_path": "act/statusCode/@code or observation/statusCode/@code",
+            "json_path": "allergies.entries[].status",
+            "data_type": "CS (Coded Simple)",
+            "code_system": "HL7 ActStatus",
+            "description": "Clinical status of the allergy concern (active, completed, inactive, resolved).",
+            "rules": "Normalized to lowercase standard status string."
+          },
+          {
+            "xml_path": "act/effectiveTime/low | observation/effectiveTime/low",
+            "json_path": "allergies.entries[].effective_time.low",
+            "data_type": "IVL_TS (Interval Timestamp)",
+            "code_system": "ISO-8601 Date",
+            "description": "Date of allergy onset or first observation.",
+            "rules": "Standardized to ISO-8601 date string."
+          },
+          {
+            "xml_path": "entryRelationship[@typeCode='MFST']/observation/value",
+            "json_path": "allergies.entries[].reactions[].reaction",
+            "data_type": "CD",
+            "code_system": "SNOMED CT",
+            "description": "Clinical reaction manifestation (e.g. Hives, Anaphylaxis, Wheezing, Rash).",
+            "rules": "Traverses nested Reaction Observation template (2.16.840.1.113883.10.20.22.4.9)."
+          },
+          {
+            "xml_path": "entryRelationship[@typeCode='SUBJ']/observation/value",
+            "json_path": "allergies.entries[].reactions[].severity",
+            "data_type": "CD",
+            "code_system": "SNOMED CT",
+            "description": "Severity assessment of the allergic reaction (Mild, Moderate, Severe, Fatal).",
+            "rules": "Traverses nested Severity Observation template (2.16.840.1.113883.10.20.22.4.8)."
+          }
+        ]
+      },
+      {
+        "id": "medications",
+        "title": "Medications & Prescriptions",
+        "badge": "Clinical Section",
+        "loinc": "10160-0 / 29549-3",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.16 (Medication Activity)",
+        "description": "Details prescribed, administered, or reported medications, doses, routes, frequencies, schedules, and indications.",
+        "xml_snippet": `<substanceAdministration classCode="SBADM" moodCode="EVN">
+  <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+  <id root="6c844c75-aa34-411c-b7bd-5e4a9f20f882"/>
+  <statusCode code="active"/>
+  <effectiveTime xsi:type="IVL_TS">
+    <low value="20200115"/>
+  </effectiveTime>
+  <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+    <period value="12" unit="h"/>
+  </effectiveTime>
+  <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI" displayName="Oral"/>
+  <doseQuantity value="500" unit="mg"/>
+  <consumable>
+    <manufacturedProduct classCode="MANU">
+      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+      <manufacturedMaterial>
+        <code code="860975" codeSystem="2.16.840.1.113883.6.88" displayName="Metformin hydrochloride 500 MG Oral Tablet"/>
+      </manufacturedMaterial>
+    </manufacturedProduct>
+  </consumable>
+  <entryRelationship typeCode="RSON">
+    <observation classCode="OBS" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.19"/>
+      <code code="404684003" codeSystem="2.16.840.1.113883.6.96" displayName="Clinical finding"/>
+      <value xsi:type="CD" code="44054006" codeSystem="2.16.840.1.113883.6.96" displayName="Type 2 Diabetes Mellitus"/>
+    </observation>
+  </entryRelationship>
+</substanceAdministration>`,
+        "json_snippet": `{
+  "medication": {
+    "code": "860975",
+    "code_system": "2.16.840.1.113883.6.88",
+    "code_system_name": "RxNorm",
+    "display_name": "Metformin hydrochloride 500 MG Oral Tablet"
+  },
+  "status": "active",
+  "dose": {
+    "value": 500.0,
+    "unit": "mg",
+    "formatted": "500 mg"
+  },
+  "route": {
+    "code": "C38288",
+    "display_name": "Oral"
+  },
+  "schedule": {
+    "period": {
+      "value": "12",
+      "unit": "h",
+      "human_readable": "Twice daily (q12h)"
+    }
+  },
+  "date_range": {
+    "low": "2020-01-15"
+  },
+  "indication": {
+    "code": "44054006",
+    "code_system_name": "SNOMED CT",
+    "display_name": "Type 2 Diabetes Mellitus"
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "consumable/.../manufacturedMaterial/code",
+            "json_path": "medications.entries[].medication",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "RxNorm (2.16.840.1.113883.6.88)",
+            "description": "Standardized RxNorm clinical medication product, brand name, or generic ingredient.",
+            "rules": "Extracts RxNorm code, system name, and resolves narrative text if displayName is omitted."
+          },
+          {
+            "xml_path": "doseQuantity/@value + @unit",
+            "json_path": "medications.entries[].dose",
+            "data_type": "PQ (Physical Quantity)",
+            "code_system": "UCUM (2.16.840.1.113883.6.8)",
+            "description": "Amount of medication per administration (e.g. 500 mg, 10 mL, 2 puffs).",
+            "rules": "Converts numeric string to float and generates formatted string helper (e.g. '500 mg')."
+          },
+          {
+            "xml_path": "routeCode/@code + @displayName",
+            "json_path": "medications.entries[].route",
+            "data_type": "CE (Coded with Equiv)",
+            "code_system": "NCI Thesaurus / FDA Route",
+            "description": "Route of administration (Oral, Intravenous, Topical, Inhalation).",
+            "rules": "Normalizes route codes to readable clinical terminology."
+          },
+          {
+            "xml_path": "effectiveTime[xsi:type='PIVL_TS']/period",
+            "json_path": "medications.entries[].schedule.period",
+            "data_type": "PIVL_TS (Periodic Interval)",
+            "code_system": "HL7 Timing",
+            "description": "Dosage frequency interval (e.g. every 12 hours, daily, every 8 hours).",
+            "rules": "Automatically translates numeric period + unit into standard clinical phrasing ('Twice daily (q12h)', 'Every 8 hours (q8h)')."
+          },
+          {
+            "xml_path": "effectiveTime[xsi:type='IVL_TS']/low | high",
+            "json_path": "medications.entries[].date_range",
+            "data_type": "IVL_TS (Interval Timestamp)",
+            "code_system": "ISO-8601 Date",
+            "description": "Start and end dates of medication therapy.",
+            "rules": "Parses low (start) and optional high (discontinue/stop) dates."
+          },
+          {
+            "xml_path": "entryRelationship[@typeCode='RSON']/observation/value",
+            "json_path": "medications.entries[].indication",
+            "data_type": "CD",
+            "code_system": "SNOMED CT / ICD-10",
+            "description": "Clinical diagnosis or reason for medication prescription.",
+            "rules": "Traverses nested Indication Observation template (2.16.840.1.113883.10.20.22.4.19)."
+          }
+        ]
+      },
+      {
+        "id": "problems",
+        "title": "Problems & Conditions",
+        "badge": "Clinical Section",
+        "loinc": "11450-4 / 54533-5",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.3 (Problem Concern Act)",
+        "description": "Active, resolved, and historical medical conditions, chronic illnesses, and diagnoses with ICD-10 crosswalks.",
+        "xml_snippet": `<act classCode="ACT" moodCode="EVN">
+  <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+  <id root="ec0343e0-1f5b-4f7a-8b1e-7f61c34a2e5a"/>
+  <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+  <statusCode code="active"/>
+  <effectiveTime><low value="20200115"/></effectiveTime>
+  <entryRelationship typeCode="SUBJ">
+    <observation classCode="OBS" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+      <code code="55607006" codeSystem="2.16.840.1.113883.6.96" displayName="Problem"/>
+      <statusCode code="completed"/>
+      <effectiveTime><low value="20200115"/></effectiveTime>
+      <value xsi:type="CD" code="44054006" codeSystem="2.16.840.1.113883.6.96" displayName="Type 2 Diabetes Mellitus">
+        <translation code="E11.9" codeSystem="2.16.840.1.113883.6.3" codeSystemName="ICD-10-CM" displayName="Type 2 diabetes mellitus without complications"/>
+      </value>
+      <entryRelationship typeCode="REFR">
+        <observation classCode="OBS" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
+          <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status"/>
+          <value xsi:type="CD" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active"/>
+        </observation>
+      </entryRelationship>
+    </observation>
+  </entryRelationship>
+</act>`,
+        "json_snippet": `{
+  "problem": {
+    "code": "44054006",
+    "code_system": "2.16.840.1.113883.6.96",
+    "code_system_name": "SNOMED CT",
+    "display_name": "Type 2 Diabetes Mellitus",
+    "translations": [
+      {
+        "code": "E11.9",
+        "code_system": "2.16.840.1.113883.6.3",
+        "code_system_name": "ICD-10-CM",
+        "display_name": "Type 2 diabetes mellitus without complications"
+      }
+    ]
+  },
+  "status": "active",
+  "effective_time": {
+    "low": "2020-01-15"
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "observation/value[@xsi:type='CD']",
+            "json_path": "problems.entries[].problem",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "SNOMED CT (2.16.840.1.113883.6.96)",
+            "description": "Standardized clinical problem or diagnosis concept code.",
+            "rules": "Captures primary SNOMED CT concept; extracts nested <translation> elements for ICD-10-CM / ICD-9 mappings."
+          },
+          {
+            "xml_path": "observation/value/translation",
+            "json_path": "problems.entries[].problem.translations[]",
+            "data_type": "CD",
+            "code_system": "ICD-10-CM (2.16.840.1.113883.6.3)",
+            "description": "Secondary billing and classification codes (ICD-10, ICD-9, SNOMED translations).",
+            "rules": "Maps array of translation codes with code systems and descriptions."
+          },
+          {
+            "xml_path": "observation/entryRelationship[...2.16.840.1.113883.10.20.22.4.6]/value",
+            "json_path": "problems.entries[].status",
+            "data_type": "CD / CS",
+            "code_system": "SNOMED CT / HL7 ProblemStatus",
+            "description": "Clinical problem status (active, inactive, resolved, chronic).",
+            "rules": "Normalized string extracted from Problem Status Observation template or act/statusCode."
+          },
+          {
+            "xml_path": "observation/effectiveTime/low | high",
+            "json_path": "problems.entries[].effective_time",
+            "data_type": "IVL_TS",
+            "code_system": "ISO-8601 Date",
+            "description": "Onset date (low) and resolution/remission date (high).",
+            "rules": "Converts timestamp into structured low/high ISO-8601 date dictionary."
+          },
+          {
+            "xml_path": "observation/entryRelationship[...2.16.840.1.113883.10.20.22.4.31]/value",
+            "json_path": "problems.entries[].age_at_onset",
+            "data_type": "PQ (Physical Quantity)",
+            "code_system": "UCUM (e.g. 'a' for years)",
+            "description": "Patient's age at time of condition onset.",
+            "rules": "Extracts age value and unit, formatted to e.g. '45 years'."
+          }
+        ]
+      },
+      {
+        "id": "vital_signs",
+        "title": "Vital Signs & Measurements",
+        "badge": "Clinical Section",
+        "loinc": "8716-3",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.26 (Vital Signs Organizer)",
+        "description": "Physiological measurements including Blood Pressure, Pulse, Respiratory Rate, Temperature, SpO2, Height, Weight, and BMI.",
+        "xml_snippet": `<organizer classCode="CLUSTER" moodCode="EVN">
+  <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+  <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs"/>
+  <statusCode code="completed"/>
+  <effectiveTime value="20230514140000-0500"/>
+  <component>
+    <observation classCode="OBS" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+      <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/>
+      <statusCode code="completed"/>
+      <value xsi:type="PQ" value="128" unit="mm[Hg]"/>
+    </observation>
+  </component>
+  <component>
+    <observation classCode="OBS" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+      <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/>
+      <statusCode code="completed"/>
+      <value xsi:type="PQ" value="82" unit="mm[Hg]"/>
+    </observation>
+  </component>
+</organizer>`,
+        "json_snippet": `{
+  "panels": [
+    {
+      "panel_name": "Vital signs",
+      "date": "2023-05-14T14:00:00-05:00",
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC",
+            "display_name": "Systolic blood pressure"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 128.0,
+            "unit": "mm[Hg]"
+          }
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC",
+            "display_name": "Diastolic blood pressure"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 82.0,
+            "unit": "mm[Hg]"
+          }
+        }
+      ]
+    }
+  ]
+}`,
+        "fields": [
+          {
+            "xml_path": "observation/code/@code + @displayName",
+            "json_path": "vital_signs.panels[].measurements[].vital_sign",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "LOINC (2.16.840.1.113883.6.1)",
+            "description": "LOINC vital sign measurement code (8480-6 Systolic, 8462-4 Diastolic, 8867-4 Heart Rate, 8310-5 Temp, 2708-6 SpO2, 39156-5 BMI, 29463-7 Weight, 8302-2 Height).",
+            "rules": "Maps LOINC code and friendly name; defaults to standard LOINC table dictionary if displayName missing in XML."
+          },
+          {
+            "xml_path": "observation/value[@xsi:type='PQ']/@value + @unit",
+            "json_path": "vital_signs.panels[].measurements[].value",
+            "data_type": "PQ (Physical Quantity)",
+            "code_system": "UCUM (Unified Code for Units of Measure)",
+            "description": "Numeric measurement value and UCUM unit (mm[Hg], /min, [degF], Cel, kg, cm, kg/m2, %).",
+            "rules": "Casts numeric string to float; preserves standard UCUM bracket notation."
+          },
+          {
+            "xml_path": "observation/interpretationCode/@code",
+            "json_path": "vital_signs.panels[].measurements[].interpretation",
+            "data_type": "CE (Coded with Equiv)",
+            "code_system": "HL7 ObservationInterpretation (2.16.840.1.113883.5.83)",
+            "description": "Abnormal flag indicator (H = High, L = Low, N = Normal, A = Abnormal, HH = Critical High).",
+            "rules": "Extracts code and maps to standard human readable display name."
+          },
+          {
+            "xml_path": "organizer/effectiveTime/@value | observation/effectiveTime/@value",
+            "json_path": "vital_signs.panels[].date",
+            "data_type": "TS (Timestamp)",
+            "code_system": "ISO-8601",
+            "description": "Timestamp when vital signs encounter / measurement occurred.",
+            "rules": "Converts timestamp into ISO-8601 string."
+          }
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Diagnostic Results & Labs",
+        "badge": "Clinical Section",
+        "loinc": "30954-2",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.1 (Result Organizer)",
+        "description": "Laboratory chemistry, hematology, lipid panels, HbA1c, reference ranges, and abnormal result flags.",
+        "xml_snippet": `<organizer classCode="BATTERY" moodCode="EVN">
+  <templateId root="2.16.840.1.113883.10.20.22.4.1"/>
+  <code code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="Hemoglobin A1c"/>
+  <statusCode code="completed"/>
+  <component>
+    <observation classCode="OBS" moodCode="EVN">
+      <templateId root="2.16.840.1.113883.10.20.22.4.2"/>
+      <code code="4548-4" codeSystem="2.16.840.1.113883.6.1" displayName="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+      <statusCode code="completed"/>
+      <effectiveTime value="20230510091500-0500"/>
+      <value xsi:type="PQ" value="6.8" unit="%"/>
+      <interpretationCode code="H" codeSystem="2.16.840.1.113883.5.83" displayName="High"/>
+      <referenceRange>
+        <observationRange>
+          <value xsi:type="IVL_PQ">
+            <low value="4.0" unit="%"/>
+            <high value="5.6" unit="%"/>
+          </value>
+        </observationRange>
+      </referenceRange>
+    </observation>
+  </component>
+</organizer>`,
+        "json_snippet": `{
+  "results": [
+    {
+      "test": {
+        "code": "4548-4",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC",
+        "display_name": "Hemoglobin A1c/Hemoglobin.total in Blood"
+      },
+      "value": {
+        "type": "PQ",
+        "value": 6.8,
+        "unit": "%"
+      },
+      "interpretation": {
+        "code": "H",
+        "code_system_name": "HL7 ObservationInterpretation",
+        "display_name": "High"
+      },
+      "reference_range": {
+        "type": "IVL_PQ",
+        "low": {"value": 4.0, "unit": "%"},
+        "high": {"value": 5.6, "unit": "%"}
+      },
+      "status": "completed",
+      "date": "2023-05-10T09:15:00-05:00"
+    }
+  ]
+}`,
+        "fields": [
+          {
+            "xml_path": "observation/code/@code + @displayName",
+            "json_path": "results.results[].test",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "LOINC (2.16.840.1.113883.6.1)",
+            "description": "Standard LOINC laboratory test code (e.g. 4548-4 HbA1c, 2345-7 Glucose, 2093-3 Cholesterol).",
+            "rules": "Extracts LOINC code and test name."
+          },
+          {
+            "xml_path": "observation/value[@xsi:type='PQ' or 'ST']",
+            "json_path": "results.results[].value",
+            "data_type": "PQ (Physical Quantity) or ST (String)",
+            "code_system": "UCUM / Text",
+            "description": "Lab result value (numeric float or qualitative string like 'Positive' / 'Negative').",
+            "rules": "Preserves typing: PQ maps value (float) and unit; ST maps text."
+          },
+          {
+            "xml_path": "observation/interpretationCode/@code",
+            "json_path": "results.results[].interpretation",
+            "data_type": "CE (Coded with Equiv)",
+            "code_system": "HL7 ObservationInterpretation",
+            "description": "Interpretation flag (High 'H', Low 'L', Normal 'N', Critical 'HH'/'LL', Abnormal 'A').",
+            "rules": "Provides structured interpretation object with code and description."
+          },
+          {
+            "xml_path": "observation/referenceRange/.../value",
+            "json_path": "results.results[].reference_range",
+            "data_type": "IVL_PQ (Interval Physical Quantity)",
+            "code_system": "UCUM",
+            "description": "Normal diagnostic reference range low and high boundaries.",
+            "rules": "Maps low/high structured bounds."
+          }
+        ]
+      },
+      {
+        "id": "immunizations",
+        "title": "Immunizations & Vaccines",
+        "badge": "Clinical Section",
+        "loinc": "11369-6",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.52 (Immunization Activity)",
+        "description": "Administered and historical vaccines, CVX codes, lot numbers, administration dates, and refusal reasons.",
+        "xml_snippet": `<substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+  <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+  <id root="e6f15aab-b457-4966-bf3a-3ee13048b61d"/>
+  <statusCode code="completed"/>
+  <effectiveTime value="20221018"/>
+  <routeCode code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Intramuscular"/>
+  <consumable>
+    <manufacturedProduct classCode="MANU">
+      <templateId root="2.16.840.1.113883.10.20.22.4.54"/>
+      <manufacturedMaterial>
+        <code code="140" codeSystem="2.16.840.1.113883.12.292" displayName="Influenza, seasonal, injectable, preservative free"/>
+        <lotNumberText>FL2022-991A</lotNumberText>
+      </manufacturedMaterial>
+    </manufacturedProduct>
+  </consumable>
+</substanceAdministration>`,
+        "json_snippet": `{
+  "immunizations": {
+    "entries": [
+      {
+        "vaccine": {
+          "code": "140",
+          "code_system": "2.16.840.1.113883.12.292",
+          "code_system_name": "CVX",
+          "display_name": "Influenza, seasonal, injectable, preservative free"
+        },
+        "administration_date": "2022-10-18",
+        "status": "completed",
+        "lot_number": "FL2022-991A",
+        "route": {
+          "code": "C28161",
+          "display_name": "Intramuscular"
+        }
+      }
+    ]
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "consumable/.../manufacturedMaterial/code",
+            "json_path": "immunizations.entries[].vaccine",
+            "data_type": "CE (Coded with Equiv)",
+            "code_system": "CDC CVX (2.16.840.1.113883.12.292)",
+            "description": "CDC standard Vaccine Administered (CVX) code and description.",
+            "rules": "Maps CVX code system OID to friendly name 'CVX'."
+          },
+          {
+            "xml_path": "substanceAdministration/effectiveTime/@value",
+            "json_path": "immunizations.entries[].administration_date",
+            "data_type": "TS (Timestamp / Date)",
+            "code_system": "ISO-8601 Date",
+            "description": "Date and time vaccine was administered to patient.",
+            "rules": "Normalized to ISO-8601 date."
+          },
+          {
+            "xml_path": "manufacturedMaterial/lotNumberText",
+            "json_path": "immunizations.entries[].lot_number",
+            "data_type": "ST (String)",
+            "code_system": "Manufacturer Text",
+            "description": "Vaccine vial batch/lot identifier.",
+            "rules": "Extracts text content directly."
+          },
+          {
+            "xml_path": "substanceAdministration/@negationInd",
+            "json_path": "immunizations.entries[].refusal_reason",
+            "data_type": "BL (Boolean) + CD",
+            "code_system": "CDC Refusal Reason",
+            "description": "Tracks if vaccine was refused or contraindicated and why.",
+            "rules": "If negationInd='true', extracts refusal reason from child entryRelationship."
+          }
+        ]
+      },
+      {
+        "id": "encounters_procedures",
+        "title": "Encounters & Procedures",
+        "badge": "Clinical Section",
+        "loinc": "46240-8 / 47519-4",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.49 / 2.16.840.1.113883.10.20.22.4.14",
+        "description": "Outpatient visits, hospital admissions, consultations, surgical procedures, CPT codes, and surgeons.",
+        "xml_snippet": `<procedure classCode="PROC" moodCode="EVN">
+  <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+  <id root="d5f30730-80a5-11db-b606-0800200c9a66"/>
+  <code code="44970" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Laparoscopic Appendectomy"/>
+  <statusCode code="completed"/>
+  <effectiveTime value="20230412103000-0500"/>
+  <targetSiteCode code="66754008" codeSystem="2.16.840.1.113883.6.96" displayName="Appendix structure"/>
+  <performer>
+    <assignedEntity>
+      <id root="2.16.840.1.113883.4.6" extension="1928374650"/>
+      <assignedPerson><name><family>Stevens</family><given>Sarah</given><suffix>MD</suffix></name></assignedPerson>
+    </assignedEntity>
+  </performer>
+</procedure>`,
+        "json_snippet": `{
+  "procedures": {
+    "entries": [
+      {
+        "procedure": {
+          "code": "44970",
+          "code_system": "2.16.840.1.113883.6.12",
+          "code_system_name": "CPT-4",
+          "display_name": "Laparoscopic Appendectomy"
+        },
+        "status": "completed",
+        "date": "2023-04-12T10:30:00-05:00",
+        "target_site": {
+          "code": "66754008",
+          "code_system_name": "SNOMED CT",
+          "display_name": "Appendix structure"
+        },
+        "performers": [
+          {
+            "name": "Sarah Stevens MD",
+            "npi": "1928374650"
+          }
+        ]
+      }
+    ]
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "procedure/code/@code + @displayName",
+            "json_path": "procedures.entries[].procedure",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "CPT-4 / SNOMED CT / ICD-10-PCS",
+            "description": "Standardized procedure code identifying surgical or diagnostic intervention.",
+            "rules": "Extracts CPT-4 or SNOMED procedure concept."
+          },
+          {
+            "xml_path": "procedure/targetSiteCode",
+            "json_path": "procedures.entries[].target_site",
+            "data_type": "CD",
+            "code_system": "SNOMED CT Anatomy",
+            "description": "Anatomical location or target body structure for the procedure.",
+            "rules": "Extracts code and anatomical name."
+          },
+          {
+            "xml_path": "procedure/performer/assignedEntity",
+            "json_path": "procedures.entries[].performers[]",
+            "data_type": "CDA Performer",
+            "code_system": "NPI / Healthcare Registry",
+            "description": "Surgeons, attending physicians, or clinicians executing the procedure.",
+            "rules": "Maps clinician name, NPI identifier, and specialty."
+          },
+          {
+            "xml_path": "encounter/code + effectiveTime",
+            "json_path": "encounters.entries[]",
+            "data_type": "ENC (Encounter Activity)",
+            "code_system": "CPT / SNOMED",
+            "description": "Office visits, hospital stays, admission & discharge timestamps, and encounter diagnoses.",
+            "rules": "Traverses Encounter Activity (2.16.840.1.113883.10.20.22.4.49)."
+          }
+        ]
+      },
+      {
+        "id": "social_history_plan",
+        "title": "Social History, Plan of Care & Instructions",
+        "badge": "Clinical Section",
+        "loinc": "29762-2 / 18776-5 / 69730-0",
+        "cda_template": "2.16.840.1.113883.10.20.22.4.78 (Smoking Status) / 2.16.840.1.113883.10.20.22.2.10",
+        "description": "Smoking status, tobacco use, social determinants of health, treatment plans, follow-up orders, and instructions.",
+        "xml_snippet": `<observation classCode="OBS" moodCode="EVN">
+  <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06-09"/>
+  <code code="72166-2" codeSystem="2.16.840.1.113883.6.1" displayName="Tobacco smoking status NHIS"/>
+  <statusCode code="completed"/>
+  <effectiveTime><low value="20150601"/></effectiveTime>
+  <value xsi:type="CD" code="449868002" codeSystem="2.16.840.1.113883.6.96" displayName="Former smoker"/>
+</observation>`,
+        "json_snippet": `{
+  "social_history": {
+    "smoking_status": {
+      "code": "449868002",
+      "code_system_name": "SNOMED CT",
+      "display_name": "Former smoker",
+      "observation_date": "2015-06-01"
+    }
+  },
+  "plan_of_care": {
+    "title": "Plan of Treatment",
+    "narrative": "Follow up with endocrinologist in 3 months. Continue metformin 500mg BID. Check repeat HbA1c in August.",
+    "planned_orders": [
+      {
+        "type": "observation_request",
+        "name": "Hemoglobin A1c",
+        "target_date": "2023-08-15"
+      }
+    ]
+  }
+}`,
+        "fields": [
+          {
+            "xml_path": "observation[...2.16.840.1.113883.10.20.22.4.78]/value",
+            "json_path": "social_history.smoking_status",
+            "data_type": "CD (Concept Descriptor)",
+            "code_system": "SNOMED CT (NHIS Tobacco Codes)",
+            "description": "Standardized smoking status (Current every day smoker, Former smoker, Never smoker).",
+            "rules": "Maps standard SNOMED smoking status concepts and effective date."
+          },
+          {
+            "xml_path": "section[code/@code='18776-5']/text + entry",
+            "json_path": "plan_of_care",
+            "data_type": "Narrative + Planned Acts",
+            "code_system": "LOINC 18776-5",
+            "description": "Care goals, planned tests, upcoming appointments, and medication adjustment directives.",
+            "rules": "Extracts narrative treatment plan and structures planned order acts."
+          },
+          {
+            "xml_path": "section[code/@code='69730-0']/text",
+            "json_path": "discharge_instructions / instructions",
+            "data_type": "Narrative / ST",
+            "code_system": "LOINC 69730-0",
+            "description": "Patient discharge instructions, wound care guidelines, diet and activity restrictions.",
+            "rules": "Cleans XML narrative into human-readable text and preserves HTML tables."
+          }
+        ]
+      }
+    ];
+
+    const codeSystemsData = [
+      {"name": "LOINC", "oid": "2.16.840.1.113883.6.1", "badge": "bg-blue-500/10 text-blue-400 border-blue-500/30", "desc": "Logical Observation Identifiers Names and Codes for Lab Tests, Vitals, Clinical Documents, and Section Headings."},
+      {"name": "SNOMED CT", "oid": "2.16.840.1.113883.6.96", "badge": "bg-purple-500/10 text-purple-400 border-purple-500/30", "desc": "Systematized Nomenclature of Medicine for Clinical Findings, Diagnoses, Reactions, and Procedures."},
+      {"name": "RxNorm", "oid": "2.16.840.1.113883.6.88", "badge": "bg-emerald-500/10 text-emerald-400 border-emerald-500/30", "desc": "NLM Standardized Clinical Drug Nomenclature for Medications, Ingredients, Forms, and Strengths."},
+      {"name": "ICD-10-CM", "oid": "2.16.840.1.113883.6.3", "badge": "bg-amber-500/10 text-amber-400 border-amber-500/30", "desc": "International Classification of Diseases, Tenth Revision, Clinical Modification for Billing and Diagnoses."},
+      {"name": "CVX", "oid": "2.16.840.1.113883.12.292", "badge": "bg-indigo-500/10 text-indigo-400 border-indigo-500/30", "desc": "CDC Vaccines Administered Code System for Immunization Tracking."},
+      {"name": "CPT-4", "oid": "2.16.840.1.113883.6.12", "badge": "bg-rose-500/10 text-rose-400 border-rose-500/30", "desc": "Current Procedural Terminology for Medical, Surgical, and Diagnostic Procedures."},
+      {"name": "UCUM", "oid": "2.16.840.1.113883.6.8", "badge": "bg-teal-500/10 text-teal-400 border-teal-500/30", "desc": "Unified Code for Units of Measure for Lab & Vital Sign Physical Quantities (mm[Hg], mg, /min, etc.)."}
+    ];
+
+    let currentSectionId = "header_demographics";
+    let isDarkMode = true;
+
+    // Theme Toggle Function
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const sunIcon = document.getElementById("sunIcon");
+      const moonIcon = document.getElementById("moonIcon");
+
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        htmlEl.classList.remove("light");
+        htmlEl.classList.add("dark");
+        document.body.className = "bg-slate-950 text-slate-100 transition-colors duration-200 antialiased min-h-screen";
+        sunIcon.classList.add("hidden");
+        moonIcon.classList.remove("hidden");
+      } else {
+        htmlEl.classList.remove("dark");
+        htmlEl.classList.add("light");
+        document.body.className = "bg-slate-50 text-slate-900 transition-colors duration-200 antialiased min-h-screen";
+        moonIcon.classList.add("hidden");
+        sunIcon.classList.remove("hidden");
+      }
+    }
+
+    // Switch active clinical section tab
+    function switchSection(sectionId) {
+      currentSectionId = sectionId;
+
+      // Update Tab Styles
+      document.querySelectorAll(".section-tab").forEach(tab => {
+        tab.classList.remove("bg-blue-600", "text-white", "shadow-lg", "shadow-blue-500/20");
+        tab.classList.add("bg-slate-800/80", "text-slate-300");
+      });
+
+      const activeTab = document.getElementById("tab-" + sectionId);
+      if (activeTab) {
+        activeTab.classList.remove("bg-slate-800/80", "text-slate-300");
+        activeTab.classList.add("bg-blue-600", "text-white", "shadow-lg", "shadow-blue-500/20");
+      }
+
+      const visualWorkspace = document.getElementById("visualWorkspace");
+      const mappingTableSection = document.getElementById("mappingTableSection");
+      const vocabMatrixSection = document.getElementById("vocabMatrixSection");
+
+      if (sectionId === "vocabulary_matrix") {
+        visualWorkspace.classList.add("hidden");
+        mappingTableSection.classList.add("hidden");
+        vocabMatrixSection.classList.remove("hidden");
+        renderVocabMatrix();
+        renderVocabHeader();
+        return;
+      } else {
+        visualWorkspace.classList.remove("hidden");
+        mappingTableSection.classList.remove("hidden");
+        vocabMatrixSection.classList.add("hidden");
+      }
+
+      const section = sectionsData.find(s => s.id === sectionId) || sectionsData[0];
+
+      // Render Header Area
+      const headerArea = document.getElementById("sectionHeaderArea");
+      headerArea.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div>
+            <div class="flex items-center space-x-2">
+              <h2 class="text-base font-bold text-white tracking-tight">${escapeHtml(section.title)}</h2>
+              <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">${escapeHtml(section.badge)}</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">${escapeHtml(section.description)}</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700"><strong>LOINC:</strong> ${escapeHtml(section.loinc)}</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700"><strong>Template:</strong> ${escapeHtml(section.cda_template)}</span>
+          </div>
+        </div>
+      `;
+
+      // Render Code Blocks
+      document.getElementById("xmlCode").textContent = section.xml_snippet;
+      document.getElementById("jsonCode").textContent = section.json_snippet;
+
+      // Render Mapping Table
+      renderTable(section.fields);
+    }
+
+    function renderTable(fields) {
+      const tbody = document.getElementById("mappingTableBody");
+      const countBadge = document.getElementById("fieldCountBadge");
+      countBadge.textContent = `${fields.length} Field Mappings`;
+
+      if (!fields || fields.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="px-4 py-8 text-center text-slate-500">No field mappings matching search criteria.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = fields.map(f => `
+        <tr class="hover:bg-slate-800/40 transition-colors">
+          <td class="px-4 py-3 font-mono text-xs text-blue-400 break-all font-semibold">${escapeHtml(f.xml_path)}</td>
+          <td class="px-4 py-3 font-mono text-xs text-emerald-400 break-all font-semibold">${escapeHtml(f.json_path)}</td>
+          <td class="px-4 py-3 whitespace-nowrap">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-amber-300 font-mono text-xs border border-slate-700">${escapeHtml(f.data_type)}</span>
+          </td>
+          <td class="px-4 py-3 whitespace-nowrap">
+            <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 font-semibold text-xs border border-purple-500/30">${escapeHtml(f.code_system)}</span>
+          </td>
+          <td class="px-4 py-3 text-xs text-slate-300">
+            <div class="font-medium text-slate-200">${escapeHtml(f.description)}</div>
+            <div class="text-xs text-slate-400 mt-0.5 flex items-center space-x-1">
+              <span class="text-blue-400 font-semibold">Rule:</span>
+              <span>${escapeHtml(f.rules)}</span>
+            </div>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function renderVocabHeader() {
+      const headerArea = document.getElementById("sectionHeaderArea");
+      headerArea.innerHTML = `
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <h2 class="text-base font-bold text-white tracking-tight">Clinical Terminology &amp; Vocabularies Matrix</h2>
+          <p class="text-xs text-slate-400 mt-1">Universal medical ontologies and Object Identifiers (OIDs) resolved by the C-CDA to JSON transformation engine.</p>
+        </div>
+      `;
+    }
+
+    function renderVocabMatrix() {
+      const cardsArea = document.getElementById("vocabCardsArea");
+      cardsArea.innerHTML = codeSystemsData.map(cs => `
+        <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-slate-600 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="text-sm font-bold text-white">${escapeHtml(cs.name)}</h4>
+              <span class="px-2 py-0.5 text-xs font-semibold rounded-full border ${cs.badge}">${escapeHtml(cs.name)}</span>
+            </div>
+            <div class="font-mono text-xs text-blue-400 mb-2">OID: ${escapeHtml(cs.oid)}</div>
+            <p class="text-xs text-slate-300 leading-relaxed">${escapeHtml(cs.desc)}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // Real-time keyword search across all sections
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        const section = sectionsData.find(s => s.id === currentSectionId) || sectionsData[0];
+        renderTable(section.fields);
+        return;
+      }
+
+      // If searching, aggregate matching fields across all sections
+      const matched = [];
+      sectionsData.forEach(sec => {
+        sec.fields.forEach(f => {
+          if (
+            f.xml_path.toLowerCase().includes(q) ||
+            f.json_path.toLowerCase().includes(q) ||
+            f.data_type.toLowerCase().includes(q) ||
+            f.code_system.toLowerCase().includes(q) ||
+            f.description.toLowerCase().includes(q) ||
+            f.rules.toLowerCase().includes(q)
+          ) {
+            matched.push(f);
+          }
+        });
+      });
+
+      renderTable(matched);
+    }
+
+    function copySnippet(elementId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Snippet copied to clipboard!");
+      }).catch(() => {
+        console.error("Clipboard copy failed");
+      });
+    }
+
+    function loadSample(sampleKey) {
+      if (sampleKey === "ccd") {
+        switchSection("medications");
+      } else if (sampleKey === "discharge") {
+        switchSection("encounters_procedures");
+      } else if (sampleKey === "referral") {
+        switchSection("vital_signs");
+      }
+    }
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Initialize default section
+    document.addEventListener("DOMContentLoaded", () => {
+      switchSection("header_demographics");
+    });
+  </script>
+</body>
+</html>

@@ -7,12 +7,14 @@ Consultation Notes, Care Plans, etc.) into clean, structured JSON format.
 
 from .models import CodedConcept, ParsedCCDA, PatientDemographics
 from .parser import CCDAParser, parse_ccda, parse_ccda_file
+from .visualizer import generate_patient_dashboard_html
 
 __version__ = "1.0.0"
 __all__ = [
     "CCDAParser",
     "parse_ccda",
     "parse_ccda_file",
+    "generate_patient_dashboard_html",
     "ParsedCCDA",
     "PatientDemographics",
     "CodedConcept",

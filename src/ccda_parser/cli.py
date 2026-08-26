@@ -13,8 +13,10 @@ from typing import Any, Dict, List
 if __package__ is None or __package__ == "":
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from ccda_parser.parser import CCDAParser, parse_ccda_file
+    from ccda_parser.visualizer import generate_patient_dashboard_html
 else:
     from .parser import CCDAParser, parse_ccda_file
+    from .visualizer import generate_patient_dashboard_html
 
 
 def main() -> int:
@@ -29,11 +31,15 @@ Examples:
   ccda-parser input.xml --sections allergies,medications,problems
   ccda-parser input.xml --summary
   ccda-parser input.xml --csv-export ./csv_tables/
+  ccda-parser input.xml --html-report patient_report.html
+  ccda-parser --mapping-dashboard docs/mapping_dashboard.html
         """,
     )
 
     parser.add_argument(
         "input",
+        nargs="?",
+        default=None,
         help="Path to C-CDA XML file or directory containing XML files.",
     )
     parser.add_argument(
@@ -66,6 +72,16 @@ Examples:
         help="Export parsed clinical sections (allergies, meds, vitals, labs, problems) to CSV files in DIR.",
     )
     parser.add_argument(
+        "--html-report",
+        metavar="FILE",
+        help="Generate an interactive Canvas UI HTML patient report dashboard.",
+    )
+    parser.add_argument(
+        "--mapping-dashboard",
+        metavar="FILE",
+        help="Export the comprehensive C-CDA to JSON mapping matrix interactive dashboard HTML to FILE.",
+    )
+    parser.add_argument(
         "--strict",
         action="store_true",
         help="Enable strict mode (fail on any malformed XML section).",
@@ -78,6 +94,19 @@ Examples:
 
     # Filter sections if specified
     filter_sections = [s.strip().lower() for s in args.sections.split(",")] if args.sections else None
+
+    # Handle --mapping-dashboard if requested
+    if args.mapping_dashboard:
+        out_dash = args.mapping_dashboard
+        from scripts.generate_mapping_dashboard import generate_html_dashboard
+        generate_html_dashboard(out_dash)
+        print(f"✓ C-CDA to JSON Mapping Matrix Dashboard generated at: {out_dash}")
+        if not input_path:
+            return 0
+
+    if not input_path:
+        parser.print_help()
+        return 1
 
     # Handle Directory or Single File
     if os.path.isdir(input_path):
@@ -104,6 +133,14 @@ Examples:
                 with open(out_file, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=indent, ensure_ascii=False, default=str)
                 print(f"✓ Converted: {xml_file} -> {out_file}")
+
+                # If html report directory requested
+                if args.html_report:
+                    report_html = generate_patient_dashboard_html(data)
+                    report_file = os.path.join(out_dir, f"{base_name}_dashboard.html")
+                    with open(report_file, "w", encoding="utf-8") as f:
+                        f.write(report_html)
+                    print(f"✓ Visual Report: {report_file}")
             except Exception as e:
                 print(f"✗ Failed to convert {xml_file}: {e}", file=sys.stderr)
 
@@ -124,6 +161,13 @@ Examples:
                 export_to_csv(data, args.csv_export)
                 print(f"✓ Exported CSV tables to {args.csv_export}")
 
+            if args.html_report:
+                report_html = generate_patient_dashboard_html(data)
+                os.makedirs(os.path.dirname(os.path.abspath(args.html_report)), exist_ok=True)
+                with open(args.html_report, "w", encoding="utf-8") as f:
+                    f.write(report_html)
+                print(f"✓ Visual Dashboard saved to {args.html_report}")
+
             json_str = json.dumps(data, indent=indent, ensure_ascii=False, default=str)
 
             if args.output:
@@ -131,7 +175,7 @@ Examples:
                 with open(args.output, "w", encoding="utf-8") as f:
                     f.write(json_str)
                 print(f"✓ JSON saved to {args.output}")
-            elif not args.summary:
+            elif not args.summary and not args.html_report:
                 print(json_str)
 
             return 0

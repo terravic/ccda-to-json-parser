@@ -148,7 +148,30 @@ python3 parse.py samples/sample_1_continuity_of_care_document.xml --sections all
 
 # Export clinical tables directly to CSV files
 python3 parse.py samples/sample_1_continuity_of_care_document.xml --csv-export ./csv_out/
+
+# Generate an interactive Canvas UI HTML patient dashboard
+python3 parse.py samples/sample_1_continuity_of_care_document.xml --html-report patient_dashboard.html
+
+# Open or generate the C-CDA to JSON Mapping Matrix visual dashboard
+python3 parse.py --mapping-dashboard docs/ccda_mapping_dashboard.html
 ```
+
+---
+
+## 🎨 Interactive Canvas UI & Visual Dashboards
+
+This skill provides rich, interactive **Canvas UI elements** designed for **Gemini Enterprise App**, **Spark**, and **Antigravity** harnesses:
+
+1. **C-CDA to JSON Mapping Matrix Dashboard (`docs/ccda_mapping_dashboard.html`)**:
+   - **Interactive Clinical Explorer**: Visual deep-dive into all 12 clinical domains (Demographics, Allergies, Medications, Problems, Vitals, Labs, Immunizations, Encounters, Procedures, Social History, Care Plan, Generic Sections).
+   - **Side-by-Side Live Transformation**: Direct visual link between source HL7 C-CDA XML snippets and target normalized JSON structures.
+   - **Field-by-Field Rules**: Detailed breakdown of XPath expressions, data types (`PQ`, `CD`, `IVL_TS`, `ST`), vocabulary systems (LOINC, SNOMED, RxNorm, CVX, ICD-10), and null flavor resilience.
+   - **Live Keyword Search & Filter**: Real-time cross-section search.
+   - **Light/Dark Display Toggle**: High-contrast, business-like health-tech UI.
+
+2. **Patient Visual Dashboard Generator (`--html-report`)**:
+   - Generates an executive patient report with vital signs cards, active medication badges, problem lists, allergy alerts, and collapsible raw JSON inspection.
+
 
 ---
 
