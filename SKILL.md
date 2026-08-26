@@ -339,18 +339,18 @@ The skill repository includes 3 realistic, synthetic C-CDA XML files for testing
 
 ## Interactive Canvas UI & Visual Dashboards
 
-This skill includes full support for **Canvas UI elements** designed for agent harnesses like **Gemini Enterprise App**, **Spark**, and **Antigravity**.
+This skill includes full support for **Canvas UI elements** designed for AI agent platforms, chat environments, and web browsers.
 
 ### Canvas UI Runtime Architecture
 - **Iframe Sandboxing**: Canvas renders self-contained HTML5 / CSS / JavaScript inside an isolated iframe or webview.
-- **Allowed Styling Assets**: Tailwind CSS is fully enabled via the allowlisted gstatic dependency:
+- **Allowed Styling Assets**: Tailwind CSS is loaded for responsive styling and high-contrast clinical dashboards:
   ```html
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   ```
 - **Theme Variables & Light/Dark Mode**: Uses semantic host theme tokens (`--app-background`, `--app-foreground`, `--app-card`, `--app-border`, etc.) alongside native Light/Dark toggle controls with high contrast accessibility.
 - **Inline Chat Embeds & Side-Pane Canvas**: Supports embedding visual cards in chat using `<agent-embed>` or opening full dashboards in the auxiliary side-pane:
   ```html
-  <agent-embed src="file:///path/to/docs/ccda_mapping_dashboard.html" height="500px"></agent-embed>
+  <agent-embed src="docs/ccda_mapping_dashboard.html" height="500px"></agent-embed>
   ```
 
 ---

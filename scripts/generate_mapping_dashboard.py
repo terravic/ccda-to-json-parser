@@ -458,24 +458,21 @@ CODE_SYSTEMS = [
 
 
 def generate_html_dashboard(output_file: str) -> None:
-    # Read the canonical template from docs/ccda_mapping_dashboard.html or artifact if present
-    template_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "ccda_mapping_dashboard.html")
+    # Read the canonical template from docs/ccda_mapping_dashboard.html relative to project root
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    template_path = os.path.join(project_root, "docs", "ccda_mapping_dashboard.html")
+    
     if os.path.exists(template_path):
         with open(template_path, "r", encoding="utf-8") as f:
             html = f.read()
     else:
-        # Fallback to copy from artifact if available
-        art_path = "/usr/local/google/home/rolandmm/.gemini/jetski/brain/1e225aa0-cac2-4038-81f2-17eeb7bebf19/ccda_mapping_dashboard.html"
-        if os.path.exists(art_path):
-            with open(art_path, "r", encoding="utf-8") as f:
-                html = f.read()
-        else:
-            raise FileNotFoundError("Canonical dashboard template not found.")
+        raise FileNotFoundError(f"Canonical dashboard template not found at {template_path}")
 
-    os.makedirs(os.path.dirname(os.path.abspath(output_file)), exist_ok=True)
-    with open(output_file, "w", encoding="utf-8") as f:
+    out_abs = os.path.abspath(output_file)
+    os.makedirs(os.path.dirname(out_abs), exist_ok=True)
+    with open(out_abs, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✓ Interactive Dashboard generated successfully at: {output_file}")
+    print(f"Interactive Dashboard generated successfully at: {output_file}")
 
 
 def main():

@@ -1,7 +1,7 @@
 """
 HTML / Canvas Visualizer Generator for Parsed C-CDA JSON Documents.
-Renders an executive interactive patient dashboard for Antigravity, Gemini Enterprise App,
-Spark Canvas UI, or standalone browser viewing.
+Renders an executive interactive patient dashboard for AI Agent Canvas UI
+or standalone web browser viewing.
 """
 
 import json
@@ -238,7 +238,7 @@ def generate_patient_dashboard_html(data: Dict[str, Any], title: str = "Clinical
 
     <!-- Footer -->
     <footer class="mt-8 text-center text-xs text-slate-500 py-4 border-t border-slate-800">
-      Antigravity / Gemini Enterprise App C-CDA Canvas Visualizer • {doc_title} • Generated: {doc_date}
+      Clinical C-CDA Canvas Visualizer • {doc_title} • Generated: {doc_date}
     </footer>
 
   </div>
