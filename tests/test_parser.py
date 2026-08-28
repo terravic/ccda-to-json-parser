@@ -169,14 +169,14 @@ class TestVisualizer(unittest.TestCase):
             input_filename="sample_test.xml",
         )
 
-        # Ensure HTML structure contains input XML file and output JSON components
+        # Ensure HTML structure contains mapping dashboard and terminology matrix components
         self.assertIn("Eleanor Vance", html_out)
-        self.assertIn("Input XML File", html_out)
-        self.assertIn("Output JSON", html_out)
-        self.assertIn("Side-by-Side (XML vs JSON)", html_out)
-        self.assertIn("Clinical Tables", html_out)
+        self.assertIn("HL7 C-CDA to JSON Mapping Matrix", html_out)
+        self.assertIn("Terminology Matrix", html_out)
+        self.assertIn("Medications", html_out)
+        self.assertIn("Allergies", html_out)
         self.assertIn("sample_test.xml", html_out)
-        self.assertIn("Metformin 500 MG", html_out)
+        self.assertIn("Metformin", html_out)
 class TestNonConformingCCDA(unittest.TestCase):
     def test_sample_4_non_conforming_document(self):
         sample_path = os.path.join(
