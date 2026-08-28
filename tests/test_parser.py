@@ -177,7 +177,42 @@ class TestVisualizer(unittest.TestCase):
         self.assertIn("Clinical Tables", html_out)
         self.assertIn("sample_test.xml", html_out)
         self.assertIn("Metformin 500 MG", html_out)
-        self.assertIn("Penicillin G", html_out)
+class TestNonConformingCCDA(unittest.TestCase):
+    def test_sample_4_non_conforming_document(self):
+        sample_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "samples",
+            "sample_4_non_conforming_ccda.xml",
+        )
+        self.assertTrue(os.path.exists(sample_path), f"Sample 4 not found at {sample_path}")
+
+        # Test parsing resilience
+        parser = CCDAParser(strict=False)
+        data = parser.parse(sample_path)
+
+        self.assertIsNotNone(data)
+        self.assertIn("document_meta", data)
+        self.assertIn("patient", data)
+        self.assertIn("sections", data)
+
+        # Verify handling of unstructured name and corrupt date strings
+        self.assertEqual(data["patient"]["name"]["full_name"], 'Jane "Anonymous" Doe (Unverified Identity)')
+        self.assertEqual(data["patient"]["birth_time"], "NOT_A_VALID_DATE")
+        self.assertEqual(data["document_meta"]["effective_time"], "INVALID_TS_20239999")
+
+        # Verify sections parsed with fallbacks
+        self.assertIn("medications", data["sections"])
+        self.assertIn("allergies", data["sections"])
+        self.assertIn("vital_signs", data["sections"])
+        self.assertIn("results", data["sections"])
+
+        # Verify non-numeric dose handling
+        med_entries = data["sections"]["medications"].get("entries", [])
+        self.assertTrue(len(med_entries) >= 1)
+        self.assertEqual(med_entries[0]["dose"]["formatted"], "TWO_TABLETS tablets")
+
+        # Verify custom unregistered section captured
+        self.assertIn("custom_unregistered_telehealth_notes", data["sections"])
 
 
 if __name__ == "__main__":

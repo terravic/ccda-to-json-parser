@@ -152,10 +152,12 @@ ccda-to-json-parser/
 │   ├── sample_1_continuity_of_care_document.xml       # Synthetic outpatient CCD XML file
 │   ├── sample_2_discharge_summary.xml                # Synthetic inpatient discharge summary XML file
 │   ├── sample_3_cardiology_referral_note.xml         # Synthetic cardiology referral note XML file
+│   ├── sample_4_non_conforming_ccda.xml              # Non-conforming XML test case for error catching
 │   └── converted_json/
 │       ├── sample_1_continuity_of_care_document.json # Pre-converted CCD JSON output
 │       ├── sample_2_discharge_summary.json           # Pre-converted discharge summary JSON output
-│       └── sample_3_cardiology_referral_note.json   # Pre-converted referral note JSON output
+│       ├── sample_3_cardiology_referral_note.json   # Pre-converted referral note JSON output
+│       └── sample_4_non_conforming_ccda.json         # Pre-converted non-conforming test output
 ├── scripts/
 │   ├── convert_all_samples.py                         # Batch sample conversion utility script
 │   ├── generate_mapping_dashboard.py                  # Mapping matrix dashboard HTML generator
@@ -380,11 +382,12 @@ python3 scripts/validate_ccda.py samples/sample_1_continuity_of_care_document.xm
 
 ## Synthetic Sample Files
 
-The repository includes 3 realistic, synthetic clinical documents:
+The repository includes 4 synthetic clinical documents demonstrating both standard compliance and error resilience:
 
 1. **`sample_1_continuity_of_care_document.xml`**: Comprehensive outpatient CCD record for Eleanor Vance with Type 2 Diabetes, Hypertension, Hyperlipidemia, active medications, allergies (Penicillin, Peanut), lab results (HbA1c 6.8%, Lipid panel), vitals, immunizations, and care plan.
 2. **`sample_2_discharge_summary.xml`**: Hospital inpatient discharge summary for Marcus Thorne following laparoscopic appendectomy, featuring hospital course narrative, discharge medications, post-operative care instructions, and sulfa allergy.
 3. **`sample_3_cardiology_referral_note.xml`**: Specialist consultation note for Sophia Rodriguez presenting with palpitations and heart murmur, including physical exam, vital signs, outpatient encounter billing codes, and diagnostic orders (Holter ECG, Echocardiogram).
+4. **`sample_4_non_conforming_ccda.xml`**: Non-conforming test case with intentional C-CDA schema deviations (missing US Realm header templateId, malformed dates, unstructured patient name, non-numeric dosages, broken narrative references, and unmapped sections) used for testing validation error detection and parsing resilience.
 
 ---
 

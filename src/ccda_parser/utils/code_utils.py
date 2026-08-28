@@ -163,12 +163,12 @@ def parse_value_element(elem: Optional[ET.Element]) -> Optional[Any]:
     # Check for Physical Quantity (PQ)
     val = get_attr(elem, "value")
     unit = get_attr(elem, "unit")
-    if val is not None and unit is not None:
+    if val is not None and (unit is not None or (xsi_type and "pq" in xsi_type.lower())):
         return {
             "type": "PQ",
             "value": float(val) if is_number(val) else val,
             "unit": unit,
-            "formatted": f"{val} {unit}".strip(),
+            "formatted": f"{val} {unit}".strip() if unit else str(val),
         }
 
     # Check for Coded Value (CD / CE)
@@ -184,8 +184,11 @@ def parse_value_element(elem: Optional[ET.Element]) -> Optional[Any]:
         if val.lower() in ("true", "false"):
             return {"type": "BL", "value": val.lower() == "true"}
         if is_number(val):
-            num = float(val) if "." in val else int(val)
-            return {"type": "NUM", "value": num}
+            try:
+                num = float(val) if "." in val else int(val)
+                return {"type": "NUM", "value": num}
+            except (ValueError, TypeError):
+                return {"type": "ST", "value": val}
         return {"type": "ST", "value": val}
 
     # Check for Interval Physical Quantity (IVL_PQ)
@@ -210,10 +213,21 @@ def parse_value_element(elem: Optional[ET.Element]) -> Optional[Any]:
     return None
 
 
-def is_number(s: str) -> bool:
-    """Check if string is numeric (int or float)."""
+def is_number(s: Any) -> bool:
+    """Check if value is a valid finite numeric value (int or float)."""
+    if s is None:
+        return False
+    if isinstance(s, (int, float)):
+        import math
+        return not (math.isnan(s) or math.isinf(s))
+    if not isinstance(s, str):
+        return False
+    s_str = s.strip().lower()
+    if s_str in ("nan", "inf", "-inf", "+inf", "infinity", "-infinity", ""):
+        return False
     try:
-        float(s)
-        return True
+        val = float(s_str)
+        import math
+        return not (math.isnan(val) or math.isinf(val))
     except (ValueError, TypeError):
         return False

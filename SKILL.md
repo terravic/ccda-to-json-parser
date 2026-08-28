@@ -327,11 +327,12 @@ The resulting JSON adheres to a clean, hierarchical schema:
 
 ## Bundled Sample Files
 
-The skill repository includes 3 realistic, synthetic C-CDA XML files for testing and verification:
+The skill repository includes 4 synthetic C-CDA XML files for testing standard parsing and error resilience:
 
 1. `samples/sample_1_continuity_of_care_document.xml`: Comprehensive outpatient Continuity of Care Document (CCD) for a patient with Type 2 Diabetes, Hypertension, Hyperlipidemia, active medications, allergies, labs (HbA1c, Lipids), vitals, immunizations, and care plan.
 2. `samples/sample_2_discharge_summary.xml`: Inpatient hospital discharge summary for a patient who underwent laparoscopic appendectomy, featuring hospital course narrative, admission/discharge diagnoses, discharge medications, post-op instructions, and allergies.
 3. `samples/sample_3_cardiology_referral_note.xml`: Specialist cardiology referral note with reason for referral, cardiovascular physical exam, vital signs, outpatient consultation billing encounter, and ordered diagnostics (Holter monitor, Echocardiogram).
+4. `samples/sample_4_non_conforming_ccda.xml`: Non-conforming test case with intentional C-CDA schema deviations (missing US Realm header templateId, malformed dates, unstructured patient name, non-numeric dosages, broken narrative references, and unmapped sections) used for testing validation error detection and parsing resilience.
 
 ---
 
