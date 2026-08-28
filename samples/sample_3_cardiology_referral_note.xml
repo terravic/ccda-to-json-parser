@@ -2,6 +2,7 @@
 <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <realmCode code="US"/>
   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <!-- US Realm Header Template -->
   <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
   <!-- Consultation Note Template -->
   <templateId root="2.16.840.1.113883.10.20.22.1.4" extension="2015-08-01"/>
@@ -11,11 +12,15 @@
   <effectiveTime value="20231104093000-0500"/>
   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
   <languageCode code="en-US"/>
+  <setId root="2.16.840.1.113883.19.5" extension="SET-CONSULT-11029"/>
+  <versionNumber value="1"/>
 
   <!-- PATIENT DEMOGRAPHICS -->
   <recordTarget>
     <patientRole>
       <id root="2.16.840.1.113883.19.5" extension="MRN-773901" assigningAuthorityName="Heart &amp; Vascular Institute"/>
+      <id root="2.16.840.1.113883.4.1" extension="999-44-1290" assigningAuthorityName="SSN"/>
+      <id root="2.16.840.1.113883.4.3.25" extension="DL-MA-8492019" assigningAuthorityName="Massachusetts RMV"/>
       <addr use="HP">
         <streetAddressLine>1204 Oak Ridge Lane</streetAddressLine>
         <city>Boston</city>
@@ -24,6 +29,7 @@
         <country>US</country>
       </addr>
       <telecom use="HP" value="tel:+1-617-555-0144"/>
+      <telecom use="MC" value="tel:+1-617-555-0188"/>
       <telecom use="HP" value="mailto:sophia.rodriguez@example.com"/>
       <patient>
         <name use="L">
@@ -35,8 +41,25 @@
         <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
         <birthTime value="19710314"/>
         <maritalStatusCode code="M" codeSystem="2.16.840.1.113883.5.2" displayName="Married"/>
+        <religiousAffiliationCode code="1013" codeSystem="2.16.840.1.113883.5.1076" displayName="Christian"/>
         <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" displayName="White"/>
         <ethnicGroupCode code="2135-2" codeSystem="2.16.840.1.113883.6.238" displayName="Hispanic or Latino"/>
+        <guardian>
+          <code code="SPS" codeSystem="2.16.840.1.113883.5.111" displayName="Spouse"/>
+          <addr use="HP">
+            <streetAddressLine>1204 Oak Ridge Lane</streetAddressLine>
+            <city>Boston</city>
+            <state>MA</state>
+            <postalCode>02115</postalCode>
+          </addr>
+          <telecom use="HP" value="tel:+1-617-555-0145"/>
+          <guardianPerson>
+            <name>
+              <given>Carlos</given>
+              <family>Rodriguez</family>
+            </name>
+          </guardianPerson>
+        </guardian>
         <languageCommunication>
           <languageCode code="es"/>
           <preferenceInd value="false"/>
@@ -46,6 +69,18 @@
           <preferenceInd value="true"/>
         </languageCommunication>
       </patient>
+      <providerOrganization>
+        <id root="2.16.840.1.113883.19.5"/>
+        <name>Boston Heart &amp; Vascular Institute</name>
+        <telecom use="WP" value="tel:+1-617-555-4000"/>
+        <addr use="WP">
+          <streetAddressLine>75 Francis Street</streetAddressLine>
+          <city>Boston</city>
+          <state>MA</state>
+          <postalCode>02115</postalCode>
+          <country>US</country>
+        </addr>
+      </providerOrganization>
     </patientRole>
   </recordTarget>
 
@@ -64,13 +99,33 @@
         </name>
       </assignedPerson>
       <representedOrganization>
-        <name>Boston Heart &amp; Vascular Institute</name>
+        <name>Boston Heart &amp; Vascular Institute - Division of Cardiology</name>
         <addr use="WP">
-          <streetAddressLine>75 Francis Street</streetAddressLine>
+          <streetAddressLine>75 Francis Street, Suite 400</streetAddressLine>
           <city>Boston</city>
           <state>MA</state>
           <postalCode>02115</postalCode>
         </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- REFERRING PRIMARY CARE PHYSICIAN AUTHOR -->
+  <author>
+    <time value="20231020101500-0500"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.4.6" extension="1928374650" assigningAuthorityName="NPI"/>
+      <code code="207Q00000X" codeSystem="2.16.840.1.113883.6.101" displayName="Family Medicine / Internal Medicine"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Amanda</given>
+          <family>Clark</family>
+          <suffix>MD</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>Brigham Primary Care Associates</name>
       </representedOrganization>
     </assignedAuthor>
   </author>
@@ -92,22 +147,384 @@
     </assignedCustodian>
   </custodian>
 
+  <!-- LEGAL AUTHENTICATOR -->
+  <legalAuthenticator>
+    <time value="20231104101500-0500"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id root="2.16.840.1.113883.4.6" extension="1892019283"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Vikram</given>
+          <family>Patel</family>
+          <suffix>MD, FACC</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>Boston Heart &amp; Vascular Institute</name>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
+  <!-- ENCOMPASSING CONSULTATION ENCOUNTER -->
+  <componentOf>
+    <encompassingEncounter>
+      <id root="2.16.840.1.113883.19.5" extension="ENC-CARD-2023-991"/>
+      <code code="AMB" codeSystem="2.16.840.1.113883.5.4" displayName="Ambulatory Outpatient Consultation"/>
+      <effectiveTime>
+        <low value="20231104090000-0500"/>
+        <high value="20231104103000-0500"/>
+      </effectiveTime>
+      <dischargeDispositionCode code="01" codeSystem="2.16.840.1.113883.12.112" displayName="Discharged to Home or Self Care"/>
+      <encounterParticipant typeCode="ATND">
+        <assignedEntity>
+          <id root="2.16.840.1.113883.4.6" extension="1892019283"/>
+          <assignedPerson>
+            <name>
+              <prefix>Dr.</prefix>
+              <given>Vikram</given>
+              <family>Patel</family>
+              <suffix>MD, FACC</suffix>
+            </name>
+          </assignedPerson>
+        </assignedEntity>
+      </encounterParticipant>
+      <location>
+        <healthCareFacility>
+          <id root="2.16.840.1.113883.19.5" extension="CLINIC-CARD-4W"/>
+          <code code="CARD" codeSystem="2.16.840.1.113883.5.111" displayName="Cardiology Clinic"/>
+          <location>
+            <name>Cardiovascular Outpatient Pavilion, 4th Floor</name>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+
   <component>
     <structuredBody>
 
-      <!-- REASON FOR REFERRAL -->
+      <!-- 1. REASON FOR REFERRAL -->
       <component>
         <section>
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
           <code code="42349-1" codeSystem="2.16.840.1.113883.6.1" displayName="Reason for Referral"/>
-          <title>Reason for Referral</title>
+          <title>Reason for Referral &amp; History of Present Illness</title>
           <text>
-            <paragraph>Referred by Dr. Amanda Clark, MD for evaluation of recurrent episodic palpitations, exertional shortness of breath, and a newly detected grade 2/6 systolic ejection murmur.</paragraph>
+            <paragraph><strong>Reason for Consultation:</strong> Mrs. Sophia Rodriguez is a 52-year-old female referred by her primary care physician, Dr. Amanda Clark, MD, for specialist evaluation of recurrent episodic palpitations, sensations of skipped heartbeats, exertional lightheadedness, and a newly detected grade 2/6 systolic ejection murmur.</paragraph>
+            <paragraph><strong>History of Present Illness:</strong> The patient reports a 3-month history of awareness of rapid, irregular heartbeats occurring 3 to 4 times per week, typically lasting between 5 to 30 minutes. Symptoms occur both at rest and during mild exertion (e.g., climbing two flights of stairs at work). She denies syncope, chest pressure, orthopnea, or paroxysmal nocturnal dyspnea. She notes mild shortness of breath when hurrying up inclines. Has a history of essential hypertension and hyperlipidemia treated with Amlodipine and HCTZ.</paragraph>
           </text>
         </section>
       </component>
 
-      <!-- CURRENT MEDICATIONS -->
+      <!-- 2. PROBLEMS & ACTIVE CONDITIONS -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
+          <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List"/>
+          <title>Problems &amp; Active Conditions</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Condition / Diagnosis</th>
+                  <th>SNOMED CT</th>
+                  <th>ICD-10-CM</th>
+                  <th>Onset Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Palpitations / Premature ventricular contractions</td>
+                  <td>28651003</td>
+                  <td>I49.3</td>
+                  <td>2023-08-15</td>
+                  <td>Active (Under evaluation)</td>
+                </tr>
+                <tr>
+                  <td>Cardiac murmur, unspecified</td>
+                  <td>88610006</td>
+                  <td>R01.1</td>
+                  <td>2023-10-20</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Essential (primary) hypertension</td>
+                  <td>59621000</td>
+                  <td>I10</td>
+                  <td>2017-04-10</td>
+                  <td>Active (Controlled)</td>
+                </tr>
+                <tr>
+                  <td>Primary hypercholesterolemia / Hyperlipidemia</td>
+                  <td>13644009</td>
+                  <td>E78.00</td>
+                  <td>2019-06-22</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Exertional dyspnea</td>
+                  <td>60845006</td>
+                  <td>R06.02</td>
+                  <td>2023-09-01</td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Problem 1: Palpitations -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id root="p301-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20230815"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="p302-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="282291009" codeSystem="2.16.840.1.113883.6.96" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20230815"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="28651003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Palpitations">
+                    <translation code="I49.3" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Premature ventricular contractions"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Problem 2: Cardiac Murmur -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id root="p303-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20231020"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="p304-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="282291009" codeSystem="2.16.840.1.113883.6.96" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="88610006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Cardiac murmur">
+                    <translation code="R01.1" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Cardiac murmur, unspecified"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Problem 3: Hypertension -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id root="p305-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20170410"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="p306-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="282291009" codeSystem="2.16.840.1.113883.6.96" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="59621000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Essential hypertension">
+                    <translation code="I10" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Essential (primary) hypertension"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Problem 4: Hyperlipidemia -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id root="p307-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20190622"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="p308-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="282291009" codeSystem="2.16.840.1.113883.6.96" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="13644009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Hypercholesterolemia">
+                    <translation code="E78.00" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Pure hypercholesterolemia, unspecified"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Problem 5: Exertional Dyspnea -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id root="p309-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20230901"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="p310-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="282291009" codeSystem="2.16.840.1.113883.6.96" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="60845006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Dyspnea on exertion">
+                    <translation code="R06.02" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Shortness of breath on exertion"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 3. ALLERGIES & ADVERSE REACTIONS -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies and adverse reactions Document"/>
+          <title>Allergies &amp; Intolerances</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Substance</th>
+                  <th>RxNorm / Code</th>
+                  <th>Reaction</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lisinopril (ACE Inhibitors)</td>
+                  <td>314076</td>
+                  <td>Severe intractable dry cough and mild lip angioedema</td>
+                  <td>Severe</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Simvastatin</td>
+                  <td>36567</td>
+                  <td>Severe bilateral lower extremity myalgias / muscle cramps</td>
+                  <td>Moderate</td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Allergy 1: Lisinopril -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <id root="a301-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20180512"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <id root="a302-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="314076" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Lisinopril"/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <value xsi:type="CD" code="418363000" codeSystem="2.16.840.1.113883.6.96" displayName="Angioedema and cough"/>
+                      <entryRelationship typeCode="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                          <value xsi:type="CD" code="24484000" codeSystem="2.16.840.1.113883.6.96" displayName="Severe"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Allergy 2: Simvastatin -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <id root="a303-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20201103"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <id root="a304-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="59037007" codeSystem="2.16.840.1.113883.6.96" displayName="Drug intolerance"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="36567" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Simvastatin"/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <value xsi:type="CD" code="68962001" codeSystem="2.16.840.1.113883.6.96" displayName="Myalgia"/>
+                      <entryRelationship typeCode="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                          <value xsi:type="CD" code="6736007" codeSystem="2.16.840.1.113883.6.96" displayName="Moderate"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 4. CURRENT MEDICATIONS -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.1.1" extension="2014-06-09"/>
@@ -118,34 +535,67 @@
               <thead>
                 <tr>
                   <th>Medication</th>
+                  <th>RxNorm Code</th>
                   <th>Dose</th>
                   <th>Route</th>
-                  <th>Frequency</th>
+                  <th>Frequency &amp; Instructions</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Amlodipine Besylate 5 MG Oral Tablet</td>
+                  <td>197361</td>
                   <td>5 mg</td>
                   <td>Oral</td>
-                  <td>Once daily in the morning</td>
+                  <td>Take 1 tablet once daily in the morning for blood pressure.</td>
                   <td>Active</td>
                 </tr>
                 <tr>
                   <td>Hydrochlorothiazide 12.5 MG Oral Tablet</td>
+                  <td>310798</td>
                   <td>12.5 mg</td>
                   <td>Oral</td>
-                  <td>Once daily in the morning</td>
+                  <td>Take 1 tablet once daily in the morning with breakfast.</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Atorvastatin 20 MG Oral Tablet</td>
+                  <td>259255</td>
+                  <td>20 mg</td>
+                  <td>Oral</td>
+                  <td>Take 1 tablet once daily at bedtime for cholesterol.</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Metoprolol Tartrate 25 MG Oral Tablet</td>
+                  <td>866417</td>
+                  <td>25 mg</td>
+                  <td>Oral</td>
+                  <td>Take 1 tablet twice daily with meals (Initiated today for palpitations/PVC suppression).</td>
+                  <td>Active (New)</td>
+                </tr>
+                <tr>
+                  <td>Aspirin 81 MG Enteric Coated Oral Tablet</td>
+                  <td>243670</td>
+                  <td>81 mg</td>
+                  <td>Oral</td>
+                  <td>Take 1 tablet once daily for cardioprotection.</td>
                   <td>Active</td>
                 </tr>
               </tbody>
             </table>
           </text>
+
+          <!-- Medication 1: Amlodipine -->
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id root="m301-3451-11e2-81c1-0800200c9a66"/>
               <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20180601"/>
+              </effectiveTime>
               <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true">
                 <period value="24" unit="h"/>
               </effectiveTime>
@@ -161,10 +611,110 @@
               </consumable>
             </substanceAdministration>
           </entry>
+
+          <!-- Medication 2: HCTZ -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id root="m302-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20180601"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Oral"/>
+              <doseQuantity value="12.5" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="310798" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Hydrochlorothiazide 12.5 MG Oral Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Medication 3: Atorvastatin -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id root="m303-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20210115"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Oral"/>
+              <doseQuantity value="20" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="259255" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Atorvastatin 20 MG Oral Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Medication 4: Metoprolol Tartrate -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id root="m304-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20231104"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true">
+                <period value="12" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Oral"/>
+              <doseQuantity value="25" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="866417" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Metoprolol Tartrate 25 MG Oral Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Medication 5: Aspirin -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id root="m305-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20220310"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Oral"/>
+              <doseQuantity value="81" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="243670" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Aspirin 81 MG Delayed Release Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
         </section>
       </component>
 
-      <!-- VITAL SIGNS -->
+      <!-- 5. VITAL SIGNS -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08-01"/>
@@ -174,62 +724,185 @@
             <table border="1" width="100%">
               <thead>
                 <tr>
-                  <th>Measurement</th>
+                  <th>Vital Sign</th>
                   <th>Value</th>
                   <th>Unit</th>
+                  <th>Interpretation</th>
+                  <th>Reference Range</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Blood Pressure</td>
-                  <td>134 / 86</td>
+                  <td>Systolic Blood Pressure</td>
+                  <td>134</td>
                   <td>mm[Hg]</td>
+                  <td>Prehypertension</td>
+                  <td>90 - 120 mm[Hg]</td>
                 </tr>
                 <tr>
-                  <td>Heart Rate</td>
+                  <td>Diastolic Blood Pressure</td>
+                  <td>86</td>
+                  <td>mm[Hg]</td>
+                  <td>Prehypertension</td>
+                  <td>60 - 80 mm[Hg]</td>
+                </tr>
+                <tr>
+                  <td>Heart Rate (Resting)</td>
                   <td>78</td>
                   <td>/min</td>
+                  <td>Normal (Sinus Rhythm with Occasional PVC)</td>
+                  <td>60 - 100 /min</td>
+                </tr>
+                <tr>
+                  <td>Respiratory Rate</td>
+                  <td>16</td>
+                  <td>/min</td>
+                  <td>Normal</td>
+                  <td>12 - 20 /min</td>
                 </tr>
                 <tr>
                   <td>Body Temperature</td>
-                  <td>98.4</td>
-                  <td>[degF]</td>
+                  <td>36.9 (98.4)</td>
+                  <td>Cel ([degF])</td>
+                  <td>Normal (Afebrile)</td>
+                  <td>36.5 - 37.5 Cel</td>
                 </tr>
                 <tr>
                   <td>Oxygen Saturation (SpO2)</td>
                   <td>98</td>
                   <td>%</td>
+                  <td>Normal</td>
+                  <td>95 - 100 %</td>
+                </tr>
+                <tr>
+                  <td>Body Weight</td>
+                  <td>68.0 (149.9)</td>
+                  <td>kg (lbs)</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>Body Height</td>
+                  <td>162.5 (5 ft 4 in)</td>
+                  <td>cm</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>Body Mass Index (BMI)</td>
+                  <td>25.8</td>
+                  <td>kg/m2</td>
+                  <td>Overweight (Mild)</td>
+                  <td>18.5 - 24.9 kg/m2</td>
                 </tr>
               </tbody>
             </table>
           </text>
+
           <entry typeCode="DRIV">
             <organizer classCode="CLUSTER" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.26"/>
+              <id root="v301-3451-11e2-81c1-0800200c9a66"/>
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs panel"/>
               <statusCode code="completed"/>
-              <effectiveTime value="20231104090000-0500"/>
+              <effectiveTime value="20231104091500-0500"/>
+              
+              <!-- Systolic BP -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
                   <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v302-3451-11e2-81c1-0800200c9a66"/>
                   <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" displayName="Systolic blood pressure"/>
                   <statusCode code="completed"/>
                   <value xsi:type="PQ" value="134" unit="mm[Hg]"/>
                 </observation>
               </component>
+
+              <!-- Diastolic BP -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
                   <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v303-3451-11e2-81c1-0800200c9a66"/>
                   <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diastolic blood pressure"/>
                   <statusCode code="completed"/>
                   <value xsi:type="PQ" value="86" unit="mm[Hg]"/>
                 </observation>
               </component>
+
+              <!-- Heart Rate -->
               <component>
                 <observation classCode="OBS" moodCode="EVN">
                   <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v304-3451-11e2-81c1-0800200c9a66"/>
                   <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" displayName="Heart rate"/>
                   <statusCode code="completed"/>
                   <value xsi:type="PQ" value="78" unit="/min"/>
+                </observation>
+              </component>
+
+              <!-- Respiratory Rate -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v305-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="9279-1" codeSystem="2.16.840.1.113883.6.1" displayName="Respiratory rate"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="16" unit="/min"/>
+                </observation>
+              </component>
+
+              <!-- Temperature -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v306-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8310-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body temperature"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="36.9" unit="Cel"/>
+                </observation>
+              </component>
+
+              <!-- Pulse Oximetry -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v307-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2708-6" codeSystem="2.16.840.1.113883.6.1" displayName="Oxygen saturation in Arterial blood"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="98" unit="%"/>
+                </observation>
+              </component>
+
+              <!-- Weight -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v308-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" displayName="Body weight"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="68.0" unit="kg"/>
+                </observation>
+              </component>
+
+              <!-- Height -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v309-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" displayName="Body height"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="162.5" unit="cm"/>
+                </observation>
+              </component>
+
+              <!-- BMI -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id root="v310-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" displayName="Body mass index (BMI) [Ratio]"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="25.8" unit="kg/m2"/>
                 </observation>
               </component>
             </organizer>
@@ -237,27 +910,303 @@
         </section>
       </component>
 
-      <!-- ENCOUNTERS SECTION -->
+      <!-- 6. PROCEDURES & DIAGNOSTIC TESTS -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
+          <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" displayName="History of Procedures"/>
+          <title>Diagnostic Procedures &amp; Studies Performed</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Procedure / Study</th>
+                  <th>CPT Code</th>
+                  <th>Date / Time</th>
+                  <th>Findings / Status</th>
+                  <th>Performer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12-Lead Electrocardiogram (ECG)</td>
+                  <td>93000</td>
+                  <td>2023-11-04 09:15 EST</td>
+                  <td>Normal sinus rhythm at 76 bpm, PR 162 ms, QRS 88 ms, QTc 428 ms. Frequent unifocal PVCs observed. No acute ST-T changes.</td>
+                  <td>Dr. Vikram Patel, MD</td>
+                </tr>
+                <tr>
+                  <td>Application of Continuous ECG Patch Monitor (14-Day Holter)</td>
+                  <td>93245</td>
+                  <td>2023-11-04 09:45 EST</td>
+                  <td>Sensor applied to left anterior chest; patient instructed on event button logging.</td>
+                  <td>Cardiology Nurse Specialist</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Procedure 1: 12-Lead ECG -->
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+              <id root="proc301-3451-11e2-81c1-0800200c9a66"/>
+              <code code="93000" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Electrocardiogram, routine ECG with at least 12 leads">
+                <translation code="268400002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="12 lead electrocardiogram"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20231104091500-0500"/>
+              <performer>
+                <assignedEntity>
+                  <id root="2.16.840.1.113883.4.6" extension="1892019283"/>
+                  <assignedPerson>
+                    <name>Dr. Vikram Patel, MD, FACC</name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </procedure>
+          </entry>
+
+          <!-- Procedure 2: Holter patch -->
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+              <id root="proc302-3451-11e2-81c1-0800200c9a66"/>
+              <code code="93245" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="External electrocardiographic recording up to 14 days, hook-up">
+                <translation code="252465004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Holter monitoring"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20231104094500-0500"/>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 7. DIAGNOSTIC RESULTS & LAB DATA -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" displayName="Relevant diagnostic tests and/or laboratory data"/>
+          <title>Diagnostic Results &amp; Laboratory Data</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Test / Analyte</th>
+                  <th>LOINC</th>
+                  <th>Result Value</th>
+                  <th>Reference Range</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>High-Sensitivity Troponin T</td>
+                  <td>6598-7</td>
+                  <td>&lt; 6 ng/L</td>
+                  <td>&lt; 14 ng/L</td>
+                  <td>Normal (Negative for myocardial necrosis)</td>
+                </tr>
+                <tr>
+                  <td>NT-proBNP (N-terminal pro-B-type Natriuretic Peptide)</td>
+                  <td>33762-6</td>
+                  <td>74 pg/mL</td>
+                  <td>&lt; 125 pg/mL</td>
+                  <td>Normal (Heart failure unlikely)</td>
+                </tr>
+                <tr>
+                  <td>Cholesterol, Total</td>
+                  <td>2093-3</td>
+                  <td>192 mg/dL</td>
+                  <td>&lt; 200 mg/dL</td>
+                  <td>Desirable</td>
+                </tr>
+                <tr>
+                  <td>HDL Cholesterol</td>
+                  <td>2085-9</td>
+                  <td>54 mg/dL</td>
+                  <td>&gt; 50 mg/dL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>LDL Cholesterol (Calculated)</td>
+                  <td>13457-7</td>
+                  <td>114 mg/dL</td>
+                  <td>&lt; 100 mg/dL</td>
+                  <td>Borderline High</td>
+                </tr>
+                <tr>
+                  <td>Triglycerides</td>
+                  <td>2571-8</td>
+                  <td>120 mg/dL</td>
+                  <td>&lt; 150 mg/dL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Potassium, Serum</td>
+                  <td>2823-3</td>
+                  <td>4.3 mmol/L</td>
+                  <td>3.5 - 5.1 mmol/L</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Magnesium, Serum</td>
+                  <td>2601-3</td>
+                  <td>2.1 mg/dL</td>
+                  <td>1.7 - 2.4 mg/dL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Thyroid Stimulating Hormone (TSH)</td>
+                  <td>3016-3</td>
+                  <td>1.85 uIU/mL</td>
+                  <td>0.45 - 4.50 uIU/mL</td>
+                  <td>Normal (Euthyroid)</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Result Organizer: Cardiac Biomarkers & Chemistry -->
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+              <id root="r301-3451-11e2-81c1-0800200c9a66"/>
+              <code code="54089-8" codeSystem="2.16.840.1.113883.6.1" displayName="Cardiac biomarkers and chemistry panel"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20231104083000-0500"/>
+
+              <!-- Troponin -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r302-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="6598-7" codeSystem="2.16.840.1.113883.6.1" displayName="Troponin T.cardiac [Mass/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="6" unit="ng/L"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- NT-proBNP -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r303-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="33762-6" codeSystem="2.16.840.1.113883.6.1" displayName="Natriuretic peptide.B prohormone N-Terminal in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="74" unit="pg/mL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Potassium -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r304-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2823-3" codeSystem="2.16.840.1.113883.6.1" displayName="Potassium [Moles/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="4.3" unit="mmol/L"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Magnesium -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r305-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2601-3" codeSystem="2.16.840.1.113883.6.1" displayName="Magnesium [Mass/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="2.1" unit="mg/dL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- TSH -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r306-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="3016-3" codeSystem="2.16.840.1.113883.6.1" displayName="Thyrotropin [Units/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="1.85" unit="uIU/mL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 8. ENCOUNTERS SECTION -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.22.1" extension="2015-08-01"/>
           <code code="46240-8" codeSystem="2.16.840.1.113883.6.1" displayName="History of encounters"/>
-          <title>Encounters</title>
+          <title>Clinical Encounters</title>
           <text>
-            <paragraph>Cardiology Outpatient Consultation on 2023-11-04 with Dr. Vikram Patel, MD at Boston Heart &amp; Vascular Institute.</paragraph>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Encounter Type</th>
+                  <th>CPT Code</th>
+                  <th>Date / Time</th>
+                  <th>Location</th>
+                  <th>Provider</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cardiology Outpatient Consultation, High Complexity</td>
+                  <td>99244</td>
+                  <td>2023-11-04 09:30 EST</td>
+                  <td>Cardiovascular Outpatient Suite 400</td>
+                  <td>Dr. Vikram Patel, MD, FACC</td>
+                </tr>
+                <tr>
+                  <td>Primary Care Evaluation &amp; Management Visit</td>
+                  <td>99214</td>
+                  <td>2023-10-20 10:15 EDT</td>
+                  <td>Brigham Primary Care</td>
+                  <td>Dr. Amanda Clark, MD</td>
+                </tr>
+              </tbody>
+            </table>
           </text>
+
+          <!-- Encounter 1: Cardiology Consult -->
           <entry typeCode="DRIV">
             <encounter classCode="ENC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.49"/>
               <id root="e9c12345-3451-11e2-81c1-0800200c9a66"/>
-              <code code="99244" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Outpatient Consultation, moderate complexity"/>
+              <code code="99244" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Outpatient Consultation, moderate-high complexity"/>
               <effectiveTime value="20231104093000-0500"/>
               <performer>
                 <assignedEntity>
                   <id root="2.16.840.1.113883.4.6" extension="1892019283"/>
                   <code code="207RC0000X" codeSystem="2.16.840.1.113883.6.101" displayName="Cardiovascular Disease"/>
                   <assignedPerson>
-                    <name>Dr. Vikram Patel, MD</name>
+                    <name>Dr. Vikram Patel, MD, FACC</name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </encounter>
+          </entry>
+
+          <!-- Encounter 2: PCP Visit -->
+          <entry typeCode="DRIV">
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.49"/>
+              <id root="e9c12346-3451-11e2-81c1-0800200c9a66"/>
+              <code code="99214" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Office or other outpatient visit, established patient"/>
+              <effectiveTime value="20231020101500-0500"/>
+              <performer>
+                <assignedEntity>
+                  <id root="2.16.840.1.113883.4.6" extension="1928374650"/>
+                  <assignedPerson>
+                    <name>Dr. Amanda Clark, MD</name>
                   </assignedPerson>
                 </assignedEntity>
               </performer>
@@ -266,7 +1215,93 @@
         </section>
       </component>
 
-      <!-- ASSESSMENT AND PLAN -->
+      <!-- 9. IMMUNIZATIONS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.2.1" extension="2015-08-01"/>
+          <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of immunizations"/>
+          <title>Immunizations</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Vaccine</th>
+                  <th>CVX Code</th>
+                  <th>Date Administered</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Influenza Virus Vaccine, Quadrivalent</td>
+                  <td>141</td>
+                  <td>2023-10-20</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Pneumococcal 20-valent Conjugate Vaccine (PCV20)</td>
+                  <td>216</td>
+                  <td>2022-09-15</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Tetanus, Diphtheria, Pertussis (Tdap) Vaccine</td>
+                  <td>115</td>
+                  <td>2019-05-10</td>
+                  <td>Completed</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+              <id root="imm301-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20231020"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="141" codeSystem="2.16.840.1.113883.12.292" codeSystemName="CVX" displayName="Influenza, injectable, quadrivalent, PF"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 10. SOCIAL HISTORY SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/>
+          <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" displayName="Social history"/>
+          <title>Social History</title>
+          <text>
+            <list>
+              <item>Tobacco Smoking Status: Never smoker (Lifelong non-smoker).</item>
+              <item>Caffeine Consumption: 2 cups of regular brewed coffee daily (Advised to transition to decaffeinated).</item>
+              <item>Alcohol Intake: Rare social glass of wine (less than 1 drink per month).</item>
+              <item>Physical Activity: Moderate aerobic walking 30 minutes 3 days per week.</item>
+            </list>
+          </text>
+
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06-09"/>
+              <id root="soc301-3451-11e2-81c1-0800200c9a66"/>
+              <code code="72166-2" codeSystem="2.16.840.1.113883.6.1" displayName="Tobacco smoking status"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20231104"/>
+              <value xsi:type="CD" code="266919005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Never smoker"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 11. ASSESSMENT AND PLAN -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.9"/>
@@ -274,10 +1309,35 @@
           <title>Assessment &amp; Plan</title>
           <text>
             <list>
-              <item>1. Palpitations / Premature ventricular contractions (ICD-10 I49.3): Ordered 14-day ambulatory continuous ECG patch monitor.</item>
-              <item>2. Systolic ejection murmur (ICD-10 R01.1): Ordered Transthoracic Echocardiogram (TTE) with Doppler to evaluate aortic valve morphology and ventricular function.</item>
-              <item>3. Essential Hypertension (ICD-10 I10): Blood pressure today is 134/86 mmHg. Continue Amlodipine 5mg and HCTZ 12.5mg daily. Keep home BP log.</item>
-              <item>4. Follow-up: Return to clinic in 4 weeks after completion of Holter monitor and echocardiogram.</item>
+              <item><strong>1. Palpitations &amp; Premature Ventricular Contractions (ICD-10 I49.3):</strong>
+                <list>
+                  <item>ECG today confirms normal sinus rhythm with frequent unifocal PVCs without ventricular tachycardia.</item>
+                  <item>Applied 14-day continuous ambulatory ECG Holter patch monitor today to quantify PVC burden and rule out paroxysmal supraventricular arrhythmias.</item>
+                  <item>Initiated low-dose beta-blocker: <strong>Metoprolol Tartrate 25 mg PO BID</strong> with meals for symptomatic arrhythmia suppression and rate control.</item>
+                  <item>Counseled on reducing dietary caffeine intake and maintaining adequate hydration.</item>
+                </list>
+              </item>
+              <item><strong>2. Systolic Ejection Murmur (ICD-10 R01.1):</strong>
+                <list>
+                  <item>Grade 2/6 crescendo-decrescendo murmur at right upper sternal border. Ordered comprehensive <strong>Transthoracic Echocardiogram (TTE) with color Doppler</strong> scheduled for 2023-11-16 to evaluate aortic valve morphology, rule out aortic sclerosis/stenosis, and measure left ventricular ejection fraction.</item>
+                </list>
+              </item>
+              <item><strong>3. Essential Hypertension (ICD-10 I10):</strong>
+                <list>
+                  <item>Clinic blood pressure today 134/86 mmHg. Continue current regimen of Amlodipine 5 mg PO daily + Hydrochlorothiazide 12.5 mg PO daily. Metoprolol Tartrate added above will provide additional blood pressure lowering benefit. Continue home BP diary.</item>
+                </list>
+              </item>
+              <item><strong>4. Hyperlipidemia (ICD-10 E78.00):</strong>
+                <list>
+                  <item>Continue Atorvastatin 20 mg PO daily at bedtime. Prior severe myalgias on Simvastatin documented; patient tolerates Atorvastatin without adverse symptoms.</item>
+                </list>
+              </item>
+              <item><strong>5. Follow-Up Plan:</strong>
+                <list>
+                  <item>Return to Cardiology Clinic in 4 weeks (<strong>2023-12-04 at 10:00 AM</strong>) for follow-up consultation with Dr. Vikram Patel to review 14-day continuous Holter monitor telemetry report and Echocardiogram imaging findings.</item>
+                  <item>Instructed on red flag symptoms: Report immediately to Emergency Department or call 911 for prolonged chest pressure, syncope / loss of consciousness, severe sustained tachycardia (&gt; 150 bpm), or severe acute dyspnea.</item>
+                </list>
+              </item>
             </list>
           </text>
         </section>

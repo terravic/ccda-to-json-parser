@@ -20,7 +20,7 @@
     },
     "language": "en-US",
     "set_id": null,
-    "version_number": null,
+    "version_number": "1",
     "template_ids": [
       "2.16.840.1.113883.10.20.22.1.1:2015-08-01",
       "2.16.840.1.113883.10.20.22.1.8:2015-08-01"
@@ -53,21 +53,56 @@
           ]
         },
         "organization": {
-          "name": "St. Jude Metropolitan Medical Center",
+          "name": "St. Jude Metropolitan Medical Center - Department of Surgery",
           "ids": [],
           "addresses": [
             {
               "street_address_lines": [
-                "420 East 70th Street"
+                "420 East 70th Street, Suite 500"
               ],
               "city": "New York",
               "state": "NY",
               "postal_code": "10021",
               "country": null,
               "use": "WP",
-              "formatted": "420 East 70th Street, New York, NY 10021"
+              "formatted": "420 East 70th Street, Suite 500, New York, NY 10021"
             }
           ],
+          "telecoms": []
+        },
+        "addresses": [],
+        "telecoms": []
+      },
+      {
+        "time": "2023-09-12T10:45:00-04:00",
+        "ids": [
+          {
+            "root": "2.16.840.1.113883.4.6",
+            "extension": "1892019283",
+            "assigningAuthorityName": "NPI"
+          }
+        ],
+        "code": {
+          "code": "208600000X",
+          "display_name": "Surgery, General",
+          "code_system": "2.16.840.1.113883.6.101"
+        },
+        "person": {
+          "full_name": "Dr. Alex Chen MD",
+          "first_name": "Alex",
+          "middle_names": [],
+          "last_name": "Chen",
+          "prefixes": [
+            "Dr."
+          ],
+          "suffixes": [
+            "MD"
+          ]
+        },
+        "organization": {
+          "name": "St. Jude Metropolitan Medical Center",
+          "ids": [],
+          "addresses": [],
           "telecoms": []
         },
         "addresses": [],
@@ -108,7 +143,7 @@
       ],
       "code": {
         "code": "IMP",
-        "display_name": "Inpatient",
+        "display_name": "Inpatient Encounter",
         "code_system": "2.16.840.1.113883.5.4",
         "code_system_name": "ActCode"
       },
@@ -121,7 +156,7 @@
         "display_name": "Discharged to Home or Self Care",
         "code_system": "2.16.840.1.113883.12.112"
       },
-      "location_name": null,
+      "location_name": "7th Floor General Surgery Inpatient Pavilion",
       "responsible_party": null
     }
   },
@@ -131,6 +166,16 @@
         "root": "2.16.840.1.113883.19.5",
         "extension": "MRN-449102",
         "assigningAuthorityName": "St. Jude Medical Center"
+      },
+      {
+        "root": "2.16.840.1.113883.4.1",
+        "extension": "999-33-8821",
+        "assigningAuthorityName": "SSN"
+      },
+      {
+        "root": "2.16.840.1.113883.4.3.36",
+        "extension": "DL-NY-9812734",
+        "assigningAuthorityName": "New York DMV"
       }
     ],
     "addresses": [
@@ -151,6 +196,18 @@
         "system": "tel",
         "value": "+1-212-555-0198",
         "raw_value": "tel:+1-212-555-0198",
+        "use": "HP"
+      },
+      {
+        "system": "tel",
+        "value": "+1-917-555-4820",
+        "raw_value": "tel:+1-917-555-4820",
+        "use": "MC"
+      },
+      {
+        "system": "mailto",
+        "value": "marcus.thorne@example.com",
+        "raw_value": "mailto:marcus.thorne@example.com",
         "use": "HP"
       }
     ],
@@ -223,21 +280,96 @@
         "code_system_name": "Race & Ethnicity - CDC"
       }
     ],
-    "languages": []
+    "languages": [
+      {
+        "language": "en",
+        "mode": null,
+        "preferred": true,
+        "proficiency": null
+      }
+    ],
+    "guardians": [
+      {
+        "relationship": {
+          "code": "SIS",
+          "display_name": "Sister",
+          "code_system": "2.16.840.1.113883.5.111",
+          "code_system_name": "RoleCode"
+        },
+        "name": {
+          "full_name": "Elena Thorne",
+          "first_name": "Elena",
+          "middle_names": [],
+          "last_name": "Thorne",
+          "prefixes": [],
+          "suffixes": []
+        },
+        "addresses": [
+          {
+            "street_address_lines": [
+              "550 West End Avenue, Apt 4B"
+            ],
+            "city": "New York",
+            "state": "NY",
+            "postal_code": "10024",
+            "country": null,
+            "use": "HP",
+            "formatted": "550 West End Avenue, Apt 4B, New York, NY 10024"
+          }
+        ],
+        "telecoms": [
+          {
+            "system": "tel",
+            "value": "+1-212-555-0199",
+            "raw_value": "tel:+1-212-555-0199",
+            "use": "HP"
+          }
+        ]
+      }
+    ],
+    "provider_organization": {
+      "name": "St. Jude Metropolitan Medical Center",
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5"
+        }
+      ],
+      "addresses": [
+        {
+          "street_address_lines": [
+            "420 East 70th Street"
+          ],
+          "city": "New York",
+          "state": "NY",
+          "postal_code": "10021",
+          "country": "US",
+          "use": "WP",
+          "formatted": "420 East 70th Street, New York, NY 10021, US"
+        }
+      ],
+      "telecoms": [
+        {
+          "system": "tel",
+          "value": "+1-212-555-7000",
+          "raw_value": "tel:+1-212-555-7000",
+          "use": "WP"
+        }
+      ]
+    }
   },
   "summary": {
     "patient_name": "Mr. Marcus Aurelius Thorne",
     "date_of_birth": "1988-11-03",
     "gender": "Male",
     "counts": {
-      "allergies": 1,
-      "medications": 1,
+      "allergies": 3,
+      "medications": 5,
       "problems": 0,
-      "immunizations": 0,
-      "vital_signs": 0,
-      "lab_results": 0,
-      "encounters": 0,
-      "procedures": 1
+      "immunizations": 3,
+      "vital_signs": 9,
+      "lab_results": 8,
+      "encounters": 1,
+      "procedures": 4
     },
     "available_sections": [
       "chief_complaint",
@@ -246,6 +378,11 @@
       "procedures",
       "discharge_medications",
       "allergies",
+      "vital_signs",
+      "results",
+      "immunizations",
+      "encounters",
+      "social_history",
       "hospital_discharge_instructions"
     ]
   },
@@ -259,7 +396,7 @@
         "code_system_name": "LOINC"
       },
       "template_ids": [],
-      "narrative": "Acute severe right lower quadrant abdominal pain, low-grade fever, anorexia, and nausea for 24 hours.",
+      "narrative": "Acute severe right lower quadrant abdominal pain, low-grade fever (100.8°F), anorexia, nausea, and vomiting for 24 hours prior to presentation.",
       "tables": [],
       "entries": [],
       "section_type": "chief_complaint"
@@ -275,7 +412,7 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.44"
       ],
-      "narrative": "Patient is a 34-year-old male who presented to the Emergency Department with a 1-day history of periumbilical pain migrating to the right lower quadrant with rebound tenderness. Abdominal CT demonstrated acute suppurative appendicitis with appendicolith without signs of perforation or abscess. Patient was admitted to General Surgery service, started on IV fluids and IV cefoxitin, and taken to the operating room on 2023-09-10 for an uneventful laparoscopic appendectomy.\nPostoperative course was smooth. Bowel sounds returned on post-op day 1, and the patient tolerated progression from clear liquids to a regular diet. Incisions are clean, intact, without erythema or drainage. Pain was well-managed with oral acetaminophen and ibuprofen. Patient is discharged home on post-op day 2 in stable condition.",
+      "narrative": "Hospital Day 1 (Admission & Surgery - 2023-09-10): Patient is a 34-year-old male who presented to the Emergency Department with a 24-hour history of periumbilical abdominal pain migrating to the right lower quadrant with guarding and rebound tenderness at McBurney's point. Vital signs on presentation were notable for temperature 38.2°C (100.8°F), heart rate 104 bpm, and BP 138/86 mmHg. Labs demonstrated leukocytosis with WBC 15.4 K/uL and 83% neutrophils. Contrast-enhanced CT scan of the abdomen/pelvis confirmed acute suppurative appendicitis with an obstructing appendicolith (8 mm) and localized pericecal fat stranding without frank abscess or pneumoperitoneum.\nPatient was resuscitated with 2 Liters IV lactated Ringer's solution, initiated on IV Cefoxitin 2g, and consented for urgent surgery. Patient was taken to the operating room on 2023-09-10 at 14:30. A 3-port laparoscopic appendectomy was performed without complication. Operative findings confirmed an acutely inflamed, gangrenous, non-perforated retrocecal appendix with mesoappendix vascular engorgement. Hemostasis was meticulous; estimated blood loss was < 15 mL. Patient was extubated and transferred to the PACU in stable condition, then admitted to the 7th floor surgical floor.\nHospital Day 2 (Post-op Day 1 - 2023-09-11): Postoperative course was uncomplicated. Patient was ambulating in the hallways. Bowel sounds returned and flatus was passed in the afternoon. Diet was advanced from clear liquids to a soft surgical diet, which was well-tolerated without nausea. Pain was effectively controlled with oral acetaminophen and scheduled ibuprofen. Incisions were clean and dry.\nHospital Day 3 (Discharge Day - 2023-09-12): Patient is afebrile with normal vital signs (BP 118/74 mmHg, HR 72 bpm, temp 37.0°C). Surgical port sites are intact, clean, without erythema, hematoma, or discharge. Tolerating regular diet, voiding spontaneously, and ambulating independently. Patient is discharged home in stable condition with clear instructions for outpatient follow-up.",
       "tables": [],
       "entries": [],
       "section_type": "hospital_course"
@@ -291,9 +428,171 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.24:2015-08-01"
       ],
-      "narrative": "• Acute suppurative appendicitis status post laparoscopic appendectomy (ICD-10 K35.80)\n• Mild dehydration, resolved",
-      "tables": [],
+      "narrative": "Diagnosis | SNOMED CT | ICD-10-CM | Status | Type\n-------------------------------------------------\nAcute suppurative appendicitis with localized peritonitis | 74400008 | K35.80 | Resolved (Surgically managed) | Primary / Principal\nDehydration / Hypovolemia | 87522002 | E86.0 | Resolved | Secondary\nPostoperative incisional pain | 22253000 | G89.18 | Improving | Secondary\nEssential (primary) hypertension | 59621000 | I10 | Active / Controlled | Co-morbid",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Diagnosis",
+            "SNOMED CT",
+            "ICD-10-CM",
+            "Status",
+            "Type"
+          ],
+          "rows": [
+            {
+              "Diagnosis": "Acute suppurative appendicitis with localized peritonitis",
+              "SNOMED CT": "74400008",
+              "ICD-10-CM": "K35.80",
+              "Status": "Resolved (Surgically managed)",
+              "Type": "Primary / Principal"
+            },
+            {
+              "Diagnosis": "Dehydration / Hypovolemia",
+              "SNOMED CT": "87522002",
+              "ICD-10-CM": "E86.0",
+              "Status": "Resolved",
+              "Type": "Secondary"
+            },
+            {
+              "Diagnosis": "Postoperative incisional pain",
+              "SNOMED CT": "22253000",
+              "ICD-10-CM": "G89.18",
+              "Status": "Improving",
+              "Type": "Secondary"
+            },
+            {
+              "Diagnosis": "Essential (primary) hypertension",
+              "SNOMED CT": "59621000",
+              "ICD-10-CM": "I10",
+              "Status": "Active / Controlled",
+              "Type": "Co-morbid"
+            }
+          ]
+        }
+      ],
       "entries": [
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": {
+            "low": "2023-09-10",
+            "high": "2023-09-12"
+          },
+          "status": "completed",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "74400008",
+                "display_name": "Acute appendicitis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "K35.80",
+                    "display_name": "Unspecified acute appendicitis",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": {
+                "low": "2023-09-10"
+              },
+              "status": "completed",
+              "relationships": null,
+              "ids": [
+                {
+                  "root": "e1234568-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": [
+            {
+              "root": "e1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": null,
+          "status": "completed",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "87522002",
+                "display_name": "Dehydration",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "E86.0",
+                    "display_name": "Dehydration",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": null,
+              "status": "completed",
+              "relationships": null,
+              "ids": [
+                {
+                  "root": "e1234570-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": [
+            {
+              "root": "e1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
         {
           "statement_type": "act",
           "template_ids": [
@@ -320,14 +619,14 @@
                 "code_system_name": "LOINC"
               },
               "value": {
-                "code": "74400008",
-                "display_name": "Appendicitis",
+                "code": "22253000",
+                "display_name": "Pain after operation",
                 "code_system": "2.16.840.1.113883.6.96",
                 "code_system_name": "SNOMED CT",
                 "translations": [
                   {
-                    "code": "K35.80",
-                    "display_name": "Unspecified acute appendicitis",
+                    "code": "G89.18",
+                    "display_name": "Other acute postprocedural pain",
                     "code_system": "2.16.840.1.113883.6.90",
                     "code_system_name": "ICD-10-CM"
                   }
@@ -338,17 +637,83 @@
               "date": null,
               "status": "completed",
               "relationships": null,
-              "ids": [],
+              "ids": [
+                {
+                  "root": "e1234572-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
               "relationship_type": "SUBJ"
             }
           ],
-          "ids": []
+          "ids": [
+            {
+              "root": "e1234571-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": null,
+          "status": "active",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "59621000",
+                "display_name": "Essential hypertension",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "I10",
+                    "display_name": "Essential (primary) hypertension",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": null,
+              "status": "completed",
+              "relationships": null,
+              "ids": [
+                {
+                  "root": "e1234574-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": [
+            {
+              "root": "e1234573-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "discharge_diagnoses"
     },
     "procedures": {
-      "title": "Procedures Performed",
+      "title": "Procedures & Surgical Interventions",
       "code": {
         "code": "47519-4",
         "display_name": "History of Procedures",
@@ -358,22 +723,50 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.7.1:2014-06-09"
       ],
-      "narrative": "Procedure | CPT Code | Date | Surgeon\n-------------------------------------\nLaparoscopic Appendectomy | 44970 | 2023-09-10 | Dr. Sarah Jenkins, MD",
+      "narrative": "Procedure | CPT-4 Code | SNOMED Code | Date / Time | Provider / Performer | Status\n----------------------------------------------------------------------------------\nLaparoscopic Appendectomy | 44970 | 6025007 | 2023-09-10 14:30 EDT | Dr. Sarah Jenkins, MD, FACS | Completed\nDiagnostic Laparoscopy | 49320 | 174681007 | 2023-09-10 14:15 EDT | Dr. Sarah Jenkins, MD, FACS | Completed\nCT Abdomen and Pelvis with Contrast | 74177 | 419409002 | 2023-09-10 09:45 EDT | Dr. Karen Miller, MD (Radiology) | Completed\nPeripheral Intravenous Catheter Placement | 36000 | 233527006 | 2023-09-10 08:45 EDT | Emergency Nursing Staff | Completed",
       "tables": [
         {
           "caption": null,
           "headers": [
             "Procedure",
-            "CPT Code",
-            "Date",
-            "Surgeon"
+            "CPT-4 Code",
+            "SNOMED Code",
+            "Date / Time",
+            "Provider / Performer",
+            "Status"
           ],
           "rows": [
             {
               "Procedure": "Laparoscopic Appendectomy",
-              "CPT Code": "44970",
-              "Date": "2023-09-10",
-              "Surgeon": "Dr. Sarah Jenkins, MD"
+              "CPT-4 Code": "44970",
+              "SNOMED Code": "6025007",
+              "Date / Time": "2023-09-10 14:30 EDT",
+              "Provider / Performer": "Dr. Sarah Jenkins, MD, FACS",
+              "Status": "Completed"
+            },
+            {
+              "Procedure": "Diagnostic Laparoscopy",
+              "CPT-4 Code": "49320",
+              "SNOMED Code": "174681007",
+              "Date / Time": "2023-09-10 14:15 EDT",
+              "Provider / Performer": "Dr. Sarah Jenkins, MD, FACS",
+              "Status": "Completed"
+            },
+            {
+              "Procedure": "CT Abdomen and Pelvis with Contrast",
+              "CPT-4 Code": "74177",
+              "SNOMED Code": "419409002",
+              "Date / Time": "2023-09-10 09:45 EDT",
+              "Provider / Performer": "Dr. Karen Miller, MD (Radiology)",
+              "Status": "Completed"
+            },
+            {
+              "Procedure": "Peripheral Intravenous Catheter Placement",
+              "CPT-4 Code": "36000",
+              "SNOMED Code": "233527006",
+              "Date / Time": "2023-09-10 08:45 EDT",
+              "Provider / Performer": "Emergency Nursing Staff",
+              "Status": "Completed"
             }
           ]
         }
@@ -396,17 +789,114 @@
           },
           "status": "completed",
           "date": "2023-09-10T14:30:00-04:00",
-          "target_site": null,
+          "target_site": {
+            "code": "66754008",
+            "display_name": "Appendix structure",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
           "performers": [
             {
-              "name": "Dr. Sarah Jenkins, MD",
-              "role": null
+              "name": "Dr. Sarah Jenkins, MD, FACS",
+              "role": {
+                "code": "208600000X",
+                "display_name": "General Surgery",
+                "code_system": "2.16.840.1.113883.6.101"
+              }
             }
           ],
           "devices": null,
           "ids": [
             {
               "root": "d29b2b50-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "49320",
+            "display_name": "Laparoscopy, abdomen, diagnostic",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "174681007",
+                "display_name": "Diagnostic laparoscopy",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T14:15:00-04:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Sarah Jenkins, MD, FACS",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b51-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "74177",
+            "display_name": "Computed tomography, abdomen and pelvis; with contrast material(s)",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "419409002",
+                "display_name": "CT of abdomen and pelvis with contrast",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T09:45:00-04:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Karen Miller, MD",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b52-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "36000",
+            "display_name": "Introduction of needle or intracatheter, vein",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "233527006",
+                "display_name": "Intravenous cannulation",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T08:45:00-04:00",
+          "target_site": null,
+          "performers": [],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b53-3451-11e2-81c1-0800200c9a66"
             }
           ]
         }
@@ -424,34 +914,58 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.11:2015-08-01"
       ],
-      "narrative": "Medication | Dose | Route | Frequency & Instructions\n----------------------------------------------------\nAcetaminophen 500 MG Oral Tablet | 500 mg | Oral | Every 6 hours as needed for mild to moderate pain\nIbuprofen 400 MG Oral Tablet | 400 mg | Oral | Every 8 hours with food as needed for pain/inflammation\nCefdinir 300 MG Oral Capsule | 300 mg | Oral | Twice daily for 5 days (complete full course)",
+      "narrative": "Medication | RxNorm Code | Dose | Route | Frequency & Patient Instructions | Status\n-----------------------------------------------------------------------------------\nAcetaminophen 500 MG Oral Tablet | 209459 | 500 mg | Oral | Take 1 to 2 tablets every 6 hours as needed for mild-to-moderate incisional pain. Do not exceed 3,000 mg in 24 hours. | Active\nIbuprofen 400 MG Oral Tablet | 197806 | 400 mg | Oral | Take 1 tablet every 8 hours with food or milk as needed for surgical inflammation/pain. | Active\nCefdinir 300 MG Oral Capsule | 309095 | 300 mg | Oral | Take 1 capsule every 12 hours for 5 days. Complete the entire prescribed antibiotic course. | Active\nDocusate Sodium 100 MG Oral Capsule | 993452 | 100 mg | Oral | Take 1 capsule daily at bedtime as needed for stool softening / constipation prevention. | Active\nLisinopril 10 MG Oral Tablet | 314076 | 10 mg | Oral | Take 1 tablet once daily in the morning for blood pressure control (pre-admission home medication resumed). | Active",
       "tables": [
         {
           "caption": null,
           "headers": [
             "Medication",
+            "RxNorm Code",
             "Dose",
             "Route",
-            "Frequency & Instructions"
+            "Frequency & Patient Instructions",
+            "Status"
           ],
           "rows": [
             {
               "Medication": "Acetaminophen 500 MG Oral Tablet",
+              "RxNorm Code": "209459",
               "Dose": "500 mg",
               "Route": "Oral",
-              "Frequency & Instructions": "Every 6 hours as needed for mild to moderate pain"
+              "Frequency & Patient Instructions": "Take 1 to 2 tablets every 6 hours as needed for mild-to-moderate incisional pain. Do not exceed 3,000 mg in 24 hours.",
+              "Status": "Active"
             },
             {
               "Medication": "Ibuprofen 400 MG Oral Tablet",
+              "RxNorm Code": "197806",
               "Dose": "400 mg",
               "Route": "Oral",
-              "Frequency & Instructions": "Every 8 hours with food as needed for pain/inflammation"
+              "Frequency & Patient Instructions": "Take 1 tablet every 8 hours with food or milk as needed for surgical inflammation/pain.",
+              "Status": "Active"
             },
             {
               "Medication": "Cefdinir 300 MG Oral Capsule",
+              "RxNorm Code": "309095",
               "Dose": "300 mg",
               "Route": "Oral",
-              "Frequency & Instructions": "Twice daily for 5 days (complete full course)"
+              "Frequency & Patient Instructions": "Take 1 capsule every 12 hours for 5 days. Complete the entire prescribed antibiotic course.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Docusate Sodium 100 MG Oral Capsule",
+              "RxNorm Code": "993452",
+              "Dose": "100 mg",
+              "Route": "Oral",
+              "Frequency & Patient Instructions": "Take 1 capsule daily at bedtime as needed for stool softening / constipation prevention.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Lisinopril 10 MG Oral Tablet",
+              "RxNorm Code": "314076",
+              "Dose": "10 mg",
+              "Route": "Oral",
+              "Frequency & Patient Instructions": "Take 1 tablet once daily in the morning for blood pressure control (pre-admission home medication resumed).",
+              "Status": "Active"
             }
           ]
         }
@@ -474,9 +988,16 @@
           "route": {
             "code": "C38288",
             "display_name": "Oral",
-            "code_system": "2.16.840.1.113883.3.26.1.1"
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
           },
-          "schedule": null,
+          "schedule": {
+            "period": {
+              "value": "6",
+              "unit": "h",
+              "human_readable": "Four times daily (q6h)"
+            }
+          },
           "date_range": {
             "low": "2023-09-12"
           },
@@ -492,23 +1013,230 @@
               "root": "f8a1bc20-3451-11e2-81c1-0800200c9a66"
             }
           ]
+        },
+        {
+          "medication": {
+            "code": "197806",
+            "display_name": "Ibuprofen 400 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 400.0,
+            "unit": "mg",
+            "formatted": "400 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "8",
+              "unit": "h",
+              "human_readable": "Three times daily (q8h)"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc21-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "309095",
+            "display_name": "Cefdinir 300 MG Oral Capsule",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 300.0,
+            "unit": "mg",
+            "formatted": "300 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "12",
+              "unit": "h",
+              "human_readable": "Twice daily (q12h)"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12",
+            "high": "2023-09-17"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc22-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "993452",
+            "display_name": "Docusate Sodium 100 MG Oral Capsule",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 100.0,
+            "unit": "mg",
+            "formatted": "100 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc23-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "314076",
+            "display_name": "Lisinopril 10 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 10.0,
+            "unit": "mg",
+            "formatted": "10 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc24-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "discharge_medications"
     },
     "allergies": {
-      "title": "Allergies & Alerts",
+      "title": "Allergies & Intolerances",
       "code": {
         "code": "48765-2",
-        "display_name": "Allergies",
+        "display_name": "Allergies and adverse reactions Document",
         "code_system": "2.16.840.1.113883.6.1",
         "code_system_name": "LOINC"
       },
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
       ],
-      "narrative": "Sulfa (Sulfonamide Antibiotics) - Causes skin rash (Mild)",
-      "tables": [],
+      "narrative": "Substance | RxNorm / Code | Reaction Manifestation | Severity | Status\n----------------------------------------------------------------------\nSulfonamide Antibacterials (Bactrim) | 10093 | Generalized maculopapular rash, pruritus | Moderate | Active\nCodeine Sulfate | 2670 | Intractable severe nausea, emesis, dizziness | Severe | Active\nNatural Rubber Latex | 300916003 | Contact urticaria / localized erythema | Mild | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Substance",
+            "RxNorm / Code",
+            "Reaction Manifestation",
+            "Severity",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Substance": "Sulfonamide Antibacterials (Bactrim)",
+              "RxNorm / Code": "10093",
+              "Reaction Manifestation": "Generalized maculopapular rash, pruritus",
+              "Severity": "Moderate",
+              "Status": "Active"
+            },
+            {
+              "Substance": "Codeine Sulfate",
+              "RxNorm / Code": "2670",
+              "Reaction Manifestation": "Intractable severe nausea, emesis, dizziness",
+              "Severity": "Severe",
+              "Status": "Active"
+            },
+            {
+              "Substance": "Natural Rubber Latex",
+              "RxNorm / Code": "300916003",
+              "Reaction Manifestation": "Contact urticaria / localized erythema",
+              "Severity": "Mild",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
       "entries": [
         {
           "substance": {
@@ -523,16 +1251,1613 @@
             "code_system_name": "ActCode"
           },
           "status": "active",
-          "effective_time": null,
+          "effective_time": {
+            "low": "2015-03-10"
+          },
           "severity": null,
-          "reactions": [],
-          "ids": []
+          "reactions": [
+            {
+              "reaction": {
+                "code": "271807003",
+                "display_name": "Maculopapular rash",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "6736007",
+                "display_name": "Moderate",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "2670",
+            "display_name": "Codeine",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2018-07-20"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "422400008",
+                "display_name": "Severe nausea and vomiting",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "24484000",
+                "display_name": "Severe",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a1234570-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "300916003",
+            "display_name": "Latex",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2012-01-15"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "40275004",
+                "display_name": "Contact dermatitis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "255604002",
+                "display_name": "Mild",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a1234572-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "allergies"
     },
+    "vital_signs": {
+      "title": "Vital Signs",
+      "code": {
+        "code": "8716-3",
+        "display_name": "Vital Signs",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
+      ],
+      "narrative": "Vital Sign | Admission (2023-09-10) | Discharge (2023-09-12) | Normal Range\n---------------------------------------------------------------------------\nBlood Pressure | 138/86 mmHg | 118/74 mmHg | < 120/80 mmHg\nHeart Rate (Pulse) | 104 bpm (Tachycardic) | 72 bpm | 60-100 bpm\nRespiratory Rate | 20 breaths/min | 16 breaths/min | 12-20 breaths/min\nBody Temperature | 38.2 °C (100.8 °F - Febrile) | 37.0 °C (98.6 °F) | 36.5 - 37.5 °C\nOxygen Saturation (SpO2) | 98% (Room Air) | 99% (Room Air) | 95-100%\nWeight | 82.0 kg (180.8 lbs) | 81.5 kg (179.7 lbs) | --\nHeight / BMI | 180 cm (5 ft 11 in) | BMI: 25.2 kg/m² | 18.5 - 24.9 kg/m²",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vital Sign",
+            "Admission (2023-09-10)",
+            "Discharge (2023-09-12)",
+            "Normal Range"
+          ],
+          "rows": [
+            {
+              "Vital Sign": "Blood Pressure",
+              "Admission (2023-09-10)": "138/86 mmHg",
+              "Discharge (2023-09-12)": "118/74 mmHg",
+              "Normal Range": "< 120/80 mmHg"
+            },
+            {
+              "Vital Sign": "Heart Rate (Pulse)",
+              "Admission (2023-09-10)": "104 bpm (Tachycardic)",
+              "Discharge (2023-09-12)": "72 bpm",
+              "Normal Range": "60-100 bpm"
+            },
+            {
+              "Vital Sign": "Respiratory Rate",
+              "Admission (2023-09-10)": "20 breaths/min",
+              "Discharge (2023-09-12)": "16 breaths/min",
+              "Normal Range": "12-20 breaths/min"
+            },
+            {
+              "Vital Sign": "Body Temperature",
+              "Admission (2023-09-10)": "38.2 °C (100.8 °F - Febrile)",
+              "Discharge (2023-09-12)": "37.0 °C (98.6 °F)",
+              "Normal Range": "36.5 - 37.5 °C"
+            },
+            {
+              "Vital Sign": "Oxygen Saturation (SpO2)",
+              "Admission (2023-09-10)": "98% (Room Air)",
+              "Discharge (2023-09-12)": "99% (Room Air)",
+              "Normal Range": "95-100%"
+            },
+            {
+              "Vital Sign": "Weight",
+              "Admission (2023-09-10)": "82.0 kg (180.8 lbs)",
+              "Discharge (2023-09-12)": "81.5 kg (179.7 lbs)",
+              "Normal Range": "--"
+            },
+            {
+              "Vital Sign": "Height / BMI",
+              "Admission (2023-09-10)": "180 cm (5 ft 11 in)",
+              "Discharge (2023-09-12)": "BMI: 25.2 kg/m²",
+              "Normal Range": "18.5 - 24.9 kg/m²"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Vital signs panel",
+          "panel_code": {
+            "code": "46680005",
+            "display_name": "Vital signs panel",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "measurements": [
+            {
+              "vital_sign": {
+                "code": "8480-6",
+                "display_name": "Systolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 118.0,
+                "unit": "mm[Hg]",
+                "formatted": "118 mm[Hg]"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234568-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8462-4",
+                "display_name": "Diastolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 74.0,
+                "unit": "mm[Hg]",
+                "formatted": "74 mm[Hg]"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234569-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8867-4",
+                "display_name": "Heart rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 72.0,
+                "unit": "/min",
+                "formatted": "72 /min"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234570-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "9279-1",
+                "display_name": "Respiratory rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 16.0,
+                "unit": "/min",
+                "formatted": "16 /min"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234571-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8310-5",
+                "display_name": "Body temperature",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 37.0,
+                "unit": "Cel",
+                "formatted": "37.0 Cel"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234572-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "2708-6",
+                "display_name": "Oxygen saturation in Arterial blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 99.0,
+                "unit": "%",
+                "formatted": "99 %"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234573-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "29463-7",
+                "display_name": "Body weight",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 81.5,
+                "unit": "kg",
+                "formatted": "81.5 kg"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234574-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8302-2",
+                "display_name": "Body height",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 180.0,
+                "unit": "cm",
+                "formatted": "180 cm"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234575-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "39156-5",
+                "display_name": "Body mass index (BMI) [Ratio]",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 25.2,
+                "unit": "kg/m2",
+                "formatted": "25.2 kg/m2"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234576-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "v1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "display_name": "Systolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 118.0,
+            "unit": "mm[Hg]",
+            "formatted": "118 mm[Hg]"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "display_name": "Diastolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 74.0,
+            "unit": "mm[Hg]",
+            "formatted": "74 mm[Hg]"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8867-4",
+            "display_name": "Heart rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 72.0,
+            "unit": "/min",
+            "formatted": "72 /min"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234570-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "9279-1",
+            "display_name": "Respiratory rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 16.0,
+            "unit": "/min",
+            "formatted": "16 /min"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234571-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8310-5",
+            "display_name": "Body temperature",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 37.0,
+            "unit": "Cel",
+            "formatted": "37.0 Cel"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234572-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "2708-6",
+            "display_name": "Oxygen saturation in Arterial blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 99.0,
+            "unit": "%",
+            "formatted": "99 %"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234573-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "29463-7",
+            "display_name": "Body weight",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 81.5,
+            "unit": "kg",
+            "formatted": "81.5 kg"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234574-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8302-2",
+            "display_name": "Body height",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 180.0,
+            "unit": "cm",
+            "formatted": "180 cm"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234575-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "39156-5",
+            "display_name": "Body mass index (BMI) [Ratio]",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 25.2,
+            "unit": "kg/m2",
+            "formatted": "25.2 kg/m2"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234576-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "vital_signs"
+    },
+    "results": {
+      "title": "Diagnostic Results & Laboratory Data",
+      "code": {
+        "code": "30954-2",
+        "display_name": "Relevant diagnostic tests and/or laboratory data",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.3.1:2015-08-01"
+      ],
+      "narrative": "Test Name | LOINC | Admission (09/10) | Discharge (09/12) | Reference Range | Flag\n----------------------------------------------------------------------------------\nWhite Blood Cell Count (WBC) | 6690-2 | 15.4 10*3/uL | 7.2 10*3/uL | 4.0 - 11.0 10*3/uL | Normalized\nHemoglobin | 718-7 | 14.8 g/dL | 14.2 g/dL | 13.5 - 17.5 g/dL | Normal\nHematocrit | 4544-3 | 44.1 % | 42.5 % | 38.8 - 50.0 % | Normal\nPlatelet Count | 777-3 | 275 10*3/uL | 260 10*3/uL | 150 - 450 10*3/uL | Normal\nSodium, Serum | 2951-2 | 138 mmol/L | 140 mmol/L | 136 - 145 mmol/L | Normal\nPotassium, Serum | 2823-3 | 4.2 mmol/L | 4.1 mmol/L | 3.5 - 5.1 mmol/L | Normal\nChloride, Serum | 2075-0 | 101 mmol/L | 102 mmol/L | 98 - 107 mmol/L | Normal\nBlood Urea Nitrogen (BUN) | 3094-0 | 16 mg/dL | 14 mg/dL | 7 - 20 mg/dL | Normal\nCreatinine, Serum | 2160-0 | 0.92 mg/dL | 0.88 mg/dL | 0.70 - 1.30 mg/dL | Normal\nGlucose, Serum | 2345-7 | 98 mg/dL | 92 mg/dL | 70 - 99 mg/dL | Normal",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Test Name",
+            "LOINC",
+            "Admission (09/10)",
+            "Discharge (09/12)",
+            "Reference Range",
+            "Flag"
+          ],
+          "rows": [
+            {
+              "Test Name": "White Blood Cell Count (WBC)",
+              "LOINC": "6690-2",
+              "Admission (09/10)": "15.4 10*3/uL",
+              "Discharge (09/12)": "7.2 10*3/uL",
+              "Reference Range": "4.0 - 11.0 10*3/uL",
+              "Flag": "Normalized"
+            },
+            {
+              "Test Name": "Hemoglobin",
+              "LOINC": "718-7",
+              "Admission (09/10)": "14.8 g/dL",
+              "Discharge (09/12)": "14.2 g/dL",
+              "Reference Range": "13.5 - 17.5 g/dL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Hematocrit",
+              "LOINC": "4544-3",
+              "Admission (09/10)": "44.1 %",
+              "Discharge (09/12)": "42.5 %",
+              "Reference Range": "38.8 - 50.0 %",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Platelet Count",
+              "LOINC": "777-3",
+              "Admission (09/10)": "275 10*3/uL",
+              "Discharge (09/12)": "260 10*3/uL",
+              "Reference Range": "150 - 450 10*3/uL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Sodium, Serum",
+              "LOINC": "2951-2",
+              "Admission (09/10)": "138 mmol/L",
+              "Discharge (09/12)": "140 mmol/L",
+              "Reference Range": "136 - 145 mmol/L",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Potassium, Serum",
+              "LOINC": "2823-3",
+              "Admission (09/10)": "4.2 mmol/L",
+              "Discharge (09/12)": "4.1 mmol/L",
+              "Reference Range": "3.5 - 5.1 mmol/L",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Chloride, Serum",
+              "LOINC": "2075-0",
+              "Admission (09/10)": "101 mmol/L",
+              "Discharge (09/12)": "102 mmol/L",
+              "Reference Range": "98 - 107 mmol/L",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Blood Urea Nitrogen (BUN)",
+              "LOINC": "3094-0",
+              "Admission (09/10)": "16 mg/dL",
+              "Discharge (09/12)": "14 mg/dL",
+              "Reference Range": "7 - 20 mg/dL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Creatinine, Serum",
+              "LOINC": "2160-0",
+              "Admission (09/10)": "0.92 mg/dL",
+              "Discharge (09/12)": "0.88 mg/dL",
+              "Reference Range": "0.70 - 1.30 mg/dL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Glucose, Serum",
+              "LOINC": "2345-7",
+              "Admission (09/10)": "98 mg/dL",
+              "Discharge (09/12)": "92 mg/dL",
+              "Reference Range": "70 - 99 mg/dL",
+              "Flag": "Normal"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Complete blood count (CBC) with automated differential panel",
+          "panel_code": {
+            "code": "58410-2",
+            "display_name": "Complete blood count (CBC) with automated differential panel",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "6690-2",
+                "display_name": "Leukocytes [#/volume] in Blood by Automated count",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 7.2,
+                "unit": "10*3/uL",
+                "formatted": "7.2 10*3/uL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 4.0,
+                  "unit": "10*3/uL"
+                },
+                "high": {
+                  "value": 11.0,
+                  "unit": "10*3/uL"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234568-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "718-7",
+                "display_name": "Hemoglobin [Mass/volume] in Blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 14.2,
+                "unit": "g/dL",
+                "formatted": "14.2 g/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 13.5,
+                  "unit": "g/dL"
+                },
+                "high": {
+                  "value": 17.5,
+                  "unit": "g/dL"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234569-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "4544-3",
+                "display_name": "Hematocrit [Volume Fraction] of Blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 42.5,
+                "unit": "%",
+                "formatted": "42.5 %"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 38.8,
+                  "unit": "%"
+                },
+                "high": {
+                  "value": 50.0,
+                  "unit": "%"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234570-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "777-3",
+                "display_name": "Platelets [#/volume] in Blood by Automated count",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 260.0,
+                "unit": "10*3/uL",
+                "formatted": "260 10*3/uL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 150.0,
+                  "unit": "10*3/uL"
+                },
+                "high": {
+                  "value": 450.0,
+                  "unit": "10*3/uL"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234571-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "r1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "panel_name": "Basic metabolic 2000 panel - Serum or Plasma",
+          "panel_code": {
+            "code": "24320-4",
+            "display_name": "Basic metabolic 2000 panel - Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "2951-2",
+                "display_name": "Sodium [Moles/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 140.0,
+                "unit": "mmol/L",
+                "formatted": "140 mmol/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234573-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2823-3",
+                "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 4.1,
+                "unit": "mmol/L",
+                "formatted": "4.1 mmol/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234574-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2160-0",
+                "display_name": "Creatinine [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 0.88,
+                "unit": "mg/dL",
+                "formatted": "0.88 mg/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234575-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2345-7",
+                "display_name": "Glucose [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 92.0,
+                "unit": "mg/dL",
+                "formatted": "92 mg/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234576-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "r1234572-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "test": {
+            "code": "6690-2",
+            "display_name": "Leukocytes [#/volume] in Blood by Automated count",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 7.2,
+            "unit": "10*3/uL",
+            "formatted": "7.2 10*3/uL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 4.0,
+              "unit": "10*3/uL"
+            },
+            "high": {
+              "value": 11.0,
+              "unit": "10*3/uL"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "718-7",
+            "display_name": "Hemoglobin [Mass/volume] in Blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 14.2,
+            "unit": "g/dL",
+            "formatted": "14.2 g/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 13.5,
+              "unit": "g/dL"
+            },
+            "high": {
+              "value": 17.5,
+              "unit": "g/dL"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "4544-3",
+            "display_name": "Hematocrit [Volume Fraction] of Blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 42.5,
+            "unit": "%",
+            "formatted": "42.5 %"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 38.8,
+              "unit": "%"
+            },
+            "high": {
+              "value": 50.0,
+              "unit": "%"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234570-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "777-3",
+            "display_name": "Platelets [#/volume] in Blood by Automated count",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 260.0,
+            "unit": "10*3/uL",
+            "formatted": "260 10*3/uL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 150.0,
+              "unit": "10*3/uL"
+            },
+            "high": {
+              "value": 450.0,
+              "unit": "10*3/uL"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234571-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2951-2",
+            "display_name": "Sodium [Moles/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 140.0,
+            "unit": "mmol/L",
+            "formatted": "140 mmol/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234573-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2823-3",
+            "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 4.1,
+            "unit": "mmol/L",
+            "formatted": "4.1 mmol/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234574-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2160-0",
+            "display_name": "Creatinine [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 0.88,
+            "unit": "mg/dL",
+            "formatted": "0.88 mg/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234575-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2345-7",
+            "display_name": "Glucose [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 92.0,
+            "unit": "mg/dL",
+            "formatted": "92 mg/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234576-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "results"
+    },
+    "immunizations": {
+      "title": "Immunizations Administered & Recorded",
+      "code": {
+        "code": "11369-6",
+        "display_name": "History of immunizations",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"
+      ],
+      "narrative": "Vaccine | CVX Code | Date Administered | Lot Number | Status\n------------------------------------------------------------\nTetanus, diphtheria toxoids, and acellular pertussis vaccine (Tdap) | 115 | 2023-09-10 (Emergency Dept) | TD-88192A | Completed\nInfluenza, injectable, quadrivalent, preservative free | 141 | 2022-10-15 | FL-77210B | Completed\nSARS-COV-2 (COVID-19) vaccine, mRNA, spike protein | 208 | 2021-04-12 | CV-44910C | Completed",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vaccine",
+            "CVX Code",
+            "Date Administered",
+            "Lot Number",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Vaccine": "Tetanus, diphtheria toxoids, and acellular pertussis vaccine (Tdap)",
+              "CVX Code": "115",
+              "Date Administered": "2023-09-10 (Emergency Dept)",
+              "Lot Number": "TD-88192A",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "Influenza, injectable, quadrivalent, preservative free",
+              "CVX Code": "141",
+              "Date Administered": "2022-10-15",
+              "Lot Number": "FL-77210B",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein",
+              "CVX Code": "208",
+              "Date Administered": "2021-04-12",
+              "Lot Number": "CV-44910C",
+              "Status": "Completed"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "vaccine": {
+            "code": "115",
+            "display_name": "Tetanus, diphtheria, acellular pertussis (Tdap)",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2023-09-10",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": "TD-88192A",
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "i1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vaccine": {
+            "code": "141",
+            "display_name": "Influenza, injectable, quadrivalent, PF",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2022-10-15",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "i1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vaccine": {
+            "code": "208",
+            "display_name": "SARS-COV-2 (COVID-19) vaccine, mRNA",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2021-04-12",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "i1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "immunizations"
+    },
+    "encounters": {
+      "title": "Hospital Encounters",
+      "code": {
+        "code": "46240-8",
+        "display_name": "History of encounters",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"
+      ],
+      "narrative": "Encounter Type | CPT / Code | Date / Time | Location | Performer\n----------------------------------------------------------------\nEmergency Department Visit (High Severity) | 99285 | 2023-09-10 08:30 EDT | Emergency Department | Dr. Mark Reynolds, MD\nInitial Inpatient Hospital Care | 99223 | 2023-09-10 12:00 EDT | General Surgery Service | Dr. Sarah Jenkins, MD\nOperating Room Procedure Encounter | 99152 | 2023-09-10 14:30 EDT | Operating Room Suite 4 | Dr. Sarah Jenkins, MD",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Encounter Type",
+            "CPT / Code",
+            "Date / Time",
+            "Location",
+            "Performer"
+          ],
+          "rows": [
+            {
+              "Encounter Type": "Emergency Department Visit (High Severity)",
+              "CPT / Code": "99285",
+              "Date / Time": "2023-09-10 08:30 EDT",
+              "Location": "Emergency Department",
+              "Performer": "Dr. Mark Reynolds, MD"
+            },
+            {
+              "Encounter Type": "Initial Inpatient Hospital Care",
+              "CPT / Code": "99223",
+              "Date / Time": "2023-09-10 12:00 EDT",
+              "Location": "General Surgery Service",
+              "Performer": "Dr. Sarah Jenkins, MD"
+            },
+            {
+              "Encounter Type": "Operating Room Procedure Encounter",
+              "CPT / Code": "99152",
+              "Date / Time": "2023-09-10 14:30 EDT",
+              "Location": "Operating Room Suite 4",
+              "Performer": "Dr. Sarah Jenkins, MD"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "encounter_type": {
+            "code": "99285",
+            "display_name": "Emergency department visit, high severity",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4"
+          },
+          "date": "2023-09-10T08:30:00-04:00",
+          "performers": [
+            {
+              "name": "Dr. Mark Reynolds, MD",
+              "role": null
+            }
+          ],
+          "locations": [],
+          "diagnoses": [],
+          "ids": [
+            {
+              "root": "en1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "encounters"
+    },
+    "social_history": {
+      "title": "Social History",
+      "code": {
+        "code": "29762-2",
+        "display_name": "Social history",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.17:2015-08-01"
+      ],
+      "narrative": "• Tobacco Smoking Status: Former smoker (Quit in 2018; 5 pack-year history).\n• Alcohol Intake: Social / Occasional (1-2 drinks per month).\n• Occupation: Senior Software Engineer (Sedentary desk work; works remotely).",
+      "tables": [],
+      "smoking_status": {
+        "status": {
+          "code": "8517006",
+          "display_name": "Former smoker",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT",
+          "type": "CD"
+        },
+        "date": "2023-09-10",
+        "ids": [
+          {
+            "root": "s1234567-3451-11e2-81c1-0800200c9a66"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "observation": {
+            "code": "72166-2",
+            "display_name": "Tobacco smoking status",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "code": "8517006",
+            "display_name": "Former smoker",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "date": "2023-09-10",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "s1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "social_history"
+    },
     "hospital_discharge_instructions": {
-      "title": "Discharge Instructions & Follow-up",
+      "title": "Discharge Instructions, Plan of Care & Follow-up",
       "code": {
         "code": "69730-0",
         "display_name": "Discharge Instructions",
@@ -542,7 +2867,7 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.41"
       ],
-      "narrative": "• Activity: No heavy lifting > 10 lbs or strenuous exertion for 2 weeks. May shower after 48 hours; do not submerge incisions in water (no baths/swimming).\n• Wound Care: Keep incisions clean and dry. Steri-strips will fall off spontaneously in 7-10 days.\n• Follow-up: Post-op clinic visit with Dr. Jenkins in 10-14 days (Call 212-555-7010 to schedule).\n• Red Flags: Call immediately or go to nearest ED for fever > 101°F, intractable vomiting, worsening abdominal pain, or redness/purulent drainage from incisions.",
+      "narrative": "• Activity Restrictions: No heavy lifting greater than 10 lbs, strenuous cardiovascular exercise, or core abdominal straining for 2 weeks. May walk and climb stairs at a comfortable pace.\n• Bathing & Incision Care: Incisions have Dermabond / Steri-strips in place. May shower starting 48 hours post-op (gently pat dry). Do NOT soak in a bath, hot tub, or swim until evaluated at post-op visit.\n• Dietary Guidance: Resume regular diet as tolerated. Maintain generous fluid hydration (at least 6-8 glasses of water daily) and high-fiber foods to avoid constipation while taking pain medications.\n• Scheduled Follow-Up Appointments:\n                \n                  Postoperative Surgical Clinic visit with Dr. Sarah Jenkins on 2023-09-22 at 10:30 AM (Phone: 212-555-7010, 420 East 70th St, Suite 500).\n                  Primary Care follow-up with Dr. Emily Watson on 2023-10-05 at 02:00 PM for routine blood pressure check and medication review.\n• Red Flag Warning Symptoms: Call the surgical clinic immediately (212-555-7000) or report to the nearest emergency department if you experience:\n                \n                  Temperature > 101.0 °F (38.3 °C) or persistent chills\n                  Severe or worsening abdominal pain not relieved by medications\n                  Persistent nausea, vomiting, or inability to keep fluids down\n                  Increasing redness, swelling, warmth, or purulent drainage around port incisions\n                  Shortness of breath, chest pain, or lower extremity swelling",
       "tables": [],
       "entries": [],
       "section_type": "hospital_discharge_instructions"
@@ -558,7 +2883,7 @@
         "code_system_name": "LOINC"
       },
       "template_ids": [],
-      "narrative": "Acute severe right lower quadrant abdominal pain, low-grade fever, anorexia, and nausea for 24 hours.",
+      "narrative": "Acute severe right lower quadrant abdominal pain, low-grade fever (100.8°F), anorexia, nausea, and vomiting for 24 hours prior to presentation.",
       "tables": [],
       "entries": [],
       "section_type": "chief_complaint"
@@ -574,7 +2899,7 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.44"
       ],
-      "narrative": "Patient is a 34-year-old male who presented to the Emergency Department with a 1-day history of periumbilical pain migrating to the right lower quadrant with rebound tenderness. Abdominal CT demonstrated acute suppurative appendicitis with appendicolith without signs of perforation or abscess. Patient was admitted to General Surgery service, started on IV fluids and IV cefoxitin, and taken to the operating room on 2023-09-10 for an uneventful laparoscopic appendectomy.\nPostoperative course was smooth. Bowel sounds returned on post-op day 1, and the patient tolerated progression from clear liquids to a regular diet. Incisions are clean, intact, without erythema or drainage. Pain was well-managed with oral acetaminophen and ibuprofen. Patient is discharged home on post-op day 2 in stable condition.",
+      "narrative": "Hospital Day 1 (Admission & Surgery - 2023-09-10): Patient is a 34-year-old male who presented to the Emergency Department with a 24-hour history of periumbilical abdominal pain migrating to the right lower quadrant with guarding and rebound tenderness at McBurney's point. Vital signs on presentation were notable for temperature 38.2°C (100.8°F), heart rate 104 bpm, and BP 138/86 mmHg. Labs demonstrated leukocytosis with WBC 15.4 K/uL and 83% neutrophils. Contrast-enhanced CT scan of the abdomen/pelvis confirmed acute suppurative appendicitis with an obstructing appendicolith (8 mm) and localized pericecal fat stranding without frank abscess or pneumoperitoneum.\nPatient was resuscitated with 2 Liters IV lactated Ringer's solution, initiated on IV Cefoxitin 2g, and consented for urgent surgery. Patient was taken to the operating room on 2023-09-10 at 14:30. A 3-port laparoscopic appendectomy was performed without complication. Operative findings confirmed an acutely inflamed, gangrenous, non-perforated retrocecal appendix with mesoappendix vascular engorgement. Hemostasis was meticulous; estimated blood loss was < 15 mL. Patient was extubated and transferred to the PACU in stable condition, then admitted to the 7th floor surgical floor.\nHospital Day 2 (Post-op Day 1 - 2023-09-11): Postoperative course was uncomplicated. Patient was ambulating in the hallways. Bowel sounds returned and flatus was passed in the afternoon. Diet was advanced from clear liquids to a soft surgical diet, which was well-tolerated without nausea. Pain was effectively controlled with oral acetaminophen and scheduled ibuprofen. Incisions were clean and dry.\nHospital Day 3 (Discharge Day - 2023-09-12): Patient is afebrile with normal vital signs (BP 118/74 mmHg, HR 72 bpm, temp 37.0°C). Surgical port sites are intact, clean, without erythema, hematoma, or discharge. Tolerating regular diet, voiding spontaneously, and ambulating independently. Patient is discharged home in stable condition with clear instructions for outpatient follow-up.",
       "tables": [],
       "entries": [],
       "section_type": "hospital_course"
@@ -590,9 +2915,171 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.24:2015-08-01"
       ],
-      "narrative": "• Acute suppurative appendicitis status post laparoscopic appendectomy (ICD-10 K35.80)\n• Mild dehydration, resolved",
-      "tables": [],
+      "narrative": "Diagnosis | SNOMED CT | ICD-10-CM | Status | Type\n-------------------------------------------------\nAcute suppurative appendicitis with localized peritonitis | 74400008 | K35.80 | Resolved (Surgically managed) | Primary / Principal\nDehydration / Hypovolemia | 87522002 | E86.0 | Resolved | Secondary\nPostoperative incisional pain | 22253000 | G89.18 | Improving | Secondary\nEssential (primary) hypertension | 59621000 | I10 | Active / Controlled | Co-morbid",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Diagnosis",
+            "SNOMED CT",
+            "ICD-10-CM",
+            "Status",
+            "Type"
+          ],
+          "rows": [
+            {
+              "Diagnosis": "Acute suppurative appendicitis with localized peritonitis",
+              "SNOMED CT": "74400008",
+              "ICD-10-CM": "K35.80",
+              "Status": "Resolved (Surgically managed)",
+              "Type": "Primary / Principal"
+            },
+            {
+              "Diagnosis": "Dehydration / Hypovolemia",
+              "SNOMED CT": "87522002",
+              "ICD-10-CM": "E86.0",
+              "Status": "Resolved",
+              "Type": "Secondary"
+            },
+            {
+              "Diagnosis": "Postoperative incisional pain",
+              "SNOMED CT": "22253000",
+              "ICD-10-CM": "G89.18",
+              "Status": "Improving",
+              "Type": "Secondary"
+            },
+            {
+              "Diagnosis": "Essential (primary) hypertension",
+              "SNOMED CT": "59621000",
+              "ICD-10-CM": "I10",
+              "Status": "Active / Controlled",
+              "Type": "Co-morbid"
+            }
+          ]
+        }
+      ],
       "entries": [
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": {
+            "low": "2023-09-10",
+            "high": "2023-09-12"
+          },
+          "status": "completed",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "74400008",
+                "display_name": "Acute appendicitis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "K35.80",
+                    "display_name": "Unspecified acute appendicitis",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": {
+                "low": "2023-09-10"
+              },
+              "status": "completed",
+              "relationships": null,
+              "ids": [
+                {
+                  "root": "e1234568-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": [
+            {
+              "root": "e1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": null,
+          "status": "completed",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "87522002",
+                "display_name": "Dehydration",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "E86.0",
+                    "display_name": "Dehydration",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": null,
+              "status": "completed",
+              "relationships": null,
+              "ids": [
+                {
+                  "root": "e1234570-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": [
+            {
+              "root": "e1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
         {
           "statement_type": "act",
           "template_ids": [
@@ -619,14 +3106,14 @@
                 "code_system_name": "LOINC"
               },
               "value": {
-                "code": "74400008",
-                "display_name": "Appendicitis",
+                "code": "22253000",
+                "display_name": "Pain after operation",
                 "code_system": "2.16.840.1.113883.6.96",
                 "code_system_name": "SNOMED CT",
                 "translations": [
                   {
-                    "code": "K35.80",
-                    "display_name": "Unspecified acute appendicitis",
+                    "code": "G89.18",
+                    "display_name": "Other acute postprocedural pain",
                     "code_system": "2.16.840.1.113883.6.90",
                     "code_system_name": "ICD-10-CM"
                   }
@@ -637,17 +3124,83 @@
               "date": null,
               "status": "completed",
               "relationships": null,
-              "ids": [],
+              "ids": [
+                {
+                  "root": "e1234572-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
               "relationship_type": "SUBJ"
             }
           ],
-          "ids": []
+          "ids": [
+            {
+              "root": "e1234571-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "statement_type": "act",
+          "template_ids": [
+            "2.16.840.1.113883.10.20.22.4.33"
+          ],
+          "code": {
+            "code": "CONC",
+            "code_system": "2.16.840.1.113883.5.6"
+          },
+          "value": null,
+          "text": null,
+          "date": null,
+          "status": "active",
+          "relationships": [
+            {
+              "statement_type": "observation",
+              "template_ids": [
+                "2.16.840.1.113883.10.20.22.4.4"
+              ],
+              "code": {
+                "code": "29308-4",
+                "display_name": "Diagnosis",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "code": "59621000",
+                "display_name": "Essential hypertension",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "translations": [
+                  {
+                    "code": "I10",
+                    "display_name": "Essential (primary) hypertension",
+                    "code_system": "2.16.840.1.113883.6.90",
+                    "code_system_name": "ICD-10-CM"
+                  }
+                ],
+                "type": "CD"
+              },
+              "text": null,
+              "date": null,
+              "status": "completed",
+              "relationships": null,
+              "ids": [
+                {
+                  "root": "e1234574-3451-11e2-81c1-0800200c9a66"
+                }
+              ],
+              "relationship_type": "SUBJ"
+            }
+          ],
+          "ids": [
+            {
+              "root": "e1234573-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "discharge_diagnoses"
     },
     {
-      "title": "Procedures Performed",
+      "title": "Procedures & Surgical Interventions",
       "code": {
         "code": "47519-4",
         "display_name": "History of Procedures",
@@ -657,22 +3210,50 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.7.1:2014-06-09"
       ],
-      "narrative": "Procedure | CPT Code | Date | Surgeon\n-------------------------------------\nLaparoscopic Appendectomy | 44970 | 2023-09-10 | Dr. Sarah Jenkins, MD",
+      "narrative": "Procedure | CPT-4 Code | SNOMED Code | Date / Time | Provider / Performer | Status\n----------------------------------------------------------------------------------\nLaparoscopic Appendectomy | 44970 | 6025007 | 2023-09-10 14:30 EDT | Dr. Sarah Jenkins, MD, FACS | Completed\nDiagnostic Laparoscopy | 49320 | 174681007 | 2023-09-10 14:15 EDT | Dr. Sarah Jenkins, MD, FACS | Completed\nCT Abdomen and Pelvis with Contrast | 74177 | 419409002 | 2023-09-10 09:45 EDT | Dr. Karen Miller, MD (Radiology) | Completed\nPeripheral Intravenous Catheter Placement | 36000 | 233527006 | 2023-09-10 08:45 EDT | Emergency Nursing Staff | Completed",
       "tables": [
         {
           "caption": null,
           "headers": [
             "Procedure",
-            "CPT Code",
-            "Date",
-            "Surgeon"
+            "CPT-4 Code",
+            "SNOMED Code",
+            "Date / Time",
+            "Provider / Performer",
+            "Status"
           ],
           "rows": [
             {
               "Procedure": "Laparoscopic Appendectomy",
-              "CPT Code": "44970",
-              "Date": "2023-09-10",
-              "Surgeon": "Dr. Sarah Jenkins, MD"
+              "CPT-4 Code": "44970",
+              "SNOMED Code": "6025007",
+              "Date / Time": "2023-09-10 14:30 EDT",
+              "Provider / Performer": "Dr. Sarah Jenkins, MD, FACS",
+              "Status": "Completed"
+            },
+            {
+              "Procedure": "Diagnostic Laparoscopy",
+              "CPT-4 Code": "49320",
+              "SNOMED Code": "174681007",
+              "Date / Time": "2023-09-10 14:15 EDT",
+              "Provider / Performer": "Dr. Sarah Jenkins, MD, FACS",
+              "Status": "Completed"
+            },
+            {
+              "Procedure": "CT Abdomen and Pelvis with Contrast",
+              "CPT-4 Code": "74177",
+              "SNOMED Code": "419409002",
+              "Date / Time": "2023-09-10 09:45 EDT",
+              "Provider / Performer": "Dr. Karen Miller, MD (Radiology)",
+              "Status": "Completed"
+            },
+            {
+              "Procedure": "Peripheral Intravenous Catheter Placement",
+              "CPT-4 Code": "36000",
+              "SNOMED Code": "233527006",
+              "Date / Time": "2023-09-10 08:45 EDT",
+              "Provider / Performer": "Emergency Nursing Staff",
+              "Status": "Completed"
             }
           ]
         }
@@ -695,17 +3276,114 @@
           },
           "status": "completed",
           "date": "2023-09-10T14:30:00-04:00",
-          "target_site": null,
+          "target_site": {
+            "code": "66754008",
+            "display_name": "Appendix structure",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
           "performers": [
             {
-              "name": "Dr. Sarah Jenkins, MD",
-              "role": null
+              "name": "Dr. Sarah Jenkins, MD, FACS",
+              "role": {
+                "code": "208600000X",
+                "display_name": "General Surgery",
+                "code_system": "2.16.840.1.113883.6.101"
+              }
             }
           ],
           "devices": null,
           "ids": [
             {
               "root": "d29b2b50-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "49320",
+            "display_name": "Laparoscopy, abdomen, diagnostic",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "174681007",
+                "display_name": "Diagnostic laparoscopy",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T14:15:00-04:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Sarah Jenkins, MD, FACS",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b51-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "74177",
+            "display_name": "Computed tomography, abdomen and pelvis; with contrast material(s)",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "419409002",
+                "display_name": "CT of abdomen and pelvis with contrast",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T09:45:00-04:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Karen Miller, MD",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b52-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "36000",
+            "display_name": "Introduction of needle or intracatheter, vein",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "233527006",
+                "display_name": "Intravenous cannulation",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-09-10T08:45:00-04:00",
+          "target_site": null,
+          "performers": [],
+          "devices": null,
+          "ids": [
+            {
+              "root": "d29b2b53-3451-11e2-81c1-0800200c9a66"
             }
           ]
         }
@@ -723,34 +3401,58 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.11:2015-08-01"
       ],
-      "narrative": "Medication | Dose | Route | Frequency & Instructions\n----------------------------------------------------\nAcetaminophen 500 MG Oral Tablet | 500 mg | Oral | Every 6 hours as needed for mild to moderate pain\nIbuprofen 400 MG Oral Tablet | 400 mg | Oral | Every 8 hours with food as needed for pain/inflammation\nCefdinir 300 MG Oral Capsule | 300 mg | Oral | Twice daily for 5 days (complete full course)",
+      "narrative": "Medication | RxNorm Code | Dose | Route | Frequency & Patient Instructions | Status\n-----------------------------------------------------------------------------------\nAcetaminophen 500 MG Oral Tablet | 209459 | 500 mg | Oral | Take 1 to 2 tablets every 6 hours as needed for mild-to-moderate incisional pain. Do not exceed 3,000 mg in 24 hours. | Active\nIbuprofen 400 MG Oral Tablet | 197806 | 400 mg | Oral | Take 1 tablet every 8 hours with food or milk as needed for surgical inflammation/pain. | Active\nCefdinir 300 MG Oral Capsule | 309095 | 300 mg | Oral | Take 1 capsule every 12 hours for 5 days. Complete the entire prescribed antibiotic course. | Active\nDocusate Sodium 100 MG Oral Capsule | 993452 | 100 mg | Oral | Take 1 capsule daily at bedtime as needed for stool softening / constipation prevention. | Active\nLisinopril 10 MG Oral Tablet | 314076 | 10 mg | Oral | Take 1 tablet once daily in the morning for blood pressure control (pre-admission home medication resumed). | Active",
       "tables": [
         {
           "caption": null,
           "headers": [
             "Medication",
+            "RxNorm Code",
             "Dose",
             "Route",
-            "Frequency & Instructions"
+            "Frequency & Patient Instructions",
+            "Status"
           ],
           "rows": [
             {
               "Medication": "Acetaminophen 500 MG Oral Tablet",
+              "RxNorm Code": "209459",
               "Dose": "500 mg",
               "Route": "Oral",
-              "Frequency & Instructions": "Every 6 hours as needed for mild to moderate pain"
+              "Frequency & Patient Instructions": "Take 1 to 2 tablets every 6 hours as needed for mild-to-moderate incisional pain. Do not exceed 3,000 mg in 24 hours.",
+              "Status": "Active"
             },
             {
               "Medication": "Ibuprofen 400 MG Oral Tablet",
+              "RxNorm Code": "197806",
               "Dose": "400 mg",
               "Route": "Oral",
-              "Frequency & Instructions": "Every 8 hours with food as needed for pain/inflammation"
+              "Frequency & Patient Instructions": "Take 1 tablet every 8 hours with food or milk as needed for surgical inflammation/pain.",
+              "Status": "Active"
             },
             {
               "Medication": "Cefdinir 300 MG Oral Capsule",
+              "RxNorm Code": "309095",
               "Dose": "300 mg",
               "Route": "Oral",
-              "Frequency & Instructions": "Twice daily for 5 days (complete full course)"
+              "Frequency & Patient Instructions": "Take 1 capsule every 12 hours for 5 days. Complete the entire prescribed antibiotic course.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Docusate Sodium 100 MG Oral Capsule",
+              "RxNorm Code": "993452",
+              "Dose": "100 mg",
+              "Route": "Oral",
+              "Frequency & Patient Instructions": "Take 1 capsule daily at bedtime as needed for stool softening / constipation prevention.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Lisinopril 10 MG Oral Tablet",
+              "RxNorm Code": "314076",
+              "Dose": "10 mg",
+              "Route": "Oral",
+              "Frequency & Patient Instructions": "Take 1 tablet once daily in the morning for blood pressure control (pre-admission home medication resumed).",
+              "Status": "Active"
             }
           ]
         }
@@ -773,9 +3475,16 @@
           "route": {
             "code": "C38288",
             "display_name": "Oral",
-            "code_system": "2.16.840.1.113883.3.26.1.1"
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
           },
-          "schedule": null,
+          "schedule": {
+            "period": {
+              "value": "6",
+              "unit": "h",
+              "human_readable": "Four times daily (q6h)"
+            }
+          },
           "date_range": {
             "low": "2023-09-12"
           },
@@ -791,23 +3500,230 @@
               "root": "f8a1bc20-3451-11e2-81c1-0800200c9a66"
             }
           ]
+        },
+        {
+          "medication": {
+            "code": "197806",
+            "display_name": "Ibuprofen 400 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 400.0,
+            "unit": "mg",
+            "formatted": "400 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "8",
+              "unit": "h",
+              "human_readable": "Three times daily (q8h)"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc21-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "309095",
+            "display_name": "Cefdinir 300 MG Oral Capsule",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 300.0,
+            "unit": "mg",
+            "formatted": "300 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "12",
+              "unit": "h",
+              "human_readable": "Twice daily (q12h)"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12",
+            "high": "2023-09-17"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc22-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "993452",
+            "display_name": "Docusate Sodium 100 MG Oral Capsule",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 100.0,
+            "unit": "mg",
+            "formatted": "100 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc23-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "314076",
+            "display_name": "Lisinopril 10 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 10.0,
+            "unit": "mg",
+            "formatted": "10 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1",
+            "code_system_name": "NCI Thesaurus"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2023-09-12"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "f8a1bc24-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "discharge_medications"
     },
     {
-      "title": "Allergies & Alerts",
+      "title": "Allergies & Intolerances",
       "code": {
         "code": "48765-2",
-        "display_name": "Allergies",
+        "display_name": "Allergies and adverse reactions Document",
         "code_system": "2.16.840.1.113883.6.1",
         "code_system_name": "LOINC"
       },
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
       ],
-      "narrative": "Sulfa (Sulfonamide Antibiotics) - Causes skin rash (Mild)",
-      "tables": [],
+      "narrative": "Substance | RxNorm / Code | Reaction Manifestation | Severity | Status\n----------------------------------------------------------------------\nSulfonamide Antibacterials (Bactrim) | 10093 | Generalized maculopapular rash, pruritus | Moderate | Active\nCodeine Sulfate | 2670 | Intractable severe nausea, emesis, dizziness | Severe | Active\nNatural Rubber Latex | 300916003 | Contact urticaria / localized erythema | Mild | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Substance",
+            "RxNorm / Code",
+            "Reaction Manifestation",
+            "Severity",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Substance": "Sulfonamide Antibacterials (Bactrim)",
+              "RxNorm / Code": "10093",
+              "Reaction Manifestation": "Generalized maculopapular rash, pruritus",
+              "Severity": "Moderate",
+              "Status": "Active"
+            },
+            {
+              "Substance": "Codeine Sulfate",
+              "RxNorm / Code": "2670",
+              "Reaction Manifestation": "Intractable severe nausea, emesis, dizziness",
+              "Severity": "Severe",
+              "Status": "Active"
+            },
+            {
+              "Substance": "Natural Rubber Latex",
+              "RxNorm / Code": "300916003",
+              "Reaction Manifestation": "Contact urticaria / localized erythema",
+              "Severity": "Mild",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
       "entries": [
         {
           "substance": {
@@ -822,16 +3738,1613 @@
             "code_system_name": "ActCode"
           },
           "status": "active",
-          "effective_time": null,
+          "effective_time": {
+            "low": "2015-03-10"
+          },
           "severity": null,
-          "reactions": [],
-          "ids": []
+          "reactions": [
+            {
+              "reaction": {
+                "code": "271807003",
+                "display_name": "Maculopapular rash",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "6736007",
+                "display_name": "Moderate",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "2670",
+            "display_name": "Codeine",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2018-07-20"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "422400008",
+                "display_name": "Severe nausea and vomiting",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "24484000",
+                "display_name": "Severe",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a1234570-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "300916003",
+            "display_name": "Latex",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2012-01-15"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "40275004",
+                "display_name": "Contact dermatitis",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "255604002",
+                "display_name": "Mild",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a1234572-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "allergies"
     },
     {
-      "title": "Discharge Instructions & Follow-up",
+      "title": "Vital Signs",
+      "code": {
+        "code": "8716-3",
+        "display_name": "Vital Signs",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
+      ],
+      "narrative": "Vital Sign | Admission (2023-09-10) | Discharge (2023-09-12) | Normal Range\n---------------------------------------------------------------------------\nBlood Pressure | 138/86 mmHg | 118/74 mmHg | < 120/80 mmHg\nHeart Rate (Pulse) | 104 bpm (Tachycardic) | 72 bpm | 60-100 bpm\nRespiratory Rate | 20 breaths/min | 16 breaths/min | 12-20 breaths/min\nBody Temperature | 38.2 °C (100.8 °F - Febrile) | 37.0 °C (98.6 °F) | 36.5 - 37.5 °C\nOxygen Saturation (SpO2) | 98% (Room Air) | 99% (Room Air) | 95-100%\nWeight | 82.0 kg (180.8 lbs) | 81.5 kg (179.7 lbs) | --\nHeight / BMI | 180 cm (5 ft 11 in) | BMI: 25.2 kg/m² | 18.5 - 24.9 kg/m²",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vital Sign",
+            "Admission (2023-09-10)",
+            "Discharge (2023-09-12)",
+            "Normal Range"
+          ],
+          "rows": [
+            {
+              "Vital Sign": "Blood Pressure",
+              "Admission (2023-09-10)": "138/86 mmHg",
+              "Discharge (2023-09-12)": "118/74 mmHg",
+              "Normal Range": "< 120/80 mmHg"
+            },
+            {
+              "Vital Sign": "Heart Rate (Pulse)",
+              "Admission (2023-09-10)": "104 bpm (Tachycardic)",
+              "Discharge (2023-09-12)": "72 bpm",
+              "Normal Range": "60-100 bpm"
+            },
+            {
+              "Vital Sign": "Respiratory Rate",
+              "Admission (2023-09-10)": "20 breaths/min",
+              "Discharge (2023-09-12)": "16 breaths/min",
+              "Normal Range": "12-20 breaths/min"
+            },
+            {
+              "Vital Sign": "Body Temperature",
+              "Admission (2023-09-10)": "38.2 °C (100.8 °F - Febrile)",
+              "Discharge (2023-09-12)": "37.0 °C (98.6 °F)",
+              "Normal Range": "36.5 - 37.5 °C"
+            },
+            {
+              "Vital Sign": "Oxygen Saturation (SpO2)",
+              "Admission (2023-09-10)": "98% (Room Air)",
+              "Discharge (2023-09-12)": "99% (Room Air)",
+              "Normal Range": "95-100%"
+            },
+            {
+              "Vital Sign": "Weight",
+              "Admission (2023-09-10)": "82.0 kg (180.8 lbs)",
+              "Discharge (2023-09-12)": "81.5 kg (179.7 lbs)",
+              "Normal Range": "--"
+            },
+            {
+              "Vital Sign": "Height / BMI",
+              "Admission (2023-09-10)": "180 cm (5 ft 11 in)",
+              "Discharge (2023-09-12)": "BMI: 25.2 kg/m²",
+              "Normal Range": "18.5 - 24.9 kg/m²"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Vital signs panel",
+          "panel_code": {
+            "code": "46680005",
+            "display_name": "Vital signs panel",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "measurements": [
+            {
+              "vital_sign": {
+                "code": "8480-6",
+                "display_name": "Systolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 118.0,
+                "unit": "mm[Hg]",
+                "formatted": "118 mm[Hg]"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234568-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8462-4",
+                "display_name": "Diastolic blood pressure",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 74.0,
+                "unit": "mm[Hg]",
+                "formatted": "74 mm[Hg]"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234569-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8867-4",
+                "display_name": "Heart rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 72.0,
+                "unit": "/min",
+                "formatted": "72 /min"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234570-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "9279-1",
+                "display_name": "Respiratory rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 16.0,
+                "unit": "/min",
+                "formatted": "16 /min"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234571-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8310-5",
+                "display_name": "Body temperature",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 37.0,
+                "unit": "Cel",
+                "formatted": "37.0 Cel"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234572-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "2708-6",
+                "display_name": "Oxygen saturation in Arterial blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 99.0,
+                "unit": "%",
+                "formatted": "99 %"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234573-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "29463-7",
+                "display_name": "Body weight",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 81.5,
+                "unit": "kg",
+                "formatted": "81.5 kg"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234574-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8302-2",
+                "display_name": "Body height",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 180.0,
+                "unit": "cm",
+                "formatted": "180 cm"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234575-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "39156-5",
+                "display_name": "Body mass index (BMI) [Ratio]",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 25.2,
+                "unit": "kg/m2",
+                "formatted": "25.2 kg/m2"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-09-12T09:30:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v1234576-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "v1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "measurements": [
+        {
+          "vital_sign": {
+            "code": "8480-6",
+            "display_name": "Systolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 118.0,
+            "unit": "mm[Hg]",
+            "formatted": "118 mm[Hg]"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8462-4",
+            "display_name": "Diastolic blood pressure",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 74.0,
+            "unit": "mm[Hg]",
+            "formatted": "74 mm[Hg]"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8867-4",
+            "display_name": "Heart rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 72.0,
+            "unit": "/min",
+            "formatted": "72 /min"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234570-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "9279-1",
+            "display_name": "Respiratory rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 16.0,
+            "unit": "/min",
+            "formatted": "16 /min"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234571-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8310-5",
+            "display_name": "Body temperature",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 37.0,
+            "unit": "Cel",
+            "formatted": "37.0 Cel"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234572-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "2708-6",
+            "display_name": "Oxygen saturation in Arterial blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 99.0,
+            "unit": "%",
+            "formatted": "99 %"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234573-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "29463-7",
+            "display_name": "Body weight",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 81.5,
+            "unit": "kg",
+            "formatted": "81.5 kg"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234574-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8302-2",
+            "display_name": "Body height",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 180.0,
+            "unit": "cm",
+            "formatted": "180 cm"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234575-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "39156-5",
+            "display_name": "Body mass index (BMI) [Ratio]",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 25.2,
+            "unit": "kg/m2",
+            "formatted": "25.2 kg/m2"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-09-12T09:30:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v1234576-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "vital_signs"
+    },
+    {
+      "title": "Diagnostic Results & Laboratory Data",
+      "code": {
+        "code": "30954-2",
+        "display_name": "Relevant diagnostic tests and/or laboratory data",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.3.1:2015-08-01"
+      ],
+      "narrative": "Test Name | LOINC | Admission (09/10) | Discharge (09/12) | Reference Range | Flag\n----------------------------------------------------------------------------------\nWhite Blood Cell Count (WBC) | 6690-2 | 15.4 10*3/uL | 7.2 10*3/uL | 4.0 - 11.0 10*3/uL | Normalized\nHemoglobin | 718-7 | 14.8 g/dL | 14.2 g/dL | 13.5 - 17.5 g/dL | Normal\nHematocrit | 4544-3 | 44.1 % | 42.5 % | 38.8 - 50.0 % | Normal\nPlatelet Count | 777-3 | 275 10*3/uL | 260 10*3/uL | 150 - 450 10*3/uL | Normal\nSodium, Serum | 2951-2 | 138 mmol/L | 140 mmol/L | 136 - 145 mmol/L | Normal\nPotassium, Serum | 2823-3 | 4.2 mmol/L | 4.1 mmol/L | 3.5 - 5.1 mmol/L | Normal\nChloride, Serum | 2075-0 | 101 mmol/L | 102 mmol/L | 98 - 107 mmol/L | Normal\nBlood Urea Nitrogen (BUN) | 3094-0 | 16 mg/dL | 14 mg/dL | 7 - 20 mg/dL | Normal\nCreatinine, Serum | 2160-0 | 0.92 mg/dL | 0.88 mg/dL | 0.70 - 1.30 mg/dL | Normal\nGlucose, Serum | 2345-7 | 98 mg/dL | 92 mg/dL | 70 - 99 mg/dL | Normal",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Test Name",
+            "LOINC",
+            "Admission (09/10)",
+            "Discharge (09/12)",
+            "Reference Range",
+            "Flag"
+          ],
+          "rows": [
+            {
+              "Test Name": "White Blood Cell Count (WBC)",
+              "LOINC": "6690-2",
+              "Admission (09/10)": "15.4 10*3/uL",
+              "Discharge (09/12)": "7.2 10*3/uL",
+              "Reference Range": "4.0 - 11.0 10*3/uL",
+              "Flag": "Normalized"
+            },
+            {
+              "Test Name": "Hemoglobin",
+              "LOINC": "718-7",
+              "Admission (09/10)": "14.8 g/dL",
+              "Discharge (09/12)": "14.2 g/dL",
+              "Reference Range": "13.5 - 17.5 g/dL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Hematocrit",
+              "LOINC": "4544-3",
+              "Admission (09/10)": "44.1 %",
+              "Discharge (09/12)": "42.5 %",
+              "Reference Range": "38.8 - 50.0 %",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Platelet Count",
+              "LOINC": "777-3",
+              "Admission (09/10)": "275 10*3/uL",
+              "Discharge (09/12)": "260 10*3/uL",
+              "Reference Range": "150 - 450 10*3/uL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Sodium, Serum",
+              "LOINC": "2951-2",
+              "Admission (09/10)": "138 mmol/L",
+              "Discharge (09/12)": "140 mmol/L",
+              "Reference Range": "136 - 145 mmol/L",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Potassium, Serum",
+              "LOINC": "2823-3",
+              "Admission (09/10)": "4.2 mmol/L",
+              "Discharge (09/12)": "4.1 mmol/L",
+              "Reference Range": "3.5 - 5.1 mmol/L",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Chloride, Serum",
+              "LOINC": "2075-0",
+              "Admission (09/10)": "101 mmol/L",
+              "Discharge (09/12)": "102 mmol/L",
+              "Reference Range": "98 - 107 mmol/L",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Blood Urea Nitrogen (BUN)",
+              "LOINC": "3094-0",
+              "Admission (09/10)": "16 mg/dL",
+              "Discharge (09/12)": "14 mg/dL",
+              "Reference Range": "7 - 20 mg/dL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Creatinine, Serum",
+              "LOINC": "2160-0",
+              "Admission (09/10)": "0.92 mg/dL",
+              "Discharge (09/12)": "0.88 mg/dL",
+              "Reference Range": "0.70 - 1.30 mg/dL",
+              "Flag": "Normal"
+            },
+            {
+              "Test Name": "Glucose, Serum",
+              "LOINC": "2345-7",
+              "Admission (09/10)": "98 mg/dL",
+              "Discharge (09/12)": "92 mg/dL",
+              "Reference Range": "70 - 99 mg/dL",
+              "Flag": "Normal"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Complete blood count (CBC) with automated differential panel",
+          "panel_code": {
+            "code": "58410-2",
+            "display_name": "Complete blood count (CBC) with automated differential panel",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "6690-2",
+                "display_name": "Leukocytes [#/volume] in Blood by Automated count",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 7.2,
+                "unit": "10*3/uL",
+                "formatted": "7.2 10*3/uL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 4.0,
+                  "unit": "10*3/uL"
+                },
+                "high": {
+                  "value": 11.0,
+                  "unit": "10*3/uL"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234568-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "718-7",
+                "display_name": "Hemoglobin [Mass/volume] in Blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 14.2,
+                "unit": "g/dL",
+                "formatted": "14.2 g/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 13.5,
+                  "unit": "g/dL"
+                },
+                "high": {
+                  "value": 17.5,
+                  "unit": "g/dL"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234569-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "4544-3",
+                "display_name": "Hematocrit [Volume Fraction] of Blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 42.5,
+                "unit": "%",
+                "formatted": "42.5 %"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 38.8,
+                  "unit": "%"
+                },
+                "high": {
+                  "value": 50.0,
+                  "unit": "%"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234570-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "777-3",
+                "display_name": "Platelets [#/volume] in Blood by Automated count",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 260.0,
+                "unit": "10*3/uL",
+                "formatted": "260 10*3/uL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": {
+                "type": "IVL_PQ",
+                "low": {
+                  "value": 150.0,
+                  "unit": "10*3/uL"
+                },
+                "high": {
+                  "value": 450.0,
+                  "unit": "10*3/uL"
+                }
+              },
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234571-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "r1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "panel_name": "Basic metabolic 2000 panel - Serum or Plasma",
+          "panel_code": {
+            "code": "24320-4",
+            "display_name": "Basic metabolic 2000 panel - Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "2951-2",
+                "display_name": "Sodium [Moles/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 140.0,
+                "unit": "mmol/L",
+                "formatted": "140 mmol/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234573-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2823-3",
+                "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 4.1,
+                "unit": "mmol/L",
+                "formatted": "4.1 mmol/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234574-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2160-0",
+                "display_name": "Creatinine [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 0.88,
+                "unit": "mg/dL",
+                "formatted": "0.88 mg/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234575-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2345-7",
+                "display_name": "Glucose [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 92.0,
+                "unit": "mg/dL",
+                "formatted": "92 mg/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-09-12T06:00:00-04:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r1234576-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "r1234572-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "test": {
+            "code": "6690-2",
+            "display_name": "Leukocytes [#/volume] in Blood by Automated count",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 7.2,
+            "unit": "10*3/uL",
+            "formatted": "7.2 10*3/uL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 4.0,
+              "unit": "10*3/uL"
+            },
+            "high": {
+              "value": 11.0,
+              "unit": "10*3/uL"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "718-7",
+            "display_name": "Hemoglobin [Mass/volume] in Blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 14.2,
+            "unit": "g/dL",
+            "formatted": "14.2 g/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 13.5,
+              "unit": "g/dL"
+            },
+            "high": {
+              "value": 17.5,
+              "unit": "g/dL"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "4544-3",
+            "display_name": "Hematocrit [Volume Fraction] of Blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 42.5,
+            "unit": "%",
+            "formatted": "42.5 %"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 38.8,
+              "unit": "%"
+            },
+            "high": {
+              "value": 50.0,
+              "unit": "%"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234570-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "777-3",
+            "display_name": "Platelets [#/volume] in Blood by Automated count",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 260.0,
+            "unit": "10*3/uL",
+            "formatted": "260 10*3/uL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": {
+            "type": "IVL_PQ",
+            "low": {
+              "value": 150.0,
+              "unit": "10*3/uL"
+            },
+            "high": {
+              "value": 450.0,
+              "unit": "10*3/uL"
+            }
+          },
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234571-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2951-2",
+            "display_name": "Sodium [Moles/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 140.0,
+            "unit": "mmol/L",
+            "formatted": "140 mmol/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234573-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2823-3",
+            "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 4.1,
+            "unit": "mmol/L",
+            "formatted": "4.1 mmol/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234574-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2160-0",
+            "display_name": "Creatinine [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 0.88,
+            "unit": "mg/dL",
+            "formatted": "0.88 mg/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234575-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2345-7",
+            "display_name": "Glucose [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 92.0,
+            "unit": "mg/dL",
+            "formatted": "92 mg/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-09-12T06:00:00-04:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r1234576-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "results"
+    },
+    {
+      "title": "Immunizations Administered & Recorded",
+      "code": {
+        "code": "11369-6",
+        "display_name": "History of immunizations",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"
+      ],
+      "narrative": "Vaccine | CVX Code | Date Administered | Lot Number | Status\n------------------------------------------------------------\nTetanus, diphtheria toxoids, and acellular pertussis vaccine (Tdap) | 115 | 2023-09-10 (Emergency Dept) | TD-88192A | Completed\nInfluenza, injectable, quadrivalent, preservative free | 141 | 2022-10-15 | FL-77210B | Completed\nSARS-COV-2 (COVID-19) vaccine, mRNA, spike protein | 208 | 2021-04-12 | CV-44910C | Completed",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vaccine",
+            "CVX Code",
+            "Date Administered",
+            "Lot Number",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Vaccine": "Tetanus, diphtheria toxoids, and acellular pertussis vaccine (Tdap)",
+              "CVX Code": "115",
+              "Date Administered": "2023-09-10 (Emergency Dept)",
+              "Lot Number": "TD-88192A",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "Influenza, injectable, quadrivalent, preservative free",
+              "CVX Code": "141",
+              "Date Administered": "2022-10-15",
+              "Lot Number": "FL-77210B",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein",
+              "CVX Code": "208",
+              "Date Administered": "2021-04-12",
+              "Lot Number": "CV-44910C",
+              "Status": "Completed"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "vaccine": {
+            "code": "115",
+            "display_name": "Tetanus, diphtheria, acellular pertussis (Tdap)",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2023-09-10",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": "TD-88192A",
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "i1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vaccine": {
+            "code": "141",
+            "display_name": "Influenza, injectable, quadrivalent, PF",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2022-10-15",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "i1234568-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vaccine": {
+            "code": "208",
+            "display_name": "SARS-COV-2 (COVID-19) vaccine, mRNA",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2021-04-12",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "i1234569-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "immunizations"
+    },
+    {
+      "title": "Hospital Encounters",
+      "code": {
+        "code": "46240-8",
+        "display_name": "History of encounters",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"
+      ],
+      "narrative": "Encounter Type | CPT / Code | Date / Time | Location | Performer\n----------------------------------------------------------------\nEmergency Department Visit (High Severity) | 99285 | 2023-09-10 08:30 EDT | Emergency Department | Dr. Mark Reynolds, MD\nInitial Inpatient Hospital Care | 99223 | 2023-09-10 12:00 EDT | General Surgery Service | Dr. Sarah Jenkins, MD\nOperating Room Procedure Encounter | 99152 | 2023-09-10 14:30 EDT | Operating Room Suite 4 | Dr. Sarah Jenkins, MD",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Encounter Type",
+            "CPT / Code",
+            "Date / Time",
+            "Location",
+            "Performer"
+          ],
+          "rows": [
+            {
+              "Encounter Type": "Emergency Department Visit (High Severity)",
+              "CPT / Code": "99285",
+              "Date / Time": "2023-09-10 08:30 EDT",
+              "Location": "Emergency Department",
+              "Performer": "Dr. Mark Reynolds, MD"
+            },
+            {
+              "Encounter Type": "Initial Inpatient Hospital Care",
+              "CPT / Code": "99223",
+              "Date / Time": "2023-09-10 12:00 EDT",
+              "Location": "General Surgery Service",
+              "Performer": "Dr. Sarah Jenkins, MD"
+            },
+            {
+              "Encounter Type": "Operating Room Procedure Encounter",
+              "CPT / Code": "99152",
+              "Date / Time": "2023-09-10 14:30 EDT",
+              "Location": "Operating Room Suite 4",
+              "Performer": "Dr. Sarah Jenkins, MD"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "encounter_type": {
+            "code": "99285",
+            "display_name": "Emergency department visit, high severity",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4"
+          },
+          "date": "2023-09-10T08:30:00-04:00",
+          "performers": [
+            {
+              "name": "Dr. Mark Reynolds, MD",
+              "role": null
+            }
+          ],
+          "locations": [],
+          "diagnoses": [],
+          "ids": [
+            {
+              "root": "en1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "encounters"
+    },
+    {
+      "title": "Social History",
+      "code": {
+        "code": "29762-2",
+        "display_name": "Social history",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.17:2015-08-01"
+      ],
+      "narrative": "• Tobacco Smoking Status: Former smoker (Quit in 2018; 5 pack-year history).\n• Alcohol Intake: Social / Occasional (1-2 drinks per month).\n• Occupation: Senior Software Engineer (Sedentary desk work; works remotely).",
+      "tables": [],
+      "smoking_status": {
+        "status": {
+          "code": "8517006",
+          "display_name": "Former smoker",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT",
+          "type": "CD"
+        },
+        "date": "2023-09-10",
+        "ids": [
+          {
+            "root": "s1234567-3451-11e2-81c1-0800200c9a66"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "observation": {
+            "code": "72166-2",
+            "display_name": "Tobacco smoking status",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "code": "8517006",
+            "display_name": "Former smoker",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "date": "2023-09-10",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "s1234567-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "social_history"
+    },
+    {
+      "title": "Discharge Instructions, Plan of Care & Follow-up",
       "code": {
         "code": "69730-0",
         "display_name": "Discharge Instructions",
@@ -841,7 +5354,7 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.41"
       ],
-      "narrative": "• Activity: No heavy lifting > 10 lbs or strenuous exertion for 2 weeks. May shower after 48 hours; do not submerge incisions in water (no baths/swimming).\n• Wound Care: Keep incisions clean and dry. Steri-strips will fall off spontaneously in 7-10 days.\n• Follow-up: Post-op clinic visit with Dr. Jenkins in 10-14 days (Call 212-555-7010 to schedule).\n• Red Flags: Call immediately or go to nearest ED for fever > 101°F, intractable vomiting, worsening abdominal pain, or redness/purulent drainage from incisions.",
+      "narrative": "• Activity Restrictions: No heavy lifting greater than 10 lbs, strenuous cardiovascular exercise, or core abdominal straining for 2 weeks. May walk and climb stairs at a comfortable pace.\n• Bathing & Incision Care: Incisions have Dermabond / Steri-strips in place. May shower starting 48 hours post-op (gently pat dry). Do NOT soak in a bath, hot tub, or swim until evaluated at post-op visit.\n• Dietary Guidance: Resume regular diet as tolerated. Maintain generous fluid hydration (at least 6-8 glasses of water daily) and high-fiber foods to avoid constipation while taking pain medications.\n• Scheduled Follow-Up Appointments:\n                \n                  Postoperative Surgical Clinic visit with Dr. Sarah Jenkins on 2023-09-22 at 10:30 AM (Phone: 212-555-7010, 420 East 70th St, Suite 500).\n                  Primary Care follow-up with Dr. Emily Watson on 2023-10-05 at 02:00 PM for routine blood pressure check and medication review.\n• Red Flag Warning Symptoms: Call the surgical clinic immediately (212-555-7000) or report to the nearest emergency department if you experience:\n                \n                  Temperature > 101.0 °F (38.3 °C) or persistent chills\n                  Severe or worsening abdominal pain not relieved by medications\n                  Persistent nausea, vomiting, or inability to keep fluids down\n                  Increasing redness, swelling, warmth, or purulent drainage around port incisions\n                  Shortness of breath, chest pain, or lower extremity swelling",
       "tables": [],
       "entries": [],
       "section_type": "hospital_discharge_instructions"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Interactive C-CDA to JSON Mapping Dashboard Generator.
-Generates a self-contained, enterprise-grade, interactive Canvas UI dashboard
+Generates a self-contained, enterprise-grade, interactive web dashboard
 documenting the complete mapping specification, field explanations, code systems,
 and live sample explorer between HL7 C-CDA XML and standardized JSON.
 """

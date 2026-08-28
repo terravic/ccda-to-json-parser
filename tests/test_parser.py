@@ -126,5 +126,60 @@ class TestMinimalCCDA(unittest.TestCase):
         self.assertIn("No Known Drug Allergies", data["sections"]["allergies"]["narrative"])
 
 
+class TestVisualizer(unittest.TestCase):
+    def test_dashboard_generation_with_input_and_json(self):
+        from ccda_parser.visualizer import generate_patient_dashboard_html
+
+        sample_data = {
+            "document_meta": {
+                "title": "Continuity of Care Document",
+                "effective_time": "2023-05-14",
+                "document_id": {"extension": "TEST-12345"},
+            },
+            "patient": {
+                "name": {"full_name": "Eleanor Vance"},
+                "birth_time": "1975-08-22",
+                "gender": {"display_name": "Female"},
+            },
+            "sections": {
+                "medications": {
+                    "entries": [
+                        {
+                            "medication": {"display_name": "Metformin 500 MG", "code": "860975"},
+                            "dose": {"formatted": "500 mg"},
+                            "status": "active",
+                        }
+                    ]
+                },
+                "allergies": {
+                    "entries": [
+                        {
+                            "substance": {"display_name": "Penicillin G", "code": "70618"},
+                            "status": "active",
+                            "severity": {"display_name": "Moderate"},
+                        }
+                    ]
+                },
+            },
+        }
+        raw_xml = "<ClinicalDocument><title>Test Document</title></ClinicalDocument>"
+        html_out = generate_patient_dashboard_html(
+            sample_data,
+            raw_input=raw_xml,
+            input_filename="sample_test.xml",
+        )
+
+        # Ensure HTML structure contains input XML file and output JSON components
+        self.assertIn("Eleanor Vance", html_out)
+        self.assertIn("Input XML File", html_out)
+        self.assertIn("Output JSON", html_out)
+        self.assertIn("Side-by-Side (XML vs JSON)", html_out)
+        self.assertIn("Clinical Tables", html_out)
+        self.assertIn("sample_test.xml", html_out)
+        self.assertIn("Metformin 500 MG", html_out)
+        self.assertIn("Penicillin G", html_out)
+
+
 if __name__ == "__main__":
     unittest.main()
+

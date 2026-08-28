@@ -63,7 +63,7 @@ python3 parse.py path/to/clinical_document.xml --sections allergies,medications,
 # Export clinical tables to CSV format
 python3 parse.py path/to/clinical_document.xml --csv-export ./csv_tables/
 
-# Generate an interactive Canvas UI HTML patient report dashboard
+# Generate an interactive HTML patient report dashboard (with dual Input XML & Output JSON viewers)
 python3 parse.py path/to/clinical_document.xml --html-report patient_dashboard.html
 
 # Open or generate the C-CDA to JSON Mapping Matrix visual dashboard
@@ -337,21 +337,17 @@ The skill repository includes 3 realistic, synthetic C-CDA XML files for testing
 
 ---
 
-## Interactive Canvas UI & Visual Dashboards
+## Interactive Visual Dashboards
 
-This skill includes full support for **Canvas UI elements** designed for AI agent platforms, chat environments, and web browsers.
+This skill includes full support for **interactive web dashboards** designed for modern web browsers and clinical data viewers.
 
-### Canvas UI Runtime Architecture
-- **Iframe Sandboxing**: Canvas renders self-contained HTML5 / CSS / JavaScript inside an isolated iframe or webview.
+### Runtime Architecture & Styling
+- **Self-Contained HTML5**: Dashboards render standalone HTML5 / CSS / JavaScript with no mandatory backend server needed.
 - **Allowed Styling Assets**: Tailwind CSS is loaded for responsive styling and high-contrast clinical dashboards:
   ```html
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   ```
-- **Theme Variables & Light/Dark Mode**: Uses semantic host theme tokens (`--app-background`, `--app-foreground`, `--app-card`, `--app-border`, etc.) alongside native Light/Dark toggle controls with high contrast accessibility.
-- **Inline Chat Embeds & Side-Pane Canvas**: Supports embedding visual cards in chat using `<agent-embed>` or opening full dashboards in the auxiliary side-pane:
-  ```html
-  <agent-embed src="docs/ccda_mapping_dashboard.html" height="500px"></agent-embed>
-  ```
+- **Theme Support & Light/Dark Mode**: High-contrast dark and light theme options with accessible contrast ratios.
 
 ---
 
@@ -372,7 +368,7 @@ python3 parse.py --mapping-dashboard docs/ccda_mapping_dashboard.html
 ```
 
 #### 2. Dynamic Patient Clinical Dashboard (`parse.py --html-report`)
-Transforms any parsed patient XML document into an executive interactive visual report with metric counters, clinical alerts, active medication cards, condition timelines, vital sign panels, and a collapsible raw JSON inspector:
+Transforms any parsed patient XML document into an executive interactive visual report with metric counters, clinical alerts, active medication cards, condition timelines, vital sign panels, dual input XML & output JSON viewers, and clinical domain tables:
 ```bash
 python3 parse.py samples/sample_1_continuity_of_care_document.xml --html-report patient_dashboard.html
 ```
@@ -393,6 +389,6 @@ python3 scripts/convert_all_samples.py
 # Validate C-CDA XML conformance
 python3 scripts/validate_ccda.py samples/sample_1_continuity_of_care_document.xml
 
-# Generate Mapping Matrix Canvas UI Dashboard
+# Generate Mapping Matrix Dashboard
 python3 scripts/generate_mapping_dashboard.py docs/ccda_mapping_dashboard.html
 ```

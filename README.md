@@ -5,76 +5,118 @@
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0%20mandatory-brightgreen.svg)](#requirements)
 [![HL7 C-CDA R2.1](https://img.shields.io/badge/HL7-C--CDA%20R2.1-orange.svg)](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=408)
 
-A production-grade, zero-external-dependency Python engine and AI Skill that converts HL7 C-CDA (Consolidated Clinical Document Architecture) XML clinical documents into clean, structured, standardized JSON.
+A production-grade, zero-external-dependency Python engine and AI Skill that converts HL7 C-CDA (Consolidated Clinical Document Architecture) XML clinical documents into structured, standardized JSON.
 
-Ready for direct integration into enterprise AI assistants, Claude, OpenAI Agents, FastAPI, or any clinical data pipeline.
+Ready for direct integration into enterprise AI assistants, Claude, OpenAI Agents, FastAPI, or clinical data engineering pipelines.
 
 <p align="center">
-  <img src="docs/images/ccda_skill_demo.jpg" alt="HL7 C-CDA to JSON Parser and Interactive Canvas UI Dashboard in Action" width="100%">
+  <img src="docs/images/ccda_skill_demo.jpg" alt="HL7 C-CDA to JSON Parser and AI Skill Architecture and Data Flow" width="100%">
 </p>
 
 ---
 
-## Guide for Non-Technical Users
+## Non-Technical User Guide
 
-### What is C-CDA and Why Does It Need Converting?
-When you visit a doctor, clinic, or hospital, the electronic health record (EHR) system records your health data: vital signs, active prescriptions, allergies, past diagnoses, and lab results. When health systems share these records with other hospitals or patient portals, they typically package them in a standard file format called **HL7 C-CDA** (Consolidated Clinical Document Architecture).
+### Overview
+When healthcare providers (such as hospitals, medical clinics, and private practices) exchange patient medical records, they typically export files formatted according to the **HL7 C-CDA** (Consolidated Clinical Document Architecture) standard.
 
-C-CDA files are written in XML, a complex computer format filled with technical tags, numerical identification codes, and nested references. While standard across healthcare systems, raw C-CDA files are difficult for humans to read and challenging for modern software or AI assistants to process directly.
+C-CDA files are encoded in XML. While structured and comprehensive, raw XML files contain hundreds of technical identifiers, nested schemas, and medical ontology codes that are difficult to read directly without specialized clinical informatics training.
 
-This skill translates complicated C-CDA medical files into **JSON** (a clean, organized data format structured like an electronic form) and generates **interactive visual charts** that anyone can understand.
+This software converts complex C-CDA XML medical records into clean **JSON data**, plain-text **clinical summaries**, **Microsoft Excel-compatible spreadsheets**, and **interactive visual web dashboards**.
 
 ---
 
-### How to Use This Skill Without Writing Code
+### How to Use This Skill
 
-#### 1. In an AI Assistant
-If you are interacting with an AI assistant that has this skill enabled, you do not need to write code. You can talk to the assistant using everyday language:
+#### 1. Interacting Through an AI Assistant
+When this skill is installed in an AI assistant or chat platform, you can query and analyze patient documents using standard English instructions:
 
-- "Please convert this patient discharge summary into a structured summary."
-- "What medications is this patient taking, and what are their active dosages?"
-- "Show me all recorded allergies and reaction severities for this patient."
-- "Generate a visual dashboard for this clinical document."
+- **Extracting Active Medications**:
+  - *User*: "What medications is this patient currently taking, and what are the prescribed doses?"
+  - *Assistant*: Extracts all active prescriptions (medication name, dosage quantity, administration route, frequency schedule, and clinical indication) from the document and presents them in a clean table.
+- **Reviewing Allergies and Adverse Reactions**:
+  - *User*: "Does this patient have any documented drug or food allergies?"
+  - *Assistant*: Identifies all allergen substances, reaction descriptions, severity levels, and clinical statuses.
+- **Summarizing Hospital Discharge**:
+  - *User*: "Summarize the hospital course, discharge diagnoses, and follow-up instructions for this patient."
+  - *Assistant*: Parses the inpatient discharge summary and provides an executive bullet-point briefing.
+- **Generating a Visual Dashboard**:
+  - *User*: "Generate a visual report for this patient's Continuity of Care Document."
+  - *Assistant*: Creates a self-contained HTML dashboard with clinical charts, vital sign indicators, and dual file inspection.
 
-The assistant will run the parser behind the scenes and answer your questions directly or present an interactive visual dashboard in your workspace.
+---
 
-#### 2. Three Common Non-Technical Workflows
+#### 2. Practical Examples for Common Workflows
 
-- **Scenario A: Reading a High-Level Patient Summary**
-  If you have a clinical XML file and want a quick overview of patient demographics, diagnoses, and medication counts, run:
-  ```bash
-  python3 parse.py samples/sample_1_continuity_of_care_document.xml --summary
-  ```
-  This prints a clean, readable text summary directly in the terminal without technical XML tags.
+##### Example 1: View an Interactive Patient Dashboard in Your Web Browser
+You can generate and view a visual patient dashboard in any modern web browser (Google Chrome, Microsoft Edge, Mozilla Firefox, or Apple Safari):
 
-- **Scenario B: Exporting Medical Tables to Microsoft Excel**
-  If your team works in spreadsheets, you can automatically convert the medical records into CSV spreadsheet files:
-  ```bash
-  python3 parse.py samples/sample_1_continuity_of_care_document.xml --csv-export ./my_spreadsheets/
-  ```
-  This creates separate spreadsheet files (`medications.csv`, `allergies.csv`, `problems.csv`, `vital_signs.csv`, `lab_results.csv`) that open directly in Excel or Google Sheets.
+```bash
+python3 parse.py samples/sample_1_continuity_of_care_document.xml --html-report patient_dashboard.html
+```
 
-- **Scenario C: Opening the Visual Dashboard in Your Browser**
-  You can open an interactive patient dashboard or mapping matrix in any web browser (Chrome, Edge, Safari):
-  - Open `docs/ccda_mapping_dashboard.html` to explore the complete clinical mapping rules, medical code dictionaries, and side-by-side XML-to-JSON transformations.
-  - Open `docs/sample_1_patient_dashboard.html` to view an interactive patient chart with vital sign cards, medication schedules, condition badges, and light/dark display modes.
+- **What it does**: Creates a self-contained HTML file (`patient_dashboard.html`).
+- **How to view**: Double-click the generated file or open it in your browser.
+- **What you will see**: An executive dashboard displaying patient demographics, vital sign indicators, active medication cards, condition timelines, laboratory results, clinical tables, and side-by-side XML-to-JSON code comparison with light and dark mode toggles.
+
+---
+
+##### Example 2: Export Medical Data into Microsoft Excel Spreadsheets
+To analyze clinical data using spreadsheet software, export the document into separate CSV spreadsheet files:
+
+```bash
+python3 parse.py samples/sample_1_continuity_of_care_document.xml --csv-export ./my_spreadsheets/
+```
+
+- **What it does**: Creates a folder containing organized spreadsheet files:
+  - `medications.csv` (Prescription names, dosages, routes, frequencies, indications)
+  - `allergies.csv` (Allergen substances, reactions, severity, clinical status)
+  - `problems.csv` (Diagnoses, ICD-10 codes, SNOMED CT codes, onset dates)
+  - `vital_signs.csv` (Blood pressure, heart rate, temperature, oxygen saturation, BMI)
+  - `lab_results.csv` (Laboratory tests, numeric values, reference ranges, abnormal flags)
+- **How to view**: Open any of the `.csv` files directly in Microsoft Excel, Apple Numbers, or standard spreadsheet applications.
+
+---
+
+##### Example 3: Print a Readable Clinical Summary in the Terminal
+To inspect a clinical document without generating files:
+
+```bash
+python3 parse.py samples/sample_1_continuity_of_care_document.xml --summary
+```
+
+- **What it does**: Outputs a formatted text overview directly to your terminal:
+  - Patient demographics (Full Name, Date of Birth, Gender, Document Date)
+  - Element counts (Total Allergies, Medications, Conditions, Vitals, Labs, Encounters)
+  - Available clinical sections
+
+---
+
+##### Example 4: Convert XML to Structured JSON
+To produce a clean JSON file for data pipelines or software integrations:
+
+```bash
+python3 parse.py samples/sample_1_continuity_of_care_document.xml -o output.json --pretty
+```
+
+- **What it does**: Saves a formatted, standardized JSON file to `output.json`.
 
 ---
 
 ## Key Features
 
-- **Comprehensive Clinical Coverage**:
-  - **Patient Demographics**: Names, date of birth, gender, race, ethnicity, addresses, phone numbers, email addresses, languages, guardians, medical record numbers (MRNs), and provider organizations.
-  - **Allergies & Intolerances**: Substance codes (RxNorm and UNII), reaction manifestations, severity ratings, clinical status, and onset dates.
-  - **Medications**: Generic and brand names, RxNorm codes, dosage amounts, routes of administration, dosing schedules, date ranges, clinical indications, and patient instructions.
-  - **Problems & Diagnoses**: SNOMED CT concepts with ICD-10-CM crosswalks, clinical status (active, resolved, inactive), onset dates, and age at onset.
-  - **Vital Signs**: Blood pressure (systolic and diastolic), heart rate, respiratory rate, body temperature, body mass index (BMI), oxygen saturation (SpO2), height, and weight measurements with standard units.
-  - **Diagnostic Labs & Results**: Chemistry panels, hematology panels, LOINC test codes, numeric values, reference ranges, and abnormal high/low flags.
+- **Comprehensive Clinical Domain Coverage**:
+  - **Patient Demographics**: Full name, date of birth, administrative gender, marital status, race, ethnicity, addresses, telecom contacts, emergency guardians, medical record numbers (MRNs), and provider organizations.
+  - **Allergies and Intolerances**: Allergen substance codes (RxNorm, UNII), reaction manifestations, severity ratings, clinical status, and onset dates.
+  - **Medications**: Generic and brand names, RxNorm codes, dosage values, routes of administration, dosing schedules, start/end dates, clinical indications, and instructions.
+  - **Problems and Diagnoses**: SNOMED CT concepts with ICD-10-CM crosswalks, clinical status (active, resolved, inactive), onset dates, and age at onset.
+  - **Vital Signs**: Systolic and diastolic blood pressure, resting heart rate, respiratory rate, body temperature, body mass index (BMI), oxygen saturation (SpO2), height, and weight measurements with standard units.
+  - **Diagnostic Labs and Results**: Chemistry panels, hematology panels, cardiac biomarkers, LOINC test codes, numeric values, reference ranges, and abnormal high/low flags.
   - **Immunizations**: CDC Vaccine Administered (CVX) codes, administration dates, lot numbers, routes, manufacturer names, and refusal reasons.
-  - **Encounters & Clinical Visits**: Outpatient visits, hospital admissions, consultations, provider specialties, facility locations, and encounter diagnoses.
+  - **Encounters and Clinical Visits**: Outpatient visits, inpatient admissions, consultations, provider specialties, facility locations, and encounter diagnoses.
   - **Procedures**: Surgical and diagnostic procedures (CPT-4, SNOMED CT, ICD-10-PCS), procedure dates, performing clinicians, and anatomical target sites.
-  - **Social History**: Standardized smoking status (NHIS codes), tobacco history, alcohol use, and social determinants of health.
-  - **Plan of Care & Instructions**: Treatment plans, planned orders, follow-up appointments, and post-discharge patient instructions.
+  - **Social History**: Standardized smoking status (NHIS codes), tobacco history, alcohol intake, and social history observations.
+  - **Plan of Care and Instructions**: Treatment plans, planned orders, scheduled appointments, and post-discharge patient instructions.
 - **Robust XML Syntax Handling**:
   - Automatically handles XML namespaces (`urn:hl7-org:v3`, `sdtc:`, `xsi:`, `voc:`).
   - Resolves internal narrative references (`<reference value="#med1"/>`) to populate display names when coded attributes omit them.
@@ -86,69 +128,69 @@ The assistant will run the parser behind the scenes and answer your questions di
   - Python API (`import ccda_parser`)
   - Command Line Interface (CLI) with indentation formatting, batch folder processing, terminal summaries, CSV export, and HTML reports.
   - Standardized `SKILL.md` for AI agent platforms and tool integration systems.
-  - Interactive Canvas UI dashboards with light and dark mode toggles.
+  - Interactive web dashboards with light and dark mode toggles.
 
 ---
 
-## Repository Structure
+## Project Structure and File Tree
 
 ```
 ccda-to-json-parser/
-├── LICENSE                                     # Apache 2.0 license file
-├── README.md                                    # Project documentation and user guide
-├── SKILL.md                                     # AI Agent and Gemini Enterprise Skill definition
-├── parse.py                                     # Direct CLI executable runner script
-├── pyproject.toml                               # Modern package build configuration
-├── requirements.txt                             # Python dependencies (standard library first)
-├── setup.py                                     # Setup configuration for pip installation
+├── LICENSE                                           # Apache 2.0 license file
+├── README.md                                          # Project documentation and non-technical guide
+├── SKILL.md                                           # AI Agent Skill definition and integration manual
+├── parse.py                                           # Direct CLI executable runner script
+├── pyproject.toml                                     # Python package build configuration
+├── requirements.txt                                   # Python dependencies (standard library first)
+├── setup.py                                           # Setup configuration for pip installation
 ├── docs/
-│   ├── ccda_mapping_dashboard.html              # Interactive Canvas UI mapping matrix dashboard
-│   ├── sample_1_patient_dashboard.html          # Sample patient interactive visual dashboard
+│   ├── ccda_mapping_dashboard.html                    # Interactive mapping matrix web dashboard
+│   ├── sample_1_patient_dashboard.html                # Sample patient interactive visual dashboard
 │   └── images/
-│       └── ccda_skill_demo.jpg                  # Header demonstration graphic
+│       └── ccda_skill_demo.jpg                        # Demonstration graphic
 ├── samples/
-│   ├── sample_1_continuity_of_care_document.xml # Synthetic outpatient CCD
-│   ├── sample_2_discharge_summary.xml          # Synthetic inpatient discharge summary
-│   ├── sample_3_cardiology_referral_note.xml   # Synthetic cardiology referral note
+│   ├── sample_1_continuity_of_care_document.xml       # Synthetic outpatient CCD XML file
+│   ├── sample_2_discharge_summary.xml                # Synthetic inpatient discharge summary XML file
+│   ├── sample_3_cardiology_referral_note.xml         # Synthetic cardiology referral note XML file
 │   └── converted_json/
 │       ├── sample_1_continuity_of_care_document.json # Pre-converted CCD JSON output
-│       ├── sample_2_discharge_summary.json     # Pre-converted discharge summary JSON output
-│       └── sample_3_cardiology_referral_note.json # Pre-converted referral note JSON output
+│       ├── sample_2_discharge_summary.json           # Pre-converted discharge summary JSON output
+│       └── sample_3_cardiology_referral_note.json   # Pre-converted referral note JSON output
 ├── scripts/
-│   ├── convert_all_samples.py                   # Batch sample conversion utility script
-│   ├── generate_mapping_dashboard.py            # Mapping matrix dashboard HTML generator
-│   └── validate_ccda.py                         # C-CDA XML structural conformance validator
+│   ├── convert_all_samples.py                         # Batch sample conversion utility script
+│   ├── generate_mapping_dashboard.py                  # Mapping matrix dashboard HTML generator
+│   └── validate_ccda.py                               # C-CDA XML structural conformance validator
 ├── src/
 │   └── ccda_parser/
-│       ├── __init__.py                          # Public package API and version exports
-│       ├── __main__.py                          # Executable module entry point
-│       ├── cli.py                               # Command-line interface with parsing flags
-│       ├── models.py                            # Structured data models and type definitions
-│       ├── parser.py                            # Core C-CDA XML parsing engine
-│       ├── visualizer.py                        # HTML Canvas visual report generator
-│       ├── sections/                            # Modular clinical domain section extractors
-│       │   ├── __init__.py                      # Section classifier and dispatch router
-│       │   ├── allergies.py                     # Allergies and adverse reactions extractor
-│       │   ├── encounters.py                    # Clinical encounters and visits extractor
-│       │   ├── generic_section.py               # Fallback extractor for custom narrative sections
-│       │   ├── header.py                        # Patient demographics and document header metadata
-│       │   ├── immunizations.py                 # Vaccines and immunization history extractor
-│       │   ├── medications.py                   # Medications and prescription extractor
-│       │   ├── problems.py                      # Problem list, conditions, and diagnoses extractor
-│       │   ├── procedures.py                    # Surgical and diagnostic procedures extractor
-│       │   ├── results.py                       # Diagnostic tests and laboratory panels extractor
-│       │   ├── social_history.py                # Smoking status and social history extractor
-│       │   └── vital_signs.py                   # Vital signs and physiological panels extractor
-│       └── utils/                               # Parsing utility helper modules
-│           ├── __init__.py                      # Utility package initialization
-│           ├── code_utils.py                    # Medical terminology and OID resolution
-│           ├── date_utils.py                    # HL7 timestamp conversion to ISO-8601
-│           ├── narrative_utils.py               # Narrative text, tables, and reference lookups
-│           └── xml_utils.py                     # XML namespace and element traversal helpers
+│       ├── __init__.py                                # Public package API and version exports
+│       ├── __main__.py                                # Executable module entry point
+│       ├── cli.py                                     # Command-line interface with parsing flags
+│       ├── models.py                                  # Structured data models and type definitions
+│       ├── parser.py                                  # Core C-CDA XML parsing engine
+│       ├── visualizer.py                              # Interactive HTML visual report generator
+│       ├── sections/                                  # Modular clinical domain section extractors
+│       │   ├── __init__.py                            # Section classifier and dispatch router
+│       │   ├── allergies.py                           # Allergies and adverse reactions extractor
+│       │   ├── encounters.py                          # Clinical encounters and visits extractor
+│       │   ├── generic_section.py                     # Fallback extractor for custom narrative sections
+│       │   ├── header.py                              # Patient demographics and document metadata
+│       │   ├── immunizations.py                       # Vaccines and immunization history extractor
+│       │   ├── medications.py                         # Medications and prescription extractor
+│       │   ├── problems.py                            # Problem list, conditions, and diagnoses extractor
+│       │   ├── procedures.py                          # Surgical and diagnostic procedures extractor
+│       │   ├── results.py                             # Diagnostic tests and laboratory panels extractor
+│       │   ├── social_history.py                      # Smoking status and social history extractor
+│       │   └── vital_signs.py                         # Vital signs and physiological panels extractor
+│       └── utils/                                     # Parsing utility helper modules
+│           ├── __init__.py                            # Utility package initialization
+│           ├── code_utils.py                          # Medical terminology and OID resolution
+│           ├── date_utils.py                          # HL7 timestamp conversion to ISO-8601
+│           ├── narrative_utils.py                     # Narrative text, tables, and reference lookups
+│           └── xml_utils.py                           # XML namespace and element traversal helpers
 └── tests/
-    ├── __init__.py                              # Test suite package initialization
-    ├── test_parser.py                           # Unit tests for parser utilities and models
-    └── test_samples.py                          # End-to-end verification tests on sample files
+    ├── __init__.py                                    # Test suite package initialization
+    ├── test_parser.py                                 # Unit tests for parser utilities and models
+    └── test_samples.py                                # End-to-end verification tests on sample files
 ```
 
 ---
@@ -205,7 +247,7 @@ python3 parse.py samples/sample_1_continuity_of_care_document.xml --sections all
 # Export clinical tables directly to CSV files
 python3 parse.py samples/sample_1_continuity_of_care_document.xml --csv-export ./csv_out/
 
-# Generate an interactive Canvas UI HTML patient dashboard
+# Generate an interactive HTML patient dashboard
 python3 parse.py samples/sample_1_continuity_of_care_document.xml --html-report patient_dashboard.html
 
 # Open or generate the C-CDA to JSON Mapping Matrix visual dashboard
@@ -214,19 +256,19 @@ python3 parse.py --mapping-dashboard docs/ccda_mapping_dashboard.html
 
 ---
 
-## Interactive Canvas UI and Visual Dashboards
+## Interactive Visual Dashboards
 
-This skill provides rich, interactive Canvas UI elements designed for AI agent platforms and web browser environments:
+This project provides rich, interactive visual dashboards designed for web browser environments:
 
 1. **C-CDA to JSON Mapping Matrix Dashboard (`docs/ccda_mapping_dashboard.html`)**:
    - **Interactive Clinical Explorer**: Visual exploration of all 12 clinical domains (Demographics, Allergies, Medications, Problems, Vitals, Labs, Immunizations, Encounters, Procedures, Social History, Care Plan, and Generic Sections).
    - **Side-by-Side Live Transformation**: Direct visual link between source HL7 C-CDA XML snippets and target normalized JSON structures.
    - **Field-by-Field Rules**: Detailed breakdown of XPath expressions, data types (`PQ`, `CD`, `IVL_TS`, `ST`), vocabulary systems (LOINC, SNOMED CT, RxNorm, CVX, ICD-10), and null flavor resilience.
-   - **Live Keyword Search & Filter**: Real-time cross-section search.
-   - **Light/Dark Display Toggle**: High-contrast, professional health-tech user interface.
+   - **Live Keyword Search and Filter**: Real-time cross-section search.
+   - **Light/Dark Display Toggle**: High-contrast, professional user interface.
 
 2. **Patient Visual Dashboard Generator (`--html-report`)**:
-   - Generates an executive patient report with vital signs cards, active medication badges, problem lists, allergy alerts, and collapsible raw JSON inspection.
+   - Generates an executive patient report with vital signs cards, active medication badges, problem lists, allergy alerts, dual input XML & output JSON viewers, and clinical domain tables.
 
 ---
 
@@ -245,8 +287,8 @@ Below is an overview of the structured output schema:
     },
     "effective_time": "2023-05-14T14:30:00-05:00",
     "confidentiality": {"code": "N", "display_name": "Normal"},
-    "authors": [...],
-    "custodian": {...}
+    "authors": [],
+    "custodian": {}
   },
   "patient": {
     "name": {
@@ -258,8 +300,8 @@ Below is an overview of the structured output schema:
     "gender": {"code": "F", "display_name": "Female"},
     "race": {"code": "2106-3", "display_name": "White"},
     "ethnicity": {"code": "2186-5", "display_name": "Not Hispanic or Latino"},
-    "addresses": [...],
-    "telecoms": [...]
+    "addresses": [],
+    "telecoms": []
   },
   "summary": {
     "patient_name": "Ms. Eleanor Marie Vance",
@@ -290,28 +332,28 @@ Below is an overview of the structured output schema:
     "allergies": {
       "title": "Allergies, Adverse Reactions & Alerts",
       "narrative": "...",
-      "tables": [...],
-      "entries": [...]
+      "tables": [],
+      "entries": []
     },
     "medications": {
       "title": "Medications",
       "narrative": "...",
-      "tables": [...],
-      "entries": [...]
+      "tables": [],
+      "entries": []
     },
     "problems": {
       "title": "Problems & Health Conditions",
-      "entries": [...]
+      "entries": []
     },
     "vital_signs": {
       "title": "Vital Signs",
-      "panels": [...],
-      "measurements": [...]
+      "panels": [],
+      "measurements": []
     },
     "results": {
       "title": "Diagnostic Results & Laboratory Data",
-      "panels": [...],
-      "results": [...]
+      "panels": [],
+      "results": []
     }
   }
 }

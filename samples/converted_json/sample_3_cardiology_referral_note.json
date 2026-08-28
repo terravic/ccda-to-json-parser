@@ -20,7 +20,7 @@
     },
     "language": "en-US",
     "set_id": null,
-    "version_number": null,
+    "version_number": "1",
     "template_ids": [
       "2.16.840.1.113883.10.20.22.1.1:2015-08-01",
       "2.16.840.1.113883.10.20.22.1.4:2015-08-01"
@@ -53,21 +53,56 @@
           ]
         },
         "organization": {
-          "name": "Boston Heart & Vascular Institute",
+          "name": "Boston Heart & Vascular Institute - Division of Cardiology",
           "ids": [],
           "addresses": [
             {
               "street_address_lines": [
-                "75 Francis Street"
+                "75 Francis Street, Suite 400"
               ],
               "city": "Boston",
               "state": "MA",
               "postal_code": "02115",
               "country": null,
               "use": "WP",
-              "formatted": "75 Francis Street, Boston, MA 02115"
+              "formatted": "75 Francis Street, Suite 400, Boston, MA 02115"
             }
           ],
+          "telecoms": []
+        },
+        "addresses": [],
+        "telecoms": []
+      },
+      {
+        "time": "2023-10-20T10:15:00-05:00",
+        "ids": [
+          {
+            "root": "2.16.840.1.113883.4.6",
+            "extension": "1928374650",
+            "assigningAuthorityName": "NPI"
+          }
+        ],
+        "code": {
+          "code": "207Q00000X",
+          "display_name": "Family Medicine / Internal Medicine",
+          "code_system": "2.16.840.1.113883.6.101"
+        },
+        "person": {
+          "full_name": "Dr. Amanda Clark MD",
+          "first_name": "Amanda",
+          "middle_names": [],
+          "last_name": "Clark",
+          "prefixes": [
+            "Dr."
+          ],
+          "suffixes": [
+            "MD"
+          ]
+        },
+        "organization": {
+          "name": "Brigham Primary Care Associates",
+          "ids": [],
+          "addresses": [],
           "telecoms": []
         },
         "addresses": [],
@@ -99,7 +134,31 @@
         "formatted": "75 Francis Street, Boston, MA 02115"
       }
     },
-    "encompassing_encounter": null
+    "encompassing_encounter": {
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5",
+          "extension": "ENC-CARD-2023-991"
+        }
+      ],
+      "code": {
+        "code": "AMB",
+        "display_name": "Ambulatory Outpatient Consultation",
+        "code_system": "2.16.840.1.113883.5.4",
+        "code_system_name": "ActCode"
+      },
+      "effective_time": {
+        "low": "2023-11-04T09:00:00-05:00",
+        "high": "2023-11-04T10:30:00-05:00"
+      },
+      "discharge_disposition": {
+        "code": "01",
+        "display_name": "Discharged to Home or Self Care",
+        "code_system": "2.16.840.1.113883.12.112"
+      },
+      "location_name": "Cardiovascular Outpatient Pavilion, 4th Floor",
+      "responsible_party": null
+    }
   },
   "patient": {
     "ids": [
@@ -107,6 +166,16 @@
         "root": "2.16.840.1.113883.19.5",
         "extension": "MRN-773901",
         "assigningAuthorityName": "Heart & Vascular Institute"
+      },
+      {
+        "root": "2.16.840.1.113883.4.1",
+        "extension": "999-44-1290",
+        "assigningAuthorityName": "SSN"
+      },
+      {
+        "root": "2.16.840.1.113883.4.3.25",
+        "extension": "DL-MA-8492019",
+        "assigningAuthorityName": "Massachusetts RMV"
       }
     ],
     "addresses": [
@@ -128,6 +197,12 @@
         "value": "+1-617-555-0144",
         "raw_value": "tel:+1-617-555-0144",
         "use": "HP"
+      },
+      {
+        "system": "tel",
+        "value": "+1-617-555-0188",
+        "raw_value": "tel:+1-617-555-0188",
+        "use": "MC"
       },
       {
         "system": "mailto",
@@ -218,33 +293,107 @@
         "preferred": true,
         "proficiency": null
       }
-    ]
+    ],
+    "guardians": [
+      {
+        "relationship": {
+          "code": "SPS",
+          "display_name": "Spouse",
+          "code_system": "2.16.840.1.113883.5.111",
+          "code_system_name": "RoleCode"
+        },
+        "name": {
+          "full_name": "Carlos Rodriguez",
+          "first_name": "Carlos",
+          "middle_names": [],
+          "last_name": "Rodriguez",
+          "prefixes": [],
+          "suffixes": []
+        },
+        "addresses": [
+          {
+            "street_address_lines": [
+              "1204 Oak Ridge Lane"
+            ],
+            "city": "Boston",
+            "state": "MA",
+            "postal_code": "02115",
+            "country": null,
+            "use": "HP",
+            "formatted": "1204 Oak Ridge Lane, Boston, MA 02115"
+          }
+        ],
+        "telecoms": [
+          {
+            "system": "tel",
+            "value": "+1-617-555-0145",
+            "raw_value": "tel:+1-617-555-0145",
+            "use": "HP"
+          }
+        ]
+      }
+    ],
+    "provider_organization": {
+      "name": "Boston Heart & Vascular Institute",
+      "ids": [
+        {
+          "root": "2.16.840.1.113883.19.5"
+        }
+      ],
+      "addresses": [
+        {
+          "street_address_lines": [
+            "75 Francis Street"
+          ],
+          "city": "Boston",
+          "state": "MA",
+          "postal_code": "02115",
+          "country": "US",
+          "use": "WP",
+          "formatted": "75 Francis Street, Boston, MA 02115, US"
+        }
+      ],
+      "telecoms": [
+        {
+          "system": "tel",
+          "value": "+1-617-555-4000",
+          "raw_value": "tel:+1-617-555-4000",
+          "use": "WP"
+        }
+      ]
+    }
   },
   "summary": {
     "patient_name": "Mrs. Sophia Maria Rodriguez",
     "date_of_birth": "1971-03-14",
     "gender": "Female",
     "counts": {
-      "allergies": 0,
-      "medications": 1,
-      "problems": 0,
-      "immunizations": 0,
-      "vital_signs": 3,
-      "lab_results": 0,
-      "encounters": 1,
-      "procedures": 0
+      "allergies": 2,
+      "medications": 5,
+      "problems": 5,
+      "immunizations": 1,
+      "vital_signs": 9,
+      "lab_results": 5,
+      "encounters": 2,
+      "procedures": 2
     },
     "available_sections": [
       "reason_for_referral",
+      "problems",
+      "allergies",
       "medications",
       "vital_signs",
+      "procedures",
+      "results",
       "encounters",
+      "immunizations",
+      "social_history",
       "assessment_and_plan"
     ]
   },
   "sections": {
     "reason_for_referral": {
-      "title": "Reason for Referral",
+      "title": "Reason for Referral & History of Present Illness",
       "code": {
         "code": "42349-1",
         "display_name": "Reason for Referral",
@@ -254,10 +403,373 @@
       "template_ids": [
         "1.3.6.1.4.1.19376.1.5.3.1.3.1"
       ],
-      "narrative": "Referred by Dr. Amanda Clark, MD for evaluation of recurrent episodic palpitations, exertional shortness of breath, and a newly detected grade 2/6 systolic ejection murmur.",
+      "narrative": "Reason for Consultation: Mrs. Sophia Rodriguez is a 52-year-old female referred by her primary care physician, Dr. Amanda Clark, MD, for specialist evaluation of recurrent episodic palpitations, sensations of skipped heartbeats, exertional lightheadedness, and a newly detected grade 2/6 systolic ejection murmur.\nHistory of Present Illness: The patient reports a 3-month history of awareness of rapid, irregular heartbeats occurring 3 to 4 times per week, typically lasting between 5 to 30 minutes. Symptoms occur both at rest and during mild exertion (e.g., climbing two flights of stairs at work). She denies syncope, chest pressure, orthopnea, or paroxysmal nocturnal dyspnea. She notes mild shortness of breath when hurrying up inclines. Has a history of essential hypertension and hyperlipidemia treated with Amlodipine and HCTZ.",
       "tables": [],
       "entries": [],
       "section_type": "reason_for_referral"
+    },
+    "problems": {
+      "title": "Problems & Active Conditions",
+      "code": {
+        "code": "11450-4",
+        "display_name": "Problem List",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.5.1:2015-08-01"
+      ],
+      "narrative": "Condition / Diagnosis | SNOMED CT | ICD-10-CM | Onset Date | Status\n-------------------------------------------------------------------\nPalpitations / Premature ventricular contractions | 28651003 | I49.3 | 2023-08-15 | Active (Under evaluation)\nCardiac murmur, unspecified | 88610006 | R01.1 | 2023-10-20 | Active\nEssential (primary) hypertension | 59621000 | I10 | 2017-04-10 | Active (Controlled)\nPrimary hypercholesterolemia / Hyperlipidemia | 13644009 | E78.00 | 2019-06-22 | Active\nExertional dyspnea | 60845006 | R06.02 | 2023-09-01 | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Condition / Diagnosis",
+            "SNOMED CT",
+            "ICD-10-CM",
+            "Onset Date",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Condition / Diagnosis": "Palpitations / Premature ventricular contractions",
+              "SNOMED CT": "28651003",
+              "ICD-10-CM": "I49.3",
+              "Onset Date": "2023-08-15",
+              "Status": "Active (Under evaluation)"
+            },
+            {
+              "Condition / Diagnosis": "Cardiac murmur, unspecified",
+              "SNOMED CT": "88610006",
+              "ICD-10-CM": "R01.1",
+              "Onset Date": "2023-10-20",
+              "Status": "Active"
+            },
+            {
+              "Condition / Diagnosis": "Essential (primary) hypertension",
+              "SNOMED CT": "59621000",
+              "ICD-10-CM": "I10",
+              "Onset Date": "2017-04-10",
+              "Status": "Active (Controlled)"
+            },
+            {
+              "Condition / Diagnosis": "Primary hypercholesterolemia / Hyperlipidemia",
+              "SNOMED CT": "13644009",
+              "ICD-10-CM": "E78.00",
+              "Onset Date": "2019-06-22",
+              "Status": "Active"
+            },
+            {
+              "Condition / Diagnosis": "Exertional dyspnea",
+              "SNOMED CT": "60845006",
+              "ICD-10-CM": "R06.02",
+              "Onset Date": "2023-09-01",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "problem": {
+            "code": "28651003",
+            "display_name": "Palpitations",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "I49.3",
+                "display_name": "Premature ventricular contractions",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2023-08-15"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "88610006",
+            "display_name": "Cardiac murmur",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "R01.1",
+                "display_name": "Cardiac murmur, unspecified",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2023-10-20"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "59621000",
+            "display_name": "Essential hypertension",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "I10",
+                "display_name": "Essential (primary) hypertension",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2017-04-10"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p306-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "13644009",
+            "display_name": "Hypercholesterolemia",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "E78.00",
+                "display_name": "Pure hypercholesterolemia, unspecified",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2019-06-22"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p308-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "60845006",
+            "display_name": "Dyspnea on exertion",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "R06.02",
+                "display_name": "Shortness of breath on exertion",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2023-09-01"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p310-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "problems"
+    },
+    "allergies": {
+      "title": "Allergies & Intolerances",
+      "code": {
+        "code": "48765-2",
+        "display_name": "Allergies and adverse reactions Document",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
+      ],
+      "narrative": "Substance | RxNorm / Code | Reaction | Severity | Status\n--------------------------------------------------------\nLisinopril (ACE Inhibitors) | 314076 | Severe intractable dry cough and mild lip angioedema | Severe | Active\nSimvastatin | 36567 | Severe bilateral lower extremity myalgias / muscle cramps | Moderate | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Substance",
+            "RxNorm / Code",
+            "Reaction",
+            "Severity",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Substance": "Lisinopril (ACE Inhibitors)",
+              "RxNorm / Code": "314076",
+              "Reaction": "Severe intractable dry cough and mild lip angioedema",
+              "Severity": "Severe",
+              "Status": "Active"
+            },
+            {
+              "Substance": "Simvastatin",
+              "RxNorm / Code": "36567",
+              "Reaction": "Severe bilateral lower extremity myalgias / muscle cramps",
+              "Severity": "Moderate",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "substance": {
+            "code": "314076",
+            "display_name": "Lisinopril",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2018-05-12"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "418363000",
+                "display_name": "Angioedema and cough",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "24484000",
+                "display_name": "Severe",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "36567",
+            "display_name": "Simvastatin",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2020-11-03"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "68962001",
+                "display_name": "Myalgia",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "6736007",
+                "display_name": "Moderate",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "allergies"
     },
     "medications": {
       "title": "Current Medications",
@@ -270,30 +782,57 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"
       ],
-      "narrative": "Medication | Dose | Route | Frequency | Status\n----------------------------------------------\nAmlodipine Besylate 5 MG Oral Tablet | 5 mg | Oral | Once daily in the morning | Active\nHydrochlorothiazide 12.5 MG Oral Tablet | 12.5 mg | Oral | Once daily in the morning | Active",
+      "narrative": "Medication | RxNorm Code | Dose | Route | Frequency & Instructions | Status\n---------------------------------------------------------------------------\nAmlodipine Besylate 5 MG Oral Tablet | 197361 | 5 mg | Oral | Take 1 tablet once daily in the morning for blood pressure. | Active\nHydrochlorothiazide 12.5 MG Oral Tablet | 310798 | 12.5 mg | Oral | Take 1 tablet once daily in the morning with breakfast. | Active\nAtorvastatin 20 MG Oral Tablet | 259255 | 20 mg | Oral | Take 1 tablet once daily at bedtime for cholesterol. | Active\nMetoprolol Tartrate 25 MG Oral Tablet | 866417 | 25 mg | Oral | Take 1 tablet twice daily with meals (Initiated today for palpitations/PVC suppression). | Active (New)\nAspirin 81 MG Enteric Coated Oral Tablet | 243670 | 81 mg | Oral | Take 1 tablet once daily for cardioprotection. | Active",
       "tables": [
         {
           "caption": null,
           "headers": [
             "Medication",
+            "RxNorm Code",
             "Dose",
             "Route",
-            "Frequency",
+            "Frequency & Instructions",
             "Status"
           ],
           "rows": [
             {
               "Medication": "Amlodipine Besylate 5 MG Oral Tablet",
+              "RxNorm Code": "197361",
               "Dose": "5 mg",
               "Route": "Oral",
-              "Frequency": "Once daily in the morning",
+              "Frequency & Instructions": "Take 1 tablet once daily in the morning for blood pressure.",
               "Status": "Active"
             },
             {
               "Medication": "Hydrochlorothiazide 12.5 MG Oral Tablet",
+              "RxNorm Code": "310798",
               "Dose": "12.5 mg",
               "Route": "Oral",
-              "Frequency": "Once daily in the morning",
+              "Frequency & Instructions": "Take 1 tablet once daily in the morning with breakfast.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Atorvastatin 20 MG Oral Tablet",
+              "RxNorm Code": "259255",
+              "Dose": "20 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Take 1 tablet once daily at bedtime for cholesterol.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Metoprolol Tartrate 25 MG Oral Tablet",
+              "RxNorm Code": "866417",
+              "Dose": "25 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Take 1 tablet twice daily with meals (Initiated today for palpitations/PVC suppression).",
+              "Status": "Active (New)"
+            },
+            {
+              "Medication": "Aspirin 81 MG Enteric Coated Oral Tablet",
+              "RxNorm Code": "243670",
+              "Dose": "81 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Take 1 tablet once daily for cardioprotection.",
               "Status": "Active"
             }
           ]
@@ -326,7 +865,9 @@
               "human_readable": "Daily"
             }
           },
-          "date_range": null,
+          "date_range": {
+            "low": "2018-06-01"
+          },
           "effective_times": null,
           "indication": null,
           "instructions": null,
@@ -334,7 +875,179 @@
           "performer": null,
           "lot_number": null,
           "manufacturer": null,
-          "ids": []
+          "ids": [
+            {
+              "root": "m301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "310798",
+            "display_name": "Hydrochlorothiazide 12.5 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 12.5,
+            "unit": "mg",
+            "formatted": "12.5 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2018-06-01"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "259255",
+            "display_name": "Atorvastatin 20 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 20.0,
+            "unit": "mg",
+            "formatted": "20 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2021-01-15"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m303-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "866417",
+            "display_name": "Metoprolol Tartrate 25 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 25.0,
+            "unit": "mg",
+            "formatted": "25 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "12",
+              "unit": "h",
+              "human_readable": "Twice daily (q12h)"
+            }
+          },
+          "date_range": {
+            "low": "2023-11-04"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "243670",
+            "display_name": "Aspirin 81 MG Delayed Release Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 81.0,
+            "unit": "mg",
+            "formatted": "81 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2022-03-10"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m305-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "medications"
@@ -350,44 +1063,94 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
       ],
-      "narrative": "Measurement | Value | Unit\n--------------------------\nBlood Pressure | 134 / 86 | mm[Hg]\nHeart Rate | 78 | /min\nBody Temperature | 98.4 | [degF]\nOxygen Saturation (SpO2) | 98 | %",
+      "narrative": "Vital Sign | Value | Unit | Interpretation | Reference Range\n------------------------------------------------------------\nSystolic Blood Pressure | 134 | mm[Hg] | Prehypertension | 90 - 120 mm[Hg]\nDiastolic Blood Pressure | 86 | mm[Hg] | Prehypertension | 60 - 80 mm[Hg]\nHeart Rate (Resting) | 78 | /min | Normal (Sinus Rhythm with Occasional PVC) | 60 - 100 /min\nRespiratory Rate | 16 | /min | Normal | 12 - 20 /min\nBody Temperature | 36.9 (98.4) | Cel ([degF]) | Normal (Afebrile) | 36.5 - 37.5 Cel\nOxygen Saturation (SpO2) | 98 | % | Normal | 95 - 100 %\nBody Weight | 68.0 (149.9) | kg (lbs) | -- | --\nBody Height | 162.5 (5 ft 4 in) | cm | -- | --\nBody Mass Index (BMI) | 25.8 | kg/m2 | Overweight (Mild) | 18.5 - 24.9 kg/m2",
       "tables": [
         {
           "caption": null,
           "headers": [
-            "Measurement",
+            "Vital Sign",
             "Value",
-            "Unit"
+            "Unit",
+            "Interpretation",
+            "Reference Range"
           ],
           "rows": [
             {
-              "Measurement": "Blood Pressure",
-              "Value": "134 / 86",
-              "Unit": "mm[Hg]"
+              "Vital Sign": "Systolic Blood Pressure",
+              "Value": "134",
+              "Unit": "mm[Hg]",
+              "Interpretation": "Prehypertension",
+              "Reference Range": "90 - 120 mm[Hg]"
             },
             {
-              "Measurement": "Heart Rate",
+              "Vital Sign": "Diastolic Blood Pressure",
+              "Value": "86",
+              "Unit": "mm[Hg]",
+              "Interpretation": "Prehypertension",
+              "Reference Range": "60 - 80 mm[Hg]"
+            },
+            {
+              "Vital Sign": "Heart Rate (Resting)",
               "Value": "78",
-              "Unit": "/min"
+              "Unit": "/min",
+              "Interpretation": "Normal (Sinus Rhythm with Occasional PVC)",
+              "Reference Range": "60 - 100 /min"
             },
             {
-              "Measurement": "Body Temperature",
-              "Value": "98.4",
-              "Unit": "[degF]"
+              "Vital Sign": "Respiratory Rate",
+              "Value": "16",
+              "Unit": "/min",
+              "Interpretation": "Normal",
+              "Reference Range": "12 - 20 /min"
             },
             {
-              "Measurement": "Oxygen Saturation (SpO2)",
+              "Vital Sign": "Body Temperature",
+              "Value": "36.9 (98.4)",
+              "Unit": "Cel ([degF])",
+              "Interpretation": "Normal (Afebrile)",
+              "Reference Range": "36.5 - 37.5 Cel"
+            },
+            {
+              "Vital Sign": "Oxygen Saturation (SpO2)",
               "Value": "98",
-              "Unit": "%"
+              "Unit": "%",
+              "Interpretation": "Normal",
+              "Reference Range": "95 - 100 %"
+            },
+            {
+              "Vital Sign": "Body Weight",
+              "Value": "68.0 (149.9)",
+              "Unit": "kg (lbs)",
+              "Interpretation": "--",
+              "Reference Range": "--"
+            },
+            {
+              "Vital Sign": "Body Height",
+              "Value": "162.5 (5 ft 4 in)",
+              "Unit": "cm",
+              "Interpretation": "--",
+              "Reference Range": "--"
+            },
+            {
+              "Vital Sign": "Body Mass Index (BMI)",
+              "Value": "25.8",
+              "Unit": "kg/m2",
+              "Interpretation": "Overweight (Mild)",
+              "Reference Range": "18.5 - 24.9 kg/m2"
             }
           ]
         }
       ],
       "panels": [
         {
-          "panel_name": "Vital Signs Panel",
-          "panel_code": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "panel_name": "Vital signs panel",
+          "panel_code": {
+            "code": "46680005",
+            "display_name": "Vital signs panel",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
           "measurements": [
             {
@@ -405,9 +1168,13 @@
               },
               "interpretation": null,
               "reference_range": null,
-              "date": "2023-11-04T09:00:00-05:00",
+              "date": "2023-11-04T09:15:00-05:00",
               "status": "completed",
-              "ids": []
+              "ids": [
+                {
+                  "root": "v302-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
             },
             {
               "vital_sign": {
@@ -424,9 +1191,13 @@
               },
               "interpretation": null,
               "reference_range": null,
-              "date": "2023-11-04T09:00:00-05:00",
+              "date": "2023-11-04T09:15:00-05:00",
               "status": "completed",
-              "ids": []
+              "ids": [
+                {
+                  "root": "v303-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
             },
             {
               "vital_sign": {
@@ -443,12 +1214,158 @@
               },
               "interpretation": null,
               "reference_range": null,
-              "date": "2023-11-04T09:00:00-05:00",
+              "date": "2023-11-04T09:15:00-05:00",
               "status": "completed",
-              "ids": []
+              "ids": [
+                {
+                  "root": "v304-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "9279-1",
+                "display_name": "Respiratory rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 16.0,
+                "unit": "/min",
+                "formatted": "16 /min"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v305-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8310-5",
+                "display_name": "Body temperature",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 36.9,
+                "unit": "Cel",
+                "formatted": "36.9 Cel"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v306-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "2708-6",
+                "display_name": "Oxygen saturation in Arterial blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 98.0,
+                "unit": "%",
+                "formatted": "98 %"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v307-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "29463-7",
+                "display_name": "Body weight",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 68.0,
+                "unit": "kg",
+                "formatted": "68.0 kg"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v308-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8302-2",
+                "display_name": "Body height",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 162.5,
+                "unit": "cm",
+                "formatted": "162.5 cm"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v309-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "39156-5",
+                "display_name": "Body mass index (BMI) [Ratio]",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 25.8,
+                "unit": "kg/m2",
+                "formatted": "25.8 kg/m2"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v310-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
             }
           ],
-          "ids": []
+          "ids": [
+            {
+              "root": "v301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "measurements": [
@@ -467,9 +1384,13 @@
           },
           "interpretation": null,
           "reference_range": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
-          "ids": []
+          "ids": [
+            {
+              "root": "v302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         },
         {
           "vital_sign": {
@@ -486,9 +1407,13 @@
           },
           "interpretation": null,
           "reference_range": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
-          "ids": []
+          "ids": [
+            {
+              "root": "v303-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         },
         {
           "vital_sign": {
@@ -505,15 +1430,651 @@
           },
           "interpretation": null,
           "reference_range": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
-          "ids": []
+          "ids": [
+            {
+              "root": "v304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "9279-1",
+            "display_name": "Respiratory rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 16.0,
+            "unit": "/min",
+            "formatted": "16 /min"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v305-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8310-5",
+            "display_name": "Body temperature",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 36.9,
+            "unit": "Cel",
+            "formatted": "36.9 Cel"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v306-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "2708-6",
+            "display_name": "Oxygen saturation in Arterial blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 98.0,
+            "unit": "%",
+            "formatted": "98 %"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v307-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "29463-7",
+            "display_name": "Body weight",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 68.0,
+            "unit": "kg",
+            "formatted": "68.0 kg"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v308-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8302-2",
+            "display_name": "Body height",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 162.5,
+            "unit": "cm",
+            "formatted": "162.5 cm"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v309-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "39156-5",
+            "display_name": "Body mass index (BMI) [Ratio]",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 25.8,
+            "unit": "kg/m2",
+            "formatted": "25.8 kg/m2"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v310-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "vital_signs"
     },
+    "procedures": {
+      "title": "Diagnostic Procedures & Studies Performed",
+      "code": {
+        "code": "47519-4",
+        "display_name": "History of Procedures",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.7.1:2014-06-09"
+      ],
+      "narrative": "Procedure / Study | CPT Code | Date / Time | Findings / Status | Performer\n--------------------------------------------------------------------------\n12-Lead Electrocardiogram (ECG) | 93000 | 2023-11-04 09:15 EST | Normal sinus rhythm at 76 bpm, PR 162 ms, QRS 88 ms, QTc 428 ms. Frequent unifocal PVCs observed. No acute ST-T changes. | Dr. Vikram Patel, MD\nApplication of Continuous ECG Patch Monitor (14-Day Holter) | 93245 | 2023-11-04 09:45 EST | Sensor applied to left anterior chest; patient instructed on event button logging. | Cardiology Nurse Specialist",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Procedure / Study",
+            "CPT Code",
+            "Date / Time",
+            "Findings / Status",
+            "Performer"
+          ],
+          "rows": [
+            {
+              "Procedure / Study": "12-Lead Electrocardiogram (ECG)",
+              "CPT Code": "93000",
+              "Date / Time": "2023-11-04 09:15 EST",
+              "Findings / Status": "Normal sinus rhythm at 76 bpm, PR 162 ms, QRS 88 ms, QTc 428 ms. Frequent unifocal PVCs observed. No acute ST-T changes.",
+              "Performer": "Dr. Vikram Patel, MD"
+            },
+            {
+              "Procedure / Study": "Application of Continuous ECG Patch Monitor (14-Day Holter)",
+              "CPT Code": "93245",
+              "Date / Time": "2023-11-04 09:45 EST",
+              "Findings / Status": "Sensor applied to left anterior chest; patient instructed on event button logging.",
+              "Performer": "Cardiology Nurse Specialist"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "procedure": {
+            "code": "93000",
+            "display_name": "Electrocardiogram, routine ECG with at least 12 leads",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "268400002",
+                "display_name": "12 lead electrocardiogram",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-11-04T09:15:00-05:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Vikram Patel, MD, FACC",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "proc301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "93245",
+            "display_name": "External electrocardiographic recording up to 14 days, hook-up",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "252465004",
+                "display_name": "Holter monitoring",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-11-04T09:45:00-05:00",
+          "target_site": null,
+          "performers": [],
+          "devices": null,
+          "ids": [
+            {
+              "root": "proc302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "procedures"
+    },
+    "results": {
+      "title": "Diagnostic Results & Laboratory Data",
+      "code": {
+        "code": "30954-2",
+        "display_name": "Relevant diagnostic tests and/or laboratory data",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.3.1:2015-08-01"
+      ],
+      "narrative": "Test / Analyte | LOINC | Result Value | Reference Range | Interpretation\n------------------------------------------------------------------------\nHigh-Sensitivity Troponin T | 6598-7 | < 6 ng/L | < 14 ng/L | Normal (Negative for myocardial necrosis)\nNT-proBNP (N-terminal pro-B-type Natriuretic Peptide) | 33762-6 | 74 pg/mL | < 125 pg/mL | Normal (Heart failure unlikely)\nCholesterol, Total | 2093-3 | 192 mg/dL | < 200 mg/dL | Desirable\nHDL Cholesterol | 2085-9 | 54 mg/dL | > 50 mg/dL | Normal\nLDL Cholesterol (Calculated) | 13457-7 | 114 mg/dL | < 100 mg/dL | Borderline High\nTriglycerides | 2571-8 | 120 mg/dL | < 150 mg/dL | Normal\nPotassium, Serum | 2823-3 | 4.3 mmol/L | 3.5 - 5.1 mmol/L | Normal\nMagnesium, Serum | 2601-3 | 2.1 mg/dL | 1.7 - 2.4 mg/dL | Normal\nThyroid Stimulating Hormone (TSH) | 3016-3 | 1.85 uIU/mL | 0.45 - 4.50 uIU/mL | Normal (Euthyroid)",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Test / Analyte",
+            "LOINC",
+            "Result Value",
+            "Reference Range",
+            "Interpretation"
+          ],
+          "rows": [
+            {
+              "Test / Analyte": "High-Sensitivity Troponin T",
+              "LOINC": "6598-7",
+              "Result Value": "< 6 ng/L",
+              "Reference Range": "< 14 ng/L",
+              "Interpretation": "Normal (Negative for myocardial necrosis)"
+            },
+            {
+              "Test / Analyte": "NT-proBNP (N-terminal pro-B-type Natriuretic Peptide)",
+              "LOINC": "33762-6",
+              "Result Value": "74 pg/mL",
+              "Reference Range": "< 125 pg/mL",
+              "Interpretation": "Normal (Heart failure unlikely)"
+            },
+            {
+              "Test / Analyte": "Cholesterol, Total",
+              "LOINC": "2093-3",
+              "Result Value": "192 mg/dL",
+              "Reference Range": "< 200 mg/dL",
+              "Interpretation": "Desirable"
+            },
+            {
+              "Test / Analyte": "HDL Cholesterol",
+              "LOINC": "2085-9",
+              "Result Value": "54 mg/dL",
+              "Reference Range": "> 50 mg/dL",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "LDL Cholesterol (Calculated)",
+              "LOINC": "13457-7",
+              "Result Value": "114 mg/dL",
+              "Reference Range": "< 100 mg/dL",
+              "Interpretation": "Borderline High"
+            },
+            {
+              "Test / Analyte": "Triglycerides",
+              "LOINC": "2571-8",
+              "Result Value": "120 mg/dL",
+              "Reference Range": "< 150 mg/dL",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "Potassium, Serum",
+              "LOINC": "2823-3",
+              "Result Value": "4.3 mmol/L",
+              "Reference Range": "3.5 - 5.1 mmol/L",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "Magnesium, Serum",
+              "LOINC": "2601-3",
+              "Result Value": "2.1 mg/dL",
+              "Reference Range": "1.7 - 2.4 mg/dL",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "Thyroid Stimulating Hormone (TSH)",
+              "LOINC": "3016-3",
+              "Result Value": "1.85 uIU/mL",
+              "Reference Range": "0.45 - 4.50 uIU/mL",
+              "Interpretation": "Normal (Euthyroid)"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Cardiac biomarkers and chemistry panel",
+          "panel_code": {
+            "code": "54089-8",
+            "display_name": "Cardiac biomarkers and chemistry panel",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "6598-7",
+                "display_name": "Troponin T.cardiac [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 6.0,
+                "unit": "ng/L",
+                "formatted": "6 ng/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r302-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "33762-6",
+                "display_name": "Natriuretic peptide.B prohormone N-Terminal in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 74.0,
+                "unit": "pg/mL",
+                "formatted": "74 pg/mL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r303-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2823-3",
+                "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 4.3,
+                "unit": "mmol/L",
+                "formatted": "4.3 mmol/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r304-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2601-3",
+                "display_name": "Magnesium [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 2.1,
+                "unit": "mg/dL",
+                "formatted": "2.1 mg/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r305-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "3016-3",
+                "display_name": "Thyrotropin [Units/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 1.85,
+                "unit": "uIU/mL",
+                "formatted": "1.85 uIU/mL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r306-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "r301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "test": {
+            "code": "6598-7",
+            "display_name": "Troponin T.cardiac [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 6.0,
+            "unit": "ng/L",
+            "formatted": "6 ng/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "33762-6",
+            "display_name": "Natriuretic peptide.B prohormone N-Terminal in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 74.0,
+            "unit": "pg/mL",
+            "formatted": "74 pg/mL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r303-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2823-3",
+            "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 4.3,
+            "unit": "mmol/L",
+            "formatted": "4.3 mmol/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2601-3",
+            "display_name": "Magnesium [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 2.1,
+            "unit": "mg/dL",
+            "formatted": "2.1 mg/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r305-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "3016-3",
+            "display_name": "Thyrotropin [Units/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 1.85,
+            "unit": "uIU/mL",
+            "formatted": "1.85 uIU/mL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r306-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "results"
+    },
     "encounters": {
-      "title": "Encounters",
+      "title": "Clinical Encounters",
       "code": {
         "code": "46240-8",
         "display_name": "History of encounters",
@@ -523,20 +2084,47 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"
       ],
-      "narrative": "Cardiology Outpatient Consultation on 2023-11-04 with Dr. Vikram Patel, MD at Boston Heart & Vascular Institute.",
-      "tables": [],
+      "narrative": "Encounter Type | CPT Code | Date / Time | Location | Provider\n-------------------------------------------------------------\nCardiology Outpatient Consultation, High Complexity | 99244 | 2023-11-04 09:30 EST | Cardiovascular Outpatient Suite 400 | Dr. Vikram Patel, MD, FACC\nPrimary Care Evaluation & Management Visit | 99214 | 2023-10-20 10:15 EDT | Brigham Primary Care | Dr. Amanda Clark, MD",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Encounter Type",
+            "CPT Code",
+            "Date / Time",
+            "Location",
+            "Provider"
+          ],
+          "rows": [
+            {
+              "Encounter Type": "Cardiology Outpatient Consultation, High Complexity",
+              "CPT Code": "99244",
+              "Date / Time": "2023-11-04 09:30 EST",
+              "Location": "Cardiovascular Outpatient Suite 400",
+              "Provider": "Dr. Vikram Patel, MD, FACC"
+            },
+            {
+              "Encounter Type": "Primary Care Evaluation & Management Visit",
+              "CPT Code": "99214",
+              "Date / Time": "2023-10-20 10:15 EDT",
+              "Location": "Brigham Primary Care",
+              "Provider": "Dr. Amanda Clark, MD"
+            }
+          ]
+        }
+      ],
       "entries": [
         {
           "encounter_type": {
             "code": "99244",
-            "display_name": "Outpatient Consultation, moderate complexity",
+            "display_name": "Outpatient Consultation, moderate-high complexity",
             "code_system": "2.16.840.1.113883.6.12",
             "code_system_name": "CPT-4"
           },
           "date": "2023-11-04T09:30:00-05:00",
           "performers": [
             {
-              "name": "Dr. Vikram Patel, MD",
+              "name": "Dr. Vikram Patel, MD, FACC",
               "role": {
                 "code": "207RC0000X",
                 "display_name": "Cardiovascular Disease",
@@ -551,9 +2139,155 @@
               "root": "e9c12345-3451-11e2-81c1-0800200c9a66"
             }
           ]
+        },
+        {
+          "encounter_type": {
+            "code": "99214",
+            "display_name": "Office or other outpatient visit, established patient",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4"
+          },
+          "date": "2023-10-20T10:15:00-05:00",
+          "performers": [
+            {
+              "name": "Dr. Amanda Clark, MD",
+              "role": null
+            }
+          ],
+          "locations": [],
+          "diagnoses": [],
+          "ids": [
+            {
+              "root": "e9c12346-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "encounters"
+    },
+    "immunizations": {
+      "title": "Immunizations",
+      "code": {
+        "code": "11369-6",
+        "display_name": "History of immunizations",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"
+      ],
+      "narrative": "Vaccine | CVX Code | Date Administered | Status\n-----------------------------------------------\nInfluenza Virus Vaccine, Quadrivalent | 141 | 2023-10-20 | Completed\nPneumococcal 20-valent Conjugate Vaccine (PCV20) | 216 | 2022-09-15 | Completed\nTetanus, Diphtheria, Pertussis (Tdap) Vaccine | 115 | 2019-05-10 | Completed",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vaccine",
+            "CVX Code",
+            "Date Administered",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Vaccine": "Influenza Virus Vaccine, Quadrivalent",
+              "CVX Code": "141",
+              "Date Administered": "2023-10-20",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "Pneumococcal 20-valent Conjugate Vaccine (PCV20)",
+              "CVX Code": "216",
+              "Date Administered": "2022-09-15",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "Tetanus, Diphtheria, Pertussis (Tdap) Vaccine",
+              "CVX Code": "115",
+              "Date Administered": "2019-05-10",
+              "Status": "Completed"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "vaccine": {
+            "code": "141",
+            "display_name": "Influenza, injectable, quadrivalent, PF",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2023-10-20",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "imm301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "immunizations"
+    },
+    "social_history": {
+      "title": "Social History",
+      "code": {
+        "code": "29762-2",
+        "display_name": "Social history",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.17:2015-08-01"
+      ],
+      "narrative": "• Tobacco Smoking Status: Never smoker (Lifelong non-smoker).\n• Caffeine Consumption: 2 cups of regular brewed coffee daily (Advised to transition to decaffeinated).\n• Alcohol Intake: Rare social glass of wine (less than 1 drink per month).\n• Physical Activity: Moderate aerobic walking 30 minutes 3 days per week.",
+      "tables": [],
+      "smoking_status": {
+        "status": {
+          "code": "266919005",
+          "display_name": "Never smoker",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT",
+          "type": "CD"
+        },
+        "date": "2023-11-04",
+        "ids": [
+          {
+            "root": "soc301-3451-11e2-81c1-0800200c9a66"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "observation": {
+            "code": "72166-2",
+            "display_name": "Tobacco smoking status",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "code": "266919005",
+            "display_name": "Never smoker",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "date": "2023-11-04",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "soc301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "social_history"
     },
     "assessment_and_plan": {
       "title": "Assessment & Plan",
@@ -566,7 +2300,7 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.9"
       ],
-      "narrative": "• 1. Palpitations / Premature ventricular contractions (ICD-10 I49.3): Ordered 14-day ambulatory continuous ECG patch monitor.\n• 2. Systolic ejection murmur (ICD-10 R01.1): Ordered Transthoracic Echocardiogram (TTE) with Doppler to evaluate aortic valve morphology and ventricular function.\n• 3. Essential Hypertension (ICD-10 I10): Blood pressure today is 134/86 mmHg. Continue Amlodipine 5mg and HCTZ 12.5mg daily. Keep home BP log.\n• 4. Follow-up: Return to clinic in 4 weeks after completion of Holter monitor and echocardiogram.",
+      "narrative": "• 1. Palpitations & Premature Ventricular Contractions (ICD-10 I49.3):\n                \n                  ECG today confirms normal sinus rhythm with frequent unifocal PVCs without ventricular tachycardia.\n                  Applied 14-day continuous ambulatory ECG Holter patch monitor today to quantify PVC burden and rule out paroxysmal supraventricular arrhythmias.\n                  Initiated low-dose beta-blocker: Metoprolol Tartrate 25 mg PO BID with meals for symptomatic arrhythmia suppression and rate control.\n                  Counseled on reducing dietary caffeine intake and maintaining adequate hydration.\n• 2. Systolic Ejection Murmur (ICD-10 R01.1):\n                \n                  Grade 2/6 crescendo-decrescendo murmur at right upper sternal border. Ordered comprehensive Transthoracic Echocardiogram (TTE) with color Doppler scheduled for 2023-11-16 to evaluate aortic valve morphology, rule out aortic sclerosis/stenosis, and measure left ventricular ejection fraction.\n• 3. Essential Hypertension (ICD-10 I10):\n                \n                  Clinic blood pressure today 134/86 mmHg. Continue current regimen of Amlodipine 5 mg PO daily + Hydrochlorothiazide 12.5 mg PO daily. Metoprolol Tartrate added above will provide additional blood pressure lowering benefit. Continue home BP diary.\n• 4. Hyperlipidemia (ICD-10 E78.00):\n                \n                  Continue Atorvastatin 20 mg PO daily at bedtime. Prior severe myalgias on Simvastatin documented; patient tolerates Atorvastatin without adverse symptoms.\n• 5. Follow-Up Plan:\n                \n                  Return to Cardiology Clinic in 4 weeks (2023-12-04 at 10:00 AM) for follow-up consultation with Dr. Vikram Patel to review 14-day continuous Holter monitor telemetry report and Echocardiogram imaging findings.\n                  Instructed on red flag symptoms: Report immediately to Emergency Department or call 911 for prolonged chest pressure, syncope / loss of consciousness, severe sustained tachycardia (> 150 bpm), or severe acute dyspnea.",
       "tables": [],
       "entries": [],
       "section_type": "assessment_and_plan"
@@ -574,7 +2308,7 @@
   },
   "all_sections": [
     {
-      "title": "Reason for Referral",
+      "title": "Reason for Referral & History of Present Illness",
       "code": {
         "code": "42349-1",
         "display_name": "Reason for Referral",
@@ -584,10 +2318,373 @@
       "template_ids": [
         "1.3.6.1.4.1.19376.1.5.3.1.3.1"
       ],
-      "narrative": "Referred by Dr. Amanda Clark, MD for evaluation of recurrent episodic palpitations, exertional shortness of breath, and a newly detected grade 2/6 systolic ejection murmur.",
+      "narrative": "Reason for Consultation: Mrs. Sophia Rodriguez is a 52-year-old female referred by her primary care physician, Dr. Amanda Clark, MD, for specialist evaluation of recurrent episodic palpitations, sensations of skipped heartbeats, exertional lightheadedness, and a newly detected grade 2/6 systolic ejection murmur.\nHistory of Present Illness: The patient reports a 3-month history of awareness of rapid, irregular heartbeats occurring 3 to 4 times per week, typically lasting between 5 to 30 minutes. Symptoms occur both at rest and during mild exertion (e.g., climbing two flights of stairs at work). She denies syncope, chest pressure, orthopnea, or paroxysmal nocturnal dyspnea. She notes mild shortness of breath when hurrying up inclines. Has a history of essential hypertension and hyperlipidemia treated with Amlodipine and HCTZ.",
       "tables": [],
       "entries": [],
       "section_type": "reason_for_referral"
+    },
+    {
+      "title": "Problems & Active Conditions",
+      "code": {
+        "code": "11450-4",
+        "display_name": "Problem List",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.5.1:2015-08-01"
+      ],
+      "narrative": "Condition / Diagnosis | SNOMED CT | ICD-10-CM | Onset Date | Status\n-------------------------------------------------------------------\nPalpitations / Premature ventricular contractions | 28651003 | I49.3 | 2023-08-15 | Active (Under evaluation)\nCardiac murmur, unspecified | 88610006 | R01.1 | 2023-10-20 | Active\nEssential (primary) hypertension | 59621000 | I10 | 2017-04-10 | Active (Controlled)\nPrimary hypercholesterolemia / Hyperlipidemia | 13644009 | E78.00 | 2019-06-22 | Active\nExertional dyspnea | 60845006 | R06.02 | 2023-09-01 | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Condition / Diagnosis",
+            "SNOMED CT",
+            "ICD-10-CM",
+            "Onset Date",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Condition / Diagnosis": "Palpitations / Premature ventricular contractions",
+              "SNOMED CT": "28651003",
+              "ICD-10-CM": "I49.3",
+              "Onset Date": "2023-08-15",
+              "Status": "Active (Under evaluation)"
+            },
+            {
+              "Condition / Diagnosis": "Cardiac murmur, unspecified",
+              "SNOMED CT": "88610006",
+              "ICD-10-CM": "R01.1",
+              "Onset Date": "2023-10-20",
+              "Status": "Active"
+            },
+            {
+              "Condition / Diagnosis": "Essential (primary) hypertension",
+              "SNOMED CT": "59621000",
+              "ICD-10-CM": "I10",
+              "Onset Date": "2017-04-10",
+              "Status": "Active (Controlled)"
+            },
+            {
+              "Condition / Diagnosis": "Primary hypercholesterolemia / Hyperlipidemia",
+              "SNOMED CT": "13644009",
+              "ICD-10-CM": "E78.00",
+              "Onset Date": "2019-06-22",
+              "Status": "Active"
+            },
+            {
+              "Condition / Diagnosis": "Exertional dyspnea",
+              "SNOMED CT": "60845006",
+              "ICD-10-CM": "R06.02",
+              "Onset Date": "2023-09-01",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "problem": {
+            "code": "28651003",
+            "display_name": "Palpitations",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "I49.3",
+                "display_name": "Premature ventricular contractions",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2023-08-15"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "88610006",
+            "display_name": "Cardiac murmur",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "R01.1",
+                "display_name": "Cardiac murmur, unspecified",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2023-10-20"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "59621000",
+            "display_name": "Essential hypertension",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "I10",
+                "display_name": "Essential (primary) hypertension",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2017-04-10"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p306-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "13644009",
+            "display_name": "Hypercholesterolemia",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "E78.00",
+                "display_name": "Pure hypercholesterolemia, unspecified",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2019-06-22"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p308-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "problem": {
+            "code": "60845006",
+            "display_name": "Dyspnea on exertion",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "translations": [
+              {
+                "code": "R06.02",
+                "display_name": "Shortness of breath on exertion",
+                "code_system": "2.16.840.1.113883.6.90",
+                "code_system_name": "ICD-10-CM"
+              }
+            ],
+            "type": "CD"
+          },
+          "problem_type": {
+            "code": "282291009",
+            "display_name": "Diagnosis",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2023-09-01"
+          },
+          "age_at_onset": null,
+          "health_status": null,
+          "ids": [
+            {
+              "root": "p310-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "problems"
+    },
+    {
+      "title": "Allergies & Intolerances",
+      "code": {
+        "code": "48765-2",
+        "display_name": "Allergies and adverse reactions Document",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.6.1:2015-08-01"
+      ],
+      "narrative": "Substance | RxNorm / Code | Reaction | Severity | Status\n--------------------------------------------------------\nLisinopril (ACE Inhibitors) | 314076 | Severe intractable dry cough and mild lip angioedema | Severe | Active\nSimvastatin | 36567 | Severe bilateral lower extremity myalgias / muscle cramps | Moderate | Active",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Substance",
+            "RxNorm / Code",
+            "Reaction",
+            "Severity",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Substance": "Lisinopril (ACE Inhibitors)",
+              "RxNorm / Code": "314076",
+              "Reaction": "Severe intractable dry cough and mild lip angioedema",
+              "Severity": "Severe",
+              "Status": "Active"
+            },
+            {
+              "Substance": "Simvastatin",
+              "RxNorm / Code": "36567",
+              "Reaction": "Severe bilateral lower extremity myalgias / muscle cramps",
+              "Severity": "Moderate",
+              "Status": "Active"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "substance": {
+            "code": "314076",
+            "display_name": "Lisinopril",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2018-05-12"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "418363000",
+                "display_name": "Angioedema and cough",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "24484000",
+                "display_name": "Severe",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "substance": {
+            "code": "36567",
+            "display_name": "Simvastatin",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "allergy_type": {
+            "code": "ASSERTION",
+            "code_system": "2.16.840.1.113883.5.4",
+            "code_system_name": "ActCode"
+          },
+          "status": "active",
+          "effective_time": {
+            "low": "2020-11-03"
+          },
+          "severity": null,
+          "reactions": [
+            {
+              "reaction": {
+                "code": "68962001",
+                "display_name": "Myalgia",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              },
+              "time": null,
+              "severity": {
+                "code": "6736007",
+                "display_name": "Moderate",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT",
+                "type": "CD"
+              }
+            }
+          ],
+          "ids": [
+            {
+              "root": "a304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "allergies"
     },
     {
       "title": "Current Medications",
@@ -600,30 +2697,57 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.1.1:2014-06-09"
       ],
-      "narrative": "Medication | Dose | Route | Frequency | Status\n----------------------------------------------\nAmlodipine Besylate 5 MG Oral Tablet | 5 mg | Oral | Once daily in the morning | Active\nHydrochlorothiazide 12.5 MG Oral Tablet | 12.5 mg | Oral | Once daily in the morning | Active",
+      "narrative": "Medication | RxNorm Code | Dose | Route | Frequency & Instructions | Status\n---------------------------------------------------------------------------\nAmlodipine Besylate 5 MG Oral Tablet | 197361 | 5 mg | Oral | Take 1 tablet once daily in the morning for blood pressure. | Active\nHydrochlorothiazide 12.5 MG Oral Tablet | 310798 | 12.5 mg | Oral | Take 1 tablet once daily in the morning with breakfast. | Active\nAtorvastatin 20 MG Oral Tablet | 259255 | 20 mg | Oral | Take 1 tablet once daily at bedtime for cholesterol. | Active\nMetoprolol Tartrate 25 MG Oral Tablet | 866417 | 25 mg | Oral | Take 1 tablet twice daily with meals (Initiated today for palpitations/PVC suppression). | Active (New)\nAspirin 81 MG Enteric Coated Oral Tablet | 243670 | 81 mg | Oral | Take 1 tablet once daily for cardioprotection. | Active",
       "tables": [
         {
           "caption": null,
           "headers": [
             "Medication",
+            "RxNorm Code",
             "Dose",
             "Route",
-            "Frequency",
+            "Frequency & Instructions",
             "Status"
           ],
           "rows": [
             {
               "Medication": "Amlodipine Besylate 5 MG Oral Tablet",
+              "RxNorm Code": "197361",
               "Dose": "5 mg",
               "Route": "Oral",
-              "Frequency": "Once daily in the morning",
+              "Frequency & Instructions": "Take 1 tablet once daily in the morning for blood pressure.",
               "Status": "Active"
             },
             {
               "Medication": "Hydrochlorothiazide 12.5 MG Oral Tablet",
+              "RxNorm Code": "310798",
               "Dose": "12.5 mg",
               "Route": "Oral",
-              "Frequency": "Once daily in the morning",
+              "Frequency & Instructions": "Take 1 tablet once daily in the morning with breakfast.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Atorvastatin 20 MG Oral Tablet",
+              "RxNorm Code": "259255",
+              "Dose": "20 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Take 1 tablet once daily at bedtime for cholesterol.",
+              "Status": "Active"
+            },
+            {
+              "Medication": "Metoprolol Tartrate 25 MG Oral Tablet",
+              "RxNorm Code": "866417",
+              "Dose": "25 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Take 1 tablet twice daily with meals (Initiated today for palpitations/PVC suppression).",
+              "Status": "Active (New)"
+            },
+            {
+              "Medication": "Aspirin 81 MG Enteric Coated Oral Tablet",
+              "RxNorm Code": "243670",
+              "Dose": "81 mg",
+              "Route": "Oral",
+              "Frequency & Instructions": "Take 1 tablet once daily for cardioprotection.",
               "Status": "Active"
             }
           ]
@@ -656,7 +2780,9 @@
               "human_readable": "Daily"
             }
           },
-          "date_range": null,
+          "date_range": {
+            "low": "2018-06-01"
+          },
           "effective_times": null,
           "indication": null,
           "instructions": null,
@@ -664,7 +2790,179 @@
           "performer": null,
           "lot_number": null,
           "manufacturer": null,
-          "ids": []
+          "ids": [
+            {
+              "root": "m301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "310798",
+            "display_name": "Hydrochlorothiazide 12.5 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 12.5,
+            "unit": "mg",
+            "formatted": "12.5 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2018-06-01"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "259255",
+            "display_name": "Atorvastatin 20 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 20.0,
+            "unit": "mg",
+            "formatted": "20 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2021-01-15"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m303-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "866417",
+            "display_name": "Metoprolol Tartrate 25 MG Oral Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 25.0,
+            "unit": "mg",
+            "formatted": "25 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "12",
+              "unit": "h",
+              "human_readable": "Twice daily (q12h)"
+            }
+          },
+          "date_range": {
+            "low": "2023-11-04"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "medication": {
+            "code": "243670",
+            "display_name": "Aspirin 81 MG Delayed Release Tablet",
+            "code_system": "2.16.840.1.113883.6.88",
+            "code_system_name": "RxNorm"
+          },
+          "status": "active",
+          "dose": {
+            "value": 81.0,
+            "unit": "mg",
+            "formatted": "81 mg"
+          },
+          "rate": null,
+          "route": {
+            "code": "C38288",
+            "display_name": "Oral",
+            "code_system": "2.16.840.1.113883.3.26.1.1"
+          },
+          "schedule": {
+            "period": {
+              "value": "24",
+              "unit": "h",
+              "human_readable": "Daily"
+            }
+          },
+          "date_range": {
+            "low": "2022-03-10"
+          },
+          "effective_times": null,
+          "indication": null,
+          "instructions": null,
+          "precondition": null,
+          "performer": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "ids": [
+            {
+              "root": "m305-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "medications"
@@ -680,44 +2978,94 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.4.1:2015-08-01"
       ],
-      "narrative": "Measurement | Value | Unit\n--------------------------\nBlood Pressure | 134 / 86 | mm[Hg]\nHeart Rate | 78 | /min\nBody Temperature | 98.4 | [degF]\nOxygen Saturation (SpO2) | 98 | %",
+      "narrative": "Vital Sign | Value | Unit | Interpretation | Reference Range\n------------------------------------------------------------\nSystolic Blood Pressure | 134 | mm[Hg] | Prehypertension | 90 - 120 mm[Hg]\nDiastolic Blood Pressure | 86 | mm[Hg] | Prehypertension | 60 - 80 mm[Hg]\nHeart Rate (Resting) | 78 | /min | Normal (Sinus Rhythm with Occasional PVC) | 60 - 100 /min\nRespiratory Rate | 16 | /min | Normal | 12 - 20 /min\nBody Temperature | 36.9 (98.4) | Cel ([degF]) | Normal (Afebrile) | 36.5 - 37.5 Cel\nOxygen Saturation (SpO2) | 98 | % | Normal | 95 - 100 %\nBody Weight | 68.0 (149.9) | kg (lbs) | -- | --\nBody Height | 162.5 (5 ft 4 in) | cm | -- | --\nBody Mass Index (BMI) | 25.8 | kg/m2 | Overweight (Mild) | 18.5 - 24.9 kg/m2",
       "tables": [
         {
           "caption": null,
           "headers": [
-            "Measurement",
+            "Vital Sign",
             "Value",
-            "Unit"
+            "Unit",
+            "Interpretation",
+            "Reference Range"
           ],
           "rows": [
             {
-              "Measurement": "Blood Pressure",
-              "Value": "134 / 86",
-              "Unit": "mm[Hg]"
+              "Vital Sign": "Systolic Blood Pressure",
+              "Value": "134",
+              "Unit": "mm[Hg]",
+              "Interpretation": "Prehypertension",
+              "Reference Range": "90 - 120 mm[Hg]"
             },
             {
-              "Measurement": "Heart Rate",
+              "Vital Sign": "Diastolic Blood Pressure",
+              "Value": "86",
+              "Unit": "mm[Hg]",
+              "Interpretation": "Prehypertension",
+              "Reference Range": "60 - 80 mm[Hg]"
+            },
+            {
+              "Vital Sign": "Heart Rate (Resting)",
               "Value": "78",
-              "Unit": "/min"
+              "Unit": "/min",
+              "Interpretation": "Normal (Sinus Rhythm with Occasional PVC)",
+              "Reference Range": "60 - 100 /min"
             },
             {
-              "Measurement": "Body Temperature",
-              "Value": "98.4",
-              "Unit": "[degF]"
+              "Vital Sign": "Respiratory Rate",
+              "Value": "16",
+              "Unit": "/min",
+              "Interpretation": "Normal",
+              "Reference Range": "12 - 20 /min"
             },
             {
-              "Measurement": "Oxygen Saturation (SpO2)",
+              "Vital Sign": "Body Temperature",
+              "Value": "36.9 (98.4)",
+              "Unit": "Cel ([degF])",
+              "Interpretation": "Normal (Afebrile)",
+              "Reference Range": "36.5 - 37.5 Cel"
+            },
+            {
+              "Vital Sign": "Oxygen Saturation (SpO2)",
               "Value": "98",
-              "Unit": "%"
+              "Unit": "%",
+              "Interpretation": "Normal",
+              "Reference Range": "95 - 100 %"
+            },
+            {
+              "Vital Sign": "Body Weight",
+              "Value": "68.0 (149.9)",
+              "Unit": "kg (lbs)",
+              "Interpretation": "--",
+              "Reference Range": "--"
+            },
+            {
+              "Vital Sign": "Body Height",
+              "Value": "162.5 (5 ft 4 in)",
+              "Unit": "cm",
+              "Interpretation": "--",
+              "Reference Range": "--"
+            },
+            {
+              "Vital Sign": "Body Mass Index (BMI)",
+              "Value": "25.8",
+              "Unit": "kg/m2",
+              "Interpretation": "Overweight (Mild)",
+              "Reference Range": "18.5 - 24.9 kg/m2"
             }
           ]
         }
       ],
       "panels": [
         {
-          "panel_name": "Vital Signs Panel",
-          "panel_code": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "panel_name": "Vital signs panel",
+          "panel_code": {
+            "code": "46680005",
+            "display_name": "Vital signs panel",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT"
+          },
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
           "measurements": [
             {
@@ -735,9 +3083,13 @@
               },
               "interpretation": null,
               "reference_range": null,
-              "date": "2023-11-04T09:00:00-05:00",
+              "date": "2023-11-04T09:15:00-05:00",
               "status": "completed",
-              "ids": []
+              "ids": [
+                {
+                  "root": "v302-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
             },
             {
               "vital_sign": {
@@ -754,9 +3106,13 @@
               },
               "interpretation": null,
               "reference_range": null,
-              "date": "2023-11-04T09:00:00-05:00",
+              "date": "2023-11-04T09:15:00-05:00",
               "status": "completed",
-              "ids": []
+              "ids": [
+                {
+                  "root": "v303-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
             },
             {
               "vital_sign": {
@@ -773,12 +3129,158 @@
               },
               "interpretation": null,
               "reference_range": null,
-              "date": "2023-11-04T09:00:00-05:00",
+              "date": "2023-11-04T09:15:00-05:00",
               "status": "completed",
-              "ids": []
+              "ids": [
+                {
+                  "root": "v304-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "9279-1",
+                "display_name": "Respiratory rate",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 16.0,
+                "unit": "/min",
+                "formatted": "16 /min"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v305-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8310-5",
+                "display_name": "Body temperature",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 36.9,
+                "unit": "Cel",
+                "formatted": "36.9 Cel"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v306-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "2708-6",
+                "display_name": "Oxygen saturation in Arterial blood",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 98.0,
+                "unit": "%",
+                "formatted": "98 %"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v307-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "29463-7",
+                "display_name": "Body weight",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 68.0,
+                "unit": "kg",
+                "formatted": "68.0 kg"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v308-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "8302-2",
+                "display_name": "Body height",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 162.5,
+                "unit": "cm",
+                "formatted": "162.5 cm"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v309-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "vital_sign": {
+                "code": "39156-5",
+                "display_name": "Body mass index (BMI) [Ratio]",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 25.8,
+                "unit": "kg/m2",
+                "formatted": "25.8 kg/m2"
+              },
+              "interpretation": null,
+              "reference_range": null,
+              "date": "2023-11-04T09:15:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "v310-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
             }
           ],
-          "ids": []
+          "ids": [
+            {
+              "root": "v301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "measurements": [
@@ -797,9 +3299,13 @@
           },
           "interpretation": null,
           "reference_range": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
-          "ids": []
+          "ids": [
+            {
+              "root": "v302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         },
         {
           "vital_sign": {
@@ -816,9 +3322,13 @@
           },
           "interpretation": null,
           "reference_range": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
-          "ids": []
+          "ids": [
+            {
+              "root": "v303-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         },
         {
           "vital_sign": {
@@ -835,15 +3345,651 @@
           },
           "interpretation": null,
           "reference_range": null,
-          "date": "2023-11-04T09:00:00-05:00",
+          "date": "2023-11-04T09:15:00-05:00",
           "status": "completed",
-          "ids": []
+          "ids": [
+            {
+              "root": "v304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "9279-1",
+            "display_name": "Respiratory rate",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 16.0,
+            "unit": "/min",
+            "formatted": "16 /min"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v305-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8310-5",
+            "display_name": "Body temperature",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 36.9,
+            "unit": "Cel",
+            "formatted": "36.9 Cel"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v306-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "2708-6",
+            "display_name": "Oxygen saturation in Arterial blood",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 98.0,
+            "unit": "%",
+            "formatted": "98 %"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v307-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "29463-7",
+            "display_name": "Body weight",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 68.0,
+            "unit": "kg",
+            "formatted": "68.0 kg"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v308-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "8302-2",
+            "display_name": "Body height",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 162.5,
+            "unit": "cm",
+            "formatted": "162.5 cm"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v309-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "vital_sign": {
+            "code": "39156-5",
+            "display_name": "Body mass index (BMI) [Ratio]",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 25.8,
+            "unit": "kg/m2",
+            "formatted": "25.8 kg/m2"
+          },
+          "interpretation": null,
+          "reference_range": null,
+          "date": "2023-11-04T09:15:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "v310-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "vital_signs"
     },
     {
-      "title": "Encounters",
+      "title": "Diagnostic Procedures & Studies Performed",
+      "code": {
+        "code": "47519-4",
+        "display_name": "History of Procedures",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.7.1:2014-06-09"
+      ],
+      "narrative": "Procedure / Study | CPT Code | Date / Time | Findings / Status | Performer\n--------------------------------------------------------------------------\n12-Lead Electrocardiogram (ECG) | 93000 | 2023-11-04 09:15 EST | Normal sinus rhythm at 76 bpm, PR 162 ms, QRS 88 ms, QTc 428 ms. Frequent unifocal PVCs observed. No acute ST-T changes. | Dr. Vikram Patel, MD\nApplication of Continuous ECG Patch Monitor (14-Day Holter) | 93245 | 2023-11-04 09:45 EST | Sensor applied to left anterior chest; patient instructed on event button logging. | Cardiology Nurse Specialist",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Procedure / Study",
+            "CPT Code",
+            "Date / Time",
+            "Findings / Status",
+            "Performer"
+          ],
+          "rows": [
+            {
+              "Procedure / Study": "12-Lead Electrocardiogram (ECG)",
+              "CPT Code": "93000",
+              "Date / Time": "2023-11-04 09:15 EST",
+              "Findings / Status": "Normal sinus rhythm at 76 bpm, PR 162 ms, QRS 88 ms, QTc 428 ms. Frequent unifocal PVCs observed. No acute ST-T changes.",
+              "Performer": "Dr. Vikram Patel, MD"
+            },
+            {
+              "Procedure / Study": "Application of Continuous ECG Patch Monitor (14-Day Holter)",
+              "CPT Code": "93245",
+              "Date / Time": "2023-11-04 09:45 EST",
+              "Findings / Status": "Sensor applied to left anterior chest; patient instructed on event button logging.",
+              "Performer": "Cardiology Nurse Specialist"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "procedure": {
+            "code": "93000",
+            "display_name": "Electrocardiogram, routine ECG with at least 12 leads",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "268400002",
+                "display_name": "12 lead electrocardiogram",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-11-04T09:15:00-05:00",
+          "target_site": null,
+          "performers": [
+            {
+              "name": "Dr. Vikram Patel, MD, FACC",
+              "role": null
+            }
+          ],
+          "devices": null,
+          "ids": [
+            {
+              "root": "proc301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "procedure": {
+            "code": "93245",
+            "display_name": "External electrocardiographic recording up to 14 days, hook-up",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4",
+            "translations": [
+              {
+                "code": "252465004",
+                "display_name": "Holter monitoring",
+                "code_system": "2.16.840.1.113883.6.96",
+                "code_system_name": "SNOMED CT"
+              }
+            ]
+          },
+          "status": "completed",
+          "date": "2023-11-04T09:45:00-05:00",
+          "target_site": null,
+          "performers": [],
+          "devices": null,
+          "ids": [
+            {
+              "root": "proc302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "procedures"
+    },
+    {
+      "title": "Diagnostic Results & Laboratory Data",
+      "code": {
+        "code": "30954-2",
+        "display_name": "Relevant diagnostic tests and/or laboratory data",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.3.1:2015-08-01"
+      ],
+      "narrative": "Test / Analyte | LOINC | Result Value | Reference Range | Interpretation\n------------------------------------------------------------------------\nHigh-Sensitivity Troponin T | 6598-7 | < 6 ng/L | < 14 ng/L | Normal (Negative for myocardial necrosis)\nNT-proBNP (N-terminal pro-B-type Natriuretic Peptide) | 33762-6 | 74 pg/mL | < 125 pg/mL | Normal (Heart failure unlikely)\nCholesterol, Total | 2093-3 | 192 mg/dL | < 200 mg/dL | Desirable\nHDL Cholesterol | 2085-9 | 54 mg/dL | > 50 mg/dL | Normal\nLDL Cholesterol (Calculated) | 13457-7 | 114 mg/dL | < 100 mg/dL | Borderline High\nTriglycerides | 2571-8 | 120 mg/dL | < 150 mg/dL | Normal\nPotassium, Serum | 2823-3 | 4.3 mmol/L | 3.5 - 5.1 mmol/L | Normal\nMagnesium, Serum | 2601-3 | 2.1 mg/dL | 1.7 - 2.4 mg/dL | Normal\nThyroid Stimulating Hormone (TSH) | 3016-3 | 1.85 uIU/mL | 0.45 - 4.50 uIU/mL | Normal (Euthyroid)",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Test / Analyte",
+            "LOINC",
+            "Result Value",
+            "Reference Range",
+            "Interpretation"
+          ],
+          "rows": [
+            {
+              "Test / Analyte": "High-Sensitivity Troponin T",
+              "LOINC": "6598-7",
+              "Result Value": "< 6 ng/L",
+              "Reference Range": "< 14 ng/L",
+              "Interpretation": "Normal (Negative for myocardial necrosis)"
+            },
+            {
+              "Test / Analyte": "NT-proBNP (N-terminal pro-B-type Natriuretic Peptide)",
+              "LOINC": "33762-6",
+              "Result Value": "74 pg/mL",
+              "Reference Range": "< 125 pg/mL",
+              "Interpretation": "Normal (Heart failure unlikely)"
+            },
+            {
+              "Test / Analyte": "Cholesterol, Total",
+              "LOINC": "2093-3",
+              "Result Value": "192 mg/dL",
+              "Reference Range": "< 200 mg/dL",
+              "Interpretation": "Desirable"
+            },
+            {
+              "Test / Analyte": "HDL Cholesterol",
+              "LOINC": "2085-9",
+              "Result Value": "54 mg/dL",
+              "Reference Range": "> 50 mg/dL",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "LDL Cholesterol (Calculated)",
+              "LOINC": "13457-7",
+              "Result Value": "114 mg/dL",
+              "Reference Range": "< 100 mg/dL",
+              "Interpretation": "Borderline High"
+            },
+            {
+              "Test / Analyte": "Triglycerides",
+              "LOINC": "2571-8",
+              "Result Value": "120 mg/dL",
+              "Reference Range": "< 150 mg/dL",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "Potassium, Serum",
+              "LOINC": "2823-3",
+              "Result Value": "4.3 mmol/L",
+              "Reference Range": "3.5 - 5.1 mmol/L",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "Magnesium, Serum",
+              "LOINC": "2601-3",
+              "Result Value": "2.1 mg/dL",
+              "Reference Range": "1.7 - 2.4 mg/dL",
+              "Interpretation": "Normal"
+            },
+            {
+              "Test / Analyte": "Thyroid Stimulating Hormone (TSH)",
+              "LOINC": "3016-3",
+              "Result Value": "1.85 uIU/mL",
+              "Reference Range": "0.45 - 4.50 uIU/mL",
+              "Interpretation": "Normal (Euthyroid)"
+            }
+          ]
+        }
+      ],
+      "panels": [
+        {
+          "panel_name": "Cardiac biomarkers and chemistry panel",
+          "panel_code": {
+            "code": "54089-8",
+            "display_name": "Cardiac biomarkers and chemistry panel",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "results": [
+            {
+              "test": {
+                "code": "6598-7",
+                "display_name": "Troponin T.cardiac [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 6.0,
+                "unit": "ng/L",
+                "formatted": "6 ng/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r302-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "33762-6",
+                "display_name": "Natriuretic peptide.B prohormone N-Terminal in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 74.0,
+                "unit": "pg/mL",
+                "formatted": "74 pg/mL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r303-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2823-3",
+                "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 4.3,
+                "unit": "mmol/L",
+                "formatted": "4.3 mmol/L"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r304-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "2601-3",
+                "display_name": "Magnesium [Mass/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 2.1,
+                "unit": "mg/dL",
+                "formatted": "2.1 mg/dL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r305-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            },
+            {
+              "test": {
+                "code": "3016-3",
+                "display_name": "Thyrotropin [Units/volume] in Serum or Plasma",
+                "code_system": "2.16.840.1.113883.6.1",
+                "code_system_name": "LOINC"
+              },
+              "value": {
+                "type": "PQ",
+                "value": 1.85,
+                "unit": "uIU/mL",
+                "formatted": "1.85 uIU/mL"
+              },
+              "interpretation": {
+                "code": "N",
+                "display_name": "Normal",
+                "code_system": "2.16.840.1.113883.5.83",
+                "code_system_name": "ObservationInterpretation"
+              },
+              "reference_range": null,
+              "date": "2023-11-04T08:30:00-05:00",
+              "status": "completed",
+              "ids": [
+                {
+                  "root": "r306-3451-11e2-81c1-0800200c9a66"
+                }
+              ]
+            }
+          ],
+          "ids": [
+            {
+              "root": "r301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "results": [
+        {
+          "test": {
+            "code": "6598-7",
+            "display_name": "Troponin T.cardiac [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 6.0,
+            "unit": "ng/L",
+            "formatted": "6 ng/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r302-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "33762-6",
+            "display_name": "Natriuretic peptide.B prohormone N-Terminal in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 74.0,
+            "unit": "pg/mL",
+            "formatted": "74 pg/mL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r303-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2823-3",
+            "display_name": "Potassium [Moles/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 4.3,
+            "unit": "mmol/L",
+            "formatted": "4.3 mmol/L"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r304-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "2601-3",
+            "display_name": "Magnesium [Mass/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 2.1,
+            "unit": "mg/dL",
+            "formatted": "2.1 mg/dL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r305-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        },
+        {
+          "test": {
+            "code": "3016-3",
+            "display_name": "Thyrotropin [Units/volume] in Serum or Plasma",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "type": "PQ",
+            "value": 1.85,
+            "unit": "uIU/mL",
+            "formatted": "1.85 uIU/mL"
+          },
+          "interpretation": {
+            "code": "N",
+            "display_name": "Normal",
+            "code_system": "2.16.840.1.113883.5.83",
+            "code_system_name": "ObservationInterpretation"
+          },
+          "reference_range": null,
+          "date": "2023-11-04T08:30:00-05:00",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "r306-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "results"
+    },
+    {
+      "title": "Clinical Encounters",
       "code": {
         "code": "46240-8",
         "display_name": "History of encounters",
@@ -853,20 +3999,47 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.22.1:2015-08-01"
       ],
-      "narrative": "Cardiology Outpatient Consultation on 2023-11-04 with Dr. Vikram Patel, MD at Boston Heart & Vascular Institute.",
-      "tables": [],
+      "narrative": "Encounter Type | CPT Code | Date / Time | Location | Provider\n-------------------------------------------------------------\nCardiology Outpatient Consultation, High Complexity | 99244 | 2023-11-04 09:30 EST | Cardiovascular Outpatient Suite 400 | Dr. Vikram Patel, MD, FACC\nPrimary Care Evaluation & Management Visit | 99214 | 2023-10-20 10:15 EDT | Brigham Primary Care | Dr. Amanda Clark, MD",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Encounter Type",
+            "CPT Code",
+            "Date / Time",
+            "Location",
+            "Provider"
+          ],
+          "rows": [
+            {
+              "Encounter Type": "Cardiology Outpatient Consultation, High Complexity",
+              "CPT Code": "99244",
+              "Date / Time": "2023-11-04 09:30 EST",
+              "Location": "Cardiovascular Outpatient Suite 400",
+              "Provider": "Dr. Vikram Patel, MD, FACC"
+            },
+            {
+              "Encounter Type": "Primary Care Evaluation & Management Visit",
+              "CPT Code": "99214",
+              "Date / Time": "2023-10-20 10:15 EDT",
+              "Location": "Brigham Primary Care",
+              "Provider": "Dr. Amanda Clark, MD"
+            }
+          ]
+        }
+      ],
       "entries": [
         {
           "encounter_type": {
             "code": "99244",
-            "display_name": "Outpatient Consultation, moderate complexity",
+            "display_name": "Outpatient Consultation, moderate-high complexity",
             "code_system": "2.16.840.1.113883.6.12",
             "code_system_name": "CPT-4"
           },
           "date": "2023-11-04T09:30:00-05:00",
           "performers": [
             {
-              "name": "Dr. Vikram Patel, MD",
+              "name": "Dr. Vikram Patel, MD, FACC",
               "role": {
                 "code": "207RC0000X",
                 "display_name": "Cardiovascular Disease",
@@ -881,9 +4054,155 @@
               "root": "e9c12345-3451-11e2-81c1-0800200c9a66"
             }
           ]
+        },
+        {
+          "encounter_type": {
+            "code": "99214",
+            "display_name": "Office or other outpatient visit, established patient",
+            "code_system": "2.16.840.1.113883.6.12",
+            "code_system_name": "CPT-4"
+          },
+          "date": "2023-10-20T10:15:00-05:00",
+          "performers": [
+            {
+              "name": "Dr. Amanda Clark, MD",
+              "role": null
+            }
+          ],
+          "locations": [],
+          "diagnoses": [],
+          "ids": [
+            {
+              "root": "e9c12346-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
         }
       ],
       "section_type": "encounters"
+    },
+    {
+      "title": "Immunizations",
+      "code": {
+        "code": "11369-6",
+        "display_name": "History of immunizations",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.2.1:2015-08-01"
+      ],
+      "narrative": "Vaccine | CVX Code | Date Administered | Status\n-----------------------------------------------\nInfluenza Virus Vaccine, Quadrivalent | 141 | 2023-10-20 | Completed\nPneumococcal 20-valent Conjugate Vaccine (PCV20) | 216 | 2022-09-15 | Completed\nTetanus, Diphtheria, Pertussis (Tdap) Vaccine | 115 | 2019-05-10 | Completed",
+      "tables": [
+        {
+          "caption": null,
+          "headers": [
+            "Vaccine",
+            "CVX Code",
+            "Date Administered",
+            "Status"
+          ],
+          "rows": [
+            {
+              "Vaccine": "Influenza Virus Vaccine, Quadrivalent",
+              "CVX Code": "141",
+              "Date Administered": "2023-10-20",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "Pneumococcal 20-valent Conjugate Vaccine (PCV20)",
+              "CVX Code": "216",
+              "Date Administered": "2022-09-15",
+              "Status": "Completed"
+            },
+            {
+              "Vaccine": "Tetanus, Diphtheria, Pertussis (Tdap) Vaccine",
+              "CVX Code": "115",
+              "Date Administered": "2019-05-10",
+              "Status": "Completed"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "vaccine": {
+            "code": "141",
+            "display_name": "Influenza, injectable, quadrivalent, PF",
+            "code_system": "2.16.840.1.113883.12.292",
+            "code_system_name": "CVX"
+          },
+          "date": "2023-10-20",
+          "status": "completed",
+          "negation": false,
+          "refusal_reason": null,
+          "dose": null,
+          "route": null,
+          "site": null,
+          "lot_number": null,
+          "manufacturer": null,
+          "performer": null,
+          "ids": [
+            {
+              "root": "imm301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "immunizations"
+    },
+    {
+      "title": "Social History",
+      "code": {
+        "code": "29762-2",
+        "display_name": "Social history",
+        "code_system": "2.16.840.1.113883.6.1",
+        "code_system_name": "LOINC"
+      },
+      "template_ids": [
+        "2.16.840.1.113883.10.20.22.2.17:2015-08-01"
+      ],
+      "narrative": "• Tobacco Smoking Status: Never smoker (Lifelong non-smoker).\n• Caffeine Consumption: 2 cups of regular brewed coffee daily (Advised to transition to decaffeinated).\n• Alcohol Intake: Rare social glass of wine (less than 1 drink per month).\n• Physical Activity: Moderate aerobic walking 30 minutes 3 days per week.",
+      "tables": [],
+      "smoking_status": {
+        "status": {
+          "code": "266919005",
+          "display_name": "Never smoker",
+          "code_system": "2.16.840.1.113883.6.96",
+          "code_system_name": "SNOMED CT",
+          "type": "CD"
+        },
+        "date": "2023-11-04",
+        "ids": [
+          {
+            "root": "soc301-3451-11e2-81c1-0800200c9a66"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "observation": {
+            "code": "72166-2",
+            "display_name": "Tobacco smoking status",
+            "code_system": "2.16.840.1.113883.6.1",
+            "code_system_name": "LOINC"
+          },
+          "value": {
+            "code": "266919005",
+            "display_name": "Never smoker",
+            "code_system": "2.16.840.1.113883.6.96",
+            "code_system_name": "SNOMED CT",
+            "type": "CD"
+          },
+          "date": "2023-11-04",
+          "status": "completed",
+          "ids": [
+            {
+              "root": "soc301-3451-11e2-81c1-0800200c9a66"
+            }
+          ]
+        }
+      ],
+      "section_type": "social_history"
     },
     {
       "title": "Assessment & Plan",
@@ -896,7 +4215,7 @@
       "template_ids": [
         "2.16.840.1.113883.10.20.22.2.9"
       ],
-      "narrative": "• 1. Palpitations / Premature ventricular contractions (ICD-10 I49.3): Ordered 14-day ambulatory continuous ECG patch monitor.\n• 2. Systolic ejection murmur (ICD-10 R01.1): Ordered Transthoracic Echocardiogram (TTE) with Doppler to evaluate aortic valve morphology and ventricular function.\n• 3. Essential Hypertension (ICD-10 I10): Blood pressure today is 134/86 mmHg. Continue Amlodipine 5mg and HCTZ 12.5mg daily. Keep home BP log.\n• 4. Follow-up: Return to clinic in 4 weeks after completion of Holter monitor and echocardiogram.",
+      "narrative": "• 1. Palpitations & Premature Ventricular Contractions (ICD-10 I49.3):\n                \n                  ECG today confirms normal sinus rhythm with frequent unifocal PVCs without ventricular tachycardia.\n                  Applied 14-day continuous ambulatory ECG Holter patch monitor today to quantify PVC burden and rule out paroxysmal supraventricular arrhythmias.\n                  Initiated low-dose beta-blocker: Metoprolol Tartrate 25 mg PO BID with meals for symptomatic arrhythmia suppression and rate control.\n                  Counseled on reducing dietary caffeine intake and maintaining adequate hydration.\n• 2. Systolic Ejection Murmur (ICD-10 R01.1):\n                \n                  Grade 2/6 crescendo-decrescendo murmur at right upper sternal border. Ordered comprehensive Transthoracic Echocardiogram (TTE) with color Doppler scheduled for 2023-11-16 to evaluate aortic valve morphology, rule out aortic sclerosis/stenosis, and measure left ventricular ejection fraction.\n• 3. Essential Hypertension (ICD-10 I10):\n                \n                  Clinic blood pressure today 134/86 mmHg. Continue current regimen of Amlodipine 5 mg PO daily + Hydrochlorothiazide 12.5 mg PO daily. Metoprolol Tartrate added above will provide additional blood pressure lowering benefit. Continue home BP diary.\n• 4. Hyperlipidemia (ICD-10 E78.00):\n                \n                  Continue Atorvastatin 20 mg PO daily at bedtime. Prior severe myalgias on Simvastatin documented; patient tolerates Atorvastatin without adverse symptoms.\n• 5. Follow-Up Plan:\n                \n                  Return to Cardiology Clinic in 4 weeks (2023-12-04 at 10:00 AM) for follow-up consultation with Dr. Vikram Patel to review 14-day continuous Holter monitor telemetry report and Echocardiogram imaging findings.\n                  Instructed on red flag symptoms: Report immediately to Emergency Department or call 911 for prolonged chest pressure, syncope / loss of consciousness, severe sustained tachycardia (> 150 bpm), or severe acute dyspnea.",
       "tables": [],
       "entries": [],
       "section_type": "assessment_and_plan"

@@ -2,6 +2,7 @@
 <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <realmCode code="US"/>
   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <!-- US Realm Header Template -->
   <templateId root="2.16.840.1.113883.10.20.22.1.1" extension="2015-08-01"/>
   <!-- Discharge Summary Template -->
   <templateId root="2.16.840.1.113883.10.20.22.1.8" extension="2015-08-01"/>
@@ -11,11 +12,15 @@
   <effectiveTime value="20230912110000-0400"/>
   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
   <languageCode code="en-US"/>
+  <setId root="2.16.840.1.113883.19.5" extension="SET-DS-48190"/>
+  <versionNumber value="1"/>
 
   <!-- PATIENT DEMOGRAPHICS -->
   <recordTarget>
     <patientRole>
       <id root="2.16.840.1.113883.19.5" extension="MRN-449102" assigningAuthorityName="St. Jude Medical Center"/>
+      <id root="2.16.840.1.113883.4.1" extension="999-33-8821" assigningAuthorityName="SSN"/>
+      <id root="2.16.840.1.113883.4.3.36" extension="DL-NY-9812734" assigningAuthorityName="New York DMV"/>
       <addr use="HP">
         <streetAddressLine>550 West End Avenue, Apt 4B</streetAddressLine>
         <city>New York</city>
@@ -24,6 +29,8 @@
         <country>US</country>
       </addr>
       <telecom use="HP" value="tel:+1-212-555-0198"/>
+      <telecom use="MC" value="tel:+1-917-555-4820"/>
+      <telecom use="HP" value="mailto:marcus.thorne@example.com"/>
       <patient>
         <name use="L">
           <prefix>Mr.</prefix>
@@ -34,13 +41,46 @@
         <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" displayName="Male"/>
         <birthTime value="19881103"/>
         <maritalStatusCode code="S" codeSystem="2.16.840.1.113883.5.2" displayName="Single"/>
+        <religiousAffiliationCode code="1013" codeSystem="2.16.840.1.113883.5.1076" displayName="Christian"/>
         <raceCode code="2054-5" codeSystem="2.16.840.1.113883.6.238" displayName="Black or African American"/>
         <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" displayName="Not Hispanic or Latino"/>
+        <guardian>
+          <code code="SIS" codeSystem="2.16.840.1.113883.5.111" displayName="Sister"/>
+          <addr use="HP">
+            <streetAddressLine>550 West End Avenue, Apt 4B</streetAddressLine>
+            <city>New York</city>
+            <state>NY</state>
+            <postalCode>10024</postalCode>
+          </addr>
+          <telecom use="HP" value="tel:+1-212-555-0199"/>
+          <guardianPerson>
+            <name>
+              <given>Elena</given>
+              <family>Thorne</family>
+            </name>
+          </guardianPerson>
+        </guardian>
+        <languageCommunication>
+          <languageCode code="en"/>
+          <preferenceInd value="true"/>
+        </languageCommunication>
       </patient>
+      <providerOrganization>
+        <id root="2.16.840.1.113883.19.5"/>
+        <name>St. Jude Metropolitan Medical Center</name>
+        <telecom use="WP" value="tel:+1-212-555-7000"/>
+        <addr use="WP">
+          <streetAddressLine>420 East 70th Street</streetAddressLine>
+          <city>New York</city>
+          <state>NY</state>
+          <postalCode>10021</postalCode>
+          <country>US</country>
+        </addr>
+      </providerOrganization>
     </patientRole>
   </recordTarget>
 
-  <!-- ATTENDING PHYSICIAN AUTHOR -->
+  <!-- ATTENDING SURGEON AUTHOR -->
   <author>
     <time value="20230912110000-0400"/>
     <assignedAuthor>
@@ -55,13 +95,33 @@
         </name>
       </assignedPerson>
       <representedOrganization>
-        <name>St. Jude Metropolitan Medical Center</name>
+        <name>St. Jude Metropolitan Medical Center - Department of Surgery</name>
         <addr use="WP">
-          <streetAddressLine>420 East 70th Street</streetAddressLine>
+          <streetAddressLine>420 East 70th Street, Suite 500</streetAddressLine>
           <city>New York</city>
           <state>NY</state>
           <postalCode>10021</postalCode>
         </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- CO-AUTHOR (SURGICAL RESIDENT) -->
+  <author>
+    <time value="20230912104500-0400"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.4.6" extension="1892019283" assigningAuthorityName="NPI"/>
+      <code code="208600000X" codeSystem="2.16.840.1.113883.6.101" displayName="Surgery, General"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Alex</given>
+          <family>Chen</family>
+          <suffix>MD</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>St. Jude Metropolitan Medical Center</name>
       </representedOrganization>
     </assignedAuthor>
   </author>
@@ -83,70 +143,225 @@
     </assignedCustodian>
   </custodian>
 
+  <!-- LEGAL AUTHENTICATOR -->
+  <legalAuthenticator>
+    <time value="20230912113000-0400"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id root="2.16.840.1.113883.4.6" extension="1487654321"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Sarah</given>
+          <family>Jenkins</family>
+          <suffix>MD, FACS</suffix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <name>St. Jude Metropolitan Medical Center</name>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+
   <!-- INPATIENT ENCOUNTER COMPONENT -->
   <componentOf>
     <encompassingEncounter>
       <id root="2.16.840.1.113883.19.5" extension="ENC-2023-8871"/>
-      <code code="IMP" codeSystem="2.16.840.1.113883.5.4" displayName="Inpatient"/>
+      <code code="IMP" codeSystem="2.16.840.1.113883.5.4" displayName="Inpatient Encounter"/>
       <effectiveTime>
         <low value="20230910083000-0400"/>
         <high value="20230912110000-0400"/>
       </effectiveTime>
       <dischargeDispositionCode code="01" codeSystem="2.16.840.1.113883.12.112" displayName="Discharged to Home or Self Care"/>
+      <encounterParticipant typeCode="ATND">
+        <assignedEntity>
+          <id root="2.16.840.1.113883.4.6" extension="1487654321"/>
+          <assignedPerson>
+            <name>
+              <prefix>Dr.</prefix>
+              <given>Sarah</given>
+              <family>Jenkins</family>
+              <suffix>MD</suffix>
+            </name>
+          </assignedPerson>
+        </assignedEntity>
+      </encounterParticipant>
+      <location>
+        <healthCareFacility>
+          <id root="2.16.840.1.113883.19.5" extension="UNIT-SURG-7W"/>
+          <code code="SURG" codeSystem="2.16.840.1.113883.5.111" displayName="Surgical Inpatient Ward"/>
+          <location>
+            <name>7th Floor General Surgery Inpatient Pavilion</name>
+          </location>
+        </healthCareFacility>
+      </location>
     </encompassingEncounter>
   </componentOf>
 
   <component>
     <structuredBody>
 
-      <!-- CHIEF COMPLAINT -->
+      <!-- 1. CHIEF COMPLAINT / REASON FOR ADMISSION -->
       <component>
         <section>
           <code code="10154-3" codeSystem="2.16.840.1.113883.6.1" displayName="Chief complaint Narrative"/>
           <title>Chief Complaint / Reason for Admission</title>
           <text>
-            <paragraph>Acute severe right lower quadrant abdominal pain, low-grade fever, anorexia, and nausea for 24 hours.</paragraph>
+            <paragraph>Acute severe right lower quadrant abdominal pain, low-grade fever (100.8°F), anorexia, nausea, and vomiting for 24 hours prior to presentation.</paragraph>
           </text>
         </section>
       </component>
 
-      <!-- HOSPITAL COURSE -->
+      <!-- 2. HOSPITAL COURSE -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.44"/>
           <code code="8648-8" codeSystem="2.16.840.1.113883.6.1" displayName="Hospital Course Narrative"/>
           <title>Hospital Course</title>
           <text>
-            <paragraph>Patient is a 34-year-old male who presented to the Emergency Department with a 1-day history of periumbilical pain migrating to the right lower quadrant with rebound tenderness. Abdominal CT demonstrated acute suppurative appendicitis with appendicolith without signs of perforation or abscess. Patient was admitted to General Surgery service, started on IV fluids and IV cefoxitin, and taken to the operating room on 2023-09-10 for an uneventful laparoscopic appendectomy.</paragraph>
-            <paragraph>Postoperative course was smooth. Bowel sounds returned on post-op day 1, and the patient tolerated progression from clear liquids to a regular diet. Incisions are clean, intact, without erythema or drainage. Pain was well-managed with oral acetaminophen and ibuprofen. Patient is discharged home on post-op day 2 in stable condition.</paragraph>
+            <paragraph><strong>Hospital Day 1 (Admission &amp; Surgery - 2023-09-10):</strong> Patient is a 34-year-old male who presented to the Emergency Department with a 24-hour history of periumbilical abdominal pain migrating to the right lower quadrant with guarding and rebound tenderness at McBurney's point. Vital signs on presentation were notable for temperature 38.2°C (100.8°F), heart rate 104 bpm, and BP 138/86 mmHg. Labs demonstrated leukocytosis with WBC 15.4 K/uL and 83% neutrophils. Contrast-enhanced CT scan of the abdomen/pelvis confirmed acute suppurative appendicitis with an obstructing appendicolith (8 mm) and localized pericecal fat stranding without frank abscess or pneumoperitoneum.</paragraph>
+            <paragraph>Patient was resuscitated with 2 Liters IV lactated Ringer's solution, initiated on IV Cefoxitin 2g, and consented for urgent surgery. Patient was taken to the operating room on 2023-09-10 at 14:30. A 3-port laparoscopic appendectomy was performed without complication. Operative findings confirmed an acutely inflamed, gangrenous, non-perforated retrocecal appendix with mesoappendix vascular engorgement. Hemostasis was meticulous; estimated blood loss was &lt; 15 mL. Patient was extubated and transferred to the PACU in stable condition, then admitted to the 7th floor surgical floor.</paragraph>
+            <paragraph><strong>Hospital Day 2 (Post-op Day 1 - 2023-09-11):</strong> Postoperative course was uncomplicated. Patient was ambulating in the hallways. Bowel sounds returned and flatus was passed in the afternoon. Diet was advanced from clear liquids to a soft surgical diet, which was well-tolerated without nausea. Pain was effectively controlled with oral acetaminophen and scheduled ibuprofen. Incisions were clean and dry.</paragraph>
+            <paragraph><strong>Hospital Day 3 (Discharge Day - 2023-09-12):</strong> Patient is afebrile with normal vital signs (BP 118/74 mmHg, HR 72 bpm, temp 37.0°C). Surgical port sites are intact, clean, without erythema, hematoma, or discharge. Tolerating regular diet, voiding spontaneously, and ambulating independently. Patient is discharged home in stable condition with clear instructions for outpatient follow-up.</paragraph>
           </text>
         </section>
       </component>
 
-      <!-- DISCHARGE DIAGNOSES -->
+      <!-- 3. DISCHARGE DIAGNOSES -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.24" extension="2015-08-01"/>
           <code code="11535-2" codeSystem="2.16.840.1.113883.6.1" displayName="Hospital Discharge Diagnosis"/>
           <title>Discharge Diagnoses</title>
           <text>
-            <list>
-              <item>Acute suppurative appendicitis status post laparoscopic appendectomy (ICD-10 K35.80)</item>
-              <item>Mild dehydration, resolved</item>
-            </list>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Diagnosis</th>
+                  <th>SNOMED CT</th>
+                  <th>ICD-10-CM</th>
+                  <th>Status</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acute suppurative appendicitis with localized peritonitis</td>
+                  <td>74400008</td>
+                  <td>K35.80</td>
+                  <td>Resolved (Surgically managed)</td>
+                  <td>Primary / Principal</td>
+                </tr>
+                <tr>
+                  <td>Dehydration / Hypovolemia</td>
+                  <td>87522002</td>
+                  <td>E86.0</td>
+                  <td>Resolved</td>
+                  <td>Secondary</td>
+                </tr>
+                <tr>
+                  <td>Postoperative incisional pain</td>
+                  <td>22253000</td>
+                  <td>G89.18</td>
+                  <td>Improving</td>
+                  <td>Secondary</td>
+                </tr>
+                <tr>
+                  <td>Essential (primary) hypertension</td>
+                  <td>59621000</td>
+                  <td>I10</td>
+                  <td>Active / Controlled</td>
+                  <td>Co-morbid</td>
+                </tr>
+              </tbody>
+            </table>
           </text>
+
+          <!-- Diagnosis 1: Appendicitis -->
           <entry typeCode="DRIV">
             <act classCode="ACT" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.33"/>
+              <id root="e1234567-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20230910"/>
+                <high value="20230912"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="e1234568-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20230910"/>
+                  </effectiveTime>
+                  <value xsi:type="CD" code="74400008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Acute appendicitis">
+                    <translation code="K35.80" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Unspecified acute appendicitis"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Diagnosis 2: Dehydration -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.33"/>
+              <id root="e1234569-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="completed"/>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="e1234570-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="87522002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Dehydration">
+                    <translation code="E86.0" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Dehydration"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Diagnosis 3: Postoperative Pain -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.33"/>
+              <id root="e1234571-3451-11e2-81c1-0800200c9a66"/>
               <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
               <statusCode code="active"/>
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
                   <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="e1234572-3451-11e2-81c1-0800200c9a66"/>
                   <code code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis"/>
                   <statusCode code="completed"/>
-                  <value xsi:type="CD" code="74400008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Appendicitis">
-                    <translation code="K35.80" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Unspecified acute appendicitis"/>
+                  <value xsi:type="CD" code="22253000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Pain after operation">
+                    <translation code="G89.18" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Other acute postprocedural pain"/>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Diagnosis 4: Hypertension -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.33"/>
+              <id root="e1234573-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id root="e1234574-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Diagnosis"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="59621000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Essential hypertension">
+                    <translation code="I10" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Essential (primary) hypertension"/>
                   </value>
                 </observation>
               </entryRelationship>
@@ -155,55 +370,142 @@
         </section>
       </component>
 
-      <!-- PROCEDURES SECTION -->
+      <!-- 4. PROCEDURES SECTION -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.7.1" extension="2014-06-09"/>
           <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" displayName="History of Procedures"/>
-          <title>Procedures Performed</title>
+          <title>Procedures &amp; Surgical Interventions</title>
           <text>
             <table border="1" width="100%">
               <thead>
                 <tr>
                   <th>Procedure</th>
-                  <th>CPT Code</th>
-                  <th>Date</th>
-                  <th>Surgeon</th>
+                  <th>CPT-4 Code</th>
+                  <th>SNOMED Code</th>
+                  <th>Date / Time</th>
+                  <th>Provider / Performer</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Laparoscopic Appendectomy</td>
                   <td>44970</td>
-                  <td>2023-09-10</td>
-                  <td>Dr. Sarah Jenkins, MD</td>
+                  <td>6025007</td>
+                  <td>2023-09-10 14:30 EDT</td>
+                  <td>Dr. Sarah Jenkins, MD, FACS</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Diagnostic Laparoscopy</td>
+                  <td>49320</td>
+                  <td>174681007</td>
+                  <td>2023-09-10 14:15 EDT</td>
+                  <td>Dr. Sarah Jenkins, MD, FACS</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>CT Abdomen and Pelvis with Contrast</td>
+                  <td>74177</td>
+                  <td>419409002</td>
+                  <td>2023-09-10 09:45 EDT</td>
+                  <td>Dr. Karen Miller, MD (Radiology)</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Peripheral Intravenous Catheter Placement</td>
+                  <td>36000</td>
+                  <td>233527006</td>
+                  <td>2023-09-10 08:45 EDT</td>
+                  <td>Emergency Nursing Staff</td>
+                  <td>Completed</td>
                 </tr>
               </tbody>
             </table>
           </text>
+
+          <!-- Procedure 1: Laparoscopic Appendectomy -->
           <entry typeCode="DRIV">
             <procedure classCode="PROC" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
               <id root="d29b2b50-3451-11e2-81c1-0800200c9a66"/>
               <code code="44970" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Laparoscopic Appendectomy">
-                <translation code="6025007" codeSystem="2.16.840.1.113883.6.96" displayName="Laparoscopic appendectomy"/>
+                <translation code="6025007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Laparoscopic appendectomy"/>
               </code>
               <statusCode code="completed"/>
               <effectiveTime value="20230910143000-0400"/>
+              <targetSiteCode code="66754008" codeSystem="2.16.840.1.113883.6.96" displayName="Appendix structure"/>
               <performer>
                 <assignedEntity>
                   <id root="2.16.840.1.113883.4.6" extension="1487654321"/>
+                  <code code="208600000X" codeSystem="2.16.840.1.113883.6.101" displayName="General Surgery"/>
                   <assignedPerson>
-                    <name>Dr. Sarah Jenkins, MD</name>
+                    <name>Dr. Sarah Jenkins, MD, FACS</name>
                   </assignedPerson>
                 </assignedEntity>
               </performer>
             </procedure>
           </entry>
+
+          <!-- Procedure 2: Diagnostic Laparoscopy -->
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+              <id root="d29b2b51-3451-11e2-81c1-0800200c9a66"/>
+              <code code="49320" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Laparoscopy, abdomen, diagnostic">
+                <translation code="174681007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Diagnostic laparoscopy"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910141500-0400"/>
+              <performer>
+                <assignedEntity>
+                  <id root="2.16.840.1.113883.4.6" extension="1487654321"/>
+                  <assignedPerson>
+                    <name>Dr. Sarah Jenkins, MD, FACS</name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </procedure>
+          </entry>
+
+          <!-- Procedure 3: CT Abdomen Pelvis -->
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+              <id root="d29b2b52-3451-11e2-81c1-0800200c9a66"/>
+              <code code="74177" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Computed tomography, abdomen and pelvis; with contrast material(s)">
+                <translation code="419409002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="CT of abdomen and pelvis with contrast"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910094500-0400"/>
+              <performer>
+                <assignedEntity>
+                  <id root="2.16.840.1.113883.4.6" extension="1392019485"/>
+                  <assignedPerson>
+                    <name>Dr. Karen Miller, MD</name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </procedure>
+          </entry>
+
+          <!-- Procedure 4: IV Catheter -->
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+              <id root="d29b2b53-3451-11e2-81c1-0800200c9a66"/>
+              <code code="36000" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Introduction of needle or intracatheter, vein">
+                <translation code="233527006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Intravenous cannulation"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910084500-0400"/>
+            </procedure>
+          </entry>
         </section>
       </component>
 
-      <!-- DISCHARGE MEDICATIONS SECTION -->
+      <!-- 5. DISCHARGE MEDICATIONS SECTION -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.11" extension="2015-08-01"/>
@@ -214,33 +516,59 @@
               <thead>
                 <tr>
                   <th>Medication</th>
+                  <th>RxNorm Code</th>
                   <th>Dose</th>
                   <th>Route</th>
-                  <th>Frequency &amp; Instructions</th>
+                  <th>Frequency &amp; Patient Instructions</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Acetaminophen 500 MG Oral Tablet</td>
+                  <td>209459</td>
                   <td>500 mg</td>
                   <td>Oral</td>
-                  <td>Every 6 hours as needed for mild to moderate pain</td>
+                  <td>Take 1 to 2 tablets every 6 hours as needed for mild-to-moderate incisional pain. Do not exceed 3,000 mg in 24 hours.</td>
+                  <td>Active</td>
                 </tr>
                 <tr>
                   <td>Ibuprofen 400 MG Oral Tablet</td>
+                  <td>197806</td>
                   <td>400 mg</td>
                   <td>Oral</td>
-                  <td>Every 8 hours with food as needed for pain/inflammation</td>
+                  <td>Take 1 tablet every 8 hours with food or milk as needed for surgical inflammation/pain.</td>
+                  <td>Active</td>
                 </tr>
                 <tr>
                   <td>Cefdinir 300 MG Oral Capsule</td>
+                  <td>309095</td>
                   <td>300 mg</td>
                   <td>Oral</td>
-                  <td>Twice daily for 5 days (complete full course)</td>
+                  <td>Take 1 capsule every 12 hours for 5 days. Complete the entire prescribed antibiotic course.</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Docusate Sodium 100 MG Oral Capsule</td>
+                  <td>993452</td>
+                  <td>100 mg</td>
+                  <td>Oral</td>
+                  <td>Take 1 capsule daily at bedtime as needed for stool softening / constipation prevention.</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Lisinopril 10 MG Oral Tablet</td>
+                  <td>314076</td>
+                  <td>10 mg</td>
+                  <td>Oral</td>
+                  <td>Take 1 tablet once daily in the morning for blood pressure control (pre-admission home medication resumed).</td>
+                  <td>Active</td>
                 </tr>
               </tbody>
             </table>
           </text>
+
+          <!-- Medication 1: Acetaminophen -->
           <entry typeCode="DRIV">
             <substanceAdministration classCode="SBADM" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
@@ -249,7 +577,10 @@
               <effectiveTime xsi:type="IVL_TS">
                 <low value="20230912"/>
               </effectiveTime>
-              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Oral"/>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="6" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
               <doseQuantity value="500" unit="mg"/>
               <consumable>
                 <manufacturedProduct classCode="MANU">
@@ -261,26 +592,167 @@
               </consumable>
             </substanceAdministration>
           </entry>
+
+          <!-- Medication 2: Ibuprofen -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="f8a1bc21-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20230912"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="8" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="400" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="197806" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Ibuprofen 400 MG Oral Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Medication 3: Cefdinir -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="f8a1bc22-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20230912"/>
+                <high value="20230917"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="12" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="300" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="309095" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Cefdinir 300 MG Oral Capsule"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Medication 4: Docusate Sodium -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="f8a1bc23-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20230912"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="100" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="993452" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Docusate Sodium 100 MG Oral Capsule"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Medication 5: Lisinopril -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
+              <id root="f8a1bc24-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20230912"/>
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" institutionSpecified="true" operator="A">
+                <period value="24" unit="h"/>
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus" displayName="Oral"/>
+              <doseQuantity value="10" unit="mg"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="314076" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Lisinopril 10 MG Oral Tablet"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
         </section>
       </component>
 
-      <!-- ALLERGIES SECTION -->
+      <!-- 6. ALLERGIES SECTION -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.6.1" extension="2015-08-01"/>
-          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies"/>
-          <title>Allergies &amp; Alerts</title>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" displayName="Allergies and adverse reactions Document"/>
+          <title>Allergies &amp; Intolerances</title>
           <text>
-            <paragraph>Sulfa (Sulfonamide Antibiotics) - Causes skin rash (Mild)</paragraph>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Substance</th>
+                  <th>RxNorm / Code</th>
+                  <th>Reaction Manifestation</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sulfonamide Antibacterials (Bactrim)</td>
+                  <td>10093</td>
+                  <td>Generalized maculopapular rash, pruritus</td>
+                  <td>Moderate</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Codeine Sulfate</td>
+                  <td>2670</td>
+                  <td>Intractable severe nausea, emesis, dizziness</td>
+                  <td>Severe</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td>Natural Rubber Latex</td>
+                  <td>300916003</td>
+                  <td>Contact urticaria / localized erythema</td>
+                  <td>Mild</td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
           </text>
+
+          <!-- Allergy 1: Sulfa -->
           <entry typeCode="DRIV">
             <act classCode="ACT" moodCode="EVN">
               <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <id root="a1234567-3451-11e2-81c1-0800200c9a66"/>
               <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
               <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20150310"/>
+              </effectiveTime>
               <entryRelationship typeCode="SUBJ">
                 <observation classCode="OBS" moodCode="EVN">
                   <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <id root="a1234568-3451-11e2-81c1-0800200c9a66"/>
                   <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
                   <statusCode code="completed"/>
                   <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
@@ -291,6 +763,106 @@
                       </playingEntity>
                     </participantRole>
                   </participant>
+                  <entryRelationship typeCode="MFST">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <value xsi:type="CD" code="271807003" codeSystem="2.16.840.1.113883.6.96" displayName="Maculopapular rash"/>
+                      <entryRelationship typeCode="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                          <value xsi:type="CD" code="6736007" codeSystem="2.16.840.1.113883.6.96" displayName="Moderate"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Allergy 2: Codeine -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <id root="a1234569-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20180720"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <id root="a1234570-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="59037007" codeSystem="2.16.840.1.113883.6.96" displayName="Drug intolerance"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="2670" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Codeine"/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <value xsi:type="CD" code="422400008" codeSystem="2.16.840.1.113883.6.96" displayName="Severe nausea and vomiting"/>
+                      <entryRelationship typeCode="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                          <value xsi:type="CD" code="24484000" codeSystem="2.16.840.1.113883.6.96" displayName="Severe"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- Allergy 3: Latex -->
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <id root="a1234571-3451-11e2-81c1-0800200c9a66"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20120115"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <id root="a1234572-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="CD" code="419199007" codeSystem="2.16.840.1.113883.6.96" displayName="Allergy to substance"/>
+                  <participant typeCode="CSM">
+                    <participantRole classCode="MANU">
+                      <playingEntity classCode="MMAT">
+                        <code code="300916003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Latex"/>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="MFST">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.9"/>
+                      <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                      <value xsi:type="CD" code="40275004" codeSystem="2.16.840.1.113883.6.96" displayName="Contact dermatitis"/>
+                      <entryRelationship typeCode="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.22.4.8"/>
+                          <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                          <value xsi:type="CD" code="255604002" codeSystem="2.16.840.1.113883.6.96" displayName="Mild"/>
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </entryRelationship>
                 </observation>
               </entryRelationship>
             </act>
@@ -298,18 +870,663 @@
         </section>
       </component>
 
-      <!-- DISCHARGE INSTRUCTIONS -->
+      <!-- 7. VITAL SIGNS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.4.1" extension="2015-08-01"/>
+          <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" displayName="Vital Signs"/>
+          <title>Vital Signs</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Vital Sign</th>
+                  <th>Admission (2023-09-10)</th>
+                  <th>Discharge (2023-09-12)</th>
+                  <th>Normal Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Blood Pressure</td>
+                  <td>138/86 mmHg</td>
+                  <td>118/74 mmHg</td>
+                  <td>&lt; 120/80 mmHg</td>
+                </tr>
+                <tr>
+                  <td>Heart Rate (Pulse)</td>
+                  <td>104 bpm (Tachycardic)</td>
+                  <td>72 bpm</td>
+                  <td>60-100 bpm</td>
+                </tr>
+                <tr>
+                  <td>Respiratory Rate</td>
+                  <td>20 breaths/min</td>
+                  <td>16 breaths/min</td>
+                  <td>12-20 breaths/min</td>
+                </tr>
+                <tr>
+                  <td>Body Temperature</td>
+                  <td>38.2 °C (100.8 °F - Febrile)</td>
+                  <td>37.0 °C (98.6 °F)</td>
+                  <td>36.5 - 37.5 °C</td>
+                </tr>
+                <tr>
+                  <td>Oxygen Saturation (SpO2)</td>
+                  <td>98% (Room Air)</td>
+                  <td>99% (Room Air)</td>
+                  <td>95-100%</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>82.0 kg (180.8 lbs)</td>
+                  <td>81.5 kg (179.7 lbs)</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>Height / BMI</td>
+                  <td>180 cm (5 ft 11 in)</td>
+                  <td>BMI: 25.2 kg/m²</td>
+                  <td>18.5 - 24.9 kg/m²</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Discharge Vitals Organizer Panel -->
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.26" extension="2015-08-01"/>
+              <id root="v1234567-3451-11e2-81c1-0800200c9a66"/>
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" displayName="Vital signs panel"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230912093000-0400"/>
+              
+              <!-- Systolic BP -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234568-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Systolic blood pressure"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="118" unit="mm[Hg]"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Diastolic BP -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234569-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Diastolic blood pressure"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="74" unit="mm[Hg]"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Heart Rate -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234570-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Heart rate"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="72" unit="/min"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Respiratory Rate -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234571-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="9279-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Respiratory rate"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="16" unit="/min"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Body Temperature -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234572-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8310-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Body temperature"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="37.0" unit="Cel"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Oxygen Saturation -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234573-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2708-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Oxygen saturation in Arterial blood"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="99" unit="%"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Body Weight -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234574-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="29463-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Body weight"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="81.5" unit="kg"/>
+                </observation>
+              </component>
+
+              <!-- Body Height -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234575-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Body height"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="180" unit="cm"/>
+                </observation>
+              </component>
+
+              <!-- Body Mass Index -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" extension="2014-06-09"/>
+                  <id root="v1234576-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Body mass index (BMI) [Ratio]"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="25.2" unit="kg/m2"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 8. DIAGNOSTIC RESULTS & LABS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.3.1" extension="2015-08-01"/>
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" displayName="Relevant diagnostic tests and/or laboratory data"/>
+          <title>Diagnostic Results &amp; Laboratory Data</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Test Name</th>
+                  <th>LOINC</th>
+                  <th>Admission (09/10)</th>
+                  <th>Discharge (09/12)</th>
+                  <th>Reference Range</th>
+                  <th>Flag</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>White Blood Cell Count (WBC)</td>
+                  <td>6690-2</td>
+                  <td>15.4 10*3/uL</td>
+                  <td>7.2 10*3/uL</td>
+                  <td>4.0 - 11.0 10*3/uL</td>
+                  <td>Normalized</td>
+                </tr>
+                <tr>
+                  <td>Hemoglobin</td>
+                  <td>718-7</td>
+                  <td>14.8 g/dL</td>
+                  <td>14.2 g/dL</td>
+                  <td>13.5 - 17.5 g/dL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Hematocrit</td>
+                  <td>4544-3</td>
+                  <td>44.1 %</td>
+                  <td>42.5 %</td>
+                  <td>38.8 - 50.0 %</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Platelet Count</td>
+                  <td>777-3</td>
+                  <td>275 10*3/uL</td>
+                  <td>260 10*3/uL</td>
+                  <td>150 - 450 10*3/uL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Sodium, Serum</td>
+                  <td>2951-2</td>
+                  <td>138 mmol/L</td>
+                  <td>140 mmol/L</td>
+                  <td>136 - 145 mmol/L</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Potassium, Serum</td>
+                  <td>2823-3</td>
+                  <td>4.2 mmol/L</td>
+                  <td>4.1 mmol/L</td>
+                  <td>3.5 - 5.1 mmol/L</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Chloride, Serum</td>
+                  <td>2075-0</td>
+                  <td>101 mmol/L</td>
+                  <td>102 mmol/L</td>
+                  <td>98 - 107 mmol/L</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Blood Urea Nitrogen (BUN)</td>
+                  <td>3094-0</td>
+                  <td>16 mg/dL</td>
+                  <td>14 mg/dL</td>
+                  <td>7 - 20 mg/dL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Creatinine, Serum</td>
+                  <td>2160-0</td>
+                  <td>0.92 mg/dL</td>
+                  <td>0.88 mg/dL</td>
+                  <td>0.70 - 1.30 mg/dL</td>
+                  <td>Normal</td>
+                </tr>
+                <tr>
+                  <td>Glucose, Serum</td>
+                  <td>2345-7</td>
+                  <td>98 mg/dL</td>
+                  <td>92 mg/dL</td>
+                  <td>70 - 99 mg/dL</td>
+                  <td>Normal</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Result Organizer: Complete Blood Count -->
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+              <id root="r1234567-3451-11e2-81c1-0800200c9a66"/>
+              <code code="58410-2" codeSystem="2.16.840.1.113883.6.1" displayName="Complete blood count (CBC) with automated differential panel"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230912060000-0400"/>
+
+              <!-- Lab 1: WBC -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234568-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="6690-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Leukocytes [#/volume] in Blood by Automated count"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230912060000-0400"/>
+                  <value xsi:type="PQ" value="7.2" unit="10*3/uL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="4.0" unit="10*3/uL"/>
+                        <high value="11.0" unit="10*3/uL"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+
+              <!-- Lab 2: Hemoglobin -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234569-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="718-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Hemoglobin [Mass/volume] in Blood"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230912060000-0400"/>
+                  <value xsi:type="PQ" value="14.2" unit="g/dL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="13.5" unit="g/dL"/>
+                        <high value="17.5" unit="g/dL"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+
+              <!-- Lab 3: Hematocrit -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234570-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="4544-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Hematocrit [Volume Fraction] of Blood"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230912060000-0400"/>
+                  <value xsi:type="PQ" value="42.5" unit="%"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="38.8" unit="%"/>
+                        <high value="50.0" unit="%"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+
+              <!-- Lab 4: Platelets -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234571-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="777-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Platelets [#/volume] in Blood by Automated count"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20230912060000-0400"/>
+                  <value xsi:type="PQ" value="260" unit="10*3/uL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="150" unit="10*3/uL"/>
+                        <high value="450" unit="10*3/uL"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+
+          <!-- Result Organizer: Basic Metabolic Panel -->
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2015-08-01"/>
+              <id root="r1234572-3451-11e2-81c1-0800200c9a66"/>
+              <code code="24320-4" codeSystem="2.16.840.1.113883.6.1" displayName="Basic metabolic 2000 panel - Serum or Plasma"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230912060000-0400"/>
+
+              <!-- Sodium -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234573-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2951-2" codeSystem="2.16.840.1.113883.6.1" displayName="Sodium [Moles/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="140" unit="mmol/L"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Potassium -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234574-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2823-3" codeSystem="2.16.840.1.113883.6.1" displayName="Potassium [Moles/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="4.1" unit="mmol/L"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Creatinine -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234575-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2160-0" codeSystem="2.16.840.1.113883.6.1" displayName="Creatinine [Mass/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="0.88" unit="mg/dL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+
+              <!-- Glucose -->
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2015-08-01"/>
+                  <id root="r1234576-3451-11e2-81c1-0800200c9a66"/>
+                  <code code="2345-7" codeSystem="2.16.840.1.113883.6.1" displayName="Glucose [Mass/volume] in Serum or Plasma"/>
+                  <statusCode code="completed"/>
+                  <value xsi:type="PQ" value="92" unit="mg/dL"/>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 9. IMMUNIZATIONS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.2.1" extension="2015-08-01"/>
+          <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" displayName="History of immunizations"/>
+          <title>Immunizations Administered &amp; Recorded</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Vaccine</th>
+                  <th>CVX Code</th>
+                  <th>Date Administered</th>
+                  <th>Lot Number</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tetanus, diphtheria toxoids, and acellular pertussis vaccine (Tdap)</td>
+                  <td>115</td>
+                  <td>2023-09-10 (Emergency Dept)</td>
+                  <td>TD-88192A</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>Influenza, injectable, quadrivalent, preservative free</td>
+                  <td>141</td>
+                  <td>2022-10-15</td>
+                  <td>FL-77210B</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <td>SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein</td>
+                  <td>208</td>
+                  <td>2021-04-12</td>
+                  <td>CV-44910C</td>
+                  <td>Completed</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <!-- Immunization 1: Tdap -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+              <id root="i1234567-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="115" codeSystem="2.16.840.1.113883.12.292" codeSystemName="CVX" displayName="Tetanus, diphtheria, acellular pertussis (Tdap)"/>
+                    <lotNumberText>TD-88192A</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Immunization 2: Influenza -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+              <id root="i1234568-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20221015"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="141" codeSystem="2.16.840.1.113883.12.292" codeSystemName="CVX" displayName="Influenza, injectable, quadrivalent, PF"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+
+          <!-- Immunization 3: COVID-19 -->
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52" extension="2015-08-01"/>
+              <id root="i1234569-3451-11e2-81c1-0800200c9a66"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20210412"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54" extension="2014-06-09"/>
+                  <manufacturedMaterial>
+                    <code code="208" codeSystem="2.16.840.1.113883.12.292" codeSystemName="CVX" displayName="SARS-COV-2 (COVID-19) vaccine, mRNA"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 10. ENCOUNTERS SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.22.1" extension="2015-08-01"/>
+          <code code="46240-8" codeSystem="2.16.840.1.113883.6.1" displayName="History of encounters"/>
+          <title>Hospital Encounters</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Encounter Type</th>
+                  <th>CPT / Code</th>
+                  <th>Date / Time</th>
+                  <th>Location</th>
+                  <th>Performer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Emergency Department Visit (High Severity)</td>
+                  <td>99285</td>
+                  <td>2023-09-10 08:30 EDT</td>
+                  <td>Emergency Department</td>
+                  <td>Dr. Mark Reynolds, MD</td>
+                </tr>
+                <tr>
+                  <td>Initial Inpatient Hospital Care</td>
+                  <td>99223</td>
+                  <td>2023-09-10 12:00 EDT</td>
+                  <td>General Surgery Service</td>
+                  <td>Dr. Sarah Jenkins, MD</td>
+                </tr>
+                <tr>
+                  <td>Operating Room Procedure Encounter</td>
+                  <td>99152</td>
+                  <td>2023-09-10 14:30 EDT</td>
+                  <td>Operating Room Suite 4</td>
+                  <td>Dr. Sarah Jenkins, MD</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+
+          <entry typeCode="DRIV">
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
+              <id root="en1234567-3451-11e2-81c1-0800200c9a66"/>
+              <code code="99285" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Emergency department visit, high severity"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910083000-0400"/>
+              <performer>
+                <assignedEntity>
+                  <id root="2.16.840.1.113883.4.6" extension="1102938475"/>
+                  <assignedPerson>
+                    <name>Dr. Mark Reynolds, MD</name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </encounter>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 11. SOCIAL HISTORY SECTION -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.17" extension="2015-08-01"/>
+          <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" displayName="Social history"/>
+          <title>Social History</title>
+          <text>
+            <list>
+              <item>Tobacco Smoking Status: Former smoker (Quit in 2018; 5 pack-year history).</item>
+              <item>Alcohol Intake: Social / Occasional (1-2 drinks per month).</item>
+              <item>Occupation: Senior Software Engineer (Sedentary desk work; works remotely).</item>
+            </list>
+          </text>
+
+          <!-- Tobacco Smoking Status -->
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.78" extension="2014-06-09"/>
+              <id root="s1234567-3451-11e2-81c1-0800200c9a66"/>
+              <code code="72166-2" codeSystem="2.16.840.1.113883.6.1" displayName="Tobacco smoking status"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20230910"/>
+              <value xsi:type="CD" code="8517006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Former smoker"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+
+      <!-- 12. DISCHARGE INSTRUCTIONS & PLAN OF CARE -->
       <component>
         <section>
           <templateId root="2.16.840.1.113883.10.20.22.2.41"/>
           <code code="69730-0" codeSystem="2.16.840.1.113883.6.1" displayName="Discharge Instructions"/>
-          <title>Discharge Instructions &amp; Follow-up</title>
+          <title>Discharge Instructions, Plan of Care &amp; Follow-up</title>
           <text>
             <list>
-              <item>Activity: No heavy lifting &gt; 10 lbs or strenuous exertion for 2 weeks. May shower after 48 hours; do not submerge incisions in water (no baths/swimming).</item>
-              <item>Wound Care: Keep incisions clean and dry. Steri-strips will fall off spontaneously in 7-10 days.</item>
-              <item>Follow-up: Post-op clinic visit with Dr. Jenkins in 10-14 days (Call 212-555-7010 to schedule).</item>
-              <item>Red Flags: Call immediately or go to nearest ED for fever &gt; 101°F, intractable vomiting, worsening abdominal pain, or redness/purulent drainage from incisions.</item>
+              <item><strong>Activity Restrictions:</strong> No heavy lifting greater than 10 lbs, strenuous cardiovascular exercise, or core abdominal straining for 2 weeks. May walk and climb stairs at a comfortable pace.</item>
+              <item><strong>Bathing &amp; Incision Care:</strong> Incisions have Dermabond / Steri-strips in place. May shower starting 48 hours post-op (gently pat dry). Do NOT soak in a bath, hot tub, or swim until evaluated at post-op visit.</item>
+              <item><strong>Dietary Guidance:</strong> Resume regular diet as tolerated. Maintain generous fluid hydration (at least 6-8 glasses of water daily) and high-fiber foods to avoid constipation while taking pain medications.</item>
+              <item><strong>Scheduled Follow-Up Appointments:</strong>
+                <list>
+                  <item>Postoperative Surgical Clinic visit with Dr. Sarah Jenkins on <strong>2023-09-22 at 10:30 AM</strong> (Phone: 212-555-7010, 420 East 70th St, Suite 500).</item>
+                  <item>Primary Care follow-up with Dr. Emily Watson on <strong>2023-10-05 at 02:00 PM</strong> for routine blood pressure check and medication review.</item>
+                </list>
+              </item>
+              <item><strong>Red Flag Warning Symptoms:</strong> Call the surgical clinic immediately (212-555-7000) or report to the nearest emergency department if you experience:
+                <list>
+                  <item>Temperature &gt; 101.0 °F (38.3 °C) or persistent chills</item>
+                  <item>Severe or worsening abdominal pain not relieved by medications</item>
+                  <item>Persistent nausea, vomiting, or inability to keep fluids down</item>
+                  <item>Increasing redness, swelling, warmth, or purulent drainage around port incisions</item>
+                  <item>Shortness of breath, chest pain, or lower extremity swelling</item>
+                </list>
+              </item>
             </list>
           </text>
         </section>

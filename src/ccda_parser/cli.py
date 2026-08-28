@@ -74,7 +74,7 @@ Examples:
     parser.add_argument(
         "--html-report",
         metavar="FILE",
-        help="Generate an interactive Canvas UI HTML patient report dashboard.",
+        help="Generate an interactive HTML patient report dashboard.",
     )
     parser.add_argument(
         "--mapping-dashboard",
@@ -136,7 +136,16 @@ Examples:
 
                 # If html report directory requested
                 if args.html_report:
-                    report_html = generate_patient_dashboard_html(data)
+                    try:
+                        with open(xml_file, "r", encoding="utf-8", errors="replace") as xf:
+                            raw_xml_content = xf.read()
+                    except Exception:
+                        raw_xml_content = None
+                    report_html = generate_patient_dashboard_html(
+                        data,
+                        raw_input=raw_xml_content,
+                        input_filename=os.path.basename(xml_file),
+                    )
                     report_file = os.path.join(out_dir, f"{base_name}_dashboard.html")
                     with open(report_file, "w", encoding="utf-8") as f:
                         f.write(report_html)
@@ -162,7 +171,16 @@ Examples:
                 print(f"✓ Exported CSV tables to {args.csv_export}")
 
             if args.html_report:
-                report_html = generate_patient_dashboard_html(data)
+                try:
+                    with open(input_path, "r", encoding="utf-8", errors="replace") as xf:
+                        raw_input_content = xf.read()
+                except Exception:
+                    raw_input_content = None
+                report_html = generate_patient_dashboard_html(
+                    data,
+                    raw_input=raw_input_content,
+                    input_filename=os.path.basename(input_path),
+                )
                 os.makedirs(os.path.dirname(os.path.abspath(args.html_report)), exist_ok=True)
                 with open(args.html_report, "w", encoding="utf-8") as f:
                     f.write(report_html)
